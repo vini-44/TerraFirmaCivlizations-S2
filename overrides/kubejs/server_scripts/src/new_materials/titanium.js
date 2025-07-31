@@ -11,4 +11,5 @@ ServerEvents.recipes(e => {
     e.recipes.tfc.heating('kubejs:titanium_powder', 1485.0).resultFluid(Fluid.of('kubejs:molten_titanium', 5))
 
 
+    e.recipes.thermal.crystallizer('3x kubejs:metal/ingot/aluminum', [Fluid.of('tfc:salt_water', 2000), '2x tfc:ore/cryolite', '3x kubejs:alumina_powder'])
 });
