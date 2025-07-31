@@ -267,8 +267,8 @@ ServerEvents.recipes((e) => {
 		.refinery(Fluid.of('tfc:lye', 500), Fluid.of('tfc:salt_water'))
 		.energy(20000);
 
-	
-	e.recipes.thermal.refinery(
+	e.recipes.thermal
+		.refinery(
 			[
 				Fluid.of('kubejs:liquid_hydrogen', 600),
 				Fluid.of('kubejs:liquid_oxygen', 300),

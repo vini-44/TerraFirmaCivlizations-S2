@@ -40,6 +40,7 @@ BlockEvents.modification((e) => {
 		block.destroySpeed =
 			Block.getBlock('minecraft:obsidian').defaultDestroyTime();
 	});
+
 });
 
 StartupEvents.init(() => {

@@ -1,7 +1,6 @@
 // priority: 50
 
 ServerEvents.recipes((e) => {
-
 	e.remove({ output: 'minecraft:chest' });
 	e.remove({ output: 'minecraft:trapped_chest' });
 
@@ -43,7 +42,10 @@ ServerEvents.recipes((e) => {
 		.mixing(Item.of('tfc:powder/salt', 1), Fluid.of('tfc:salt_water', 125))
 		.heated();
 
-        e.recipes.create.mixing(Fluid.of('tfc:salt_water', 125), ['tfc:powder/salt', Fluid.of('water', 125)])
+	e.recipes.create.mixing(Fluid.of('tfc:salt_water', 125), [
+		'tfc:powder/salt',
+		Fluid.of('water', 125),
+	]);
 	for (const [fertilizer, nutrients] of Object.entries(FERTILIZER_DEFS)) {
 		let N = nutrients[0];
 		let P = nutrients[1];
@@ -98,13 +100,18 @@ ServerEvents.recipes((e) => {
 		e.recipes.create.milling(recipe.originalRecipeResult, ingredient);
 
 		let crushingResult = [recipe.originalRecipeResult];
-		crushingResult.push(
-			Item.of(
-				recipe.originalRecipeResult,
-				Math.ceil(recipe.originalRecipeResult.count * 0.25)
-			).withChance(0.25)
-		);
-		e.recipes.create.crushing(crushingResult, ingredient);
+		if (
+			!Item.of(recipe.originalRecipeResult).hasTag('tfc:foods') ||
+			Item.of(recipe.ingredient).hasTag('tfc:foods')
+		) {
+			crushingResult.push(
+				Item.of(
+					recipe.originalRecipeResult,
+					Math.ceil(recipe.originalRecipeResult.count * 0.25)
+				).withChance(0.25)
+			);
+			e.recipes.create.crushing(crushingResult, ingredient);
+		}
 	});
 
 	e.remove({ type: 'tfc:quern' });
@@ -458,80 +465,45 @@ ServerEvents.recipes((e) => {
 					.keepHeldItem(),
 			])
 			.transitionalItem(ingredient)
-			.loops(16);	e.recipes.create
+			.loops(16);
 
+		e.recipes.create
 			.sequenced_assembly([recipe.originalRecipeResult], ingredient, [
-
 				e.recipes.create
-
 					.deploying(ingredient, [
-
 						ingredient,
-
 						[
-
 							'#tfcscraping:line_scraping',
-
 							'#tfcscraping:quarter_scraping',
-
 						],
-
 					])
-
 					.keepHeldItem(),
-
 			])
-
 			.transitionalItem(ingredient)
-
 			.loops(4);
 
-
-
 		e.recipes.create
-
 			.sequenced_assembly([recipe.originalRecipeResult], ingredient, [
-
 				e.recipes.create
-
 					.deploying(ingredient, [
-
 						ingredient,
-
 						['#tfcscraping:half_scraping'],
-
 					])
-
 					.keepHeldItem(),
-
 			])
-
 			.transitionalItem(ingredient)
-
 			.loops(2);
 
-
-
 		e.recipes.create
-
 			.sequenced_assembly([recipe.originalRecipeResult], ingredient, [
-
 				e.recipes.create
-
 					.deploying(ingredient, [
-
 						ingredient,
-
 						['#tfcscraping:full_scraping'],
-
 					])
-
 					.keepHeldItem(),
-
 			])
-
 			.transitionalItem(ingredient)
-
 			.loops(1);
 	});
 
@@ -782,7 +754,6 @@ ServerEvents.recipes((e) => {
 		);
 	});
 
-
 	e.replaceOutput({}, 'afc:maple_sugar', 'sugar');
 	e.replaceOutput({}, 'afc:birch_sugar', 'sugar');
 
@@ -834,18 +805,10 @@ ServerEvents.recipes((e) => {
 			.resultFluid(Fluid.of(`tfc:metal/${metal}`, 1200));
 	}
 
-    e.remove({output: 'tfc:bloomery'})
+	e.remove({ output: 'tfc:bloomery' });
 
-    e.shaped('tfc:bloomery', ['ABA', 'B B', 'ABA'], {
+    e.shaped('tfc:bloomery', ['ABA', 'A A', 'ABA'], {
         A: '#forge:sheets/any_bronze',
         B: '#forge:double_sheets/any_bronze',
-    })
-	e.shaped('tfc:bloomery', ['AAA','A A','AAA'], {
-		A: 'tfc:metal/sheet/wrought_iron',
-	  
-	})
-	e.shaped('tfc:bloomery', ['ABA', 'B B', 'ABA'], {
-        A: 'tfc:metal/sheet/steel',
-        B: 'tfc:metal/ingot/steel'
     })
 });
