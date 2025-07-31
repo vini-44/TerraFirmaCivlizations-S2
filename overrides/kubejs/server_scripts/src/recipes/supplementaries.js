@@ -184,7 +184,7 @@ ServerEvents.recipes((e) => {
 		'supplementaries:faucet',
 		'tfc:metal/sheet/wrought_iron',
 		['bend_last', 'draw_second_last', 'hit_third_last']
-	).tier(2);
+	]).tier(2);
 
     ADDED_ANVIL_RECIPES.push([
         'supplementaries:faucet',
@@ -290,13 +290,17 @@ ServerEvents.recipes((e) => {
 		B: '#tfc:lumber',
 	});
 
-    TFC_WOOD_TYPES.forEach((type) => {
-        e.shapeless(`2x supplementaries:tfc/sign_post_${type}`, [`tfc:wood/sign/${type}`]);
-    })
+	TFC_WOOD_TYPES.forEach((type) => {
+		e.shapeless(`2x supplementaries:tfc/sign_post_${type}`, [
+			`tfc:wood/sign/${type}`,
+		]);
+	});
 
-    AFC_WOOD_TYPES.forEach((type) => {
-        e.shapeless(`2x supplementaries:afc/sign_post_${type}`, [`afc:wood/sign/${type}`]);
-    })
+	AFC_WOOD_TYPES.forEach((type) => {
+		e.shapeless(`2x supplementaries:afc/sign_post_${type}`, [
+			`afc:wood/sign/${type}`,
+		]);
+	});
 });
 
 	TFC_WOOD_TYPES.forEach((type) => {
