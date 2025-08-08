@@ -1,0 +1,12 @@
+{
+    "type": "mimi:tuning",
+    "instrument": {
+        "tag": "mimi:instrument/keyboard"
+    },
+    "addition": {
+        "tag": "mcw_tfc_aio:metal_rods"
+    },
+    "result": {
+        "item": "mimi:keyboard3"
+    }
+}

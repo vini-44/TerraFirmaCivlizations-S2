@@ -1,0 +1,12 @@
+{
+    "type": "mimi:tuning",
+    "instrument": {
+        "tag": "mimi:instrument/saxophone"
+    },
+    "addition": {
+        "item": "tfc:glue"
+    },
+    "result": {
+        "item": "mimi:saxophone3"
+    }
+}

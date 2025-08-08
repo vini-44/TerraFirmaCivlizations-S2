@@ -1,0 +1,37 @@
+{
+  "type": "create:compacting",
+  "ingredients": [
+    {
+      "item": "tfc:powder/magnetite"
+    },
+    {
+      "item": "tfc:powder/magnetite"
+    },
+    {
+      "item": "tfc:powder/magnetite"
+    },
+    {
+      "item": "tfc:powder/magnetite"
+    },
+    {
+      "item": "tfc:powder/magnetite"
+    },
+    {
+      "item": "tfc:powder/magnetite"
+    },
+    {
+      "item": "tfc:powder/magnetite"
+    },
+    {
+      "item": "tfc:powder/magnetite"
+    },
+    {
+      "item": "tfc:powder/magnetite"
+    }
+  ],
+  "results": [
+    {
+      "item": "kubejs:compressed_magnetite"
+    }
+  ]
+}

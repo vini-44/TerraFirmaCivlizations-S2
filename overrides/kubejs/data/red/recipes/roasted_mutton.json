@@ -1,0 +1,41 @@
+  {
+    "type": "tfc:advanced_shapeless_crafting",
+    "ingredients": [
+      {
+          "item": "minecraft:bowl"
+      },
+      {
+        "type": "tfc:not_rotten",
+        "ingredient": {
+          "item": "tfc:food/beet"
+        }
+      },
+      {
+        "type": "tfc:not_rotten",
+        "ingredient": {
+          "item": "farmersdelight:cooked_mutton_chops"
+        }
+      },
+      {
+        "type": "tfc:not_rotten",
+        "ingredient": {
+          "item": "tfc:food/cooked_rice"
+        }
+      },
+      {
+        "type": "tfc:not_rotten",
+        "ingredient": {
+          "tag": "farmersdelight:tomato_sauce"
+        }
+      }
+    ],
+    "result": {
+      "stack": {
+        "item": "farmersdelight:roasted_mutton_chops",
+        "count": 1
+      },
+      "modifiers": [
+        "tfc:copy_oldest_food"
+      ]
+    }
+}

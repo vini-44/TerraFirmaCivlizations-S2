@@ -1,0 +1,20 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+      "S",
+      "L",
+      "S"
+    ],
+    "key": {
+      "S": {
+        "item": "tfc:metal/sheet/sterling_silver"
+      },
+      "L": {
+        "item": "minecraft:candle"
+      }
+    },
+    "result": {
+      "item": "supplementaries:silver_lantern",
+      "count": 4
+    }
+}

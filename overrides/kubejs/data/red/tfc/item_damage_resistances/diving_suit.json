@@ -1,0 +1,17 @@
+{
+  "__comment__": "This file was automatically created by mcresources",
+  "ingredient": [
+    {
+      "item": "create:copper_backtank"
+    },
+    {
+      "item": "create:copper_diving_boots"
+    },
+    {
+      "item": "create:copper_diving_helmet"
+    }
+  ],
+  "piercing": 1,
+  "slashing": 1,
+  "crushing": 4
+}

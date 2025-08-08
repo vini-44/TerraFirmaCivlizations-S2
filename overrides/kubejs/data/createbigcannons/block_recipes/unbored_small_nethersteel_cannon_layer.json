@@ -1,0 +1,10 @@
+{
+  "type": "createbigcannons:cannon_casting",
+  "cast_shape": "createbigcannons:small",
+  "fluid": {
+    "amount": 1,
+    "fluid": "tfc:metal/black_steel",
+    "nbt": {}
+  },
+  "result": "createbigcannons:unbored_small_nethersteel_cannon_layer"
+}

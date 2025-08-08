@@ -1,0 +1,7 @@
+{
+    "replace": false,
+  "values": [
+    "lithiccoins:ceramic/coin_mold",
+     "lithiccoins:ceramic/fire_coin_mold"
+  ]
+}

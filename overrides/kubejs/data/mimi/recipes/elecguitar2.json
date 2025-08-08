@@ -1,0 +1,12 @@
+{
+    "type": "mimi:tuning",
+    "instrument": {
+        "tag": "mimi:instrument/elecguitar"
+    },
+    "addition": {
+        "item": "tfc:metal/rod/gold"
+    },
+    "result": {
+        "item": "mimi:elecguitar2"
+    }
+}

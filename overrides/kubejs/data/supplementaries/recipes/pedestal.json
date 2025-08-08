@@ -1,0 +1,20 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+      "SSS",
+      " H ",
+      "SSS"
+    ],
+    "key": {
+      "S": {
+        "tag": "forge:smooth_stone_slab"
+      },
+      "H": {
+        "tag": "tfc:rock/chiseled_bricks"
+      }
+    },
+    "result": {
+      "item": "supplementaries:pedestal",
+      "count": 1
+    }
+}

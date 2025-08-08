@@ -1,0 +1,17 @@
+{
+  "type": "tfc:barrel_sealed",
+  "input_item": {
+      "ingredient": {
+        "item": "tfc:powder/native_silver"
+    }
+  },
+  "input_fluid": {
+    "ingredient": "lithicaddon:acid/nitric",
+    "amount": 50
+  },
+  "output_fluid": {
+    "fluid": "lithicaddon:acid/silver_halide",
+    "amount": 50
+  },
+  "duration": 1000
+}

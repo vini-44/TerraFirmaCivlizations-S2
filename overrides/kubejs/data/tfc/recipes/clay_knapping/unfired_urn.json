@@ -1,0 +1,14 @@
+{
+  "type": "tfc:knapping",
+  "knapping_type": "tfc:clay",
+  "pattern": [
+    " XXX ",
+    "  X  ",
+    " XXX ",
+    " XXX ",
+    " XXX "
+  ],
+  "result": {
+    "item": "kubejs:unfired_urn"
+  }
+}

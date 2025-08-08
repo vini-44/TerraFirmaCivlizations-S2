@@ -1,0 +1,10 @@
+{
+  "ingredient": {
+    "item": "farmersdelight:melon_popsicle"
+  },
+  "hunger": 1,
+  "saturation": 1,
+  "water": 1,
+  "decay_modifier": 1.5,
+  "fruit": 0.8
+}

@@ -1,0 +1,12 @@
+{
+    "type": "mimi:tuning",
+    "instrument": {
+        "tag": "mimi:instrument/piano"
+    },
+    "addition": {
+        "tag": "tfc:firepit_sticks"
+    },
+    "result": {
+        "item": "mimi:piano"
+    }
+}

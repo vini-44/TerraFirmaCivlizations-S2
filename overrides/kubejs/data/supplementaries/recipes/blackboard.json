@@ -1,0 +1,19 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+      "LS",
+      "LS"
+    ],
+    "key": {
+      "S": {
+        "item": "tfc:rock/smooth/slate_slab"
+      },
+      "L": {
+        "tag": "tfc:lumber"
+      }
+    },
+    "result": {
+      "item": "supplementaries:blackboard",
+      "count": 3
+    }
+}

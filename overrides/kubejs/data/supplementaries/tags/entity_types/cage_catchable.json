@@ -1,0 +1,14 @@
+{
+  "replace": false,
+  "values": [
+    "tfc:chicken",
+    "tfc:duck",
+    "tfc:fox",
+    "tfc:frog",
+    "tfc:penguin",
+    "tfc:quail",
+    "tfc:rabbit",
+    "tfc:turtle"
+  ]
+}
+

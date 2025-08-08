@@ -1,0 +1,29 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+      "MPR",
+      "PLR",
+      " S "
+    ],
+    "key": {
+      "R": {
+        "item": "tfc:metal/rod/gold"
+      },
+      "S": {
+        "item": "tfc:metal/sheet/gold"
+      },
+      "M": {
+        "item": "minecraft:map"
+      },
+      "P": {
+        "item": "tfc:powder/lapis_lazuli"
+      },
+      "L": {
+        "tag": "forge:stripped_logs"
+      }
+    },
+    "result": {
+      "item": "supplementaries:globe",
+      "count": 1
+    }
+}

@@ -1,0 +1,23 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+      "MBM",
+      "WMW",
+      "MBM"
+    ],
+    "key": {
+      "W": {
+        "tag": "forge:white_bricks"
+      },
+      "B": {
+        "tag": "forge:black_bricks"
+      },
+      "M": {
+        "item": "tfc:mortar"
+      }
+    },
+    "result": {
+      "item": "supplementaries:checker_block",
+      "count": 4
+    }
+}

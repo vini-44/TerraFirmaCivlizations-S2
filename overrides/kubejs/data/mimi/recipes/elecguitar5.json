@@ -1,0 +1,12 @@
+{
+    "type": "mimi:tuning",
+    "instrument": {
+        "tag": "mimi:instrument/elecguitar"
+    },
+    "addition": {
+        "tag": "forge:wires"
+    },
+    "result": {
+        "item": "mimi:elecguitar5"
+    }
+}

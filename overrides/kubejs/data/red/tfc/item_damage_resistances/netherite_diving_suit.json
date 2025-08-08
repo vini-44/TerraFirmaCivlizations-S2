@@ -1,0 +1,20 @@
+{
+  "__comment__": "This file was automatically created by mcresources",
+  "ingredient": [
+    {
+      "item": "create:netherite_diving_helmet"
+    },
+    {
+      "item": "minecraft:netherite_leggings"
+    },
+    {
+      "item": "create:netherite_backtank"
+    },
+    {
+      "item": "create:netherite_diving_boots"
+    }
+  ],
+  "piercing": 11,
+  "slashing": 10,
+  "crushing": 14
+}

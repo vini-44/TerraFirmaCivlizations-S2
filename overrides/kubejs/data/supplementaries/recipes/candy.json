@@ -1,0 +1,18 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+        {
+            "item": "minecraft:sugar"
+        },
+        {
+            "item": "minecraft:paper"
+        },
+        {
+            "item": "firmalife:raw_honey"
+        }
+    ],
+    "result": {
+      "item": "supplementaries:candy",
+      "count": 8
+    }
+}

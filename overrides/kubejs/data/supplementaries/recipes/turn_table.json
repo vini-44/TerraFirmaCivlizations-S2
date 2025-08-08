@@ -1,0 +1,26 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+      "LLL",
+      "SCS",
+      "SMS"
+    ],
+    "key": {
+      "L": {
+        "tag": "tfc:lumber"
+      },
+      "S": {
+        "tag": "forge:cobblestone"
+      },
+      "C": {
+        "item": "tfc:metal/rod/copper"
+      },
+      "M": {
+        "item": "tfc:brass_mechanisms"
+      }
+    },
+    "result": {
+      "item": "supplementaries:turn_table",
+      "count": 1
+    }
+}

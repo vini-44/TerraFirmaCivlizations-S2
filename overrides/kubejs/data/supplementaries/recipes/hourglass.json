@@ -1,0 +1,20 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+      "GIG",
+      " G ",
+      "GIG"
+    ],
+    "key": {
+      "G": {
+        "item": "minecraft:glass"
+      },
+      "I": {
+        "tag": "forge:ingots/gold"
+      }
+    },
+    "result": {
+      "item": "supplementaries:hourglass",
+      "count": 1
+    }
+}

@@ -1,0 +1,11 @@
+{
+  "ingredient": {
+    "item": "farmersdelight:honey_cookie"
+  },
+  "category": "",
+  "hunger": 1,
+  "saturation": 1,
+  "decay_modifier": 1.5,
+  "dairy": 0.2,
+  "grain": 1
+}

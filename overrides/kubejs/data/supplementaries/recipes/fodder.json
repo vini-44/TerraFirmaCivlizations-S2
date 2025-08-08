@@ -1,0 +1,20 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+      "SSS",
+      "SHS",
+      "SSS"
+    ],
+    "key": {
+      "S": {
+        "item": "tfc:straw"
+      },
+      "H": {
+        "item": "minecraft:hay_block"
+      }
+    },
+    "result": {
+      "item": "supplementaries:fodder",
+      "count": 4
+    }
+}

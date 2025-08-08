@@ -1,0 +1,23 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+      "III",
+      "B B",
+      "LLL"
+    ],
+    "key": {
+      "I": {
+        "item": "tfc:metal/ingot/wrought_iron"
+      },
+      "B": {
+        "item": "minecraft:iron_bars"
+      },
+      "L": {
+        "tag": "tfc:lumber"
+      }
+    },
+    "result": {
+      "item": "supplementaries:cage",
+      "count": 1
+    }
+}

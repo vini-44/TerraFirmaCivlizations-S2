@@ -1,0 +1,28 @@
+{
+  "type": "create:mixing",
+  "ingredients": [
+    {
+      "tag": "tfc:sweetener"
+    },
+    {
+      "amount": 100,
+      "fluid": "firmalife:yeast_starter",
+      "nbt": {}
+    },
+    {
+      "type": "tfc:not_rotten",
+      "ingredient": {
+        "item": "tfc:food/wheat_flour"
+      }
+    }
+  ],
+  "results": [
+    {
+      "count": 4,
+      "item": "firmalife:food/wheat_dough",
+      "modifiers": [
+      "tfc:copy_oldest_food"
+    ]
+    }
+  ]
+}

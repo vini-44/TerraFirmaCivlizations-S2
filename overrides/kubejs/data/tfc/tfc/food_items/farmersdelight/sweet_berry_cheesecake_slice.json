@@ -1,0 +1,12 @@
+{
+  "__comment__": "This file was automatically created by mcresources",
+  "ingredient": {
+    "item": "farmersdelight:sweet_berry_cheesecake_slice"
+  },
+  "hunger": 2,
+  "saturation": 1,
+  "decay_modifier": 1.5,
+  "grain": 0.5,
+  "fruit": 0.5,
+  "diary": 0.5
+}

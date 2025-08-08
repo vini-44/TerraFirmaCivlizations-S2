@@ -1,0 +1,17 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+      "L",
+      "L",
+      "L"
+    ],
+    "key": {
+      "L": {
+        "item": "tfc:jute_fiber"
+      }
+    },
+    "result": {
+      "item": "supplementaries:rope",
+      "count": 3
+    }
+}

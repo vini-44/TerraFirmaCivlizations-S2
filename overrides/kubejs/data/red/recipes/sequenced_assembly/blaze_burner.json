@@ -1,0 +1,47 @@
+{
+  "type": "create:sequenced_assembly",
+  "ingredient": {
+    "item": "create:empty_blaze_burner"
+  },
+  "loops": 1,
+  "results": [
+    {
+      "item": "create:blaze_burner"
+    }
+  ],
+  "sequence": [
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kubejs:unfinished_burner_core"
+        },
+        {
+          "item": "kubejs:burner_core"
+        }
+      ],
+      "results": [
+        {
+          "item": "kubejs:unfinished_burner_core"
+        }
+      ]
+    },
+    {
+      "type": "create:pressing",
+      "ingredients": [
+        {
+          "item": "kubejs:unfinished_burner_core"
+        }
+      ],
+      "results": [
+        {
+          "item": "kubejs:unfinished_burner_core"
+        }
+      ]
+    }
+
+  ],
+  "transitionalItem": {
+    "item": "kubejs:unfinished_burner_core"
+  }
+}

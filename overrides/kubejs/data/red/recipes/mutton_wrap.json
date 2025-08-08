@@ -1,0 +1,44 @@
+{
+      "type": "tfc:damage_inputs_shapeless_crafting",
+    "recipe":{
+          "type": "tfc:advanced_shapeless_crafting",
+          "ingredients": [
+            {
+              "tag": "tfc:knives"
+            },
+            {
+              "type": "tfc:not_rotten",
+              "ingredient": {
+                "item": "farmersdelight:cabbage_leaf"
+              }
+            },
+            {
+              "type": "tfc:not_rotten",
+              "ingredient": {
+                "item": "farmersdelight:cooked_mutton_chops"
+              }
+            },
+            {
+              "type": "tfc:not_rotten",
+              "ingredient": {
+                "item": "firmalife:food/corn_tortilla"
+              }
+            },
+            {
+              "type": "tfc:not_rotten",
+              "ingredient": {
+                "item": "tfc:food/onion"
+              }
+            }
+          ],
+          "result": {
+            "stack": {
+              "item": "farmersdelight:mutton_wrap",
+              "count": 1
+            },
+            "modifiers": [
+              "tfc:copy_oldest_food"
+            ]
+          }
+        }
+}

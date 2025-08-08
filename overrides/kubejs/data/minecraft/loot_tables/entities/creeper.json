@@ -1,0 +1,98 @@
+{
+  "type": "minecraft:entity",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 2.0,
+                "min": 0.0
+              },
+              "function": "minecraft:set_count"
+            },
+            {
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 1.0,
+                "min": 0.0
+              },
+              "function": "minecraft:looting_enchant"
+            }
+          ],
+          "name": "minecraft:gunpowder"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "condition": "minecraft:random_chance",
+          "chance": 0.05
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "weight": 38,
+          "expand": true,
+          "name": "immersiveengineering:shader_bag_common"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 22,
+          "expand": true,
+          "name": "immersiveengineering:shader_bag_uncommon"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 18,
+          "expand": true,
+          "name": "immersiveengineering:shader_bag_rare"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 12,
+          "expand": true,
+          "name": "immersiveengineering:shader_bag_epic"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 6,
+          "expand": true,
+          "name": "immersiveengineering:shader_bag_ie_masterwork"
+        }
+
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "condition": "minecraft:entity_properties",
+          "entity": "killer",
+          "predicate": {
+            "type": "#minecraft:skeletons"
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:tag",
+          "expand": true,
+          "name": "minecraft:creeper_drop_music_discs"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "minecraft:entities/creeper"
+}

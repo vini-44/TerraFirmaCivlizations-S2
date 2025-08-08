@@ -1,0 +1,21 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+        {
+            "item": "tfc:soot"
+        },
+        {
+            "item": "tfc:soot"
+        },
+        {
+            "item": "tfc:soot"
+        },
+        {
+            "item": "tfc:empty_jar"
+        }
+    ],
+    "result": {
+      "item": "supplementaries:antique_ink",
+      "count": 1
+    }
+}

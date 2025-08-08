@@ -1,0 +1,12 @@
+{
+    "type": "mimi:tuning",
+    "instrument": {
+        "tag": "mimi:instrument/organ"
+    },
+    "addition": {
+        "tag": "tfc:rock/raw"
+    },
+    "result": {
+        "item": "mimi:organ4"
+    }
+}

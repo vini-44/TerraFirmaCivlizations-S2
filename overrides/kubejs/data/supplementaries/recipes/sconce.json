@@ -1,0 +1,19 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+      "S",
+      "L"
+    ],
+    "key": {
+      "S": {
+        "item": "minecraft:torch"
+      },
+      "L": {
+        "item": "tfc:metal/rod/wrought_iron"
+      }
+    },
+    "result": {
+      "item": "supplementaries:sconce",
+      "count": 1
+    }
+}

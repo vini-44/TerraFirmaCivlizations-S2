@@ -1,0 +1,17 @@
+{
+  "type": "tfc:barrel_sealed",
+  "input_item": {
+      "ingredient": {
+        "item": "immersiveengineering:dust_silver"
+    }
+  },
+  "input_fluid": {
+    "ingredient": "lithicaddon:acid/nitric",
+    "amount": 1000
+  },
+  "output_fluid": {
+    "fluid": "lithicaddon:acid/silver_halide",
+    "amount": 1000
+  },
+  "duration": 1000
+}

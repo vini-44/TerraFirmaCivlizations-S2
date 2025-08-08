@@ -1,0 +1,12 @@
+{
+    "type": "mimi:tuning",
+    "instrument": {
+        "tag": "mimi:instrument/drums"
+    },
+    "addition": {
+        "item": "tfc:metal/rod/gold"
+    },
+    "result": {
+        "item": "mimi:drums4"
+    }
+}

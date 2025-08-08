@@ -1,0 +1,23 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+      "PSP",
+      "PLP",
+      "PSP"
+    ],
+    "key": {
+      "S": {
+        "item": "tfc:metal/sheet/gold"
+      },
+      "P": {
+        "item": "minecraft:paper"
+      },
+      "L": {
+        "item": "minecraft:candle"
+      }
+    },
+    "result": {
+      "item": "supplementaries:crimson_lantern",
+      "count": 8
+    }
+}

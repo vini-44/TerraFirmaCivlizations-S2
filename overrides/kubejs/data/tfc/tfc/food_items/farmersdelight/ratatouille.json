@@ -1,0 +1,9 @@
+{
+  "ingredient": {
+    "item": "farmersdelight:ratatouille"
+  },
+  "hunger": 5,
+  "saturation": 4,
+  "decay_modifier": 1.5,
+  "vegetables": 5
+}

@@ -1,0 +1,14 @@
+{
+  "__comment__": "This file was automatically created by mcresources",
+  "type": "advancedtfctech:fleshing_machine",
+  "result": {
+    "stack": {
+      "item": "minecraft:paper"
+    }
+  },
+  "input": {
+    "item": "tfc:unrefined_paper"
+  },
+  "time": 50,
+  "energy": 1500
+}

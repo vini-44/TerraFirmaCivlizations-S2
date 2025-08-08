@@ -1,0 +1,23 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+      " Y ",
+      "CXC",
+      " Y "
+    ],
+    "key": {
+      "C": {
+        "item": "tfc:metal/double_sheet/copper"
+      },
+      "X": {
+        "item": "minecraft:redstone_block"
+      },
+      "Y": {
+        "item": "create:cogwheel"
+      }
+    },
+    "result": {
+      "item": "supplementaries:cog_block",
+      "count": 1
+    }
+}

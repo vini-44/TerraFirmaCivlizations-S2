@@ -1,0 +1,12 @@
+{
+    "type": "mimi:tuning",
+    "instrument": {
+        "tag": "mimi:instrument/keyboard"
+    },
+    "addition": {
+        "tag": "tfc:firepit_sticks"
+    },
+    "result": {
+        "item": "mimi:keyboard"
+    }
+}
