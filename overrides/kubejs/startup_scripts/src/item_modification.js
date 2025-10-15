@@ -45,6 +45,7 @@ const filled_fuel_cans = [
 	'gasoline_fuel_can',
 	'biodiesel_fuel_can',
 	'ethanol_fuel_can',
+	'kerosene_fuel_can',
 ];
 
 const TICKS = 20;
@@ -66,22 +67,20 @@ ItemEvents.modification((event) => {
 		'minecraft:writable_book': 9 * TICKS,
 	};
 
-
-
 	Ingredient.of('#minecraft:logs').itemIds.forEach((id) => {
-        console.info(id)
-		fuel_defs[id] = 60 * TICKS 
+		console.info(id);
+		fuel_defs[id] = 60 * TICKS;
 	});
 	Ingredient.of('#tfc:fallen_leaves').itemIds.forEach((id) => {
-                console.info(id)
-		fuel_defs[id] = 36 * TICKS 
+		console.info(id);
+		fuel_defs[id] = 36 * TICKS;
 	});
 
-    for (const [id, data] of Object.entries(fuel_defs)) {
-        event.modify(id, (item) => {
-            item.burnTime = data;
-        });
-    }
+	for (const [id, data] of Object.entries(fuel_defs)) {
+		event.modify(id, (item) => {
+			item.burnTime = data;
+		});
+	}
 
 	filled_fuel_cans.forEach((name) => {
 		event.modify('kubejs:' + name, (item) => {
@@ -90,22 +89,7 @@ ItemEvents.modification((event) => {
 		});
 	});
 
-	event.modify('scguns:diamond_steel_leggings', (item) => {
-		item.armorKnockbackResistance = 0;
-		item.armorToughness = 0;
-		item.armorProtection = 0;
-	});
-
-	event.modify('scguns:diamond_steel_boots', (item) => {
-		item.armorToughness = 0;
-		item.armorProtection = 2;
-	});
-	event.modify('scguns:diamond_steel_helmet', (item) => {
-		item.armorToughness = 0;
-		item.armorProtection = 2;
-	});
-	event.modify('scguns:diamond_steel_chestplate', (item) => {
-		item.armorToughness = 1;
-		item.armorProtection = 5;
+	event.modify('scguns:suit_grease', (item) => {
+		item.setCraftingRemainder('kubejs:empty_fuel_can');
 	});
 });

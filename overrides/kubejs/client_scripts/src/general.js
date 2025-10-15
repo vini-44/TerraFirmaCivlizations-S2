@@ -29,7 +29,7 @@ ClientEvents.lang('en_us', (event) => {
 	event.renameBlock('minecraft:suspicious_gravel', 'Suspicious Debris');
 	event.renameBlock('createlowheated:basic_burner', 'Solid Burner'); //TODO rename other references
 
-    event.renameBlock('createdieselgenerators:burner', "Gas Burner")
+	event.renameBlock('createdieselgenerators:burner', 'Gas Burner');
 
 	event.renameItem(
 		'immersive_aircraft:hull_reinforcement',
@@ -38,19 +38,6 @@ ClientEvents.lang('en_us', (event) => {
 
 	event.renameItem('quark:rope', 'Thick Rope');
 
-	event.renameBlock(
-		'refurbished_furniture:light_electricity_generator',
-		'Light Househoud Transformer'
-	);
-	event.renameBlock(
-		'refurbished_furniture:dark_electricity_generator',
-		'Dark Househoud Transformer'
-	);
-
-	event.renameItem('scguns:diamond_steel_boots', 'Caoivish Boots');
-	event.renameItem('scguns:diamond_steel_leggings', 'Uniform');
-	event.renameItem('scguns:diamond_steel_chestplate', 'Caoivish Chestplate');
-	event.renameItem('scguns:diamond_steel_helmet', 'Caoivish Helmet');
 
 	event.renameBlock('gilded_blackstone', 'Radio Components');
 
@@ -66,7 +53,10 @@ ClientEvents.lang('en_us', (event) => {
 
 	event.renameBlock('createdieselgenerators:andesite_girder', 'Steel Girder');
 
-	event.renameItem('thermal:upgrade_augment_3', 'High-Efficiency Component Replacement');
+	event.renameItem(
+		'thermal:upgrade_augment_3',
+		'High-Efficiency Component Replacement'
+	);
 
 	let colors = [
 		'red',
@@ -142,29 +132,66 @@ ClientEvents.lang('en_us', (event) => {
 	event.add('metal.kubejs.tungsten', 'Tungsten');
 	event.add('metal.kubejs.carotine_steel', 'Carotine Steel');
 
-	event.add('mold.createdieselgenerators.bar', 'Mold');
+	event.add(
+		'block.kubejs.industrial_furnace',
+		'Industrial Furnace Controller'
+	);
+	event.add(
+		'block.kubejs.industrial_furnace_fluid_input',
+		'Insulated Fluid Input Hatch'
+	);
+	event.add(
+		'block.kubejs.industrial_furnace_fluid_output_hatch',
+		'Insulated Fluid Output Hatch'
+	);
 
-    event.add('block.kubejs.industrial_furnace', "Industrial Furnace Controller")
-    event.add('block.kubejs.industrial_furnace_fluid_input', "Insulated Fluid Input Hatch")
-    event.add('block.kubejs.industrial_furnace_fluid_output_hatch', "Insulated Fluid Output Hatch")
+	event.add(
+		'block.kubejs.industrial_furnace_item_input_hatch',
+		'Insulated Item Input Hatch'
+	);
+	event.add(
+		'block.kubejs.industrial_furnace_item_output_hatch',
+		'Insulated Item Output Hatch'
+	);
 
-    event.add('block.kubejs.industrial_furnace_item_input_hatch', "Insulated Item Input Hatch")
-    event.add('block.kubejs.industrial_furnace_item_output_hatch', "Insulated Item Output Hatch")
+	event.add(
+		'block.kubejs.industrial_furnace_energy_acceptor',
+		'Insulated Energy Acceptor'
+	);
+	event.add('kubejs.industrial_furnace', 'Industrial Blasting');
 
-    event.add('block.kubejs.industrial_furnace_energy_acceptor', "Insulated Energy Acceptor")
-    event.add('kubejs.industrial_furnace', "Industrial Blasting")
+	event.add('block.kubejs.metal_former', 'Metal Former Controller');
+	event.add('block.kubejs.metal_former_su_input', 'Metal Former Lathe');
+	event.add(
+		'block.kubejs.metal_former_fluid_input',
+		'Metal Former Internal Fluid Tank'
+	);
 
-    event.add('block.kubejs.metal_former', "Metal Former Controller")
-    event.add('block.kubejs.metal_former_su_input', "Metal Former Lathe")
-    event.add('block.kubejs.metal_former_fluid_input', "Metal Former Internal Fluid Tank")
+	event.add('block.kubejs.atmospheric_condenser', 'Atmospheric Condenser');
 
-    event.add('block.kubejs.atmospheric_condenser', "Atmospheric Condenser")
+	event.add('kubejs.metal_former', 'Metal Forming');
 
+	event.renameItem('scguns:treated_brass_gun_frame', 'Carotine Gun Frame');
 
-    event.add('kubejs.metal_former', "Metal Forming")
+	event.renameBlock('refurbished_furniture:door_mat', 'Painted Doormat');
 
-    event.renameItem('scguns:treated_brass_gun_frame', 'Carotine Gun Frame')
+	event.add(
+		'tfc.recipe.barrel.kubejs.soaking_kaolinite',
+		'Soaking Kaolinite'
+	);
 
-    event.renameBlock('refurbished_furniture:door_mat', "Painted Doormat")
+	//fuckass mod has no lang???
+	let circuit_breaker_langs = {
+		'block.cfm_wap.dark_circuit_breaker': 'Dark Household Transformer',
+		'block.cfm_wap.light_circuit_breaker': 'Light Household Transformer',
+		'container.cfm_wap.circuit_breaker': 'Househould Transformer',
+		'gui.cfm_wap.status.online': 'Online',
+		'gui.cfm_wap.status.offline': 'Offline',
+        'gui.cfm_wap.status.energy': 'No Energy',
+		'gui.cfm_wap.node_count': '%s / %s',
+	};
 
+    for (const [key, value] of Object.entries(circuit_breaker_langs)) {
+        event.add(key, value);
+    }
 });

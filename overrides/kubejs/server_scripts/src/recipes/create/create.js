@@ -29,6 +29,7 @@ ServerEvents.recipes((e) => {
 		.heating('kubejs:unfired_andesite_alloy', 1080)
 		.resultItem('create:andesite_alloy');
 
+
 	e.recipes.tfc
 		.anvil('create:brass_hand', 'tfc:metal/double_ingot/brass', [
 			'punch_last',
@@ -74,7 +75,7 @@ ServerEvents.recipes((e) => {
 	e.shapeless('create:electron_tube', [
 		'tfc:lamp_glass',
 		'kubejs:chromium_wire',
-		['lithiccouns:blank_coin/zinc', '#lithiccoins:coins/zinc']
+		['#lithiccoins:coins/zinc', 'lithiccoins:blank_coin/zinc'],
 	]);
 
 	e.recipes.create
@@ -419,7 +420,7 @@ ServerEvents.recipes((e) => {
 	e.shaped('create:mechanical_arm', ['SR', 'MR', 'C '], {
 		S: 'tfc:metal/sheet/steel',
 		R: 'tfc:metal/rod/brass',
-		M: 'create:precision_mechanism',
+		M: 'kubejs:circuit',
 		C: 'create:brass_casing',
 	});
 
@@ -1077,7 +1078,7 @@ ServerEvents.recipes((e) => {
 	e.shaped('create:stock_ticker', ['AAA', 'BCD', ' E '], {
 		A: 'minecraft:glass',
 		B: 'simpleradio:transmitting_module',
-		C: 'create:precision_mechanism',
+		C: 'kubejs:circuit',
 		D: 'simpleradio:receiving_module',
 		E: 'create:andesite_casing',
 	});
@@ -1102,7 +1103,7 @@ ServerEvents.recipes((e) => {
 
 	e.shaped('create:factory_gauge', ['A', 'B'], {
 		A: 'simpleradio:transmitting_module',
-		B: 'create:precision_mechanism',
+		B: 'kubejs:circuit',
 	});
 	e.shaped('2x create:redstone_link', ['ABC'], {
 		A: 'simpleradio:receiving_module',
@@ -1209,4 +1210,5 @@ ServerEvents.recipes((e) => {
         A: 'create:andesite_alloy',
     })
     e.shapeless('4x create:andesite_alloy', ['create:andesite_alloy_block']);
+
 });

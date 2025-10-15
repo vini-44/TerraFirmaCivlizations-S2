@@ -1,17 +1,37 @@
-- Fixed autocannon molds not being craftable.
-- Fixed windows duping.
-- Fixed stone button items not having the #minecraft:stone_buttons tag
-- Updated firmaciv guide book entries
-- Rowboats are now bronze tier.
-- Chemical Burner now applies Flammable debuff when using flammable fuels.
-- Chemical Turret now always has a lighter attachment (burns fuels.)
-- Fixed TFC's chests not being valid Create contraption moving storage.
-- Removed Flamarang. Made Pickarang Blue Steel tier.
-- Gauss Rifle and Plasgun now have Shellcatcher 3.
-- Electron Tubes now use a Zinc Coin instead of Ingot
-- Made Furniture Mod Doormat craftable; renamed to Painted Doormat
-  
+- Carrying Safes now makes you exhausted.
+- Fixed safes only being mineable with Steel tools, despite being bronze tier.
+- Fixed antenna recipe
+- Tweaked distilling rates again.
+- Fixed WRought Iron anvils melting into wrought iron instead of Cast Iron.
+- Fixed Electron Tube only accepting minted coins.
+- Added Firing Hammer, forged from Black Steel Rods.
+- Mangalloy now uses Black Steel instead of Steel. Changed metal ratio.
+- The following guns now use the Firing Hammer instead Firing Pins:
+> Pax
+> Saketini
+> Callwell
+> Winnie
+- Standard Bullets now cost steel and Hardened Bullets now cost Mangalloy
+- Added Liquid Petroleum Gas
+- Added Plastic
+- Added Synthetic Rubber recipe
+- Added Deepwoven Fabric
+
 Updated mods:
-- Sulidae Utils
-> Barrels, Charcoal Forges and Crucibles are now valid Mechanical Arm Targets
-> Fixed Log Spam.
+- Horseman
+- Moonlight Lib
+- TerraFirmaCraft
+- EveryCompat
+- Fusion
+- Target Dummy
+- KubeJS TFC
+- FTB Quests
+- ModernFix
+
+Removed mods:
+- Liquid Burner (I swear I removed it already.)
+
+Added mods:
+- Opposing Force
+- Entity Zoning Supervisor
+- EntityJS

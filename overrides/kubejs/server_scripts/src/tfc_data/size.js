@@ -12,6 +12,8 @@ const SIZE_DEFS = {
 	'kubejs:diesel_fuel_can': ['large', 'very_heavy'],
 	'kubejs:gasoline_fuel_can': ['large', 'very_heavy'],
 	'kubejs:ethanol_fuel_can': ['large', 'very_heavy'],
+    'kubejs:kerosene_fuel_can': ['large', 'very_heavy'],
+    'scguns:suit_grease': ['large', 'very_heavy'],
 	'kubejs:biodiesel_fuel_can': ['large', 'very_heavy'],
 	'thermal:machine_pyrolyzer': ['huge', 'very_heavy'],
 	'thermal:tinker_bench': ['huge', 'very_heavy'],
@@ -116,7 +118,7 @@ const SIZE_DEFS = {
 	'createbigcannons:ap_shot': ['large', 'heavy'],
 	'createbigcannons:solid_shot': ['large', 'heavy'],
 
-	'supplementaries:safe': ['very_large', 'very_heavy'],
+	'supplementaries:safe': ['huge', 'very_heavy'],
 	'minecraft:gunpowder': ['small', 'light'],
 };
 

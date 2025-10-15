@@ -301,6 +301,9 @@ ServerEvents.recipes((e) => {
 			`afc:wood/sign/${type}`,
 		]);
 	});
+
+    e.remove({id: 'amendments:dragon_charge'})
+    e.shapeless('amendments:dragon_charge', ['gunpowder', '#minecraft:coals', 'tfc:pure_potassium'])
 });
 
 	TFC_WOOD_TYPES.forEach((type) => {

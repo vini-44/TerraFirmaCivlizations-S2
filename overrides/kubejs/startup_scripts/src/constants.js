@@ -163,3 +163,24 @@ const ALL_ROCKS = [
     'marble',
     'gabbro'
 ]
+
+
+const $ServerLevel = Java.loadClass('net.minecraft.server.level.ServerLevel');
+const $LivingEntity = Java.loadClass('net.minecraft.world.entity.LivingEntity');
+const $MobEffectInstance = Java.loadClass(
+	'net.minecraft.world.effect.MobEffectInstance'
+);
+
+const $EffectInstance = Java.loadClass('net.minecraft.world.effect.MobEffectInstance');
+const $ChemSprayerProjectile = Java.loadClass(
+    'com.jesz.createdieselgenerators.content.tools.ChemicalSprayerProjectileEntity'
+);
+
+
+const $HitResultType = Java.loadClass(
+	'net.minecraft.world.phys.HitResult$Type'
+);
+
+const $RocketEntity = Java.loadClass(
+	'top.ribs.scguns.entity.projectile.RocketEntity'
+);

@@ -1,6 +1,4 @@
 EntityEvents.hurt((event) => {
-    console.info(event.source.getType())
-
 	if (
 		event.source.getType() == 'explosion.player' ||
 		event.source.getType() == 'createbigcannons.cannon_projectile'

@@ -12,6 +12,11 @@ ServerEvents.recipes((event) => {
 	}
     event.recipes.create.mixing('kubejs:kaolinite_sludge', [Fluid.of('water', 200), 'kubejs:kaolinite']).heated()
 
+    event.recipes.tfc.barrel_sealed(120000).inputFluid(Fluid.of("water", 200))
+    .inputItem('kubejs:kaolinite')
+    .outputItem('kubejs:kaolinite_sludge')
+    .id('soaking_kaolinite')
+
     //dried sluge
     event.recipes.firmalife.drying('kubejs:hardened_kaolinite_sludge', 'kubejs:kaolinite_sludge')
 

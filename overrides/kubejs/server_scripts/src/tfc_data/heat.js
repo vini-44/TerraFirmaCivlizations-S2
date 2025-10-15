@@ -19,7 +19,7 @@ TFCEvents.data((event) => {
 	event.itemHeat('scguns:waltz_conversion', 0.1, 921, 1228);
 	event.itemHeat('scguns:gauss_rifle', 0.025, 921, 1228);
 
-    //event.itemHeat('kubejs:plastic', 2.0, 240, 320)
+    event.itemHeat('kubejs:plastic', 2.0, 240, 320)
 
 	event.itemHeat('kubejs:rhodocrosite_fragment', 1.143, 921, 1228);
 	event.itemHeat('kubejs:manganite_chunk', 1.143, 921, 1228);

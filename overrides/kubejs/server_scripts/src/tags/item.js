@@ -99,6 +99,8 @@ ServerEvents.tags('item', (e) => {
 
 	e.add('alekiships:icebreaker_upgrades', 'tfc:metal/double_sheet/steel');
 
+    e.add('alekiships:can_place_in_compartments', 'supplementaries:cannon')
+
 	e.add('forge:slimeballs', 'tfc:glue');
 
 	e.add('c:hidden_from_recipe_viewers', REMOVED_ITEMS);

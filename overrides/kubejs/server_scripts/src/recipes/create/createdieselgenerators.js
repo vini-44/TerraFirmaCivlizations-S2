@@ -156,7 +156,7 @@ ServerEvents.recipes((e) => {
 		ingredients: [
 			{
 				fluidTag: 'forge:crude_oil',
-				amount: 100,
+				amount: 1000,
 			},
 		],
 		heatRequirement: 'heated',
@@ -164,19 +164,19 @@ ServerEvents.recipes((e) => {
 		results: [
 			{
 				fluid: 'kubejs:lubricant',
-				amount: 30,
+				amount: 300,
 			},
 			{
 				fluid: 'createdieselgenerators:diesel',
-				amount: 30,
+				amount: 300,
 			},
 			{
 				fluid: 'createdieselgenerators:gasoline',
-				amount: 20,
+				amount: 200,
 			},
 			{
 				fluid: 'kubejs:kerosene',
-				amount: 20,
+				amount: 200,
 			},
 		],
 	});
@@ -218,7 +218,7 @@ ServerEvents.recipes((e) => {
 	});
 
 	//lpg
-	/*e.custom({
+	e.custom({
 		type: 'createdieselgenerators:distillation',
 		ingredients: [
 			{
@@ -234,10 +234,7 @@ ServerEvents.recipes((e) => {
 				amount: 30,
 			},
 		],
-	});*/
-
-    //e.recipes.thermal.crystallizer('kubejs:plastic', [Fluid.of('kubejs:liquid_petroleum_gas', 90), 'kubejs:ilmenite_powder', 'tfc:powder/graphite']);
-    //e.recipes.thermal.crystallizer('afc:rubber_bar', [Fluid.of('kubejs:liquid_petroleum_gas', 90), 'kubejs:ilmenite_powder', 'tfc:powder/sulfur']);
+	});
 
 	//aslphalt
 
@@ -313,22 +310,30 @@ ServerEvents.recipes((e) => {
 		4,
 	]);
 
-	const fuel_types = ['diesel', 'gasoline', 'biodiesel', 'ethanol'].forEach(
-		(type) => {
-			e.recipes.create.filling(`kubejs:${type}_fuel_can`, [
-				Fluid.of(`createdieselgenerators:${type}`, 1000),
-				`kubejs:empty_fuel_can`,
-			]);
+    const fuel_types_ = {
+        'kubejs:diesel_fuel_can': 'createdieselgenerators:diesel',
+        'kubejs:gasoline_fuel_can': 'createdieselgenerators:gasoline',
+        'kubejs:biodiesel_fuel_can': 'createdieselgenerators:biodiesel',
+        'kubejs:ethanol_fuel_can': 'createdieselgenerators:ethanol',
+        'kubejs:kerosene_fuel_can': 'kubejs:kerosene',
+        'scguns:suit_grease': 'kubejs:lubricant'
+    }
 
-			e.recipes.create.emptying(
-				[
-					Fluid.of(`createdieselgenerators:${type}`, 1000),
-					`kubejs:empty_fuel_can`,
-				],
-				`kubejs:${type}_fuel_can`
-			);
-		}
-	);
+    for (const [result, fluid] of Object.entries(fuel_types_)) {
+        e.recipes.create.filling(result, [
+            Fluid.of(fluid, 1000),
+            `kubejs:empty_fuel_can`,
+        ]); 
+    
+        e.recipes.create.emptying(
+            [
+                Fluid.of(fluid, 1000),
+                `kubejs:empty_fuel_can`,
+            ],
+            result
+        );
+    }
+
 
 	e.shaped(
 		'createdieselgenerators:chemical_sprayer_lighter',

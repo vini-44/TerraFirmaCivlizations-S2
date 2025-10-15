@@ -158,26 +158,15 @@ ServerEvents.recipes((e) => {
 
 	//welder
 
-	WELDER_FUELS.forEach((fuel) => {
-		e.shaped('createbigcannons:cannon_welder', ['TPV', '  C'], {
-			T: 'tfc:metal/tuyere/wrought_iron',
+    		e.shaped(Item.of('createbigcannons:cannon_welder', {Damage:64}).strongNBT(), ['TPV', '  C'], {
+			T: 'tfc:metal/tuyere/steel',
 			P: 'tfc:metal/double_sheet/brass',
 			V: '#create:valve_handles',
-			C: Item.of(
-				'createdieselgenerators:canister',
-				'{BlockEntityTag:{Tanks:[{Level:{Speed:0.25f,Target:1.0f,Value:1.0f},TankContent:{Amount:16000,FluidName:"' + fuel +
-					'"}}]}}'
-			).strongNBT(),
+			C: 'createdieselgenerators:canister'
 		});
-	});
-	e.shaped('createbigcannons:cannon_welder', ['TPV', '  C'], {
-		T: 'tfc:metal/tuyere/wrought_iron',
-		P: 'tfc:metal/double_sheet/brass',
-		V: '#create:valve_handles',
-		C: Item.of(
-			'createdieselgenerators:canister',
-			'{BlockEntityTag:{Tanks:[{Level:{Speed:0.25f,Target:1.0f,Value:1.0f},TankContent:{Amount:16000,FluidName:"kubejs:kerosene"}}]}}'
-		).strongNBT(),
+
+	WELDER_FUELS.forEach((fuel) => {
+        e.recipes.create.filling('createbigcannons:cannon_welder', [Fluid.of(fuel, 1000), 'createbigcannons:cannon_welder']);
 	});
 
 	//welder welding
