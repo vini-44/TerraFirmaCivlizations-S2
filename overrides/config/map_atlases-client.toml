@@ -8,7 +8,7 @@
 	#Range: 0.0 ~ 20.0
 	scale = 1.0
 	#If 'true', the Mini-Map of the Active Map will be drawn on the HUD while the Atlas is active.
-	enabled = true
+	enabled = false
 	#How many maps to display in a single minimap. Essentially zoom. Can be a fraction
 	#Range: 0.001 ~ 100.0
 	zoom_multiplier = 1.0
@@ -17,15 +17,15 @@
 	anchoring = "UPPER_LEFT"
 	#An integer which will offset the mini-map horizontally
 	#Range: -4000 ~ 4000
-	horizontal_offset = 5
+	horizontal_offset = 0
 	#An integer which will offset the mini-map vertically
 	#Range: -4000 ~ 4000
-	vertical_offset = 5
+	vertical_offset = 0
 	#The number of pixels to shift vertically when there's an active effect
 	#Range: -4000 ~ 4000
 	active_potion_effects_vertical_offset = 26
 	#When enabled, the player's current Coords will be displayed
-	coordinate_text = true
+	coordinate_text = false
 	#Displays chunk coordinates
 	chunk_coordinate_text = false
 	#When enabled, the player's current Biome will be displayed
@@ -36,6 +36,9 @@
 	#Sets the scale of the map icons rendered in the mini-map
 	#Range: 0.0 ~ 10.0
 	decoration_scale = 1.0
+	#Scale multiplier for Map Markers text on the mini-map
+	#Range: 0.0 ~ 10.0
+	map_markers_text_scale = 1.0
 	#Allows minimap to follow player movement instead of only displaying current map
 	follow_player = true
 	#When enabled the map will align itself with the player
@@ -82,6 +85,9 @@
 	#Sets the scale of the map icons rendered in the world-map
 	#Range: 0.0 ~ 10.0
 	decoration_scale = 1.0
+	#Scale multiplier for Map Markers text on the world-map
+	#Range: 0.0 ~ 10.0
+	map_markers_text_scale = 1.0
 	#Rearranges the position of the slice indicator to be more compact. You will need supplementaries slice maps to use this
 	compact_slices_indicator = false
 	#Allows minimap to follow player movement instead of only displaying current map
@@ -94,12 +100,6 @@
 	#Render atlas like normal map when in hand
 	#Allowed Values: ON, NOT_LOCKED, OFF
 	in_hand_renderer = "NOT_LOCKED"
-	#Scale multiplier for Map Markers on the atlas
-	#Range: 0.0 ~ 10.0
-	map_markers_scale = 1.0
-	#Scale multiplier for Map Markers text on the atlas
-	#Range: 0.0 ~ 10.0
-	map_markers_text_scale = 1.0
 
 [moonlight_integration]
 	#Enables moonlight compat, which allows to place map markers on map via a special pin button

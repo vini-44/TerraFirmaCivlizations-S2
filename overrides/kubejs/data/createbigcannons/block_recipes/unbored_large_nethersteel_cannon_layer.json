@@ -3,8 +3,7 @@
   "cast_shape": "createbigcannons:large",
   "fluid": {
     "amount": 1,
-    "fluid": "tfc:metal/black_steel",
-    "nbt": {}
+    "fluid": "kubejs:molten_mangalloy"
   },
   "result": "createbigcannons:unbored_large_nethersteel_cannon_layer"
 }

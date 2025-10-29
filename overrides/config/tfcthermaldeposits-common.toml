@@ -21,76 +21,15 @@
 	# Toggle whether or not lava and hot springs should deposit minerals in other dimensions than the overworld? True = not limited to the overworld.
 	toggleOtherDimensions = false
 	#
-	# Felsic rocks contain more silica compounds than mafic, thus "felsic lava" has a higher viscosity, flow speed and distance -- like honey.
-	# 
-	# Standard slope distance for lava is 2, whilst 4 in the Nether.
-	# Slope distance for lava in felsic rocks.
-	#Range: > 0
-	slopeDistanceFelsic = 3
-	#
-	# Slope distance for lava in sedimentary rocks.
-	#Range: > 0
-	slopeDistanceSedimentary = 4
-	#
-	# Slope distance for lava in metamorphic rocks.
-	#Range: > 0
-	slopeDistanceMetamorphic = 4
-	#
-	# Slope distance for lava in intermediate rocks.
-	#Range: > 0
-	slopeDistanceIntermediate = 5
-	#
-	# Slope distance for lava in mafic rocks.
-	#Range: > 0
-	slopeDistanceMafic = 6
-	#
-	# Standard drop off for lava is 2, whilst 1 in the Nether.
-	# Drop off for lava in felsic rocks.
-	#Range: > 0
-	dropOffFelsic = 4
-	#
-	# Drop off for lava in sedimentary rocks.
-	#Range: > 0
-	dropOffSedimentary = 3
-	#
-	# Drop off for lava in metamorphic rocks.
-	#Range: > 0
-	dropOffMetamorphic = 3
-	#
-	# Drop off for lava in intermediate rocks.
-	#Range: > 0
-	dropOffIntermediate = 2
-	#
-	# Drop off for lava in mafic rocks.
-	#Range: > 0
-	dropOffMafic = 1
-	#
-	# Standard tick delay for lava is 30, whilst 10 in the Nether.
-	# Tick delay for lava in felsic rocks.
-	#Range: > 0
-	tickDelayFelsic = 40
-	#
-	# Tick delay for lava in sedimentary rocks.
-	#Range: > 0
-	tickDelaySedimentary = 25
-	#
-	# Tick delay for lava in metamorphic rocks.
-	#Range: > 0
-	tickDelayMetamorphic = 25
-	#
-	# Tick delay for lava in intermediate rocks.
-	#Range: > 0
-	tickDelayIntermediate = 10
-	#
-	# Tick delay for lava in mafic rocks.
-	#Range: > 0
-	tickDelayMafic = 5
-	#
 	# Toggle whether or not lava and hot spring water should replenish their mineral "storage" naturally. True = replenishes.
 	naturalReplenishment = true
 	#
 	# Toggle whether or not lava and hot spring water should deposit minerals, regardless of them being natural or placed. True = all generated or placed deposits minerals.
 	toggleDepositsFromAllLavaOrSpringWater = false
+	#
+	# Sound amplifier level for earthquakes and tremors. Default = 4.0.
+	#Range: 0.0 ~ 1.7976931348623157E308
+	earthquakeSoundAmplifier = 4.0
 	#
 	# Should volcanoes launch pyroclastic bombs?
 	togglePyroclasticBombs = true
@@ -161,6 +100,74 @@
 	#Range: 0.0 ~ 2000.0
 	sedimentaryVolcanoIntensityFactor = 0.9
 	#
+	# Felsic rocks contain more silica compounds than mafic, thus "felsic lava" has a higher viscosity, flow speed and distance -- like honey.
+	# 
+	# Standard slope distance for lava is 2, whilst 4 in the Nether.
+	# Slope distance for lava in felsic rocks.
+	#Range: > 0
+	slopeDistanceFelsic = 4
+	#
+	# Slope distance for lava in sedimentary rocks.
+	#Range: > 0
+	slopeDistanceSedimentary = 5
+	#
+	# Slope distance for lava in metamorphic rocks.
+	#Range: > 0
+	slopeDistanceMetamorphic = 5
+	#
+	# Slope distance for lava in intermediate rocks.
+	#Range: > 0
+	slopeDistanceIntermediate = 6
+	#
+	# Slope distance for lava in mafic rocks.
+	#Range: > 0
+	slopeDistanceMafic = 7
+	#
+	# Standard drop off for lava is 2, whilst 1 in the Nether.
+	# Drop off for lava in felsic rocks.
+	#Range: > 0
+	dropOffFelsic = 3
+	#
+	# Drop off for lava in sedimentary rocks.
+	#Range: > 0
+	dropOffSedimentary = 2
+	#
+	# Drop off for lava in metamorphic rocks.
+	#Range: > 0
+	dropOffMetamorphic = 2
+	#
+	# Drop off for lava in intermediate rocks.
+	#Range: > 0
+	dropOffIntermediate = 1
+	#
+	# Drop off for lava in mafic rocks.
+	#Range: > 0
+	dropOffMafic = 1
+	#
+	# Standard tick delay for lava is 30, whilst 10 in the Nether.
+	# Tick delay for lava in felsic rocks.
+	#Range: > 0
+	tickDelayFelsic = 40
+	#
+	# Tick delay for lava in sedimentary rocks.
+	#Range: > 0
+	tickDelaySedimentary = 25
+	#
+	# Tick delay for lava in metamorphic rocks.
+	#Range: > 0
+	tickDelayMetamorphic = 25
+	#
+	# Tick delay for lava in intermediate rocks.
+	#Range: > 0
+	tickDelayIntermediate = 10
+	#
+	# Tick delay for lava in mafic rocks.
+	#Range: > 0
+	tickDelayMafic = 5
+	#
 	# Enable debug messaging in the log?
 	toggleDebug = false
+	#
+	# Toggle finite water for salt-, fresh-, river- and spring water? Setting this to true will prevent water from creating source blocks when spreading.
+	toggleFiniteWater = false
 
