@@ -1,6 +1,0 @@
-{
-    "item": "immersiveengineering:gunpowder_barrel",
-    "block": "immersiveengineering:gunpowder_barrel",
-    "entity": "minecraft:tnt",
-    "entity_nbt": "{Fuse: 80s}"
-}

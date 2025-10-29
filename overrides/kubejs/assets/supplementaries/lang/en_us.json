@@ -1,5 +1,4 @@
 {
-    "item.supplementaries.netherite_door": "Black Steel Door",
-    "item.supplementaries.netherite_trapdoor": "Lockable Black Steel Trapdoor",
-    "item.supplementaries.wrench": "Copper Wrench"
+    "block.supplementaries.netherite_door": "Black Steel Door",
+    "block.supplementaries.netherite_trapdoor": "Black Steel Trapdoor"  
 }

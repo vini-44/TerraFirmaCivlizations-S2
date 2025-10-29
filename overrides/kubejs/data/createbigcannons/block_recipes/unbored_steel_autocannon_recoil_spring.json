@@ -3,8 +3,7 @@
   "cast_shape": "createbigcannons:autocannon_recoil_spring",
   "fluid": {
     "amount": 1,
-    "fluid": "tfc:metal/steel",
-    "nbt": {}
+    "fluid": "tfc:metal/steel"
   },
   "result": "createbigcannons:unbored_steel_autocannon_recoil_spring"
 }

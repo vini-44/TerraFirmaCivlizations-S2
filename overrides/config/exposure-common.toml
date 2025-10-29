@@ -4,6 +4,15 @@
 	#Allowed range: 10-300
 	#Default: 18-55
 	DefaultFocalRange = "18-55"
+	#Can attack while looking through Viewfinder.
+	#Default: true
+	ViewfinderAttacking = true
+	#Right-clicking Camera in GUI will open Camera attachments screen. Only in player inventory.
+	#Default: true
+	RightClickAttachmentsScreen = true
+	#Right-clicking Camera in GUI with attachment item will insert/swap it.
+	#Default: true
+	RightClickHotswap = true
 
 [Lightroom]
 	#Time in ticks to print black and white photograph. Default: 80
@@ -25,6 +34,18 @@
 	#Range: 0 ~ 99
 	ExperiencePerPrintChromatic = 5
 
+[Photographs]
+	#How many photographs can be stacked in Stacked Photographs item. Default: 16.
+	#Larger numbers may cause errors. Use at your own risk.
+	#Range: 2 ~ 64
+	StackedPhotographsMaxSize = 16
+
+[Misc]
+	#Film rolls can be renamed by using the item. Default: true
+	FilmRollRenaming = true
+	#Generate items in loot chests. Default: true
+	AddItemsToLootChests = true
+
 [Integration]
 
 	[Integration.Create]
@@ -36,10 +57,4 @@
 			ColorFilmSequence = ["{FluidName:\"create:potion\",Amount:250,Tag:{Potion:\"minecraft:awkward\"}}", "{FluidName:\"create:potion\",Amount:250,Tag:{Potion:\"minecraft:thick\"}}", "{FluidName:\"create:potion\",Amount:250,Tag:{Potion:\"minecraft:mundane\"}}"]
 			#Fluid spouting sequence required to develop black and white film.
 			BlackAndWhiteFilmSequence = ["{FluidName:\"minecraft:water\",Amount:250}"]
-
-[Photographs]
-	#How many photographs can be stacked in Stacked Photographs item. Default: 16.
-	#Larger numbers may cause errors. Use at your own risk.
-	#Range: 2 ~ 64
-	StackedPhotographsMaxSize = 16
 
