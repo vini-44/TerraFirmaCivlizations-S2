@@ -9,7 +9,7 @@
 	wanderingTraderSellsFDItems = true
 	#How often (in percentage) should Rich Soil succeed in boosting a plant's growth at each random tick? Set it to 0.0 to disable this.
 	#Range: 0.0 ~ 1.0
-	richSoilBoostChance = 0.05
+	richSoilBoostChance = 0.2
 	#How much of a bonus (in percentage) should each level of Fortune grant to Cutting Board chances? Set it to 0.0 to disable this.
 	#Range: 0.0 ~ 1.0
 	cuttingBoardFortuneBonus = 0.1
@@ -52,8 +52,10 @@
 [world]
 	#Should this mod add some of its items (ropes, seeds, knives, meals etc.) as extra chest loot across Minecraft?
 	generateFDChestLoot = true
-	#Generate Compost Heaps across all village biomes
+	#Should FD generate Compost Heaps across all village biomes?
 	genVillageCompostHeaps = true
+	#Should FD crops show up planted randomly in various village farms?
+	genFDCropsOnVillageFarms = true
 
 	#Wild Cabbage generation
 	[world.wild_cabbages]

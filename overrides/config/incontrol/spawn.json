@@ -1,0 +1,20 @@
+[
+    {
+        "mob": ["minecraft:zombie", "minecraft:spider", "minecraft:creeper", "minecraft:skeleton"],
+        "phase": "pre_game",
+        "result" : "deny"
+    },
+    {
+        "mob": "quark:stoneling",
+        "phase": "pre_game",
+        "mincount":{
+            "amount": 20
+        },
+        "result" : "deny"
+    }, 
+    {
+        "mob": "thermal:blitz",
+        "phase": "pre_game",
+        "result" : "deny"
+    }
+]
