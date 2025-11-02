@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "kubejs:tin_mantle_ore",
+    "molten_vents:dormant_molten_mantle_tin",
+    "molten_vents:active_molten_mantle_tin"
+  ]
+}
