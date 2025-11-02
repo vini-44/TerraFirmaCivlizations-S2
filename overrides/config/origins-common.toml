@@ -160,3 +160,63 @@
 		"origins-classes:stealth" = true
 		"origins-classes:stealth_core" = true
 
+	[origins."origins-classes:farmer1"]
+		enabled = true
+		"origins-classes:more_crop_drops" = true
+		"origins-classes:more_crop_break_speed" = true
+
+	[origins."origins-classes:nitwit1"]
+		enabled = true
+
+	[origins."origins:plains"]
+		enabled = true
+		"origins:gourmand" = true
+		"origins:realfast" = true
+		"origins:bad_swimmer" = true
+
+	[origins."origins-classes:archer1"]
+		enabled = true
+		"origins-classes:no_projectile_divergence" = true
+		"origins-classes:less_bow_slowdown" = true
+
+	[origins."origins:dunes"]
+		enabled = true
+		"origins:heat_resist" = true
+		"origins:cold_weak" = true
+		"origins:hungry" = true
+
+	[origins."origins-classes:rancher1"]
+		enabled = true
+		"origins-classes:twin_breeding" = true
+		"origins-classes:more_animal_loot" = true
+
+	[origins."origins-classes:miner1"]
+		enabled = true
+		"origins-classes:more_stone_break_speed1" = true
+		"origins-classes:no_mining_exhaustion" = true
+
+	[origins."origins:mountains"]
+		enabled = true
+		"origins:cold_resist" = true
+		"origins:heat_weak" = true
+		"origins:thirsty" = true
+
+	[origins."origins:coast"]
+		enabled = true
+		"origins:fisher" = true
+		"origins:good_swimmer" = true
+		"origins:water_temp_immune" = true
+
+	[origins."origins-classes:warrior1"]
+		enabled = true
+		"origins-classes:more_attack_damage" = true
+		"origins-classes:less_shield_slowdown" = true
+
+	[origins."origins-classes:lumberjack1"]
+		enabled = true
+		"origins-classes:more_log_break_speed" = true
+
+	[origins."origins:human1"]
+		enabled = true
+		"origins:boring" = true
+
