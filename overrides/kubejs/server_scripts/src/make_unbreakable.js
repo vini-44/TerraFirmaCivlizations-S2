@@ -6,7 +6,7 @@ BlockEvents.broken(event => {
 
 
 //list of unbreakable blocks
-UNBREAKABLE_BLOCKS = [
+const UNBREAKABLE_BLOCKS = [
   'create_resource_vents:active_mantle_copper_vent',
   'create_resource_vents:active_mantle_iron_vent',
   'create_resource_vents:active_mantle_tin_vent',
