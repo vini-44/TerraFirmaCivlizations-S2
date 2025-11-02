@@ -3,7 +3,6 @@
 ServerEvents.recipes((e) => {
 
 
-
 	e.remove({ mod: 'epic_knights_ores_and_alloys' });
 
 	// remove nugget to ingot recipes
