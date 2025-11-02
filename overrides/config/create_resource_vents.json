@@ -1,0 +1,112 @@
+{
+  "vents": [
+    {
+      "name": "mantle_copper",
+      "generatedBlocks": [
+        {
+          "id": "kubejs:copper_mantle_ore",
+          "properties": []
+        }
+      ],
+      "reactantFluids": [
+        "minecraft:lava"
+      ]
+    },
+    {
+      "name": "mantle_gold",
+      "generatedBlocks": [
+        {
+          "id": "kubejs:gold_mantle_ore",
+          "properties": []
+        }
+      ],
+      "reactantFluids": [
+        "minecraft:lava"
+      ]
+    },
+    {
+      "name": "mantle_bismuth",
+      "generatedBlocks": [
+        {
+          "id": "kubejs:bismuth_mantle_ore",
+          "properties": []
+        }
+      ],
+      "reactantFluids": [
+        "minecraft:lava"
+      ]
+    },
+    {
+      "name": "mantle_cryolite",
+      "generatedBlocks": [
+        {
+          "id": "kubejs:cryolite_mantle_ore",
+          "properties": []
+        }
+      ],
+      "reactantFluids": [
+        "minecraft:lava"
+      ]
+    },
+    {
+      "name": "mantle_iron",
+      "generatedBlocks": [
+        {
+          "id": "kubejs:iron_mantle_ore",
+          "properties": []
+        }
+      ],
+      "reactantFluids": [
+        "minecraft:lava"
+      ]
+    },
+    {
+      "name": "mantle_nickel",
+      "generatedBlocks": [
+        {
+          "id": "kubejs:nickel_mantle_ore",
+          "properties": []
+        }
+      ],
+      "reactantFluids": [
+        "minecraft:lava"
+      ]
+    },
+    {
+      "name": "mantle_silver",
+      "generatedBlocks": [
+        {
+          "id": "kubejs:silver_mantle_ore",
+          "properties": []
+        }
+      ],
+      "reactantFluids": [
+        "minecraft:lava"
+      ]
+    },
+    {
+      "name": "mantle_tin",
+      "generatedBlocks": [
+        {
+          "id": "kubejs:tin_mantle_ore",
+          "properties": []
+        }
+      ],
+      "reactantFluids": [
+        "minecraft:lava"
+      ]
+    },
+    {
+      "name": "mantle_zinc",
+      "generatedBlocks": [
+        {
+          "id": "kubejs:zinc_mantle_ore",
+          "properties": []
+        }
+      ],
+      "reactantFluids": [
+        "minecraft:lava"
+      ]
+    }
+  ]
+}
