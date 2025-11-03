@@ -22,6 +22,7 @@
   <li>Item Highlighter</li>
   <li>Inventory Spam</li>
   <li>World Playtime</li>
+  <li>Oculus</li>
 </ul>
 
 
