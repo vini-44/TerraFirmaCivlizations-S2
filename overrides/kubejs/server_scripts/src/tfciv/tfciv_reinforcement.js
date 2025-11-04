@@ -57,17 +57,23 @@ BlockEvents.rightClicked(event => {
 BlockEvents.broken(event => {
   let { block, player } = event;
   let key = blockKey(block);
-  
-  if (player.isCreative()) return;
+
+  if (player.isCreative()) {
+    player.tell(`This block was reinforced! (${reinforcedBlocks[key]} reinforcements destroyed)`)
+    delete reinforcedBlocks[key]; // remove from tracking
+    return;
+  }
+
 
   if (reinforcedBlocks[key] > 0) {
     // Block still reinforced, reduce reinforcement and cancel break
     reinforcedBlocks[key]--;
-    event.cancel();
     player.tell(`This block is still reinforced! (${reinforcedBlocks[key]} left)`);
-  } else if (reinforcedBlocks[key] === 0) {
+    event.cancel();
+  } else {
     // Reinforcements already depleted, allow block to break
     delete reinforcedBlocks[key]; // remove from tracking
     player.tell(`This block had no reinforcements left and is now broken.`);
+    return;
   }
 });
