@@ -1,8 +1,8 @@
 //make all minecraft blocks unbreakable except in creative mode
-BlockEvents.broken(event => {
-  if (event.getPlayer().isCreative()) return
-  if (event.block.id.split(':')[0] == 'minecraft') event.cancel()
-})
+//BlockEvents.broken(event => {
+  //if (event.getPlayer().isCreative()) return
+  //if (event.block.id.split(':')[0] == 'minecraft') event.cancel()
+//})
 
 
 //list of unbreakable blocks
