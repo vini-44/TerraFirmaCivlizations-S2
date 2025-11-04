@@ -33,7 +33,7 @@ ServerEvents.unloaded(event => {
 let tickCounter = 0;
 ServerEvents.tick(event => {
   tickCounter++;
-  if (tickCounter >= 120) { // 5 min
+  if (tickCounter >= 6000) { // 5 min
     JsonIO.write(filePath, reinforcedBlocks);
     console.log(`[KubeJS] Autosaved ${Object.keys(reinforcedBlocks).length} reinforced blocks.`);
     tickCounter = 0;
