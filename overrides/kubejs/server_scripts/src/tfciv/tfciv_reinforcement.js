@@ -6,7 +6,7 @@ let reinforcedBlocks = {};
 
 // Helper: unique key for each block
 function blockKey(block) {
-  return `${block.x},${block.y},${block.z},${block.level.dimension.location()}`;
+  return `${block.x},${block.y},${block.z},${block.level.dimension}`;
 }
 
 // --- Load data reliably ---
@@ -31,7 +31,7 @@ ServerEvents.unloaded(event => {
 
 // --- Tick-based autosave every 5 minutes (6000 ticks) ---
 let tickCounter = 0;
-ServerTickEvents.START_SERVER_TICK(event => {
+ServerEvents.tick(event => {
   tickCounter++;
   if (tickCounter >= 6000) { // 5 min
     JsonIO.write(filePath, reinforcedBlocks);
@@ -44,14 +44,14 @@ ServerTickEvents.START_SERVER_TICK(event => {
 BlockEvents.rightClicked(event => {
   let { block, player, item, level } = event;
 
-  if (!item || item.id !== 'kubejs:copper_mantle_ore') return;
+  if (item.id !== 'kubejs:copper_reinforcement') return;
   if (block.id === 'minecraft:air' || block.id === 'minecraft:water') return;
 
   let key = blockKey(block);
   reinforcedBlocks[key] = (reinforcedBlocks[key] || 0) + 1;
 
-  // ✅ Visual + audio cue
-  level.spawnParticles('minecraft:happy_villager', block.x + 0.5, block.y + 1, block.z + 0.5, 8, 0.3, 0.3, 0.3, 0.01);
+  // Visual + audio cue
+  //level.spawnParticles('minecraft:happy_villager', block.x + 0.5, block.y + 1, block.z + 0.5, 8, 0.3, 0.3, 0.3, 0.01);
   player.playSound('minecraft:anvil_use', 1.0, 1.2);
 
   player.tell(`§6${block.id} reinforced! Total: §e${reinforcedBlocks[key]}`);
