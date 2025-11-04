@@ -42,32 +42,44 @@ ServerTickEvents.START_SERVER_TICK(event => {
 
 // --- Right-click to reinforce ---
 BlockEvents.rightClicked(event => {
-  let { block, player, item } = event;
-  
+  let { block, player, item, level } = event;
+
   if (!item || item.id !== 'kubejs:copper_mantle_ore') return;
   if (block.id === 'minecraft:air' || block.id === 'minecraft:water') return;
 
   let key = blockKey(block);
   reinforcedBlocks[key] = (reinforcedBlocks[key] || 0) + 1;
 
-  player.tell(`This ${block.id} now has ${reinforcedBlocks[key]} reinforcements.`);
+  // ✅ Visual + audio cue
+  level.spawnParticles('minecraft:happy_villager', block.x + 0.5, block.y + 1, block.z + 0.5, 8, 0.3, 0.3, 0.3, 0.01);
+  player.playSound('minecraft:anvil_use', 1.0, 1.2);
+
+  player.tell(`§6${block.id} reinforced! Total: §e${reinforcedBlocks[key]}`);
 });
 
 // --- Breaking blocks with reinforcement check ---
 BlockEvents.broken(event => {
-  let { block, player } = event;
-  let key = blockKey(block);
-  
+  let { block, player, level } = event;
   if (player.isCreative()) return;
 
-  if (reinforcedBlocks[key] > 0) {
-    // Block still reinforced, reduce reinforcement and cancel break
-    reinforcedBlocks[key]--;
+  let key = blockKey(block);
+  if (!reinforcedBlocks[key]) return; // Not reinforced
+
+  const remaining = reinforcedBlocks[key];
+
+  if (remaining > 0) {
+    // Still has reinforcements left → prevent break
     event.cancel();
-    player.tell(`This block is still reinforced! (${reinforcedBlocks[key]} left)`);
-  } else if (reinforcedBlocks[key] === 0) {
-    // Reinforcements already depleted, allow block to break
-    delete reinforcedBlocks[key]; // remove from tracking
-    player.tell(`This block had no reinforcements left and is now broken.`);
+    reinforcedBlocks[key] = remaining - 1;
+
+    // Visual + audio cue
+    level.spawnParticles('minecraft:smoke', block.x + 0.5, block.y + 0.5, block.z + 0.5, 10, 0.3, 0.3, 0.3, 0.02);
+    player.playSound('minecraft:shield_block', 1.0, 1.0);
+
+    player.tell(`§cThis block resisted! (${reinforcedBlocks[key]} reinforcements left)`);
+  } else {
+    // Now actually break and clean up
+    delete reinforcedBlocks[key];
+    player.tell(`§7The block finally broke — all reinforcements depleted.`);
   }
 });
