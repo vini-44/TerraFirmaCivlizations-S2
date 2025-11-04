@@ -1,26 +1,78 @@
-// Listen for right-click events on blocks
+// File where reinforcement data is saved
+const filePath = 'kubejs/data/reinforcements.json';
+
+// Object to hold all reinforcement data in memory
+let reinforcedBlocks = {};
+
+// Helper: make a unique key for each block
+function blockKey(block) {
+  return `${block.x},${block.y},${block.z},${block.level.dimension}`;
+}
+
+// --- Load data early but reliably ---
+ServerEvents.highPriorityData(event => {
+  reinforcedBlocks = JsonIO.read(filePath) || {};
+  if (Object.keys(reinforcedBlocks).length === 0) {
+    // File didn’t exist or was empty
+    reinforcedBlocks = {};
+    JsonIO.write(filePath, reinforcedBlocks); // create file if missing
+    console.log(`[KubeJS] Created new reinforcement data file.`);
+  } 
+  else {
+    console.log(`[KubeJS] Loaded ${Object.keys(reinforcedBlocks).length} reinforced blocks.`);
+  }
+});
+
+// --- Save data on proper shutdown ---
+ServerEvents.unloaded(event => {
+  JsonIO.write(filePath, reinforcedBlocks);
+  console.log(`[KubeJS] Saved ${Object.keys(reinforcedBlocks).length} reinforced blocks on shutdown.`);
+});
+
+// --- Autosave every 5 minutes ---
+ServerEvents.loaded(event => {
+  console.log(`autosave scheduled`);
+  event.server.schedule(1 * 1 * 20, task => {
+    event.server.tell(Text.of("autosave activated"));
+    JsonIO.write(filePath, reinforcedBlocks);
+
+    console.log(`[KubeJS] Autosaved ${Object.keys(reinforcedBlocks).length} reinforced blocks.`);
+    task.reschedule();
+  });
+});
+
+// --- Handle right-clicking a block ---
 BlockEvents.rightClicked(event => {
-  let block = event.block;
-  let player = event.player;
-  let heldItem = player.heldItem;
 
-  // Check if the player is holding the reinforcement item (copper)
-  if (heldItem && heldItem.id == 'kubejs:copper_mantle_ore') {
+  let { block, player, item } = event;
 
-    // Get the position of the block the player is interacting with
-    let blockPos = block.pos;
+  // Only act if holding the special item
+  if (item.id !== 'kubejs:copper_mantle_ore') return;
 
-    // Define a key to store/retrieve the reinforcement count from world data.
-    // We're using block coordinates to ensure it's tied to this specific block's location.
-    let key = 'reinforcements_' + blockPos.x + '_' + blockPos.y + '_' + blockPos.z;
+  let key = blockKey(block);
 
-    // Retrieve the current reinforcement count from world data (default to 0 if not set)
-    let reinforcements = event.world.getData(key) || 0;
+  // Increase reinforcement count
+  reinforcedBlocks[key] = (reinforcedBlocks[key] || 0) + 1;
+  player.tell(`This ${block.id} now has ${reinforcedBlocks[key]} reinforcements.`);
+});
 
-    // Set the new reinforcement count in the world data (increment by 1)
-    event.world.setData(key, reinforcements + 1);
+// --- Handle block breaking ---
+BlockEvents.broken(event => {
+  let { block, player } = event;
+  let key = blockKey(block);
 
-    // Tell the player the updated reinforcement count
-    player.tell(`This block has been reinforced with copper and now has ${reinforcements + 1} reinforcements.`);
+  if (reinforcedBlocks[key]) {
+    // Reduce reinforcement count by 1
+    reinforcedBlocks[key]--;
+
+    // If still reinforced, cancel the break
+    if (reinforcedBlocks[key] >= 0) {
+      player.tell(`This block is still reinforced! (${reinforcedBlocks[key]} left)`);
+      event.cancel(); // Prevent the block from breaking
+    } else {
+      // Reinforcements depleted — allow block to break normally
+      delete reinforcedBlocks[key];
+      player.tell(`The block’s final reinforcement was broken!`);
+    }
   }
 });
