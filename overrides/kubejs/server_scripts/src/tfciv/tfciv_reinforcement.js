@@ -55,6 +55,8 @@ BlockEvents.rightClicked(event => {
 BlockEvents.broken(event => {
   let { block, player } = event;
   let key = blockKey(block);
+  
+  if (player.isCreative()) return;
 
   if (reinforcedBlocks[key] > 0) {
     // Block still reinforced, reduce reinforcement and cancel break
