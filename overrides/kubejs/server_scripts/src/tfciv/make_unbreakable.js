@@ -1,10 +1,3 @@
-//make all minecraft blocks unbreakable except in creative mode
-BlockEvents.broken(event => {
-  if (event.getPlayer().isCreative()) return
-  if (event.block.id.split(':')[0] == 'minecraft') event.cancel()
-})
-
-
 //list of unbreakable blocks
 const UNBREAKABLE_BLOCKS = [
   'create_resource_vents:active_mantle_copper_vent',
