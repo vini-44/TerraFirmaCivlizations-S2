@@ -33,44 +33,71 @@ ServerEvents.unloaded(event => {
 let tickCounter = 0;
 ServerEvents.tick(event => {
   tickCounter++;
-  if (tickCounter >= 6000) { // 5 min
+  if (tickCounter >= 120) { // 5 min
     JsonIO.write(filePath, reinforcedBlocks);
     console.log(`[KubeJS] Autosaved ${Object.keys(reinforcedBlocks).length} reinforced blocks.`);
     tickCounter = 0;
+
+    reinforcedBlocks = {};
+    reinforcedBlocks = JsonIO.read(filePath) || {};
+    console.log(`[KubeJS] Loaded ${Object.keys(reinforcedBlocks).length} reinforced blocks.`);
   }
 });
 
-// --- Right-click to reinforce ---
+// --- Right-click to reinforce (with copper)---
 BlockEvents.rightClicked(event => {
-  let { block, player, item } = event;
+  let block = event.block;
+  let player = event.player;
+  let heldItem = player.mainHandItem;
+  const upgradeLevel = 10;
   
-  if (!item || item.id !== 'kubejs:copper_reinforcement') return;
+  if (heldItem.id !== 'kubejs:copper_reinforcement') return;
   if (block.id === 'minecraft:air' || block.id === 'minecraft:water') return;
 
   let key = blockKey(block);
-  reinforcedBlocks[key] = (reinforcedBlocks[key] || 0) + 1;
 
-  player.tell(`This ${block.id} now has ${reinforcedBlocks[key]} reinforcements.`);
+  if (reinforcedBlocks[key] < upgradeLevel || !reinforcedBlocks[key]) {
+    reinforcedBlocks[key] = upgradeLevel;
+    player.tell(`This ${block.id} now has ${reinforcedBlocks[key]} reinforcements.`);
+    if (!player.isCreative()) heldItem.count = heldItem.count -1;
+  }
+  else {player.tell(`This ${block.id} already has ${reinforcedBlocks[key]} reinforcements.`);}
+
 });
+
+let counter = 1;
 
 // --- Breaking blocks with reinforcement check ---
 BlockEvents.broken(event => {
   let { block, player } = event;
-  let key = blockKey(block);
 
+  let key = blockKey(block);
+  
+  if (!reinforcedBlocks[key]) return; 
+
+  //if creative, skip reinforcement but give a warning.
   if (player.isCreative()) {
     player.tell(`This block was reinforced! (${reinforcedBlocks[key]} reinforcements destroyed)`)
-    delete reinforcedBlocks[key]; // remove from tracking
+    delete reinforcedBlocks[key]; 
     return;
   }
-
-
+  
   if (reinforcedBlocks[key] > 0) {
     // Block still reinforced, reduce reinforcement and cancel break
-    reinforcedBlocks[key]--;
-    player.tell(`This block is still reinforced! (${reinforcedBlocks[key]} left)`);
-    event.cancel();
-  } else {
+
+
+    reinforcedBlocks[key] = reinforcedBlocks[key]-0.5;
+    //i hate this but we have to :(
+    if(counter == 0) {
+      player.tell(`This block is still reinforced! (${reinforcedBlocks[key]} left)`);
+      counter = counter + 1;
+    } 
+    else {counter = 0}
+    
+    event.cancel()
+    return;
+  } 
+  else {
     // Reinforcements already depleted, allow block to break
     delete reinforcedBlocks[key]; // remove from tracking
     player.tell(`This block had no reinforcements left and is now broken.`);
