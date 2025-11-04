@@ -6,7 +6,7 @@ let reinforcedBlocks = {};
 
 // Helper: unique key for each block
 function blockKey(block) {
-  return `${block.x},${block.y},${block.z},${block.level.dimension}`;
+  return `${block.x},${block.y},${block.z},${block.level.dimension.location()}`;
 }
 
 // --- Load data reliably ---
