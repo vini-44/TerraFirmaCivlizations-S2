@@ -44,26 +44,6 @@ ServerEvents.tick(event => {
   }
 });
 
-// --- Right-click to reinforce (with copper)---
-BlockEvents.rightClicked(event => {
-  let block = event.block;
-  let player = event.player;
-  let heldItem = player.mainHandItem;
-  const upgradeLevel = 10;
-  
-  if (heldItem.id !== 'kubejs:copper_reinforcement') return;
-  if (block.id === 'minecraft:air' || block.id === 'minecraft:water') return;
-
-  let key = blockKey(block);
-
-  if (reinforcedBlocks[key] < upgradeLevel || !reinforcedBlocks[key]) {
-    reinforcedBlocks[key] = upgradeLevel;
-    player.tell(`This ${block.id} now has ${reinforcedBlocks[key]} reinforcements.`);
-    if (!player.isCreative()) heldItem.count = heldItem.count -1;
-  }
-  else {player.tell(`This ${block.id} already has ${reinforcedBlocks[key]} reinforcements.`);}
-
-});
 
 let counter = 1;
 
@@ -72,8 +52,8 @@ BlockEvents.broken(event => {
   let { block, player } = event;
 
   let key = blockKey(block);
-  
-  if (!reinforcedBlocks[key]) return; 
+
+  if (!reinforcedBlocks[key] && reinforcedBlocks[key] !== 0) return;
 
   //if creative, skip reinforcement but give a warning.
   if (player.isCreative()) {
@@ -100,7 +80,89 @@ BlockEvents.broken(event => {
   else {
     // Reinforcements already depleted, allow block to break
     delete reinforcedBlocks[key]; // remove from tracking
-    player.tell(`This block had no reinforcements left and is now broken.`);
+    player.tell(`This block had no reinforcements left and has broken.`);
     return;
   }
+});
+
+// --- Right-click to reinforce (for admin)---
+BlockEvents.rightClicked(event => {
+  let block = event.block;
+  let player = event.player;
+  let heldItem = player.mainHandItem;
+  const upgradeLevel = 9999999;
+  
+  if (heldItem.id !== 'kubejs:admin_reinforcement') return;
+  if (block.id === 'minecraft:air' || block.id === 'minecraft:water') return;
+
+  let key = blockKey(block);
+
+  if (reinforcedBlocks[key] < upgradeLevel || !reinforcedBlocks[key]) {
+    reinforcedBlocks[key] = upgradeLevel;
+    player.tell(`This ${block.id} now has admin (${reinforcedBlocks[key]}) reinforcements.`);
+    if (!player.isCreative()) heldItem.count = heldItem.count -1;
+  }
+  else {player.tell(`This ${block.id} already has some (${reinforcedBlocks[key]}) reinforcements.`);}
+});
+
+  
+// --- Right-click to reinforce (with stone)---
+BlockEvents.rightClicked(event => {
+  let block = event.block;
+  let player = event.player;
+  let heldItem = player.mainHandItem;
+  const upgradeLevel = 10;
+  
+  if (heldItem.id !== 'kubejs:stone_reinforcement') return;
+  if (block.id === 'minecraft:air' || block.id === 'minecraft:water') return;
+
+  let key = blockKey(block);
+
+  if (reinforcedBlocks[key] < upgradeLevel || !reinforcedBlocks[key]) {
+    reinforcedBlocks[key] = upgradeLevel;
+    player.tell(`This ${block.id} now has stone (${reinforcedBlocks[key]}) reinforcements.`);
+    if (!player.isCreative()) heldItem.count = heldItem.count -1;
+  }
+  else {player.tell(`This ${block.id} already has some (${reinforcedBlocks[key]}) reinforcements.`);}
+});
+
+
+// --- Right-click to reinforce (with copper)---
+BlockEvents.rightClicked(event => {
+  let block = event.block;
+  let player = event.player;
+  let heldItem = player.mainHandItem;
+  const upgradeLevel = 25;
+  
+  if (heldItem.id !== 'kubejs:copper_reinforcement') return;
+  if (block.id === 'minecraft:air' || block.id === 'minecraft:water') return;
+
+  let key = blockKey(block);
+
+  if (reinforcedBlocks[key] < upgradeLevel || !reinforcedBlocks[key]) {
+    reinforcedBlocks[key] = upgradeLevel;
+    player.tell(`This ${block.id} now has copper (${reinforcedBlocks[key]}) reinforcements.`);
+    if (!player.isCreative()) heldItem.count = heldItem.count -1;
+  }
+  else {player.tell(`This ${block.id} already has some (${reinforcedBlocks[key]}) reinforcements.`);}
+});
+
+// --- Right-click to reinforce (with iron)---
+BlockEvents.rightClicked(event => {
+  let block = event.block;
+  let player = event.player;
+  let heldItem = player.mainHandItem;
+  const upgradeLevel = 50;
+
+  if (heldItem.id !== 'kubejs:iron_reinforcement') return;
+  if (block.id === 'minecraft:air' || block.id === 'minecraft:water') return;
+
+  let key = blockKey(block);
+
+  if (reinforcedBlocks[key] < upgradeLevel || !reinforcedBlocks[key]) {
+    reinforcedBlocks[key] = upgradeLevel;
+    player.tell(`This ${block.id} now has iron (${reinforcedBlocks[key]}) reinforcements.`);
+    if (!player.isCreative()) heldItem.count = heldItem.count -1;
+  }
+  else {player.tell(`This ${block.id} already has some (${reinforcedBlocks[key]}) reinforcements.`);}
 });
