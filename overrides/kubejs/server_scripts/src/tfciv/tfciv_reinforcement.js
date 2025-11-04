@@ -43,7 +43,9 @@ ServerTickEvents.START_SERVER_TICK(event => {
 // --- Right-click to reinforce ---
 BlockEvents.rightClicked(event => {
   let { block, player, item } = event;
+  
   if (!item || item.id !== 'kubejs:copper_mantle_ore') return;
+  if (block.id === 'minecraft:air' || block.id === 'minecraft:water') return;
 
   let key = blockKey(block);
   reinforcedBlocks[key] = (reinforcedBlocks[key] || 0) + 1;
