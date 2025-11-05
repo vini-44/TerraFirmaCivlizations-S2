@@ -50,11 +50,24 @@ let counter = 1;
 // --- Breaking blocks with reinforcement check ---
 BlockEvents.broken(event => {
   let { block, player } = event;
-
   let key = blockKey(block);
 
   if (!reinforcedBlocks[key] && reinforcedBlocks[key] !== 0) return;
-
+  
+  if (!event.player) {
+    
+    reinforcedBlocks[key] = reinforcedBlocks[key]-5;
+    
+    if (reinforcedBlocks[key] > 0) {
+      console.log('Reinforced block damaged by explosion');
+      event.cancel();
+    } else {
+      delete reinforcedBlocks[key]; // remove from tracking
+      console.log('Block destroyed by explosion.');
+      return;
+    }
+  }
+  
   //if creative, skip reinforcement but give a warning.
   if (player.isCreative()) {
     player.tell(`This block was reinforced! (${reinforcedBlocks[key]} reinforcements destroyed)`)
