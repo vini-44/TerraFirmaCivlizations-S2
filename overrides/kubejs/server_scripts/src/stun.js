@@ -6,7 +6,6 @@ EntityEvents.hurt((event) => {
 		event.source.getType() == 'createbigcannons.cannon_projectile'
 	) {
 		event.entity.potionEffects.add(
-			'scguns:deafened',
 			Math.floor(
 				event.damage +
 					20 * (1 + event.entity.maxHealth / event.entity.health) +

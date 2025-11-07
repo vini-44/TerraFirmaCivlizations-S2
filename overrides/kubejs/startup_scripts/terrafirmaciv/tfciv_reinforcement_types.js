@@ -10,31 +10,52 @@ global.reinforcements =
             "particle": 'minecraft:dust 0.15 0.15 0.15 1.0',
             "name": "Damaged"
         },
+        "wood":
+        {
+            "item":"kubejs:wood_reinforcement",
+            "value": 10,
+            "particle": "minecraft:dust 0.6, 0.4, 0.2",
+            "name": "Wood"
+        },
         "stone":
         {
             "item":"kubejs:stone_reinforcement",
-            "value": 10,
+            "value": 25,
             "particle": "minecraft:dust 0.5 0.5 0.5 1.0",
             "name": "Stone"
         },
         "copper":
         {
             "item":"kubejs:copper_reinforcement",
-            "value": 25,
+            "value": 50,
             "particle": "minecraft:dust 0.9 0.5 0.2 1.0",
             "name": "Copper"
         },
         "iron":
         {
             "item":"kubejs:iron_reinforcement",
-            "value": 50,
+            "value": 100,
             "particle": "minecraft:dust 0.85 0.9 1 1.0",
             "name": "Iron"
+        },
+        "steel":
+        {
+            "item":"kubejs:steel_reinforcement",
+            "value": 200,
+            "particle": "minecraft:dust 0.3, 0.5, 0.7 1.0",
+            "name": "Steel"
+        },
+        "titanium":
+        {
+            "item":"kubejs:titanium_reinforcement",
+            "value": 500,
+            "particle": "minecraft:dust 0, 0, 0 1.0",
+            "name": "Titanium"
         },
         "admin":
         {
             "item":"kubejs:admin_reinforcement",
-            "value": 1000,
+            "value": 10000,
             "particle": "minecraft:dust 1 0 1 1.0",
             "name": "Unbreakable"
         }

@@ -1,5 +1,3 @@
-// --- kubejs/server_scripts/reinforcement_system.js ---
-
 //So the data is now stored in the server.persistentData that is saved and loaded automatically
 //Also to make things faster (especiall sending only nearby data to players)
 //we are storing the reinforcement numbers by chunk
@@ -109,7 +107,7 @@ ServerEvents.tick(event => {
       if (count>0)
       {
         player.sendData('reinforcement_data', {chunks:data});
-        console.log(`sent ${count} reinforced chunk data`);
+        //console.log(`sent ${count} reinforced chunk data`);
       }
 
     });
@@ -149,6 +147,8 @@ BlockEvents.broken(event => {
   if (reinforce_value == global.reinforcements.values.admin.value)
   {
     player.tell(`This block is unbreakable, has admin reinforcement!`);
+    killGhost(event, block);
+    event.cancel()
   }
   
   reinforce_value -= 1;
@@ -165,6 +165,14 @@ BlockEvents.broken(event => {
     player.tell(`This block had no reinforcements left and has broken.`);
   }
 });
+
+function killGhost(event, block){
+  //this is a fix for ghostblocks appearing when other break reinforced blocks.
+
+  event.server.players.forEach(player => {
+    player.sendData( 'killGhost', block, block.id);
+  });
+}
 
 const nonReinforcableBlocks = [
   'minecraft:air',

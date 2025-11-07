@@ -60,22 +60,22 @@ ClientEvents.tick(event => {
     reinforcedBlocks.forEach( obj => {
       //if ( obj.dim != event.player.level.dimension ) return;
 
-        let reinforce_type = global.reinforcements.getByValue(obj.value)
-        blockDirections.forEach(dir => {
-            let neighbor = event.player.level.getBlock(obj.x + dir.x, obj.y + dir.y, obj.z + dir.z);
-            if (neighbor.id === 'minecraft:air') {
-                let pos = {
-                  x: obj.x + 0.5 + dir.x * 0.55,
-                  y: obj.y + 0.5 + dir.y * 0.55,
-                  z: obj.z + 0.5 + dir.z * 0.55
-                }
-                pos[dir.diru] += Math.random() - 0.5;
-                pos[dir.dirv] += Math.random() - 0.5;
-                event.player.level.addParticle(reinforce_type.particle,
-                    pos.x, pos.y, pos.z,
-                    dir.x, dir.y, dir.z);
-            }
-        });
+      let reinforce_type = global.reinforcements.getByValue(obj.value)
+      blockDirections.forEach(dir => {
+          let neighbor = event.player.level.getBlock(obj.x + dir.x, obj.y + dir.y, obj.z + dir.z);
+          if (neighbor.id === 'minecraft:air') {
+              let pos = {
+                x: obj.x + 0.5 + dir.x * 0.55,
+                y: obj.y + 0.5 + dir.y * 0.55,
+                z: obj.z + 0.5 + dir.z * 0.55
+              }
+              pos[dir.diru] += Math.random() - 0.5;
+              pos[dir.dirv] += Math.random() - 0.5;
+              event.player.level.addParticle(reinforce_type.particle,
+                  pos.x, pos.y, pos.z,
+                  dir.x, dir.y, dir.z);
+          }
+      });
     })
   }
 })
