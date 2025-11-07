@@ -1,168 +1,202 @@
 // --- kubejs/server_scripts/reinforcement_system.js ---
 
-// Path to JSON file
-const filePath = 'kubejs/data/reinforcements.json';
-let reinforcedBlocks = {};
+//So the data is now stored in the server.persistentData that is saved and loaded automatically
+//Also to make things faster (especiall sending only nearby data to players)
+//we are storing the reinforcement numbers by chunk
+//in the chunk key there is x,z,dim parts (x and z are divided by 16 relative to block coords)
+//in the chunk block key there is x,y,z (x and z is only inside the chunk so 0-15, y is full corrd)
+//so you need both of them to get the full pos of a block
+//but overall it is much smaller to store and transmit
 
-// Helper: unique key for each block
-function blockKey(block) {
-  return `${block.x},${block.y},${block.z},${block.level.dimension}`;
+// chunk key creation
+function getChunkKey(block) {
+  return `${Math.floor(block.x/16)},${Math.floor(block.z/16)},${block.level.dimension}`;
 }
 
-// --- Load data reliably ---
-ServerEvents.highPriorityData(event => {
-  reinforcedBlocks = JsonIO.read(filePath) || {};
-  
-  if (Object.keys(reinforcedBlocks).length === 0) {
-    // File didn't exist or was empty, create new
-    reinforcedBlocks = {};
-    JsonIO.write(filePath, reinforcedBlocks);
-    console.log('[KubeJS] Created new reinforcement data file.');
-  } else {
-    console.log(`[KubeJS] Loaded ${Object.keys(reinforcedBlocks).length} reinforced blocks.`);
+// chunk block key creation
+function getChunkBlockKey(block) {
+  let x = block.x - Math.floor(block.x/16) * 16;
+  let z = block.z - Math.floor(block.z/16) * 16;
+  return `${x},${block.y},${z}`;
+}
+
+//some helper functions to easily get, set and remove reinformement data
+
+function getReinforceValue(server, block)
+{
+  const data = server.persistentData;
+  if (data.reinforceData)
+  {
+    let chunkKey = getChunkKey(block);
+    if ( data.reinforceData[chunkKey] )
+    {
+      return data.reinforceData[chunkKey][getChunkBlockKey(block)];
+    }
   }
-});
+}
 
-// --- Save data on world unload ---
-ServerEvents.unloaded(event => {
-  JsonIO.write(filePath, reinforcedBlocks);
-  console.log(`[KubeJS] Saved ${Object.keys(reinforcedBlocks).length} reinforced blocks on world unload.`);
-});
 
-// --- Tick-based autosave every 5 minutes (6000 ticks) ---
-let tickCounter = 0;
+function setReinforceValue(server, block, value)
+{
+  const data = server.persistentData;
+
+  if ( !data.reinforceData ) data.reinforceData = {};
+
+  let chunkKey = getChunkKey(block);
+  if ( !data.reinforceData[chunkKey] ) data.reinforceData[chunkKey] = {};
+
+  data.reinforceData[chunkKey][getChunkBlockKey(block)] = value;
+}
+
+function removeReinforceValue(server, block)
+{
+  const data = server.persistentData;
+  if ( !data.reinforceData ) return;
+
+  let chunkKey = getChunkKey(block);
+  if ( !data.reinforceData[chunkKey] ) return;
+
+  delete data.reinforceData[chunkKey][getChunkBlockKey(block)];
+}
+
+//get chunk keys near the player
+function getNearbyChunksKeys(player)
+{
+  let centerx = Math.floor(player.x/16);
+  let centerz = Math.floor(player.z/16);
+  let chunkKeys = [];
+  const radius = 1;
+  for( let x = -radius; x <= radius; ++x)
+  for( let z = -radius; z <= radius; ++z)
+  {
+    chunkKeys.push(`${centerx+x},${centerz+z},${player.level.dimension}`);
+  }
+  return chunkKeys;
+}
+
+// --- Tick-based events ---
+let reinforcementCounter = 0;
+const reinforcementInterval = 20; // 1 sec
+
 ServerEvents.tick(event => {
-  tickCounter++;
-  if (tickCounter >= 6000) { // 5 min
-    JsonIO.write(filePath, reinforcedBlocks);
-    console.log(`[KubeJS] Autosaved ${Object.keys(reinforcedBlocks).length} reinforced blocks.`);
-    tickCounter = 0;
+  reinforcementCounter++;
 
-    reinforcedBlocks = {};
-    reinforcedBlocks = JsonIO.read(filePath) || {};
-    console.log(`[KubeJS] Loaded ${Object.keys(reinforcedBlocks).length} reinforced blocks.`);
+  if (reinforcementCounter >= reinforcementInterval) { 
+    reinforcementCounter = 0;
+
+    //periodically send reinforce data to every player who needs it
+
+    let reinforceData = event.server.getPersistentData().reinforceData || {};
+
+    event.server.players.forEach(player => {
+      //only send data to players who should see it
+      if ( player.headArmorItem != global.reinforcements.goggle_item ) return;
+      
+      let chunkKeys = getNearbyChunksKeys(player);
+      //console.log(`nearby chunks: ${chunkKeys}`);
+
+      let count = 0;
+      let data = {}
+      for( let key of chunkKeys )
+      {
+        if (reinforceData[key])
+        {
+          data[key] = reinforceData[key];
+          count++;
+        }
+      }
+
+      if (count>0)
+      {
+        player.sendData('reinforcement_data', {chunks:data});
+        console.log(`sent ${count} reinforced chunk data`);
+      }
+
+    });
   }
 });
 
-
-let counter = 1;
 
 // --- Breaking blocks with reinforcement check ---
 BlockEvents.broken(event => {
-  let { block, player } = event;
+  let { server, block, player } = event;
 
-  let key = blockKey(block);
-
-  if (!reinforcedBlocks[key] && reinforcedBlocks[key] !== 0) return;
-
+  let reinforce_value = getReinforceValue(server,block);
+  if (reinforce_value === undefined) return;
+  
+  if (!player) {
+    
+    reinforce_value -= 5;
+    
+    if (reinforce_value > 0) {
+      console.log('Reinforced block damaged by explosion');
+      setReinforceValue(server,block,reinforce_value);
+      event.cancel();
+    } else {
+      removeReinforceValue(server,block);
+      console.log('Block destroyed by explosion.');
+    }
+    return;
+  }
+  
   //if creative, skip reinforcement but give a warning.
   if (player.isCreative()) {
-    player.tell(`This block was reinforced! (${reinforcedBlocks[key]} reinforcements destroyed)`)
-    delete reinforcedBlocks[key]; 
+    player.tell(`This block was reinforced! (${reinforce_value} reinforcements destroyed)`)
+    removeReinforceValue(server,block);
     return;
   }
+
+  if (reinforce_value == global.reinforcements.values.admin.value)
+  {
+    player.tell(`This block is unbreakable, has admin reinforcement!`);
+  }
   
-  if (reinforcedBlocks[key] > 0) {
-    // Block still reinforced, reduce reinforcement and cancel break
+  reinforce_value -= 1;
 
-
-    reinforcedBlocks[key] = reinforcedBlocks[key]-0.5;
-    //i hate this but we have to :(
-    if(counter == 0) {
-      player.tell(`This block is still reinforced! (${reinforcedBlocks[key]} left)`);
-      counter = counter + 1;
-    } 
-    else {counter = 0}
-    
+  if (reinforce_value > 0)
+  {
+    setReinforceValue(server,block,reinforce_value);
+    player.tell(`This block is still reinforced! (${reinforce_value} left)`);
     event.cancel()
-    return;
   } 
-  else {
-    // Reinforcements already depleted, allow block to break
-    delete reinforcedBlocks[key]; // remove from tracking
+  else
+  {
+    removeReinforceValue(server,block);
     player.tell(`This block had no reinforcements left and has broken.`);
-    return;
   }
 });
 
-// --- Right-click to reinforce (for admin)---
+const nonReinforcableBlocks = [
+  'minecraft:air',
+  'minecraft:water',
+  'tfc:salt_water',
+  'tfc:spring_water'
+]
+
+function canBlockBeReinforced(blockid)
+{
+  return nonReinforcableBlocks.indexOf(blockid) == -1;
+}
+
+// --- Right-click to reinforce ---
 BlockEvents.rightClicked(event => {
-  let block = event.block;
-  let player = event.player;
+  let { server, block, player } = event;
   let heldItem = player.mainHandItem;
-  const upgradeLevel = 9999999;
+
+  let reinforce_type = global.reinforcements.getByItem(heldItem.id);
+  if ( !reinforce_type ) return;
+  if ( !canBlockBeReinforced(block.id) ) return;
   
-  if (heldItem.id !== 'kubejs:admin_reinforcement') return;
-  if (block.id === 'minecraft:air' || block.id === 'minecraft:water') return;
+  let reinforce_value = getReinforceValue(server,block) || 0;
 
-  let key = blockKey(block);
-
-  if (reinforcedBlocks[key] < upgradeLevel || !reinforcedBlocks[key]) {
-    reinforcedBlocks[key] = upgradeLevel;
-    player.tell(`This ${block.id} now has admin (${reinforcedBlocks[key]}) reinforcements.`);
+  if (reinforce_value < reinforce_type.value) {
+    setReinforceValue(server,block,reinforce_type.value)
+    player.tell(`This block now has ${reinforce_type.name} (${reinforce_type.value}) reinforcements.`);
     if (!player.isCreative()) heldItem.count = heldItem.count -1;
   }
-  else {player.tell(`This ${block.id} already has some (${reinforcedBlocks[key]}) reinforcements.`);}
-});
-
-  
-// --- Right-click to reinforce (with stone)---
-BlockEvents.rightClicked(event => {
-  let block = event.block;
-  let player = event.player;
-  let heldItem = player.mainHandItem;
-  const upgradeLevel = 10;
-  
-  if (heldItem.id !== 'kubejs:stone_reinforcement') return;
-  if (block.id === 'minecraft:air' || block.id === 'minecraft:water') return;
-
-  let key = blockKey(block);
-
-  if (reinforcedBlocks[key] < upgradeLevel || !reinforcedBlocks[key]) {
-    reinforcedBlocks[key] = upgradeLevel;
-    player.tell(`This ${block.id} now has stone (${reinforcedBlocks[key]}) reinforcements.`);
-    if (!player.isCreative()) heldItem.count = heldItem.count -1;
+  else
+  {
+    let block_reinfocement_type = global.reinforcements.getByValue(reinforce_value);
+    player.tell(`This block already has ${block_reinfocement_type.name} (${block_reinfocement_type.value}) reinforcements.`);
   }
-  else {player.tell(`This ${block.id} already has some (${reinforcedBlocks[key]}) reinforcements.`);}
-});
-
-
-// --- Right-click to reinforce (with copper)---
-BlockEvents.rightClicked(event => {
-  let block = event.block;
-  let player = event.player;
-  let heldItem = player.mainHandItem;
-  const upgradeLevel = 25;
-  
-  if (heldItem.id !== 'kubejs:copper_reinforcement') return;
-  if (block.id === 'minecraft:air' || block.id === 'minecraft:water') return;
-
-  let key = blockKey(block);
-
-  if (reinforcedBlocks[key] < upgradeLevel || !reinforcedBlocks[key]) {
-    reinforcedBlocks[key] = upgradeLevel;
-    player.tell(`This ${block.id} now has copper (${reinforcedBlocks[key]}) reinforcements.`);
-    if (!player.isCreative()) heldItem.count = heldItem.count -1;
-  }
-  else {player.tell(`This ${block.id} already has some (${reinforcedBlocks[key]}) reinforcements.`);}
-});
-
-// --- Right-click to reinforce (with iron)---
-BlockEvents.rightClicked(event => {
-  let block = event.block;
-  let player = event.player;
-  let heldItem = player.mainHandItem;
-  const upgradeLevel = 50;
-
-  if (heldItem.id !== 'kubejs:iron_reinforcement') return;
-  if (block.id === 'minecraft:air' || block.id === 'minecraft:water') return;
-
-  let key = blockKey(block);
-
-  if (reinforcedBlocks[key] < upgradeLevel || !reinforcedBlocks[key]) {
-    reinforcedBlocks[key] = upgradeLevel;
-    player.tell(`This ${block.id} now has iron (${reinforcedBlocks[key]}) reinforcements.`);
-    if (!player.isCreative()) heldItem.count = heldItem.count -1;
-  }
-  else {player.tell(`This ${block.id} already has some (${reinforcedBlocks[key]}) reinforcements.`);}
 });
