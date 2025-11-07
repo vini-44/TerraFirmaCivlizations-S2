@@ -170,7 +170,7 @@ function killGhost(event, block){
   //this is a fix for ghostblocks appearing when other break reinforced blocks.
 
   event.server.players.forEach(player => {
-    player.sendData( 'killGhost', block, block.id);
+    player.sendData( 'killGhost', {ghost: block});
   });
 }
 
