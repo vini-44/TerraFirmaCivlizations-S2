@@ -1,3 +1,5 @@
+// --- kubejs/server_scripts/reinforcement_system.js ---
+
 //So the data is now stored in the server.persistentData that is saved and loaded automatically
 //Also to make things faster (especiall sending only nearby data to players)
 //we are storing the reinforcement numbers by chunk
