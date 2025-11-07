@@ -1,10 +1,9 @@
 NetworkEvents.dataReceived('killGhost', event => {
-  event.player.tell('Received ghost block:');
-  reinforcedBlocks = []
-  let ghost = event.data.ghost;
+  let ghostid = event.data.blockId;
+  let ghost = event.player.level.getBlock(event.data.ghostX, event.data.ghostY, event.data.ghostZ);
 
-  event.player.tell('Received ghost block:');
-  event.player.tell('Received ghost block: ' + ghost.id);
+  //console.log('Ghost block is ' + ghost.pos);
+  //console.log('Ghost block id is ' + ghostid);
 
-  //setblock( ghost, ghost.id );
+  ghost.set(ghost.id);
 });

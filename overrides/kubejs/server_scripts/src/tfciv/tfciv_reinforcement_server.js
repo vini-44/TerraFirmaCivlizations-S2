@@ -114,6 +114,37 @@ ServerEvents.tick(event => {
   }
 });
 
+//explosion handling
+LevelEvents.afterExplosion(event => {
+  let { server } = event;
+  for( let block of event.affectedBlocks)
+  {
+    let reinforce_value = getReinforceValue(server,block);
+
+    //console.log(`Explosion affected block ${block.pos} of ${block.id} with reinforcement value ${reinforce_value}`);
+
+    if (reinforce_value == global.reinforcements.values.admin.value)
+    {
+      event.removeAffectedBlock(block);
+      //console.log('Admin reinforced block resisted explosion at ' + block.pos);
+      killGhost(event, block);
+    }
+
+    reinforce_value -= 5; //explosions do 5 damage
+    if (reinforce_value > 0 && reinforce_value != global.reinforcements.values.admin.value - 5)
+    {
+      setReinforceValue(server,block,reinforce_value);
+      //console.log(`Reinforced block damaged! (${reinforce_value} left)`);
+      event.removeAffectedBlock(block);
+      killGhost(event, block);
+    } 
+    else if (reinforce_value != global.reinforcements.values.admin.value - 5)
+    {
+      removeReinforceValue(server,block);
+      //console.log(`Reinforced Block destroyed by explosion.`);
+    }
+  }
+})
 
 // --- Breaking blocks with reinforcement check ---
 BlockEvents.broken(event => {
@@ -121,26 +152,13 @@ BlockEvents.broken(event => {
 
   let reinforce_value = getReinforceValue(server,block);
   if (reinforce_value === undefined) return;
-  
-  if (!player) {
-    
-    reinforce_value -= 5;
-    
-    if (reinforce_value > 0) {
-      console.log('Reinforced block damaged by explosion');
-      setReinforceValue(server,block,reinforce_value);
-      event.cancel();
-    } else {
-      removeReinforceValue(server,block);
-      console.log('Block destroyed by explosion.');
-    }
-    return;
-  }
+
   
   //if creative, skip reinforcement but give a warning.
   if (player.isCreative()) {
     player.tell(`This block was reinforced! (${reinforce_value} reinforcements destroyed)`)
     removeReinforceValue(server,block);
+    killGhost(event, block);
     return;
   }
 
@@ -157,6 +175,7 @@ BlockEvents.broken(event => {
   {
     setReinforceValue(server,block,reinforce_value);
     player.tell(`This block is still reinforced! (${reinforce_value} left)`);
+    killGhost(event, block);
     event.cancel()
   } 
   else
@@ -168,9 +187,12 @@ BlockEvents.broken(event => {
 
 function killGhost(event, block){
   //this is a fix for ghostblocks appearing when other break reinforced blocks.
-
+  let blockX = block.pos.x;
+  let blockY= block.pos.y;
+  let blockZ= block.pos.z;
+  console.log('Sending killGhost for ' + block.id + ' at ' + blockX + ',' + blockY + ',' + blockZ + ' to players');
   event.server.players.forEach(player => {
-    player.sendData( 'killGhost', {ghost: block});
+    player.sendData( 'killGhost', {ghostX: blockX, ghostY: blockY, ghostZ: blockZ, blockId: block.id});
   });
 }
 
