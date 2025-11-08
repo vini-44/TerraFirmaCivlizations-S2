@@ -111,5 +111,5 @@ global.reinforcements =
             }
         }
     },
-    goggle_item: "minecraft:iron_helmet"
+    goggle_item: "create:goggles"
 };

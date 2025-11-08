@@ -243,6 +243,12 @@ function killGhost(event, block){
   });
 }
 
+function reinforceBreakEffects(player,block,newvalue)
+{
+  player.level.playSound(null,block.x,block.y,block.z,"minecraft:block.gilded_blackstone.fall","master",1,1)
+  player.sendData( 'reinforce_break', {x: block.x, y: block.y, z: block.z,value:newvalue});
+}
+
 const nonReinforcableBlocks = [
   'minecraft:air',
   'minecraft:water',
