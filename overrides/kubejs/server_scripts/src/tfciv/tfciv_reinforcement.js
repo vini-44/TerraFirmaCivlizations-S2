@@ -8,6 +8,9 @@
 //so you need both of them to get the full pos of a block
 //but overall it is much smaller to store and transmit
 
+const DEBUG = true;
+const reinforceVersions = {}
+
 // chunk key creation
 function getChunkKey(block) {
   return `${Math.floor(block.x/16)},${Math.floor(block.z/16)},${block.level.dimension}`;
@@ -46,6 +49,7 @@ function setReinforceValue(server, block, value)
   if ( !data.reinforceData[chunkKey] ) data.reinforceData[chunkKey] = {};
 
   data.reinforceData[chunkKey][getChunkBlockKey(block)] = value;
+  reinforceVersions[chunkKey] = new Date().getTime();
 }
 
 function removeReinforceValue(server, block)
@@ -57,6 +61,7 @@ function removeReinforceValue(server, block)
   if ( !data.reinforceData[chunkKey] ) return;
 
   delete data.reinforceData[chunkKey][getChunkBlockKey(block)];
+  reinforceVersions[chunkKey] = new Date().getTime();
 }
 
 //get chunk keys near the player
@@ -74,10 +79,53 @@ function getNearbyChunksKeys(player)
   return chunkKeys;
 }
 
+let playerChunks = {};
+
+function checkPlayerChunks(server,player)
+{
+  let chunksToSend = {};
+  let count = 0;
+  const reinforceData = server.persistentData.reinforceData;
+
+  if (!playerChunks[player.UUID]) playerChunks[player.UUID] = {}
+  let chunks = playerChunks[player.UUID];
+
+  let chunkKeys = getNearbyChunksKeys(player);
+  for( let key of chunkKeys )
+  {
+    //if there is data for this chunk
+    if (reinforceData[key])
+    {
+      //see what version this player has already
+      let lastVersion = chunks[key] || -1;
+      //see what is the newest version on server
+      let currentVersion = reinforceVersions[key] || 1;
+      //console.log(`chunk:${key} version:${lastVersion} current:${currentVersion}`);
+      //if there is newer send it
+      if (currentVersion > lastVersion)
+      {
+        //save info for the player what version of this chunk it has
+        chunks[key] = currentVersion;
+        chunksToSend[key] = reinforceData[key]
+        count++;
+      }
+    }
+  }
+
+  if (count>0)
+  {
+    player.sendData('reinforcement_data', {chunks:chunksToSend});
+    if (DEBUG) console.log(`sent ${count} reinforced chunk data`);
+  }
+}
+
+PlayerEvents.loggedOut(event => {
+  delete playerChunks[event.player.UUID];
+})
+
 // --- Tick-based events ---
 let reinforcementCounter = 0;
 const reinforcementInterval = 20; // 1 sec
-
 ServerEvents.tick(event => {
   reinforcementCounter++;
 
@@ -85,70 +133,63 @@ ServerEvents.tick(event => {
     reinforcementCounter = 0;
 
     //periodically send reinforce data to every player who needs it
-
-    let reinforceData = event.server.getPersistentData().reinforceData || {};
-
-    event.server.players.forEach(player => {
-      //only send data to players who should see it
-      if ( player.headArmorItem != global.reinforcements.goggle_item ) return;
-      
-      let chunkKeys = getNearbyChunksKeys(player);
-      //console.log(`nearby chunks: ${chunkKeys}`);
-
-      let count = 0;
-      let data = {}
-      for( let key of chunkKeys )
-      {
-        if (reinforceData[key])
-        {
-          data[key] = reinforceData[key];
-          count++;
-        }
-      }
-
-      if (count>0)
-      {
-        player.sendData('reinforcement_data', {chunks:data});
-        console.log(`sent ${count} reinforced chunk data`);
-      }
-
+    event.server.players.forEach(player => {     
+      let chunks = checkPlayerChunks(event.server,player);
     });
   }
 });
 
+//explosion handling
+LevelEvents.afterExplosion(event => {
+  let { server } = event;
+  for( let block of event.affectedBlocks)
+  {
+    let reinforce_value = getReinforceValue(server,block);
+
+    if (DEBUG) console.log(`Explosion affected block ${block.pos} of ${block.id} with reinforcement value ${reinforce_value}`);
+
+    if (reinforce_value == global.reinforcements.values.admin.value)
+    {
+      event.removeAffectedBlock(block);
+      if (DEBUG) console.log('Admin reinforced block resisted explosion at ' + block.pos);
+      killGhost(event, block);
+    }
+
+    reinforce_value -= 5; //explosions do 5 damage
+    if (reinforce_value > 0 && reinforce_value != global.reinforcements.values.admin.value - 5)
+    {
+      setReinforceValue(server,block,reinforce_value);
+      if (DEBUG) console.log(`Reinforced block damaged! (${reinforce_value} left)`);
+      event.removeAffectedBlock(block);
+      killGhost(event, block);
+    } 
+    else if (reinforce_value != global.reinforcements.values.admin.value - 5)
+    {
+      removeReinforceValue(server,block);
+      if (DEBUG) console.log(`Reinforced Block destroyed by explosion.`);
+    }
+  }
+})
 
 // --- Breaking blocks with reinforcement check ---
 BlockEvents.broken(event => {
   let { server, block, player } = event;
-
+  server.getTickTime
   let reinforce_value = getReinforceValue(server,block);
   if (reinforce_value === undefined) return;
-  
-  if (!player) {
-    
-    reinforce_value -= 5;
-    
-    if (reinforce_value > 0) {
-      console.log('Reinforced block damaged by explosion');
-      setReinforceValue(server,block,reinforce_value);
-      event.cancel();
-    } else {
-      removeReinforceValue(server,block);
-      console.log('Block destroyed by explosion.');
-    }
-    return;
-  }
-  
+
   //if creative, skip reinforcement but give a warning.
   if (player.isCreative()) {
     player.tell(`This block was reinforced! (${reinforce_value} reinforcements destroyed)`)
     removeReinforceValue(server,block);
+    killGhost(event, block);
     return;
   }
 
   if (reinforce_value == global.reinforcements.values.admin.value)
   {
-    player.tell(`This block is unbreakable, has admin reinforcement!`);
+    killGhost(event, block);
+    event.cancel()
   }
   
   reinforce_value -= 1;
@@ -156,15 +197,32 @@ BlockEvents.broken(event => {
   if (reinforce_value > 0)
   {
     setReinforceValue(server,block,reinforce_value);
-    player.tell(`This block is still reinforced! (${reinforce_value} left)`);
+    reinforceBreakEffects(player,block,reinforce_value);
+    killGhost(event, block);
     event.cancel()
   } 
   else
   {
     removeReinforceValue(server,block);
-    player.tell(`This block had no reinforcements left and has broken.`);
   }
 });
+
+function killGhost(event, block){
+  //this is a fix for ghostblocks appearing when other break reinforced blocks.
+  let blockX = block.pos.x;
+  let blockY= block.pos.y;
+  let blockZ= block.pos.z;
+  if (DEBUG) console.log('Sending killGhost for ' + block.id + ' at ' + blockX + ',' + blockY + ',' + blockZ + ' to players');
+  event.server.players.forEach(player => {
+    player.sendData( 'killGhost', {ghostX: blockX, ghostY: blockY, ghostZ: blockZ, blockId: block.id});
+  });
+}
+
+function reinforceBreakEffects(player,block,newvalue)
+{
+  player.level.playSound(null,block.x,block.y,block.z,"minecraft:block.gilded_blackstone.fall","master",1,1)
+  player.sendData( 'reinforce_break', {x: block.x, y: block.y, z: block.z,value:newvalue});
+}
 
 const nonReinforcableBlocks = [
   'minecraft:air',
@@ -193,10 +251,35 @@ BlockEvents.rightClicked(event => {
     setReinforceValue(server,block,reinforce_type.value)
     player.tell(`This block now has ${reinforce_type.name} (${reinforce_type.value}) reinforcements.`);
     if (!player.isCreative()) heldItem.count = heldItem.count -1;
+
+    player.level.playSound(null,block.x,block.y,block.z,reinforce_type.sound,"master",1,1)
+
+    event.server.players.forEach(player => {
+      if (player.distanceToSqr(block) < 32 * 32)
+      {
+        player.sendData( 'block_reinforced', {x: block.x, y: block.y, z: block.z, value:reinforce_type.value});
+      }
+    });
   }
   else
   {
     let block_reinfocement_type = global.reinforcements.getByValue(reinforce_value);
-    player.tell(`This block already has ${block_reinfocement_type.name} (${block_reinfocement_type.value}) reinforcements.`);
+    //player.tell(`This block already has ${block_reinfocement_type.name} (${block_reinfocement_type.value}) reinforcements.`);
   }
 });
+
+//if a falling block spawns at a reinforced location that means that block started falling
+//so we remove the reinforcement
+EntityEvents.spawned("minecraft:falling_block",event => {
+  let block = {x:Math.floor(event.entity.x),y:event.entity.y,z:Math.floor(event.entity.z),level:event.entity.level};
+  if (getReinforceValue(event.server, block))
+  {
+    event.server.players.forEach(player => {
+      if (player.distanceToSqr(event.entity) < 32 * 32)
+      {
+        reinforceBreakEffects(player,block,0);
+      }
+    });
+    removeReinforceValue(event.server,block);
+  }
+})
