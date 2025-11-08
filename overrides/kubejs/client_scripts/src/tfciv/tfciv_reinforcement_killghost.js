@@ -5,5 +5,5 @@ NetworkEvents.dataReceived('killGhost', event => {
   //console.log('Ghost block is ' + ghost.pos);
   //console.log('Ghost block id is ' + ghostid);
 
-  ghost.set(ghost.id);
+  ghost.set(ghostid);
 });
