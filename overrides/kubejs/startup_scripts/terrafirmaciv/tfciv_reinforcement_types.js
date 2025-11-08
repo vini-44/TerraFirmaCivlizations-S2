@@ -13,42 +13,42 @@ global.reinforcements =
         "wood":
         {
             "item":"kubejs:wood_reinforcement",
-            "value": 10,
+            "value": 5,
             "particle": "minecraft:dust 0.6, 0.4, 0.2",
-            "name": "Wood"
+            "name": "Wooden"
         },
         "stone":
         {
             "item":"kubejs:stone_reinforcement",
-            "value": 25,
+            "value": 10,
             "particle": "minecraft:dust 0.5 0.5 0.5 1.0",
             "name": "Stone"
         },
         "copper":
         {
             "item":"kubejs:copper_reinforcement",
-            "value": 50,
+            "value": 25,
             "particle": "minecraft:dust 0.9 0.5 0.2 1.0",
             "name": "Copper"
         },
         "iron":
         {
             "item":"kubejs:iron_reinforcement",
-            "value": 100,
+            "value": 50,
             "particle": "minecraft:dust 0.85 0.9 1 1.0",
             "name": "Iron"
         },
         "steel":
         {
             "item":"kubejs:steel_reinforcement",
-            "value": 200,
+            "value": 100,
             "particle": "minecraft:dust 0.3, 0.5, 0.7 1.0",
             "name": "Steel"
         },
         "titanium":
         {
             "item":"kubejs:titanium_reinforcement",
-            "value": 500,
+            "value": 250,
             "particle": "minecraft:dust 0, 0, 0 1.0",
             "name": "Titanium"
         },
@@ -60,7 +60,7 @@ global.reinforcements =
             "name": "Unbreakable"
         }
     },
-    order: ["weak","stone","copper","iron","admin"],
+    order: ["weak","wood","stone","copper","iron","steel","titanium","admin"],
     getByValue: function(value)
     {
         for(let i=global.reinforcements.order.length-1; i>=0; --i)

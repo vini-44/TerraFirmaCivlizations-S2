@@ -8,6 +8,12 @@
 //so you need both of them to get the full pos of a block
 //but overall it is much smaller to store and transmit
 
+let blockBrokenThisTick = [];
+//block key creation
+function getBlockKey(block) {
+  return `${Math.floor(block.x)},${Math.floor(block.y)},${Math.floor(block.z)},${block.level.dimension}`;
+}
+
 // chunk key creation
 function getChunkKey(block) {
   return `${Math.floor(block.x/16)},${Math.floor(block.z/16)},${block.level.dimension}`;
@@ -80,6 +86,7 @@ const reinforcementInterval = 20; // 1 sec
 
 ServerEvents.tick(event => {
   reinforcementCounter++;
+  blockBrokenThisTick = []; //reset the list of broken blocks each tick
 
   if (reinforcementCounter >= reinforcementInterval) { 
     reinforcementCounter = 0;
@@ -129,6 +136,7 @@ LevelEvents.afterExplosion(event => {
     {
       event.removeAffectedBlock(block);
       //console.log('Admin reinforced block resisted explosion at ' + block.pos);
+      blockBrokenThisTick.push(getBlockKey(block));
       killGhost(event, block);
     }
 
@@ -137,12 +145,14 @@ LevelEvents.afterExplosion(event => {
     {
       setReinforceValue(server,block,reinforce_value);
       //console.log(`Reinforced block damaged! (${reinforce_value} left)`);
-      event.removeAffectedBlock(block);
+      event.removeAffectedBlock(block);    
+      blockBrokenThisTick.push(getBlockKey(block));
       killGhost(event, block);
     } 
     else if (reinforce_value != global.reinforcements.values.admin.value - 5)
     {
       removeReinforceValue(server,block);
+      blockBrokenThisTick.push(getBlockKey(block));
       //console.log(`Reinforced Block destroyed by explosion.`);
     }
   }
@@ -155,12 +165,18 @@ BlockEvents.broken(event => {
   let reinforce_value = getReinforceValue(server,block);
   if (reinforce_value === undefined) return;
 
-  
+  if (blockBrokenThisTick.includes(getBlockKey(block))) {
+    //console.log("stopping double break");
+    killGhost(event, block);
+    event.cancel();
+    return;
+  }
+
   //if creative, skip reinforcement but give a warning.
   if (player.isCreative()) {
     player.tell(`This block was reinforced! (${reinforce_value} reinforcements destroyed)`)
     removeReinforceValue(server,block);
-    killGhost(event, block);
+    blockBrokenThisTick.push(getBlockKey(block));
     return;
   }
 
@@ -168,22 +184,26 @@ BlockEvents.broken(event => {
   {
     player.tell(`This block is unbreakable, has admin reinforcement!`);
     killGhost(event, block);
+    blockBrokenThisTick.push(getBlockKey(block));
     event.cancel()
   }
   
   reinforce_value -= 1;
 
-  if (reinforce_value > 0)
+  if (reinforce_value >= 0)
   {
     setReinforceValue(server,block,reinforce_value);
     player.tell(`This block is still reinforced! (${reinforce_value} left)`);
     killGhost(event, block);
+    blockBrokenThisTick.push(getBlockKey(block));
     event.cancel()
   } 
   else
   {
     removeReinforceValue(server,block);
     player.tell(`This block had no reinforcements left and has broken.`);
+    blockBrokenThisTick.push(getBlockKey(block));
+    return;
   }
 });
 
@@ -216,6 +236,11 @@ BlockEvents.rightClicked(event => {
   let heldItem = player.mainHandItem;
 
   let reinforce_type = global.reinforcements.getByItem(heldItem.id);
+  if ( blockBrokenThisTick.includes(getBlockKey(block))) {
+    //console.log("stopping double reinforce");
+    event.cancel();
+    return;
+  }
   if ( !reinforce_type ) return;
   if ( !canBlockBeReinforced(block.id) ) return;
   
@@ -225,10 +250,12 @@ BlockEvents.rightClicked(event => {
     setReinforceValue(server,block,reinforce_type.value)
     player.tell(`This block now has ${reinforce_type.name} (${reinforce_type.value}) reinforcements.`);
     if (!player.isCreative()) heldItem.count = heldItem.count -1;
+    blockBrokenThisTick.push(getBlockKey(block));
   }
   else
   {
     let block_reinfocement_type = global.reinforcements.getByValue(reinforce_value);
     player.tell(`This block already has ${block_reinfocement_type.name} (${block_reinfocement_type.value}) reinforcements.`);
+    blockBrokenThisTick.push(getBlockKey(block));
   }
 });
