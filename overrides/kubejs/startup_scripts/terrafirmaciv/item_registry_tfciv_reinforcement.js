@@ -1,5 +1,5 @@
 StartupEvents.registry('item', (event) => {
-	event.create('wood_reinforcement').displayName('Stone Reinforcement')
+	event.create('wood_reinforcement').displayName('Wooden Reinforcement')
 	event.create('stone_reinforcement').displayName('Stone Reinforcement')
 	event.create('copper_reinforcement').displayName('Copper Reinforcement')
 	event.create('iron_reinforcement').displayName('Iron Reinforcement')

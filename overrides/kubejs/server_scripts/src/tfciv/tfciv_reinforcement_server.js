@@ -11,6 +11,12 @@
 const DEBUG = true;
 const reinforceVersions = {}
 
+let blockBrokenThisTick = [];
+//block key creation
+function getBlockKey(block) {
+  return `${Math.floor(block.x)},${Math.floor(block.y)},${Math.floor(block.z)},${block.level.dimension}`;
+}
+
 // chunk key creation
 function getChunkKey(block) {
   return `${Math.floor(block.x/16)},${Math.floor(block.z/16)},${block.level.dimension}`;
@@ -128,6 +134,7 @@ let reinforcementCounter = 0;
 const reinforcementInterval = 20; // 1 sec
 ServerEvents.tick(event => {
   reinforcementCounter++;
+  blockBrokenThisTick = []; //reset the list of broken blocks each tick
 
   if (reinforcementCounter >= reinforcementInterval) { 
     reinforcementCounter = 0;
@@ -152,21 +159,26 @@ LevelEvents.afterExplosion(event => {
     {
       event.removeAffectedBlock(block);
       if (DEBUG) console.log('Admin reinforced block resisted explosion at ' + block.pos);
+      blockBrokenThisTick.push(getBlockKey(block));
       killGhost(event, block);
-    }
+    } else {
 
-    reinforce_value -= 5; //explosions do 5 damage
-    if (reinforce_value > 0 && reinforce_value != global.reinforcements.values.admin.value - 5)
-    {
-      setReinforceValue(server,block,reinforce_value);
-      if (DEBUG) console.log(`Reinforced block damaged! (${reinforce_value} left)`);
-      event.removeAffectedBlock(block);
-      killGhost(event, block);
-    } 
-    else if (reinforce_value != global.reinforcements.values.admin.value - 5)
-    {
-      removeReinforceValue(server,block);
-      if (DEBUG) console.log(`Reinforced Block destroyed by explosion.`);
+      reinforce_value -= Math.max(15, Math.round(reinforce_value*0.25)); //explosions do 15 or 25% damage
+
+      if (reinforce_value > 0 && reinforce_value != global.reinforcements.values.admin.value - 5)
+      {
+        setReinforceValue(server,block,reinforce_value);
+        if (DEBUG) console.log(`Reinforced block damaged! (${reinforce_value} left)`);
+        event.removeAffectedBlock(block);    
+        blockBrokenThisTick.push(getBlockKey(block));
+        killGhost(event, block);
+      } 
+      else if (reinforce_value != global.reinforcements.values.admin.value - 5)
+      {
+        removeReinforceValue(server,block);
+        blockBrokenThisTick.push(getBlockKey(block));
+        if (DEBUG) console.log(`Reinforced Block destroyed by explosion.`);
+      }
     }
   }
 })
@@ -177,50 +189,59 @@ BlockEvents.broken(event => {
   server.getTickTime
   let reinforce_value = getReinforceValue(server,block);
   if (reinforce_value === undefined) return;
-  
-  if (!player) {
-    
-    reinforce_value -= 5;
-    
-    if (reinforce_value > 0) {
-      console.log('Reinforced block damaged by explosion');
-      setReinforceValue(server,block,reinforce_value);
-      event.cancel();
-    } else {
-      removeReinforceValue(server,block);
-      console.log('Block destroyed by explosion.');
-    }
+
+  if (blockBrokenThisTick.includes(getBlockKey(block))) {
+    //console.log("stopping double break");
+    killGhost(event, block);
+    event.cancel();
     return;
   }
-  
+
   //if creative, skip reinforcement but give a warning.
   if (player.isCreative()) {
     player.tell(`This block was reinforced! (${reinforce_value} reinforcements destroyed)`)
     removeReinforceValue(server,block);
-    killGhost(event, block);
+    blockBrokenThisTick.push(getBlockKey(block));
     return;
   }
 
   if (reinforce_value == global.reinforcements.values.admin.value)
   {
     player.tell(`This block is unbreakable, has admin reinforcement!`);
+    killGhost(event, block);
+    blockBrokenThisTick.push(getBlockKey(block));
+    event.cancel()
   }
   
   reinforce_value -= 1;
 
-  if (reinforce_value > 0)
+  if (reinforce_value >= 0)
   {
     setReinforceValue(server,block,reinforce_value);
     reinforceBreakEffects(player,block,reinforce_value);
     killGhost(event, block);
+    blockBrokenThisTick.push(getBlockKey(block));
     event.cancel()
   } 
   else
   {
     removeReinforceValue(server,block);
     player.tell(`This block had no reinforcements left and has broken.`);
+    blockBrokenThisTick.push(getBlockKey(block));
+    return;
   }
 });
+
+function killGhost(event, block){
+  //this is a fix for ghostblocks appearing when others break reinforced blocks.
+  let blockX = block.pos.x;
+  let blockY = block.pos.y;
+  let blockZ = block.pos.z;
+  //console.log('Sending killGhost for ' + block.id + ' at ' + blockX + ',' + blockY + ',' + blockZ + ' to players');
+  event.server.players.forEach(player => {
+    player.sendData( 'killGhost', {ghostX: blockX, ghostY: blockY, ghostZ: blockZ, blockId: block.id});
+  });
+}
 
 const nonReinforcableBlocks = [
   'minecraft:air',
@@ -240,6 +261,11 @@ BlockEvents.rightClicked(event => {
   let heldItem = player.mainHandItem;
 
   let reinforce_type = global.reinforcements.getByItem(heldItem.id);
+  if ( blockBrokenThisTick.includes(getBlockKey(block))) {
+    //console.log("stopping double reinforce");
+    event.cancel();
+    return;
+  }
   if ( !reinforce_type ) return;
   if ( !canBlockBeReinforced(block.id) ) return;
   
@@ -250,19 +276,20 @@ BlockEvents.rightClicked(event => {
     player.tell(`This block now has ${reinforce_type.name} (${reinforce_type.value}) reinforcements.`);
     if (!player.isCreative()) heldItem.count = heldItem.count -1;
 
-    player.level.playSound(null,block.x,block.y,block.z,reinforce_type.sound,"master",1,1)
-
     event.server.players.forEach(player => {
       if (player.distanceToSqr(block) < 32 * 32)
       {
+        player.level.playSound(null,block.x,block.y,block.z,reinforce_type.sound,"master",1,1)
         player.sendData( 'block_reinforced', {x: block.x, y: block.y, z: block.z, value:reinforce_type.value});
       }
     });
+    blockBrokenThisTick.push(getBlockKey(block));
   }
   else
   {
     let block_reinfocement_type = global.reinforcements.getByValue(reinforce_value);
     //player.tell(`This block already has ${block_reinfocement_type.name} (${block_reinfocement_type.value}) reinforcements.`);
+    blockBrokenThisTick.push(getBlockKey(block));
   }
 });
 
