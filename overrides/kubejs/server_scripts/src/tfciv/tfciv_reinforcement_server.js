@@ -138,22 +138,24 @@ LevelEvents.afterExplosion(event => {
       //console.log('Admin reinforced block resisted explosion at ' + block.pos);
       blockBrokenThisTick.push(getBlockKey(block));
       killGhost(event, block);
-    }
+    } else {
 
-    reinforce_value -= 5; //explosions do 5 damage
-    if (reinforce_value > 0 && reinforce_value != global.reinforcements.values.admin.value - 5)
-    {
-      setReinforceValue(server,block,reinforce_value);
-      //console.log(`Reinforced block damaged! (${reinforce_value} left)`);
-      event.removeAffectedBlock(block);    
-      blockBrokenThisTick.push(getBlockKey(block));
-      killGhost(event, block);
-    } 
-    else if (reinforce_value != global.reinforcements.values.admin.value - 5)
-    {
-      removeReinforceValue(server,block);
-      blockBrokenThisTick.push(getBlockKey(block));
-      //console.log(`Reinforced Block destroyed by explosion.`);
+      reinforce_value -= Math.max(15, Math.round(reinforce_value*0.25)); //explosions do 15 or 25% damage
+
+      if (reinforce_value > 0 && reinforce_value != global.reinforcements.values.admin.value - 5)
+      {
+        setReinforceValue(server,block,reinforce_value);
+        //console.log(`Reinforced block damaged! (${reinforce_value} left)`);
+        event.removeAffectedBlock(block);    
+        blockBrokenThisTick.push(getBlockKey(block));
+        killGhost(event, block);
+      } 
+      else if (reinforce_value != global.reinforcements.values.admin.value - 5)
+      {
+        removeReinforceValue(server,block);
+        blockBrokenThisTick.push(getBlockKey(block));
+        //console.log(`Reinforced Block destroyed by explosion.`);
+      }
     }
   }
 })
