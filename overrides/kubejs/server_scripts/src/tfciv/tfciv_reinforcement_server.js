@@ -177,7 +177,22 @@ BlockEvents.broken(event => {
   server.getTickTime
   let reinforce_value = getReinforceValue(server,block);
   if (reinforce_value === undefined) return;
-
+  
+  if (!player) {
+    
+    reinforce_value -= 5;
+    
+    if (reinforce_value > 0) {
+      console.log('Reinforced block damaged by explosion');
+      setReinforceValue(server,block,reinforce_value);
+      event.cancel();
+    } else {
+      removeReinforceValue(server,block);
+      console.log('Block destroyed by explosion.');
+    }
+    return;
+  }
+  
   //if creative, skip reinforcement but give a warning.
   if (player.isCreative()) {
     player.tell(`This block was reinforced! (${reinforce_value} reinforcements destroyed)`)
@@ -188,8 +203,7 @@ BlockEvents.broken(event => {
 
   if (reinforce_value == global.reinforcements.values.admin.value)
   {
-    killGhost(event, block);
-    event.cancel()
+    player.tell(`This block is unbreakable, has admin reinforcement!`);
   }
   
   reinforce_value -= 1;
@@ -204,25 +218,9 @@ BlockEvents.broken(event => {
   else
   {
     removeReinforceValue(server,block);
+    player.tell(`This block had no reinforcements left and has broken.`);
   }
 });
-
-function killGhost(event, block){
-  //this is a fix for ghostblocks appearing when other break reinforced blocks.
-  let blockX = block.pos.x;
-  let blockY= block.pos.y;
-  let blockZ= block.pos.z;
-  if (DEBUG) console.log('Sending killGhost for ' + block.id + ' at ' + blockX + ',' + blockY + ',' + blockZ + ' to players');
-  event.server.players.forEach(player => {
-    player.sendData( 'killGhost', {ghostX: blockX, ghostY: blockY, ghostZ: blockZ, blockId: block.id});
-  });
-}
-
-function reinforceBreakEffects(player,block,newvalue)
-{
-  player.level.playSound(null,block.x,block.y,block.z,"minecraft:block.gilded_blackstone.fall","master",1,1)
-  player.sendData( 'reinforce_break', {x: block.x, y: block.y, z: block.z,value:newvalue});
-}
 
 const nonReinforcableBlocks = [
   'minecraft:air',

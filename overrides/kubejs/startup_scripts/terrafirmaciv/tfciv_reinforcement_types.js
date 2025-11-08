@@ -18,6 +18,13 @@ global.reinforcements =
             "name": "Wood",
             "sound":"minecraft:block.bamboo_wood.place"
         },
+        "wood":
+        {
+            "item":"kubejs:wood_reinforcement",
+            "value": 10,
+            "particle": "minecraft:dust 0.6, 0.4, 0.2",
+            "name": "Wood"
+        },
         "stone":
         {
             "item":"kubejs:stone_reinforcement",
@@ -57,6 +64,20 @@ global.reinforcements =
             "particle": "minecraft:dust 0, 0, 0 1.0",
             "name": "Titanium",
             "sound": "minecraft:block.metal.place"
+        },
+        "steel":
+        {
+            "item":"kubejs:steel_reinforcement",
+            "value": 200,
+            "particle": "minecraft:dust 0.3, 0.5, 0.7 1.0",
+            "name": "Steel"
+        },
+        "titanium":
+        {
+            "item":"kubejs:titanium_reinforcement",
+            "value": 500,
+            "particle": "minecraft:dust 0, 0, 0 1.0",
+            "name": "Titanium"
         },
         "admin":
         {
