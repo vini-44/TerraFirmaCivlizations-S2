@@ -192,7 +192,7 @@ function killGhost(event, block){
   let blockX = block.pos.x;
   let blockY = block.pos.y;
   let blockZ = block.pos.z;
-  console.log('Sending killGhost for ' + block.id + ' at ' + blockX + ',' + blockY + ',' + blockZ + ' to players');
+  //console.log('Sending killGhost for ' + block.id + ' at ' + blockX + ',' + blockY + ',' + blockZ + ' to players');
   event.server.players.forEach(player => {
     player.sendData( 'killGhost', {ghostX: blockX, ghostY: blockY, ghostZ: blockZ, blockId: block.id});
   });
