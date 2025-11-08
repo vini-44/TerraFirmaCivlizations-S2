@@ -188,10 +188,10 @@ BlockEvents.broken(event => {
 });
 
 function killGhost(event, block){
-  //this is a fix for ghostblocks appearing when other break reinforced blocks.
+  //this is a fix for ghostblocks appearing when others break reinforced blocks.
   let blockX = block.pos.x;
-  let blockY= block.pos.y;
-  let blockZ= block.pos.z;
+  let blockY = block.pos.y;
+  let blockZ = block.pos.z;
   console.log('Sending killGhost for ' + block.id + ' at ' + blockX + ',' + blockY + ',' + blockZ + ' to players');
   event.server.players.forEach(player => {
     player.sendData( 'killGhost', {ghostX: blockX, ghostY: blockY, ghostZ: blockZ, blockId: block.id});
