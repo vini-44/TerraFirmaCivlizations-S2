@@ -112,4 +112,23 @@ global.reinforcements =
         }
     },
     goggle_item: "create:goggles"
+    banned_tags: [
+        "tfc:plants", //all plants (incl. moss, water lily, algae)
+        "tfc:single_block_replaceable", //twigs, fallen leaves
+        "tfc:can_be_snow_piled",  //loose rocks
+        "minecraft:leaves", //all leaves
+        "scguns:fragile", //glass blocks
+        "minecraft:saplings", //all saplings
+        "tfc:snow", //can melt
+        "tfc:support_beams" //can pop
+    ],
+    banned_ids: [
+        "tfc:placed_item",
+        "tfc:log_pile", //disappears when gets empty
+        "tfc:powderkeg", //disappears when explodes
+        "minecraft:air",
+        "minecraft:water",
+        "tfc:salt_water",
+        "tfc:spring_water"
+    ]
 };

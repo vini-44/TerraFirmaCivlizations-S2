@@ -249,16 +249,17 @@ function reinforceBreakEffects(player,block,newvalue)
   player.sendData( 'reinforce_break', {x: block.x, y: block.y, z: block.z,value:newvalue});
 }
 
-const nonReinforcableBlocks = [
-  'minecraft:air',
-  'minecraft:water',
-  'tfc:salt_water',
-  'tfc:spring_water'
-]
-
-function canBlockBeReinforced(blockid)
+function canBlockBeReinforced(block)
 {
-  return nonReinforcableBlocks.indexOf(blockid) == -1;
+  if (global.reinforcements.banned_ids.indexOf(block.id) != -1)
+  {
+    return false;
+  }
+  if (block.getTags().some(r=> global.reinforcements.banned_tags.indexOf(r) != -1))
+  {
+    return false;
+  }
+  return true;
 }
 
 // --- Right-click to reinforce ---
@@ -273,7 +274,11 @@ BlockEvents.rightClicked(event => {
     return;
   }
   if ( !reinforce_type ) return;
-  if ( !canBlockBeReinforced(block.id) ) return;
+  if ( !canBlockBeReinforced(block) )
+  {
+    event.player.tell("This type of block is not reinforable.")
+    return;
+  } 
   
   let reinforce_value = getReinforceValue(server,block) || 0;
 
