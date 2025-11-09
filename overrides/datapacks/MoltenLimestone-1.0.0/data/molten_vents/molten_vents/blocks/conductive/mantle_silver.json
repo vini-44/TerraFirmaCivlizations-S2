@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "kubejs:silver_mantle_ore",
+    "molten_vents:dormant_molten_mantle_silver",
+    "molten_vents:active_molten_mantle_silver"
+  ]
+}

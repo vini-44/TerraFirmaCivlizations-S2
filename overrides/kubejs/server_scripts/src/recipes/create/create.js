@@ -253,11 +253,12 @@ ServerEvents.recipes((e) => {
 		M: 'tfc:brass_mechanisms',
 		S: 'create:brass_casing',
 	});
-
-	e.shaped('create:windmill_bearing', ['STS', 'SMS'], {
+	
+	e.shaped('create:windmill_bearing', ['STS', 'SMS',' D '], {
 		T: 'create:turntable',
 		M: 'create:shaft',
 		S: 'create:andesite_alloy',
+		D: 'tfc:brass_mechanisms',
 	});
 
 	e.shaped('create:mechanical_piston', ['LLL', 'CMC', 'AAA'], {
