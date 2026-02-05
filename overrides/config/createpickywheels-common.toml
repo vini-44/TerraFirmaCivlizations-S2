@@ -2,7 +2,7 @@
 ##Waterwheel requirements
 [waterwheels]
 	#Enable waterwheels modifications?
-	waterwheelsEnabled = false
+	waterwheelsEnabled = true
 	#Only enable pickyness onPlacement, if the water wheel was instead generated during worldgen, it works as default.
 	waterwheelsPickyOnPlacement = false
 	#Penalty for Waterwheels placed on whitelisted but not on preferential biomes [waterwheel_boosted biome tag].
