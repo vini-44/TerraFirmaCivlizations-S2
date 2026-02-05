@@ -277,6 +277,7 @@ BlockEvents.rightClicked(event => {
   if ( !canBlockBeReinforced(block) )
   {
     event.player.tell("This type of block is not reinforable.")
+    blockBrokenThisTick.push(getBlockKey(block));
     return;
   } 
   
