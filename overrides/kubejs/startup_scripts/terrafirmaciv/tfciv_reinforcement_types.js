@@ -13,17 +13,10 @@ global.reinforcements =
         "wood":
         {
             "item":"kubejs:wood_reinforcement",
-            "value": 10,
+            "value": 5,
             "particle": "minecraft:dust 0.6, 0.4, 0.2",
             "name": "Wood",
             "sound":"minecraft:block.bamboo_wood.place"
-        },
-        "wood":
-        {
-            "item":"kubejs:wood_reinforcement",
-            "value": 5,
-            "particle": "minecraft:dust 0.6, 0.4, 0.2",
-            "name": "Wooden"
         },
         "stone":
         {
@@ -53,31 +46,17 @@ global.reinforcements =
         {
             "item":"kubejs:steel_reinforcement",
             "value": 200,
-            "particle": "minecraft:dust 0.3, 0.5, 0.7 1.0",
+            "particle": "minecraft:dust 0.3 0.5 0.7 1.0",
             "name": "Steel",
-            "sound": "minecraft:block.metal.place"
+            "sound": "minecraft:block.chain.place"
         },
         "titanium":
         {
             "item":"kubejs:titanium_reinforcement",
             "value": 500,
-            "particle": "minecraft:dust 0, 0, 0 1.0",
+            "particle": "minecraft:dust 1 1 1 1.0",
             "name": "Titanium",
-            "sound": "minecraft:block.metal.place"
-        },
-        "steel":
-        {
-            "item":"kubejs:steel_reinforcement",
-            "value": 100,
-            "particle": "minecraft:dust 0.3, 0.5, 0.7 1.0",
-            "name": "Steel"
-        },
-        "titanium":
-        {
-            "item":"kubejs:titanium_reinforcement",
-            "value": 250,
-            "particle": "minecraft:dust 0, 0, 0 1.0",
-            "name": "Titanium"
+            "sound": "minecraft:block.anvil.place"
         },
         "admin":
         {
@@ -111,7 +90,7 @@ global.reinforcements =
             }
         }
     },
-    goggle_item: "create:goggles"
+    goggle_item: "create:goggles",
     banned_tags: [
         "tfc:plants", //all plants (incl. moss, water lily, algae)
         "tfc:single_block_replaceable", //twigs, fallen leaves
@@ -120,7 +99,8 @@ global.reinforcements =
         "scguns:fragile", //glass blocks
         "minecraft:saplings", //all saplings
         "tfc:snow", //can melt
-        "tfc:support_beams" //can pop
+        "tfc:support_beams", //can pop
+        "tfc:can_landslide" //most gravity blocks
     ],
     banned_ids: [
         "tfc:placed_item",
