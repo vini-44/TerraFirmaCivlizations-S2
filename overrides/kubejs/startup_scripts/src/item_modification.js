@@ -88,8 +88,4 @@ ItemEvents.modification((event) => {
 			item.setCraftingRemainder('kubejs:empty_fuel_can');
 		});
 	});
-
-	event.modify('scguns:suit_grease', (item) => {
-		item.setCraftingRemainder('kubejs:empty_fuel_can');
-	});
 });

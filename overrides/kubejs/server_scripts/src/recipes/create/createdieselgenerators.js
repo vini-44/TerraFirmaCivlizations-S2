@@ -315,8 +315,7 @@ ServerEvents.recipes((e) => {
         'kubejs:gasoline_fuel_can': 'createdieselgenerators:gasoline',
         'kubejs:biodiesel_fuel_can': 'createdieselgenerators:biodiesel',
         'kubejs:ethanol_fuel_can': 'createdieselgenerators:ethanol',
-        'kubejs:kerosene_fuel_can': 'kubejs:kerosene',
-        'scguns:suit_grease': 'kubejs:lubricant'
+        'kubejs:kerosene_fuel_can': 'kubejs:kerosene'
     }
 
     for (const [result, fluid] of Object.entries(fuel_types_)) {

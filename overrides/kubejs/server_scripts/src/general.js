@@ -83,12 +83,6 @@ BlockEvents.rightClicked((event) => {
 	}
 });
 
-EntityEvents.spawned('item', (e) => {
-	if (e.entity.item.id != 'createbigcannons:empty_machine_gun_round') return;
-	e.server.scheduleInTicks(0, () => {
-		e.entity.item = Item.of('scguns:large_brass_casing');
-	});
-});
 
 const $EffectInstance = Java.loadClass(
 	'net.minecraft.world.effect.MobEffectInstance'

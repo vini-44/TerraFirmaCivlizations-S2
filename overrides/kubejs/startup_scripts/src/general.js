@@ -51,20 +51,7 @@ TFCEvents.birthdays((event) => {
 	event.add('february', 2, 'Albatroz');
 });
 
-const $HitResultType = Java.loadClass(
-	'net.minecraft.world.phys.HitResult$Type'
-);
 
-const $ServerLevel = Java.loadClass('net.minecraft.server.level.ServerLevel');
-const $LivingEntity = Java.loadClass('net.minecraft.world.entity.LivingEntity');
-const $MobEffectInstance = Java.loadClass(
-	'net.minecraft.world.effect.MobEffectInstance'
-);
-
-const $EffectInstance = Java.loadClass('net.minecraft.world.effect.MobEffectInstance');
-const $ChemSprayerProjectile = Java.loadClass(
-    'com.jesz.createdieselgenerators.content.tools.ChemicalSprayerProjectileEntity'
-);
 
 
 ForgeEvents.onEvent(

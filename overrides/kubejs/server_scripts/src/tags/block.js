@@ -17,16 +17,14 @@ ServerEvents.tags('block', (e) => {
 		/tfc:plant\/.*_branch/,
 		'tfc:melon',
 		'tfc:pumpkin',
-        'scguns:enemy_turret'
 	];
 
-	e.add('scguns:fragile', fragile);
 
 	e.add('minecraft:snow_layer_cannot_survive_on', /.*asphalt.*/);
 	e.add('minecraft:snow_layer_cannot_survive_on', /.*rock\/road.*/);
 
 	e.add('firmalife:greenhouse_full_walls', ['create:encased_fluid_pipe']);
-	e.add('createbigcannons:spark_effect_on_impact', [/.*metal\/block.*/, 'tfc:sheet_pile', /.*locometal.*/, 'scguns:enemy_turret', 'create:glass_fluid_pipe'])
+	e.add('createbigcannons:spark_effect_on_impact', [/.*metal\/block.*/, 'tfc:sheet_pile', /.*locometal.*/, 'create:glass_fluid_pipe'])
 
 	e.add('tfc:scraping_surface', /.*rfm.*table/);
 	e.add('tfc:scraping_surface', /.*rfm.*desk/);
@@ -52,7 +50,5 @@ ServerEvents.tags('block', (e) => {
 
     e.add('tfc:needs_colored_steel_tool', ['minecraft:amethyst_block', 'minecraft:amethyst_cluster'])
     e.remove('minecraft:needs_diamond_tool', ['supplementaries:safe'])
-    e.remove('scguns:fragile', ['amethyst_cluster'])
-
     e.add('create:chest_mounted_storage', /(tfc|afc):wood\/.*chest\//)
 });

@@ -180,7 +180,3 @@ const $ChemSprayerProjectile = Java.loadClass(
 const $HitResultType = Java.loadClass(
 	'net.minecraft.world.phys.HitResult$Type'
 );
-
-const $RocketEntity = Java.loadClass(
-	'top.ribs.scguns.entity.projectile.RocketEntity'
-);

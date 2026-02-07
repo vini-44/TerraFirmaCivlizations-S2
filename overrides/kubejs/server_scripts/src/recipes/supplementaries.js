@@ -304,7 +304,6 @@ ServerEvents.recipes((e) => {
 
     e.remove({id: 'amendments:dragon_charge'})
     e.shapeless('amendments:dragon_charge', ['gunpowder', '#minecraft:coals', 'tfc:pure_potassium'])
-});
 
 	TFC_WOOD_TYPES.forEach((type) => {
 		e.shapeless(`2x supplementaries:tfc/sign_post_${type}`, [

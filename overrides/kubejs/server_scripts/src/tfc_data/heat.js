@@ -13,11 +13,6 @@ TFCEvents.data((event) => {
 	event.itemHeat('createbigcannons:nethersteel_ingot', 0.171, 924, 1232);
 	event.itemHeat('createbigcannons:cast_iron_nugget', 1.143, 921, 1228);
 	event.itemHeat('createbigcannons:bronze_scrap', 0.171, 570, 760);
-	event.itemHeat('#kubejs:available_guns', 2.857, 921, 1228);
-	event.itemHeat('scguns:plasgun', 0.5, 921, 1228);
-	event.itemHeat('scguns:laser_musket', 0.1, 921, 1228);
-	event.itemHeat('scguns:waltz_conversion', 0.1, 921, 1228);
-	event.itemHeat('scguns:gauss_rifle', 0.025, 921, 1228);
 
     event.itemHeat('kubejs:plastic', 2.0, 240, 320)
 

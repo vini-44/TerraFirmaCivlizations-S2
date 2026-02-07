@@ -171,13 +171,6 @@ const registryDef = {
 		name: 'Tungsten Carbide Parts',
 		texture: 'thermal:item/lead_gear',
 	},
-    plasma_gun_parts: {
-        name: "Magnetic Accelerator Coil"
-    },
-    unfinished_energy_cell: {
-        name: "Unfinished Plasma Cell",
-        texture: "scguns:item/shock_cell"
-    },
     tungsten_carbide_parts: {
         name: 'Tungsten Carbide Parts',
         texture: 'thermal:item/lead_gear'

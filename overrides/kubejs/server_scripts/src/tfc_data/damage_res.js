@@ -1,10 +1,4 @@
 TFCEvents.data((event) => {
-/*	event.itemDamageResistance('scguns:adrien_helm', 20, 2, 2);
-	event.itemDamageResistance('scguns:adrien_chestplate', 20, 2, 2);
-	event.itemDamageResistance('scguns:adrien_leggings', 20, 2, 2);
-	event.itemDamageResistance('scguns:adrien_boots', 20, 2, 2);
-*/
-
 	//entity daamge res
 
 	/*event.entityDamageResistance('opposing_force:dicer', 80, 80, 80);

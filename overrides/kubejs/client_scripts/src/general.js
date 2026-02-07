@@ -41,9 +41,6 @@ ClientEvents.lang('en_us', (event) => {
 
 	event.renameBlock('gilded_blackstone', 'Radio Components');
 
-	event.renameItem('scguns:stone_gun_barrel', 'Steel Gun Barrel');
-	event.renameItem('scguns:gun_barrel', 'Mangalloy Gun Barrel');
-	event.renameItem('scguns:heavy_gun_barrel', 'Mangalloy Heavy Gun Barrel');
 	event.renameItem('simpleradio:copper_wire', 'Audio Cable');
 
 	event.renameItem(
@@ -170,8 +167,6 @@ ClientEvents.lang('en_us', (event) => {
 	event.add('block.kubejs.atmospheric_condenser', 'Atmospheric Condenser');
 
 	event.add('kubejs.metal_former', 'Metal Forming');
-
-	event.renameItem('scguns:treated_brass_gun_frame', 'Carotine Gun Frame');
 
 	event.renameBlock('refurbished_furniture:door_mat', 'Painted Doormat');
 

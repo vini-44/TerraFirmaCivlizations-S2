@@ -370,34 +370,8 @@ LootJS.modifiers((e) => {
 			);
 	});
 
-	e.addLootTableModifier(/.*/).removeLoot('scguns:pebbles');
 
-	e.addBlockLootModifier('scguns:supply_crate')
-		.removeLoot(/.*/)
-		.addWeightedLoot(
-			[4, 8],
-			[
-				'kubejs:empty_fuel_can',
-				'createaddition:spool',
-				'kubejs:automaton_head',
-				'scguns:small_brass_casing',
-				'scguns:medium_brass_casing',
-				'scguns:compact_advanced_round',
-				'scguns:advanced_round',
-				'createbigcannons:steel_scrap',
-				'kubejs:scrap',
-				Item.of('scguns:depleted_energy_core').withChance(0.25),
-				Item.of('scguns:empty_cell', 4).withChance(0.25),
-			]
-		)
-		.randomChance(0.1)
-		.addLoot('thermal:laser_diode')
-		.modifyLoot('thermal:laser_diode', (item) => {
-			item.setNbt(
-				`{"tfc:forging_bonus":${Math.ceil(Math.random(1) * 4)}}`
-			);
-			return item;
-		});
+	
 	e.addBlockLootModifier('quark:rusty_iron_plate')
 		.removeLoot(/.*/)
 		.addWeightedLoot(
@@ -405,11 +379,10 @@ LootJS.modifiers((e) => {
 			['kubejs:scrap', 'createbigcannons:steel_scrap']
 		)
 		.randomChance(0.1)
-		.addLoot('scguns:standard_bullet');
 
 	e.addLootTableModifier('minecraft:chests/spawn_bonus_chest')
 		.removeLoot(/.*/)
-		.addWeightedLoot([16, 24], ['tfc:torch', 'scguns:basic_poultice'])
+		.addWeightedLoot([16, 24], ['tfc:torch', 'cuffed:bandage'])
 		.addWeightedLoot(1, [
 			'tfc:metal/axe/copper',
 			'tfc:metal/shovel/copper',
@@ -458,75 +431,4 @@ LootJS.modifiers((e) => {
 		[8, 12],
 		['createbigcannons:steel_scrap', 'kubejs:scrap']
 	);
-	cabinet_loot.addAlternativesLoot(
-		LootEntry.of('scguns:defender_pistol', {
-			AmmoCount: 5,
-			Damage: 530,
-		}).when((c) => c.randomChance(0.1)),
-		LootEntry.of('supplementaries:wrench', {
-			Damage: Math.floor(Math.random() * 150),
-		}).when((c) => c.randomChance(0.25))
-	);
-	cabinet_loot.apply((context) => {
-		context.loot.forEach((loot) => {
-			if (loot.id == 'scguns:defender_pistol') {
-				context.addLoot(
-					LootEntry.of(
-						`scguns:compact_advanced_round`,
-						Math.ceil(Math.random() * 5)
-					)
-				);
-				context.addLoot(
-					LootEntry.of(
-						`scguns:small_brass_casing`,
-						Math.ceil(Math.random() * 3)
-					)
-				);
-			}
-		});
-	});
-
-	e.addBlockLootModifier('scguns:enemy_turret')
-		.addWeightedLoot([1, 2], true, ['createaddition:copper_wire'])
-		.addWeightedLoot([6, 9], true, ['createbigcannons:steel_scrap'])
-		.addLoot('tfc:brass_mechanisms')
-		.addWeightedLoot([3, 5], true, ['scguns:small_brass_casing']);
-
-	/*e.addEntityLootModifier('opposing_force:umber_spider').addWeightedLoot(
-		[2, 3],
-		true,
-		['opposing_force:deep_silk']
-	);
-
-	e.addEntityLootModifier('opposing_force:ramble').addWeightedLoot(
-		[5, 7],
-		true,
-		['bone']
-	);*/
-
-	//e.addEntityLootModifier('opposing_force:terror').removeLoot(/.*/);
-
-	//e.addEntityLootModifier('opposing_force:dicer')
-	//	.removeLoot(/.*/)
-	/*	.addAlternativesLoot(
-			LootEntry.of('thermal:laser_diode').when((e) =>
-				e.randomChance(0.5)
-			),
-			LootEntry.of('kubejs:automaton_head').when((e) =>
-				e.randomChance(0.5)
-			),
-			LootEntry.of('scguns:energy_core').when((e) => e.randomChance(0.5))
-		)
-		.addWeightedLoot([2, 5], true, [
-			'kubejs:scrap',
-			'createbigcannons:steel_scrap',
-		])
-		.modifyLoot('thermal:laser_diode', (item) => {
-			item.setNbt(
-				`{"tfc:forging_bonus":${Math.ceil(Math.random(1) * 4)}}`
-			);
-			return item;
-		});*/
-
-	
 });
