@@ -21,7 +21,7 @@
 	#Manual health value [1-100]
 	#Active only when healthMode = MANUAL
 	#Range: 1 ~ 100
-	health = 30
+	health = 50
 
 #Death Penalties
 [penalties]
@@ -33,25 +33,25 @@
 	corpse_cooldown = 0
 	#Thirst effect duration in seconds (0-600)
 	#Range: 0 ~ 600
-	thirst_duration = 10
+	thirst_duration = 0
 	#Exhaustion effect duration in seconds (0-600)
 	#Range: 0 ~ 600
-	exhausted_duration = 10
+	exhausted_duration = 0
 	#Pinned effect duration in seconds (0-600)
 	#Range: 0 ~ 600
-	pinned_duration = 30
+	pinned_duration = 0
 	#Blindness effect duration in seconds (0-600)
 	#Range: 0 ~ 600
-	blindness_duration = 60
+	blindness_duration = 0
 	#Nausea effect duration in seconds (0-600)
 	#Range: 0 ~ 600
 	confusion_duration = 0
 	#Hunger effect duration in seconds (0-600)
 	#Range: 0 ~ 600
-	hunger_duration = 10
+	hunger_duration = 0
 	#Slowness effect duration in seconds (0-600)
 	#Range: 0 ~ 600
-	movement_duration = 600
+	movement_duration = 30
 	#Darkness effect duration in seconds (0-600)
 	#Range: 0 ~ 600
 	darkness_duration = 0
