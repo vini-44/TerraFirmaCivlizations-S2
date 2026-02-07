@@ -13,7 +13,7 @@
   "manifestVersion": 1,
   "name": "TerraFirmaCivilization",
   "version": "1.2.2",
-  "author": "Vini_4444, and contributors",
+  "author": "TFCiv S2 Team",
   "files": [
     {
       "projectID": 1089814,
@@ -672,6 +672,12 @@
     {
       "projectID": 911437,
       "fileID": 6453956,
+      "required": true,
+      "isLocked": false
+    },
+    {
+      "projectID": 1332517,
+      "fileID": 7297964,
       "required": true,
       "isLocked": false
     },
