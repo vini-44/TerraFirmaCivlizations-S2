@@ -278,7 +278,7 @@ ServerEvents.recipes((e) => {
 	});
 
 	//electrical
-	e.shaped('refurbished_furniture:white_lamp', ['ABA', ' C ', '   '], {
+	e.shaped('refurbished_furniture:white_lamp', ['ABA', ' C '], {
 		A: 'minecraft:paper',
 		B: 'createaddition:small_light_connector',
 		C: '#tfc:lumber',
@@ -291,33 +291,14 @@ ServerEvents.recipes((e) => {
 		]);
 	});
 
-	e.shaped(
-		'refurbished_furniture:light_electricity_generator',
-		['ABA', 'BCB', ' B '],
-		{
-			A: 'createaddition:capacitor',
-			B: 'kubejs:metal/sheet/aluminum',
-			C: 'createaddition:gold_spool',
-		}
-	);
-
-	e.shapeless('refurbished_furniture:light_electricity_generator', [
-		'refurbished_furniture:dark_electricity_generator',
-		'#forge:dyes/white',
-	]);
-
-	e.shapeless('refurbished_furniture:dark_electricity_generator', [
-		'refurbished_furniture:light_electricity_generator',
-		'#forge:dyes/black',
-	]);
 
 	e.shaped('refurbished_furniture:recycle_bin', [' A ', ' B ', ' C '], {
-		A: 'kubejs:metal/sheet/aluminum',
+		A: ['kubejs:metal/sheet/aluminum', 'kubejs:plastic'],
 		B: 'create:millstone',
 		C: 'createaddition:connector',
 	});
 	e.shapeless('4x refurbished_furniture:light_ceiling_light', [
-		'kubejs:metal/sheet/aluminum',
+		['kubejs:metal/sheet/aluminum', 'kubejs:plastic'],
 		'createaddition:small_light_connector',
 		'createaddition:small_light_connector',
 		'createaddition:small_light_connector',
@@ -336,7 +317,7 @@ ServerEvents.recipes((e) => {
 
 	e.shapeless('4x refurbished_furniture:light_lightswitch', [
 		'minecraft:redstone',
-		'kubejs:metal/ingot/aluminum',
+		['kubejs:metal/ingot/aluminum', 'kubejs:plastic'],
 		'createaddition:connector',
 	]);
 
@@ -352,7 +333,7 @@ ServerEvents.recipes((e) => {
 
 	e.shapeless('refurbished_furniture:doorbell', [
 		'minecraft:note_block',
-		'kubejs:metal/ingot/aluminum',
+		['kubejs:metal/ingot/aluminum', 'kubejs:plastic'],
 		'createaddition:connector',
 	]);
 
@@ -362,7 +343,7 @@ ServerEvents.recipes((e) => {
 			[' A ', 'ABA', ' A '],
 			{
 				A: 'tfc:wood/lumber/' + type,
-				B: 'kubejs:metal/ingot/aluminum',
+				B: ['kubejs:metal/ingot/aluminum', 'kubejs:plastic'],
 			}
 		);
 
@@ -383,7 +364,7 @@ ServerEvents.recipes((e) => {
 			[' A ', 'ABA', ' A '],
 			{
 				A: 'afc:wood/lumber/' + type,
-				B: 'kubejs:metal/ingot/aluminum',
+				B: ['kubejs:metal/ingot/aluminum', 'kubejs:plastic'],
 			}
 		);
 
@@ -399,7 +380,7 @@ ServerEvents.recipes((e) => {
 	});
 
 	e.shaped('refurbished_furniture:wrench', ['A', 'B'], {
-		A: 'kubejs:metal/ingot/aluminum',
+		A: 'kubejs:metal/rod/aluminum',
 		B: '#forge:rods/wooden',
 	});
 
@@ -407,6 +388,11 @@ ServerEvents.recipes((e) => {
 		A: 'tfc:metal/rod/wrought_iron',
 		B: 'afc:rubber_bar',
 	});
+
+    e.shaped('cfm_wap:light_circuit_breaker', ['ABA'], {
+        A: 'createaddition:copper_spool',
+        B: ['kubejs:metal/sheet/aluminum', 'kubejs:plastic']
+    })
 });
 
 let limit = [];
@@ -419,5 +405,4 @@ limit.forEach((item) => {
 
 ServerEvents.tags('block', (event) => {
 	event.add('kubejs:ceiling_fans', /.*ceiling_fan.*/);
-	event.add('kubejs:electricity_generators', /.*electricity_generator.*/);
 });

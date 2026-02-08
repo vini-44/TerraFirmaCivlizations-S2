@@ -8,7 +8,7 @@
 		doVoiding = true
 		#Determines if this container can transfer items in an inventory
 		doInventoryTransfer = true
-		#This config has a realistic cap of 27 as any higher the slots are added on top of the player slots
+		#Controls the amount of slots this container has
 		#Range: 1 ~ 27
 		slotCount = 4
 		#Item stack max for the type of container
@@ -25,7 +25,7 @@
 		doVoiding = false
 		#Determines if this container can transfer items in an inventory
 		doInventoryTransfer = true
-		#This config has a realistic cap of 27 as any higher the slots are added on top of the player slots
+		#Controls the amount of slots this container has
 		#Range: 1 ~ 27
 		slotCount = 4
 		#Item stack max for the type of container
@@ -42,7 +42,7 @@
 		doVoiding = true
 		#Determines if this container can transfer items in an inventory
 		doInventoryTransfer = false
-		#This config has a realistic cap of 27 as any higher the slots are added on top of the player slots
+		#Controls the amount of slots this container has
 		#Range: 1 ~ 27
 		slotCount = 8
 		#Item stack max for the type of container
@@ -59,7 +59,7 @@
 		doVoiding = false
 		#Determines if this container can transfer items in an inventory
 		doInventoryTransfer = true
-		#This config has a realistic cap of 27 as any higher the slots are added on top of the player slots
+		#Controls the amount of slots this container has
 		#Range: 1 ~ 27
 		slotCount = 1
 		#Item stack max for the type of container
@@ -76,7 +76,7 @@
 		doVoiding = false
 		#Determines if this container can transfer items in an inventory
 		doInventoryTransfer = true
-		#This config has a realistic cap of 27 as any higher the slots are added on top of the player slots
+		#Controls the amount of slots this container has
 		#Range: 1 ~ 27
 		slotCount = 27
 		#Item stack max for the type of container
@@ -93,7 +93,7 @@
 		doVoiding = false
 		#Determines if this container can transfer items in an inventory
 		doInventoryTransfer = false
-		#This config has a realistic cap of 27 as any higher the slots are added on top of the player slots
+		#Controls the amount of slots this container has
 		#Range: 1 ~ 27
 		slotCount = 18
 		#Item stack max for the type of container
@@ -110,7 +110,7 @@
 		doVoiding = false
 		#Determines if this container can transfer items in an inventory
 		doInventoryTransfer = true
-		#This config has a realistic cap of 27 as any higher the slots are added on top of the player slots
+		#Controls the amount of slots this container has
 		#Range: 1 ~ 27
 		slotCount = 8
 		#Item stack max for the type of container
@@ -120,26 +120,175 @@
 		#Allowed Values: TINY, VERY_SMALL, SMALL, NORMAL, LARGE, VERY_LARGE, HUGE
 		allowedSize = "NORMAL"
 
+	["Container Item Config".Quiver]
+		#Determines if this container will automatically pickup items
+		doPickup = true
+		#Determines if this container can void items on pickup
+		doVoiding = false
+		#Determines if this container can transfer items in an inventory
+		doInventoryTransfer = false
+		#Controls the amount of slots this container has
+		#Range: 1 ~ 27
+		slotCount = 8
+		#Item stack max for the type of container
+		#Range: 1 ~ 512
+		slotCap = 32
+		#The maximum item size allowed in the container
+		#Allowed Values: TINY, VERY_SMALL, SMALL, NORMAL, LARGE, VERY_LARGE, HUGE
+		allowedSize = "VERY_LARGE"
+
 ["Global config"]
 	#Global control for automatic pickup, this will not force enable for every type
 	doPickup = true
 	#A global toggle for item voiding, this will not force enable for every type
 	doVoiding = true
-	#Enable auto pickup for other container like items such as the TFC vessel.
-	#This may not always work as expected enable at your own discretion
-	allPickup = false
 	#This allows other containers such as vessels to support the pick block search
 	allPickBlock = false
-	#This makes all container types capable of holding ore
-	allAllowOre = false
-	#This makes all container types capable of holding food although they won't preserve it!
-	allAllowFood = false
 	#This allows containers to have items inserted and extracted from them via the inventory like vanilla Bundles
 	enableContainerInventoryInteraction = true
-	#The modifer for the 'Lunchbox' food trait. Values less than 1 extend food lifetime, values greater than one decrease it. A value of zero stops decay.
+	#The modifier for the 'Lunchbox' food trait. Values less than 1 extend food lifetime, values greater than one decrease it. A value of zero stops decay.
 	#Range: 0.0 ~ 1.7976931348623157E308
 	traitLunchboxModifier = 0.6
 	#The maximum size of an entity which mob nets can capture. This is not directly related to TFC's animal size stat.
 	#Range: 0.0 ~ 1.7976931348623157E308
 	maximumNetCaptureSize = 0.5
+
+["Boot config"]
+
+	["Boot config"."Hiking Boots"]
+		#The amount of 'steps' taken before one point of durability is lost
+		#Steps are defined as being any change in position while grounded between ticks (IE over 1 second 20 'steps' occur)
+		#Range: > 0
+		stepsPerDamage = 500
+		#The movement speed bonus these boots provide
+		#Range: 0.0 ~ 1024.0
+		movementSpeed = 0.05
+		#The step height bonus these boots provide
+		#Range: 0.0 ~ 512.0
+		stepHeight = 0.0
+		#The extra fall distance in blocks before you begin taking fall damage
+		#Range: 0.0 ~ 64.0
+		fallPadding = 0.5
+
+	["Boot config"."Steel Toe Boots"]
+		#The amount of 'steps' taken before one point of durability is lost
+		#Steps are defined as being any change in position while grounded between ticks (IE over 1 second 20 'steps' occur)
+		#Range: > 0
+		stepsPerDamage = 750
+		#The movement speed bonus these boots provide
+		#Range: 0.0 ~ 1024.0
+		movementSpeed = 0.1
+		#The step height bonus these boots provide
+		#Range: 0.0 ~ 512.0
+		stepHeight = 0.5
+		#The extra fall distance in blocks before you begin taking fall damage
+		#Range: 0.0 ~ 64.0
+		fallPadding = 1.0
+
+	["Boot config"."Black Steel Toe Boots"]
+		#The amount of 'steps' taken before one point of durability is lost
+		#Steps are defined as being any change in position while grounded between ticks (IE over 1 second 20 'steps' occur)
+		#Range: > 0
+		stepsPerDamage = 1000
+		#The movement speed bonus these boots provide
+		#Range: 0.0 ~ 1024.0
+		movementSpeed = 0.15
+		#The step height bonus these boots provide
+		#Range: 0.0 ~ 512.0
+		stepHeight = 0.5
+		#The extra fall distance in blocks before you begin taking fall damage
+		#Range: 0.0 ~ 64.0
+		fallPadding = 2.0
+
+	["Boot config"."Blue Steel Toe Boots"]
+		#The amount of 'steps' taken before one point of durability is lost
+		#Steps are defined as being any change in position while grounded between ticks (IE over 1 second 20 'steps' occur)
+		#Range: > 0
+		stepsPerDamage = 1500
+		#The movement speed bonus these boots provide
+		#Range: 0.0 ~ 1024.0
+		movementSpeed = 0.2
+		#The step height bonus these boots provide
+		#Range: 0.0 ~ 512.0
+		stepHeight = 0.5
+		#The extra fall distance in blocks before you begin taking fall damage
+		#Range: 0.0 ~ 64.0
+		fallPadding = 5.0
+
+	["Boot config"."Red Steel Toe Boots"]
+		#The amount of 'steps' taken before one point of durability is lost
+		#Steps are defined as being any change in position while grounded between ticks (IE over 1 second 20 'steps' occur)
+		#Range: > 0
+		stepsPerDamage = 1500
+		#The movement speed bonus these boots provide
+		#Range: 0.0 ~ 1024.0
+		movementSpeed = 0.2
+		#The step height bonus these boots provide
+		#Range: 0.0 ~ 512.0
+		stepHeight = 0.5
+		#The extra fall distance in blocks before you begin taking fall damage
+		#Range: 0.0 ~ 64.0
+		fallPadding = 5.0
+
+["Horseshoes config"]
+
+	["Horseshoes config"."Steel Horseshoes"]
+		#The amount of 'steps' taken before one point of durability is lost
+		#Steps are defined as being any change in position while grounded between ticks (IE over 1 second 20 'steps' occur)
+		#Range: > 0
+		stepsPerDamage = 750
+		#The movement speed bonus horseshoes provide
+		#Range: 0.0 ~ 1024.0
+		movementSpeed = 0.05
+		#The fall distance bonus horseshoes provide
+		#Range: 0.0 ~ 64.0
+		bonusFallDistance = 2.0
+		#The step height bonus these horseshoes provide
+		#Range: 0.0 ~ 512.0
+		stepHeightBonus = 0.0
+
+	["Horseshoes config"."Black Steel Horseshoes"]
+		#The amount of 'steps' taken before one point of durability is lost
+		#Steps are defined as being any change in position while grounded between ticks (IE over 1 second 20 'steps' occur)
+		#Range: > 0
+		stepsPerDamage = 1000
+		#The movement speed bonus horseshoes provide
+		#Range: 0.0 ~ 1024.0
+		movementSpeed = 0.1
+		#The fall distance bonus horseshoes provide
+		#Range: 0.0 ~ 64.0
+		bonusFallDistance = 2.0
+		#The step height bonus these horseshoes provide
+		#Range: 0.0 ~ 512.0
+		stepHeightBonus = 0.0
+
+	["Horseshoes config"."Blue Steel Horseshoes"]
+		#The amount of 'steps' taken before one point of durability is lost
+		#Steps are defined as being any change in position while grounded between ticks (IE over 1 second 20 'steps' occur)
+		#Range: > 0
+		stepsPerDamage = 1500
+		#The movement speed bonus horseshoes provide
+		#Range: 0.0 ~ 1024.0
+		movementSpeed = 0.2
+		#The fall distance bonus horseshoes provide
+		#Range: 0.0 ~ 64.0
+		bonusFallDistance = 5.0
+		#The step height bonus these horseshoes provide
+		#Range: 0.0 ~ 512.0
+		stepHeightBonus = 1.0
+
+	["Horseshoes config"."Red Steel Horseshoes"]
+		#The amount of 'steps' taken before one point of durability is lost
+		#Steps are defined as being any change in position while grounded between ticks (IE over 1 second 20 'steps' occur)
+		#Range: > 0
+		stepsPerDamage = 1500
+		#The movement speed bonus horseshoes provide
+		#Range: 0.0 ~ 1024.0
+		movementSpeed = 0.2
+		#The fall distance bonus horseshoes provide
+		#Range: 0.0 ~ 64.0
+		bonusFallDistance = 5.0
+		#The step height bonus these horseshoes provide
+		#Range: 0.0 ~ 512.0
+		stepHeightBonus = 1.0
 

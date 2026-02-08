@@ -1,9 +1,4 @@
-const item_data = {
-	'scguns:diamond_steel_helmet': { heat: 2, cold: 7 },
-	'scguns:diamond_steel_chestplate': { heat: 2, cold: 8 },
-	'scguns:diamond_steel_boots': { heat: 2, cold: 7 },
-	'scguns:diamond_steel_leggings': { heat: 3, cold: 6 },
-};
+
 
 const simple_powered_block = {
 	'#kubejs:ceiling_fans': {
@@ -11,13 +6,6 @@ const simple_powered_block = {
 		unit: 'mc',
 		maxEffect: 0.88,
 		minTemp: -1.5,
-		range: 8,
-	},
-	'#kubejs:electricity_generators': {
-		temp: 0.27,
-		unit: 'mc',
-		maxEffect: 0.88,
-		maxTemp: 1.5,
 		range: 8,
 	},
 	'createaddition:small_light_connector': {
@@ -51,16 +39,33 @@ ColdSweatEvents.registries((event) => {
 		});
 	}
 
-    event.addBoilerFuel(fuelbuider => {
-        fuelbuider.items(['thermal:coal_coke'])
-        fuelbuider.fuel(128)
-    })
+	/*event.addInsulator((insulator) => {
+		insulator.items(['opposing_force:deepwoven_hat']);
+		insulator.slot('armor');
+		insulator.adaptiveInsulation(10, 0.0085);
+	});
 
-        event.addHearthFuel(fuelbuider => {
-        fuelbuider.items(['thermal:coal_coke'])
-        fuelbuider.fuel(128)
-    })
+	event.addInsulator((insulator) => {
+		insulator.items(['opposing_force:deepwoven_tunic']);
+		insulator.slot('armor');
+		insulator.adaptiveInsulation(14, 0.0085);
+	});
 
+	event.addInsulator((insulator) => {
+		insulator.items(['opposing_force:deepwoven_pants']);
+		insulator.slot('armor');
+		insulator.adaptiveInsulation(12, 0.0085);
+	});*/
+
+	event.addBoilerFuel((fuelbuider) => {
+		fuelbuider.items(['thermal:coal_coke']);
+		fuelbuider.fuel(128);
+	});
+
+	event.addHearthFuel((fuelbuider) => {
+		fuelbuider.items(['thermal:coal_coke']);
+		fuelbuider.fuel(128);
+	});
 
 	//block temps.
 	for (const [block, data] of Object.entries(simple_powered_block)) {
@@ -118,5 +123,15 @@ ColdSweatEvents.registries((event) => {
 				.fades(true);
 		});
 	}
-});
 
+	event.addBlockTemperature(0.27, 'mc', (blockTemp) => {
+		blockTemp
+			.blocks('createdieselgenerators:burner')
+			.units('mc')
+			.maxEffect(5)
+			.maxTemperature(5)
+			.range(8)
+			.state('lit', true)
+			.fades(true);
+	});
+});

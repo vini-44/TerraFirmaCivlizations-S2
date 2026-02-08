@@ -1,7 +1,6 @@
 // priority: 50
 
 ServerEvents.recipes((e) => {
-
 	e.remove({ output: 'minecraft:chest' });
 	e.remove({ output: 'minecraft:trapped_chest' });
 
@@ -43,7 +42,10 @@ ServerEvents.recipes((e) => {
 		.mixing(Item.of('tfc:powder/salt', 1), Fluid.of('tfc:salt_water', 125))
 		.heated();
 
-        e.recipes.create.mixing(Fluid.of('tfc:salt_water', 125), ['tfc:powder/salt', Fluid.of('water', 125)])
+	e.recipes.create.mixing(Fluid.of('tfc:salt_water', 125), [
+		'tfc:powder/salt',
+		Fluid.of('water', 125),
+	]);
 	for (const [fertilizer, nutrients] of Object.entries(FERTILIZER_DEFS)) {
 		let N = nutrients[0];
 		let P = nutrients[1];
@@ -98,13 +100,18 @@ ServerEvents.recipes((e) => {
 		e.recipes.create.milling(recipe.originalRecipeResult, ingredient);
 
 		let crushingResult = [recipe.originalRecipeResult];
-		crushingResult.push(
-			Item.of(
-				recipe.originalRecipeResult,
-				Math.ceil(recipe.originalRecipeResult.count * 0.25)
-			).withChance(0.25)
-		);
-		e.recipes.create.crushing(crushingResult, ingredient);
+		if (
+			!Item.of(recipe.originalRecipeResult).hasTag('tfc:foods') ||
+			Item.of(recipe.ingredient).hasTag('tfc:foods')
+		) {
+			crushingResult.push(
+				Item.of(
+					recipe.originalRecipeResult,
+					Math.ceil(recipe.originalRecipeResult.count * 0.25)
+				).withChance(0.25)
+			);
+			e.recipes.create.crushing(crushingResult, ingredient);
+		}
 	});
 
 	e.remove({ type: 'tfc:quern' });
@@ -458,80 +465,45 @@ ServerEvents.recipes((e) => {
 					.keepHeldItem(),
 			])
 			.transitionalItem(ingredient)
-			.loops(16);	e.recipes.create
+			.loops(16);
 
+		e.recipes.create
 			.sequenced_assembly([recipe.originalRecipeResult], ingredient, [
-
 				e.recipes.create
-
 					.deploying(ingredient, [
-
 						ingredient,
-
 						[
-
 							'#tfcscraping:line_scraping',
-
 							'#tfcscraping:quarter_scraping',
-
 						],
-
 					])
-
 					.keepHeldItem(),
-
 			])
-
 			.transitionalItem(ingredient)
-
 			.loops(4);
 
-
-
 		e.recipes.create
-
 			.sequenced_assembly([recipe.originalRecipeResult], ingredient, [
-
 				e.recipes.create
-
 					.deploying(ingredient, [
-
 						ingredient,
-
 						['#tfcscraping:half_scraping'],
-
 					])
-
 					.keepHeldItem(),
-
 			])
-
 			.transitionalItem(ingredient)
-
 			.loops(2);
 
-
-
 		e.recipes.create
-
 			.sequenced_assembly([recipe.originalRecipeResult], ingredient, [
-
 				e.recipes.create
-
 					.deploying(ingredient, [
-
 						ingredient,
-
 						['#tfcscraping:full_scraping'],
-
 					])
-
 					.keepHeldItem(),
-
 			])
-
 			.transitionalItem(ingredient)
-
 			.loops(1);
 	});
 
@@ -639,6 +611,8 @@ ServerEvents.recipes((e) => {
 		A: 'tfc:straw',
 		B: 'tfc:thatch',
 	});
+
+    e.replaceInput({id:'sns:crafting/lunchbox'}, 'sns:reinforced_fabric', ['sns:reinforced_fabric', 'kubejs:reinforced_synthetic_fabric']);
 
 	//idfk
 	e.remove({ output: 'tfcea:refrigerator' });
@@ -782,7 +756,6 @@ ServerEvents.recipes((e) => {
 		);
 	});
 
-
 	e.replaceOutput({}, 'afc:maple_sugar', 'sugar');
 	e.replaceOutput({}, 'afc:birch_sugar', 'sugar');
 
@@ -813,7 +786,7 @@ ServerEvents.recipes((e) => {
 		blue_steel: 1540,
 		black_steel: 1485,
 		steel: 1540,
-		wrought_iron: 1535,
+		//wrought_iron: 1535,
 		copper: 1080,
 		bronze: 950,
 		black_bronze: 1070,
@@ -833,6 +806,17 @@ ServerEvents.recipes((e) => {
 			.heating(`tfc:metal/anvil/${metal}`, temp)
 			.resultFluid(Fluid.of(`tfc:metal/${metal}`, 1200));
 	}
+	e.remove({ output: `tfc:metal/anvil/wrought_iron` });
+	e.remove({ id: `tfc:heating/metal/wrought_iron_anvil` });
+
+	e.shaped(`tfc:metal/anvil/wrought_iron`, ['AAA', ` B `, `AAA`], {
+		A: `tfc:metal/ingot/wrought_iron`,
+		B: `tfc:metal/double_ingot/wrought_iron`,
+	});
+
+	e.recipes.tfc
+		.heating(`tfc:metal/anvil/wrought_iron`, 1535)
+		.resultFluid(Fluid.of(`tfc:metal/cast_iron`, 800));
 
     e.remove({output: 'tfc:bloomery'})
 
@@ -842,10 +826,126 @@ ServerEvents.recipes((e) => {
     })
 	e.shaped('tfc:bloomery', ['AAA','A A','AAA'], {
 		A: 'tfc:metal/sheet/wrought_iron',
-	  
+
 	})
 	e.shaped('tfc:bloomery', ['ABA', 'B B', 'ABA'], {
         A: 'tfc:metal/sheet/steel',
         B: 'tfc:metal/ingot/steel'
     })
+
+
+	//Glass automation
+
+	const copper_dusts = [
+		'tfc:powder/native_copper',
+		'tfc:powder/malachite',
+		'tfc:powder/tetrahedrite',
+	];
+	const iron_dusts = [
+		'tfc:powder/hematite',
+		'tfc:powder/magnetite',
+		'tfc:powder/limonite',
+	];
+
+	const GLASS_DEFS = {
+		glass: [['tfc:silica_glass_batch']],
+		tinted_glass: [
+			['#tfc:glass_batches_not_tier_1', 'tfc:powder/amethyst'],
+		],
+		white_stained_glass: [
+			['#tfc:glass_batches_tier_2', 'tfc:powder/soda_ash'],
+		],
+		light_gray_stained_glass: [
+			[
+				'#tfc:glass_batches',
+				'2x tfc:powder/soda_ash',
+				'tfc:powder/graphite',
+			],
+		],
+		gray_stained_glass: [
+			[
+				'#tfc:glass_batches',
+				'tfc:powder/soda_ash',
+				'tfc:powder/graphite',
+			],
+		],
+		black_stained_glass: [['#tfc:glass_batches', 'tfc:powder/graphite']],
+		brown_stained_glass: [['#tfc:glass_batches', 'tfc:powder/garnierite']],
+		red_stained_glass: [['#tfc:glass_batches', 'tfc:powder/cassiterite']],
+		orange_stained_glass: [
+			['tfc:hematitic_glass_batch'],
+			['tfc:silica_glass_batch', 'tfc:powder/pyrite'],
+		],
+		pink_stained_glass: [
+			['tfc:silica_glass_batch', 'tfc:powder/native_gold'],
+		],
+		magenta_stained_glass: [
+			['#tfc:glass_batches_tier_2', 'tfc:powder/ruby'],
+		],
+		purple_stained_glass: [
+			['#tfc:glass_batches', copper_dusts, iron_dusts],
+		],
+		blue_stained_glass: [
+			['tfc:silica_glass_batch', copper_dusts],
+			['tfc:volcanic_glass_batch'],
+		],
+		light_blue_stained_glass: [
+			['tfc:silica_glass_batch', 'tfc:powder/lapis_lazuli'],
+		],
+		cyan_stained_glass: [
+			['#tfc:glass_batches_tier_3', 'tfc:powder/sapphire', copper_dusts],
+		],
+		green_stained_glass: [
+			['tfc:olivine_glass_batch'],
+			['#tfc:glass_batches_tier_2', iron_dusts],
+		],
+		lime_stained_glass: [
+			['#tfc:glass_batches_tier_2', iron_dusts, 'tfc:powder/soda_ash'],
+		],
+		yellow_stained_glass: [
+			['#tfc:glass_batches_tier_2', 'tfc:powder/native_silver'],
+		],
+	};
+
+	for (const [glass, recipes] of Object.entries(GLASS_DEFS)) {
+		for (const recipe of recipes) {
+			e.recipes.create
+				.compacting(glass, recipe)
+				.heatRequirement('heated');
+
+			if (glass != 'tinted_glass') {
+				e.custom({
+					type: 'createdieselgenerators:compression_molding',
+					ingredients: recipe.map((item) => {
+						if (!Array.isArray(item)) return Item.of(item);
+						else {
+							let items = [];
+							item.map((item) => {
+								items.push(Item.of(item));
+							});
+							return items;
+						}
+					}),
+					mold: 'kubejs:blank',
+					heatRequirement: 'heated',
+					results: [Item.of(glass + '_pane', 16)],
+				});
+			}
+		}
+	}
+
+	e.custom({
+		type: 'createdieselgenerators:compression_molding',
+		ingredients: [Item.of('#tfc:glass_batches')],
+		mold: 'kubejs:lamp',
+		heatRequirement: 'heated',
+		results: [Item.of('tfc:lamp_glass')],
+	});
+	e.custom({
+		type: 'createdieselgenerators:compression_molding',
+		ingredients: [Item.of('#tfc:glass_batches_tier_2')],
+		mold: 'kubejs:jar',
+		heatRequirement: 'heated',
+		results: [Item.of('tfc:empty_jar')],
+	});
 });

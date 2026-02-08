@@ -96,7 +96,6 @@ global.reinforcements =
         "tfc:single_block_replaceable", //twigs, fallen leaves
         "tfc:can_be_snow_piled",  //loose rocks
         "minecraft:leaves", //all leaves
-        "scguns:fragile", //glass blocks
         "minecraft:saplings", //all saplings
         "tfc:snow", //can melt
         "tfc:support_beams", //can pop

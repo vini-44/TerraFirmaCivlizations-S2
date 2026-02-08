@@ -124,8 +124,8 @@ ServerEvents.recipes((e) => {
         B: '#forge:rods/wooden',
     })
 
-    e.shaped('quark:backpack', ['ABA','CDC',' AE'], {A: 'minecraft:leather',B: 'tfc:metal/rod/steel',C: 'sns:reinforced_fabric',D: 'sns:unfinished_leather_sack', E: 'tfc:bone_needle'}).damageIngredient('tfc:bone_needle')
-    e.shaped('quark:backpack', ['ABA','CDC','EA '], {A: 'minecraft:leather',B: 'tfc:metal/rod/steel',C: 'sns:reinforced_fabric',D: 'sns:unfinished_leather_sack', E: 'tfc:bone_needle'}).damageIngredient('tfc:bone_needle')
+    e.shaped('quark:backpack', ['ABA','CDC',' AE'], {A: 'minecraft:leather',B: 'tfc:metal/rod/steel',C: ['sns:reinforced_fabric', 'kubejs:reinforced_synthetic_fabric'],D: 'sns:unfinished_leather_sack', E: 'tfc:bone_needle'}).damageIngredient('tfc:bone_needle')
+    e.shaped('quark:backpack', ['ABA','CDC','EA '], {A: 'minecraft:leather',B: 'tfc:metal/rod/steel',C: ['sns:reinforced_fabric', 'kubejs:reinforced_synthetic_fabric'],D: 'sns:unfinished_leather_sack', E: 'tfc:bone_needle'}).damageIngredient('tfc:bone_needle')
 
     e.remove({id: 'sns:crafting/frame_pack'})
     e.remove({id: 'sns:crafting/pack_frame'})

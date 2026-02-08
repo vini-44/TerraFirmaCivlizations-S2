@@ -51,21 +51,39 @@ TFCEvents.birthdays((event) => {
 	event.add('february', 2, 'Albatroz');
 });
 
-const $HitResultType = Java.loadClass(
-	'net.minecraft.world.phys.HitResult$Type'
-);
 
-const $ServerLevel = Java.loadClass('net.minecraft.server.level.ServerLevel');
-const $LivingEntity = Java.loadClass('net.minecraft.world.entity.LivingEntity');
-const $MobEffectInstance = Java.loadClass(
-	'net.minecraft.world.effect.MobEffectInstance'
-);
 
-const $EffectInstance = Java.loadClass('net.minecraft.world.effect.MobEffectInstance');
-const $ChemSprayerProjectile = Java.loadClass(
-    'com.jesz.createdieselgenerators.content.tools.ChemicalSprayerProjectileEntity'
-);
 
+ForgeEvents.onEvent(
+	'net.minecraftforge.event.entity.ProjectileImpactEvent',
+	(event) => {
+		/**@type {Internal.Projectile} */
+		let projectile = event.projectile;
+
+		if (!(projectile instanceof $ChemSprayerProjectile)) {
+			return;
+		}
+
+		/**@type {Internal.EntityHitResult} */
+		let rayTrace = event.getRayTraceResult();
+
+		/**@type {Internal.ServerLevel} */
+		let level = projectile.getLevel();
+
+	if (rayTrace.getType() === $HitResultType.BLOCK) {
+		let block = level.getBlock(rayTrace.getBlockPos());
+		let dir = rayTrace.getDirection().getOpposite();
+
+		if (block.hasTag('createbigcannons:spark_effect_on_impact')) {
+			let pos = rayTrace.getBlockPos();
+			level.runCommandSilent(
+				`particle tfc:spark ${pos.x} ${pos.y} ${pos.z} ${dir.x} ${dir.y} ${dir.z} 0.5 100 force`
+			);
+
+			//level.runCommandSilent(`playsound tfc:block.anvil.hit block @a ${pos.x} ${pos.y} ${pos.z} 1 ${Math.random()*1.5+0.5} 0`)
+		}
+	}
+});
 
 ForgeEvents.onEvent(
 	'net.minecraftforge.event.entity.ProjectileImpactEvent',
@@ -101,3 +119,17 @@ ForgeEvents.onEvent(
 		}
 	}
 );
+
+/*
+EntityJSEvents.modifyEntity((event) => {
+	event.modify('opposing_force:dicer', (modifyBuilder) => {
+        modifyBuilder.isPersistenceRequired(true)
+    });
+});*/
+
+CDGEvents.molds((event) => {
+    event.create('part', 'Part Mold');
+	event.create('jar', 'Jar Mold');
+	event.create('lamp', 'Lamp Mold');
+	event.create('blank', 'Blank Mold');
+});

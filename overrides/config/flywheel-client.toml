@@ -10,5 +10,5 @@ workerThreads = -1
 [flw_backends]
 	#How smooth Flywheel's shader-based lighting should be. May have a large performance impact.
 	#Allowed Values: FLAT, TRI_LINEAR, SMOOTH, SMOOTH_INNER_FACE_CORRECTED
-	lightSmoothness = "SMOOTH"
+	lightSmoothness = "SMOOTH_INNER_FACE_CORRECTED"
 
