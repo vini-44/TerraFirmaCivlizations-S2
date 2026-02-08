@@ -74,9 +74,9 @@ StartupEvents.registry('block', (event) => {
     event.create('cryolite_mantle_ore')
         .displayName('Cryolite Mantle Ore')
         .soundType('tuff')
-        .hardness(3)
-        .resistance(3)
+        .hardness(5)
+        .resistance(5)
         .requiresTool(true)
         .tagBlock('minecraft:mineable/pickaxe')
-        .tagBlock('minecraft:needs_stone_tool')
+        .tagBlock('tfc:needs_colored_steel_tool')
 });
