@@ -180,12 +180,6 @@ ServerEvents.recipes((e) => {
 		])
 		.tier(2);
 
-	ADDED_ANVIL_RECIPES.push([
-		'supplementaries:faucet',
-		'tfc:metal/sheet/wrought_iron',
-		['bend_last', 'draw_second_last', 'hit_third_last']
-	]).tier(2);
-
     ADDED_ANVIL_RECIPES.push([
         'supplementaries:faucet',
         'tfc:metal/sheet/wrought_iron',2])
