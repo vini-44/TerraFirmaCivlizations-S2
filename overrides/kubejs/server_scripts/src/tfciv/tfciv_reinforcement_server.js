@@ -92,6 +92,7 @@ function checkPlayerChunks(server,player)
   let chunksToSend = {};
   let count = 0;
   const reinforceData = server.persistentData.reinforceData;
+  if (!reinforceData) return;
 
   if (!playerChunks[player.UUID]) playerChunks[player.UUID] = {}
   let chunks = playerChunks[player.UUID];

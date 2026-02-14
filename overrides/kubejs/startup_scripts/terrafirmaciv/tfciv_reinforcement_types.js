@@ -28,10 +28,10 @@ global.reinforcements =
         },
         "copper":
         {
-            "item":"kubejs:copper_reinforcement",
+            "item":"kubejs:bronze_reinforcement",
             "value": 25,
             "particle": "minecraft:dust 0.9 0.5 0.2 1.0",
-            "name": "Copper",
+            "name": "Bronze",
             "sound": "minecraft:block.copper.place"
         },
         "iron":
@@ -58,6 +58,14 @@ global.reinforcements =
             "name": "Titanium",
             "sound": "minecraft:block.anvil.place"
         },
+        "carotine":
+        {
+            "item":"kubejs:carotine_reinforcement",
+            "value": 800,
+            "particle": "minecraft:dust 1 0.78 0.32 1.0",
+            "name": "Carotine steel",
+            "sound": "minecraft:block.anvil.place"
+        },
         "admin":
         {
             "item":"kubejs:admin_reinforcement",
@@ -67,7 +75,7 @@ global.reinforcements =
             "sound": "minecraft:block.amethyst_block.place"
         }
     },
-    order: ["weak","wood","stone","copper","iron","steel","titanium","admin"],
+    order: ["weak","wood","stone","copper","iron","steel","titanium","carotine","admin"],
     getByValue: function(value)
     {
         for(let i=global.reinforcements.order.length-1; i>=0; --i)
