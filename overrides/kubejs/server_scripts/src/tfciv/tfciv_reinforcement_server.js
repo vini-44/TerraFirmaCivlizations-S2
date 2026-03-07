@@ -37,25 +37,108 @@ function getReinforceValue(server, block)
   if (data.reinforceData)
   {
     let chunkKey = getChunkKey(block);
-    if ( data.reinforceData[chunkKey] )
+    let chunk = data.reinforceData[chunkKey];
+    if ( chunk && chunk.values )
     {
-      return data.reinforceData[chunkKey][getChunkBlockKey(block)];
+      let data = chunk.values[getChunkBlockKey(block)]
+      if (data)
+      {
+        return data[0];
+      }
+      return undefined;      
     }
   }
 }
 
+function getReinforcePlayer(server, block)
+{
+  const data = server.persistentData;
+  if (data.reinforceData)
+  {
+    let chunkKey = getChunkKey(block);
+    let chunk = data.reinforceData[chunkKey];
+    if ( chunk && chunk.values )
+    {
+      let data = chunk.values[getChunkBlockKey(block)]
+      if (data)
+      {
+        let playeridx = data[1];
+        return chunk.players[playeridx];
+      }
+    }
+  }
+}
 
-function setReinforceValue(server, block, value)
+//reinforce data seems like this for each chunk:|
+//{
+//  values:
+//  {
+//     "0,64,5":[12,1] //chunkblock key: [reinforce value,player index]
+//      ...
+//  },
+//  players:
+//  [
+//      "uuid1","uuid2",...
+//  ]
+//}
+
+function setReinforceValue(server, block, value, player)
 {
   const data = server.persistentData;
 
   if ( !data.reinforceData ) data.reinforceData = {};
 
   let chunkKey = getChunkKey(block);
-  if ( !data.reinforceData[chunkKey] ) data.reinforceData[chunkKey] = {};
+  let chunk = data.reinforceData[chunkKey];
+  if ( !chunk || !chunk.values )
+  {
+    chunk = data.reinforceData[chunkKey] = {
+      'values':{},
+      'players':[]
+    };
+  }
 
-  data.reinforceData[chunkKey][getChunkBlockKey(block)] = value;
+  if (value == 0)
+  {
+    removeReinforceValue(server, block);
+    return;
+  }
+
+  if (player)
+  {
+    let useridx = -1;
+    if (player && player.uuid)
+    {
+      for (let i=0; i<chunk.players.length; ++i) {
+        if (chunk.players[i]==player.uuid.toString())
+        {
+          useridx = i;
+          break;
+        }
+      }
+
+      if (useridx == -1)
+      {
+        chunk.players.push(player.uuid.toString());
+        useridx = chunk.players.length - 1;
+      }
+    }
+    chunk.values[getChunkBlockKey(block)] = [value,useridx];
+  }
+  else
+  {
+    if (chunk.values[getChunkBlockKey(block)])
+    {
+      chunk.values[getChunkBlockKey(block)][0] = value;
+    }
+    else
+    {
+      chunk.values[getChunkBlockKey(block)] = [value,-1];
+    }
+  }
+  
   reinforceVersions[chunkKey] = new Date().getTime();
+
 }
 
 function removeReinforceValue(server, block)
@@ -66,7 +149,7 @@ function removeReinforceValue(server, block)
   let chunkKey = getChunkKey(block);
   if ( !data.reinforceData[chunkKey] ) return;
 
-  delete data.reinforceData[chunkKey][getChunkBlockKey(block)];
+  delete data.reinforceData[chunkKey].values[getChunkBlockKey(block)];
   reinforceVersions[chunkKey] = new Date().getTime();
 }
 
@@ -94,8 +177,8 @@ function checkPlayerChunks(server,player)
   const reinforceData = server.persistentData.reinforceData;
   if (!reinforceData) return;
 
-  if (!playerChunks[player.UUID]) playerChunks[player.UUID] = {}
-  let chunks = playerChunks[player.UUID];
+  if (!playerChunks[player.uuid]) playerChunks[player.uuid] = {}
+  let chunks = playerChunks[player.uuid];
 
   let chunkKeys = getNearbyChunksKeys(player);
   for( let key of chunkKeys )
@@ -113,7 +196,12 @@ function checkPlayerChunks(server,player)
       {
         //save info for the player what version of this chunk it has
         chunks[key] = currentVersion;
-        chunksToSend[key] = reinforceData[key]
+        chunksToSend[key] = {};
+        let senddata = chunksToSend[key];
+        for ( let k in reinforceData[key].values)
+        {
+          senddata[k] = reinforceData[key].values[k][0];
+        }
         count++;
       }
     }
@@ -126,8 +214,15 @@ function checkPlayerChunks(server,player)
   }
 }
 
+ServerEvents.tags('item', event => {
+  for( let key in global.reinforcements.hammers )
+  {
+    event.add('kubejs:reinforcements', key);
+  }
+})
+
 PlayerEvents.loggedOut(event => {
-  delete playerChunks[event.player.UUID];
+  delete playerChunks[event.player.uuid];
 })
 
 // --- Tick-based events ---
@@ -263,31 +358,95 @@ function canBlockBeReinforced(block)
   return true;
 }
 
-// --- Right-click to reinforce ---
-BlockEvents.rightClicked(event => {
+
+function tryReinforce(event)
+{
   let { server, block, player } = event;
   let heldItem = player.mainHandItem;
+  let offHandItem = player.offHandItem;
 
   let reinforce_type = global.reinforcements.getByItem(heldItem.id);
+  if (!reinforce_type)
+  {
+    return false;
+  } 
+
   if ( blockBrokenThisTick.includes(getBlockKey(block))) {
     //console.log("stopping double reinforce");
     event.cancel();
-    return;
+    return false;
   }
-  if ( !reinforce_type ) return;
+
+  let tool_type = global.reinforcements.getByTool(offHandItem.id);
+  if (!tool_type)
+  {
+    if (reinforce_type.tool_type == "hammer")
+    {
+      player.tell(`You need a hammer to apply this reinforcement.`);
+    }
+    else if (reinforce_type.tool_type == "welder")
+    {
+      player.tell(`You need a Welder to apply this reinforcement.`);
+    }
+    return false;
+  }
+
   if ( !canBlockBeReinforced(block) )
   {
     event.player.tell("This type of block is not reinforable.")
     blockBrokenThisTick.push(getBlockKey(block));
-    return;
-  } 
-  
+    return true;
+  }
+
+  if (player.getCooldowns().isOnCooldown(offHandItem))
+  {
+    return true;
+  }
+
+  let useCooldown = true;
+
+  if (reinforce_type.tool_type == "hammer")
+  { 
+    if (tool_type.type == "welder" && tool_type.level < 999)
+    {
+      useCooldown = false;
+    }
+    else if (tool_type.type == "hammer")
+    {
+      if (tool_type.level < reinforce_type.tool_tier)
+      {
+        player.tell(`You need a better hammer to apply this reinforcement.`);
+        return true;
+      }
+    }
+    else
+    {
+      player.tell(`You need a hammer in your offhand to apply this reinforcement.`);
+      return true;
+    }
+  }
+  else if (reinforce_type.tool_type == "welder")
+  {
+    if (tool_type.type != "welder")
+    {
+      player.tell(`You need a Welder in your offhand to apply this reinforcement.`);
+      return true;
+    }
+  }
+
+  //everything is in order
+
   let reinforce_value = getReinforceValue(server,block) || 0;
 
-  if (reinforce_value < reinforce_type.value) {
-    setReinforceValue(server,block,reinforce_type.value)
+  if (reinforce_value < reinforce_type.value)
+  {
+    setReinforceValue(server,block,reinforce_type.value,player)
     player.tell(`This block now has ${reinforce_type.name} (${reinforce_type.value}) reinforcements.`);
     if (!player.isCreative()) heldItem.count = heldItem.count -1;
+    if (useCooldown)
+    {
+      player.getCooldowns().addCooldown(offHandItem,global.reinforcements.cooldownTicks);
+    }
 
     event.server.players.forEach(player => {
       if (player.distanceToSqr(block) < 32 * 32)
@@ -296,13 +455,104 @@ BlockEvents.rightClicked(event => {
         player.sendData( 'block_reinforced', {x: block.x, y: block.y, z: block.z, value:reinforce_type.value});
       }
     });
-    blockBrokenThisTick.push(getBlockKey(block));
   }
-  else
+  return true;
+}
+
+function tryRemoveReinforcement(event)
+{
+  let { server, block, player } = event;
+  let heldItem = player.mainHandItem;
+
+  let tool_type = global.reinforcements.getByTool(heldItem.id);
+  if (!tool_type) return false;
+
+  let reinforce_value = getReinforceValue(server,block) || 0;
+
+  if (reinforce_value == 0)
   {
-    let block_reinfocement_type = global.reinforcements.getByValue(reinforce_value);
-    //player.tell(`This block already has ${block_reinfocement_type.name} (${block_reinfocement_type.value}) reinforcements.`);
-    blockBrokenThisTick.push(getBlockKey(block));
+    return true;
+  }
+
+  let reinforce_player = getReinforcePlayer(server,block);
+  if (reinforce_player != player.uuid.toString() && !player.isCreative())
+  {
+    player.tell(`This reinforcement doesn't belong to you, so you can't remove it.`);
+    return true;
+  }
+
+  if ( blockBrokenThisTick.includes(getBlockKey(block))) {
+    //console.log("stopping double reinforce");
+    event.cancel();
+    return false;
+  }
+
+  let reinforce_type = global.reinforcements.getByValue( reinforce_value );
+
+  if (reinforce_type.tool_type == "hammer")
+  { 
+    if (tool_type.type == "welder" && tool_type.level < 999)
+    {
+      //its ok
+    }
+    else if (tool_type.type == "hammer")
+    {
+      if (tool_type.level < reinforce_type.tool_tier)
+      {
+        player.tell(`You need a better hammer to remove this reinforcement.`);
+        return true;
+      }
+    }
+    else
+    {
+      player.tell(`You need a hammer in to remove this reinforcement.`);
+      return true;
+    }
+  }
+  else if (reinforce_type.tool_type == "welder")
+  {
+    if (tool_type.type != "welder")
+    {
+      player.tell(`You need a Welder to remove this reinforcement.`);
+      return true;
+    }
+  }
+
+  removeReinforceValue(server,block)
+
+  event.server.players.forEach(player => {
+    if (player.distanceToSqr(block) < 32 * 32)
+    {
+      player.level.playSound(null,block.x,block.y,block.z,"minecraft:block.anvil.destroy","master",1,1)
+    }
+  });
+
+  return true;
+}
+
+
+// --- Right-click to reinforce ---
+BlockEvents.rightClicked(event => {
+  let { server, block, player } = event;
+  let heldItem = player.mainHandItem;
+  let offHandItem = player.offHandItem;
+  
+  if ( heldItem && offHandItem ) //it can be a reinforcement apply
+  {
+    if (tryReinforce(event))
+    {
+      blockBrokenThisTick.push(getBlockKey(block));
+      return;
+    }
+  }
+
+  if ( heldItem ) //it can be a reinforcement removal
+  {
+    if (tryRemoveReinforcement(event))
+    {
+      blockBrokenThisTick.push(getBlockKey(block));
+      return;
+    }
   }
 });
 
