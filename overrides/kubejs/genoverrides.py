@@ -79,9 +79,9 @@ def item_model_template(name):
     }
 
 script_dir = os.path.dirname(os.path.abspath(__file__))
-model_dir = os.path.join(script_dir, "kubejs", "assets", "create_resource_vents", "models", "block")
-item_dir  = os.path.join(script_dir, "kubejs", "assets", "create_resource_vents", "models", "item")
-bs_dir    = os.path.join(script_dir, "kubejs", "assets", "create_resource_vents", "blockstates")
+model_dir = os.path.join(script_dir, "assets", "create_resource_vents", "models", "block")
+item_dir  = os.path.join(script_dir, "assets", "create_resource_vents", "models", "item")
+bs_dir    = os.path.join(script_dir, "assets", "create_resource_vents", "blockstates")
 
 os.makedirs(model_dir, exist_ok=True)
 os.makedirs(item_dir, exist_ok=True)
