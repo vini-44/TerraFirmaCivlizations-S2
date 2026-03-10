@@ -55,7 +55,7 @@ global.reinforcements =
         "steel":
         {
             "item":"kubejs:steel_reinforcement",
-            "value": 200,
+            "value": 100,
             "particle": "minecraft:dust 0.3 0.5 0.7 1.0",
             "name": "Steel",
             "sound": "minecraft:block.chain.place",
@@ -65,7 +65,7 @@ global.reinforcements =
         "titanium":
         {
             "item":"kubejs:titanium_reinforcement",
-            "value": 500,
+            "value": 250,
             "particle": "minecraft:dust 1 1 1 1.0",
             "name": "Titanium",
             "sound": "minecraft:block.anvil.place",
@@ -74,7 +74,7 @@ global.reinforcements =
         "carotine":
         {
             "item":"kubejs:carotine_reinforcement",
-            "value": 800,
+            "value": 500,
             "particle": "minecraft:dust 1 0.78 0.32 1.0",
             "name": "Carotine steel",
             "sound": "minecraft:block.anvil.place",
@@ -87,8 +87,7 @@ global.reinforcements =
             "particle": "minecraft:dust 1 0 1 1.0",
             "name": "Unbreakable",
             "sound": "minecraft:block.amethyst_block.place",
-            "tool_tier": 999,
-            "tool_type": "hammer"
+            "tool_type": "admin"
         }
     },
     order: ["weak","wood","stone","bronze","iron","steel","titanium","carotine","admin"],
@@ -103,10 +102,10 @@ global.reinforcements =
         "tfc:metal/hammer/steel":4,
         "tfc:metal/hammer/black_steel":4,
         "tfc:metal/hammer/blue_steel":4,
-        "tfc:metal/hammer/red_steel":4,
-        "kubejs:admin_hammer": 999
+        "tfc:metal/hammer/red_steel":4
     },
     welder: "createbigcannons:cannon_welder", //for high tier
+    admin: "kubejs:admin_hammer",
     cooldownTicks: 60,
 
     getByValue: function(value)
@@ -144,6 +143,10 @@ global.reinforcements =
         if (item == global.reinforcements.welder)
         {
             return {type:"welder",level:1};
+        }
+        if (item == global.reinforcements.admin)
+        {
+            return {type:"admin",level:1};
         }
     },
     goggle_item: "create:goggles",

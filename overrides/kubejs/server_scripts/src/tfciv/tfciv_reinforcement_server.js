@@ -382,11 +382,15 @@ function tryReinforce(event)
   {
     if (reinforce_type.tool_type == "hammer")
     {
-      player.tell(`You need a hammer to apply this reinforcement.`);
+      player.tell(`You need a Hammer to apply this reinforcement.`);
     }
     else if (reinforce_type.tool_type == "welder")
     {
       player.tell(`You need a Welder to apply this reinforcement.`);
+    }
+    else if (reinforce_type.tool_type == "admin")
+    {
+      player.tell(`You need Admin to apply this reinforcement.`);
     }
     return false;
   }
@@ -407,7 +411,7 @@ function tryReinforce(event)
 
   if (reinforce_type.tool_type == "hammer")
   { 
-    if (tool_type.type == "welder" && tool_type.level < 999)
+    if (tool_type.type == "welder")
     {
       useCooldown = false;
     }
@@ -430,6 +434,17 @@ function tryReinforce(event)
     if (tool_type.type != "welder")
     {
       player.tell(`You need a Welder in your offhand to apply this reinforcement.`);
+      return true;
+    }
+  }
+  else if (reinforce_type.tool_type == "admin")
+  {
+    if (tool_type.type == "admin")
+    {
+      useCooldown = false;
+    }
+    else {
+      player.tell(`You need Admin to apply this reinforcement.`);
       return true;
     }
   }
@@ -491,7 +506,7 @@ function tryRemoveReinforcement(event)
 
   if (reinforce_type.tool_type == "hammer")
   { 
-    if (tool_type.type == "welder" && tool_type.level < 999)
+    if (tool_type.type == "welder")
     {
       //its ok
     }
@@ -517,15 +532,25 @@ function tryRemoveReinforcement(event)
       return true;
     }
   }
-
-  removeReinforceValue(server,block)
+  else if (reinforce_type.tool_type == "admin")
+  {
+    if (tool_type.type != "admin")
+    {
+      player.tell(`You need Admin to remove this reinforcement.`);
+      return true;
+    }
+  }
 
   event.server.players.forEach(player => {
     if (player.distanceToSqr(block) < 32 * 32)
     {
-      player.level.playSound(null,block.x,block.y,block.z,"minecraft:block.anvil.destroy","master",1,1)
+      player.level.playSound(null,block.x,block.y,block.z,"minecraft:block.anvil.destroy","master",1,1);
+      player.sendData( 'block_reinforced', {x: block.x, y: block.y, z: block.z, value:reinforce_type.value});
     }
   });
+  player.tell(`You removed ${reinforce_value} reinforcements.`);
+
+  removeReinforceValue(server,block)
 
   return true;
 }
