@@ -1,0 +1,7 @@
+{
+    "replace": false,
+    "values": [
+        "terrafirmacivilizations:magma_liquid",
+        "terrafirmacivilizations:flowing_magma_liquid"
+    ]
+}
