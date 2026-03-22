@@ -6,9 +6,12 @@
   This modpack is based from <a href="https://www.curseforge.com/minecraft/modpacks/sulidae/files/6206683">Sulidae</a>
 </p>
 
-<h4>Client Mods:</h4>
+<h4>Host instructions:</h4>
+<p>Copy over config, default config, mods, ldlib, and kubejs</p>
+<h5>Client Mods:</h5>
 <p>This is used to track what should not be present on the server</p>
 <ul>
+  <li>see https://docs.google.com/spreadsheets/d/1dvFti_bxbD186n3e5yNP1cLyR0VvXHBy2npRknbucdA/edit?gid=2145624702#gid=2145624702 </li>
   <li>YungsMenuTweaks</li>
   <li>Fancy menu</li>
   <li>Sounds</li>
