@@ -313,8 +313,8 @@
 				type: "checkmark"
 			}]
 			title: "Immersive Aircraft"
-			x: -5.0d
-			y: 4.0d
+			x: -5.5d
+			y: 4.5d
 		}
 		{
 			dependencies: ["3FFD60F6DD717CFF"]
@@ -345,8 +345,8 @@
 				type: "checkmark"
 			}]
 			title: "Scorched Guns"
-			x: -7.0d
-			y: 4.0d
+			x: -7.5d
+			y: 3.0d
 		}
 		{
 			dependencies: ["3FFD60F6DD717CFF"]
@@ -359,7 +359,7 @@
 				type: "checkmark"
 			}]
 			title: "Quark"
-			x: -7.0d
+			x: -5.0d
 			y: 2.0d
 		}
 		{
@@ -424,8 +424,8 @@
 				type: "checkmark"
 			}]
 			title: "Refurbished Furniture"
-			x: -7.5d
-			y: 3.0d
+			x: -7.0d
+			y: 2.0d
 		}
 		{
 			dependencies: ["75B46FAA46D43E53"]
@@ -608,6 +608,8 @@
 				"The &lIndustrial Furnace&r is a new late-game multiblock machine for advanced processing. It is constructured with &3Refractory Bricks&r and the &3Industrial Furnace Controller&r. The multiblock structure is shown in JEI."
 				""
 				"Aside from Refractory Bricks, you will need an Insulated Fluid Input Hatches and Insulated Power Acceptor, and optionally, for automation, you can also use Insulated Item Input/Output Hatches. They can be placed anywhere, replacing Refractory Bricks."
+				""
+				"Not only is it needed for Titanium and Tungsten, it also provides several other recipes."
 			]
 			icon: "kubejs:refractory_bricks"
 			id: "264C7BDACB77C191"
@@ -628,7 +630,7 @@
 			]
 			description: [
 				"The &lMetalworks Forge&r is able to produce steel and wrought iron more conveniently at a consistent rate, using alternate resources."
-				"Additionally, it is necessary to refine &lTungsten&r to its final steps."
+				"Additionally, it is necessary to refine &lTungsten&r to its final steps; and provides the means for advanced processing of normal ores."
 			]
 			icon: "thermal:machine_crystallizer"
 			id: "6073D53D97EDB10D"
@@ -740,8 +742,8 @@
 				type: "checkmark"
 			}]
 			title: "Create Diesel Generators"
-			x: -6.0d
-			y: 4.5d
+			x: -7.5d
+			y: 4.0d
 		}
 		{
 			dependencies: ["529000CCCC295A5F"]
@@ -756,6 +758,38 @@
 			title: "Brick Toughness"
 			x: -9.5d
 			y: 2.0d
+		}
+		{
+			dependencies: ["3FFD60F6DD717CFF"]
+			description: ["Induction Heaters can heat up Crucibles"]
+			icon: "moreburners:electric_burner"
+			id: "6B7BC6298AC97146"
+			tasks: [{
+				id: "5B38FB9C7D864A8A"
+				title: "I Understand"
+				type: "checkmark"
+			}]
+			title: "Create More Burners"
+			x: -6.5d
+			y: 4.5d
+		}
+		{
+			dependencies: ["3FFD60F6DD717CFF"]
+			description: [
+				"The cannon builder is no more!"
+				"Boring cannons results directly into the usable cannon part (with exceptions of the ones that require assembly.)"
+				"Nethersteel is replaced by Mangalloy."
+			]
+			icon: "supplementaries:cannon"
+			id: "72C3B2DFEDEBB1D5"
+			tasks: [{
+				id: "0E35C04EF23795D4"
+				title: "I Understand"
+				type: "checkmark"
+			}]
+			title: "Create Big Cannons"
+			x: -4.5d
+			y: 4.0d
 		}
 	]
 	title: "About the Modpack"

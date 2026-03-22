@@ -1,8 +1,4 @@
 {
-  "mbd2": {
-    "recipe_logic_provider": true,
-    "multiblock_provider": true
-  },
   "minecraft": {
     "item_storage.show_name_amount": 5,
     "furnace": true,
@@ -55,6 +51,41 @@
     "painting": true,
     "chiseled_bookshelf": true
   },
+  "jadeaddons.create": {
+    "filter": true,
+    "backtank_capacity": true,
+    "goggles.requires_goggles": true,
+    "goggles": false,
+    "blaze_burner": true,
+    "exact_block": true,
+    "goggles.detailed": false,
+    "placard": true
+  },
+  "jade": {
+    "coordinates.rel": false,
+    "distance": false,
+    "block_face": false,
+    "coordinates": false,
+    "registry_name": "OFF",
+    "mod_name": true
+  },
+  "alekiships": {
+    "furnace": true,
+    "jukebox": true,
+    "brewing_stand": true,
+    "block": true,
+    "note_block": true
+  },
+  "functionalstorage": {
+    "armory": true
+  },
+  "balm": {
+    "jade": true
+  },
+  "mbd2": {
+    "recipe_logic_provider": true,
+    "multiblock_provider": true
+  },
   "firmalife": {
     "barrel_press": true,
     "string": true,
@@ -87,6 +118,7 @@
     "decaying": true,
     "wall_torch": true,
     "windmill": true,
+    "drying_sinew": true,
     "ocelot": true,
     "candle_cake": true,
     "horse": true,
@@ -122,6 +154,7 @@
     "candle": true,
     "jack_o_lantern": true,
     "firepit": true,
+    "wet_concrete": true,
     "ingot_pile": true
   },
   "firmaciv": {
@@ -131,33 +164,12 @@
   "jadeaddons": {
     "equipment_requirement": ""
   },
-  "jadeaddons.create": {
-    "filter": true,
-    "backtank_capacity": true,
-    "goggles.requires_goggles": true,
-    "goggles": false,
-    "blaze_burner": true,
-    "exact_block": true,
-    "goggles.detailed": false,
-    "placard": true
+  "exposure": {
+    "lightroom": true,
+    "photograph_frame": true
   },
   "supplementaries": {
     "hat_stand": true
-  },
-  "jade": {
-    "coordinates.rel": false,
-    "distance": false,
-    "block_face": false,
-    "coordinates": false,
-    "registry_name": "OFF",
-    "mod_name": true
-  },
-  "alekiships": {
-    "furnace": true,
-    "jukebox": true,
-    "brewing_stand": true,
-    "block": true,
-    "note_block": true
   },
   "corpse": {
     "corpse": true

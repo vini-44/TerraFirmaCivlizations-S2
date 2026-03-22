@@ -1,0 +1,65 @@
+# --- Vanishmod Config File --- 
+#
+#Should vanished players be physically hidden from the world?
+#If this config option is enabled, sounds and particles by vanished players will be suppressed and they will not be targeted by monsters, among other things.
+#Note that the skins of vanished players will never show up for non-permitted players, even if this config option is disabled, due to a vanilla limitation involving the tab list.
+hidePlayersFromWorld = true
+#Should vanished players be hidden from player lists such as the /list command and the list in the Multiplayer screen?
+hidePlayersFromPlayerLists = true
+#Should vanished players not be targetable by non-permitted players via command selectors?
+#This prevents those players from uncovering the presence of vanished players through e.g. /msg or /give.
+disableCommandTargeting = true
+#Should chat and /teammsg messages from vanished players be suppressed for non-permitted players?
+#Note that this does not affect emote commands such as /say and /me, as well as private message ones like /msg.
+hideChatMessages = true
+#Should system messages from vanished players, e.g. join, leave, death and advancement messages, be suppressed for non-permitted players?
+hideSystemMessages = true
+#Should the name of vanished players within chat messages sent to non-permitted players be concealed by replacing it with a custom string?
+#This applies to all chat messages, including ones from e.g. /say and /msg.
+#The string that the player name will be replaced with can be customized through the "vanishedPlayerNameReplacement" config option.
+hidePlayerNameInChat = false
+#Should the name of vanished players within system messages, e.g. join, leave, death and advancement messages, be concealed by replacing it with a custom string?
+#The string that the player name will be replaced with can be customized through the "vanishedPlayerNameReplacement" config option.
+hidePlayerNameInSystemMessages = true
+#Should vanished players send all non-permitted players a fake leave/join message when they vanish or unvanish?
+sendFakeJoinLeaveMessages = true
+#Should there be a (potential) fix for other mods uncovering the presence of vanished players?
+#This may severely decrease the game's performance and is thus not enabled by default.
+fixPlayerDetectionModCompatibility = false
+#Should this mod unconditionally and strictly remove (mostly) all references of names of vanished players by system messages added by mods?
+#This is experimental, disable the config if too many modded messages get removed.
+#Vanilla messages mentioning vanished players, such as death and advancement messages, will be removed regardless of this config's state.
+removeModdedSystemMessageReferences = true
+#Should vanished players be able to see each other?
+vanishedPlayersSeeEachOther = false
+#Should vanished players be visible for all players within their vanilla team, if the "seeFriendlyInvisibles" option is enabled for that team?
+seeVanishedTeamPlayers = false
+#Should sounds that vanished players cause indirectly (e.g. pressing a button or hitting an entity) be suppressed?
+#This detection might accidentally suppress some sounds unrelated to vanished players, disable this detection if too many sound bugs occur
+indirectSoundSuppression = true
+#Should particles that vanished players cause indirectly (e.g. eating or block breaking particles) be suppressed?
+#This detection might accidentally suppress particles unrelated to vanished players, disable this detection if too many visual bugs occur
+indirectParticleSuppression = true
+#Should vanished players be regarded as having the Invisibility status effect on the server side?
+#This does not actually affect if the player is rendered or not, but it may allow vanished players to hide from certain serverside map tools like Dynmap.
+spoofVanishedPlayerInvisibility = true
+#Should the "Hidden Players" list from mc2discord be constantly synchronised with a player's vanished status? (This might lead to worse performance)
+forceSyncHiddenList = false
+#What operator permission level should be the requirement for being able to execute /vanish? A value of 2 or lower allows command blocks to execute /vanish.
+#Range: 0 ~ 4
+vanishCommandPermissionLevel = 2
+#What operator permission level should be the requirement for non-vanished players to be able to see vanished players?
+#A value of 0 means that every player is able to see vanished players. A value of -1 disables this feature, meaning that the operator level is not taken into account when determining who a player is vanished for.
+#Range: -1 ~ 4
+seeVanishedPermissionLevel = -1
+#What message should a player receive when they vanish? Insert %s as a placeholder for the name of the vanishing player.
+onVanishMessage = "%s vanished"
+#What message should a player receive when they unvanish? Insert %s as a placeholder for the name of the unvanishing player.
+onUnvanishMessage = "%s unvanished"
+#What message should a player receive if they query the vanished status of a vanished player? Insert %s as a placeholder for the name of the player that the status is queried of.
+onVanishQuery = "%s is currently vanished."
+#What message should a player receive if they query the vanished status of a visible player? Insert %s as a placeholder for the name of the player that the status is queried of.
+onUnvanishQuery = "%s is currently not vanished."
+#What string should the name of vanished players be replaced with if the "hidePlayerNameInChat" config option is enabled?
+vanishedPlayerNameReplacement = "§7vanished"
+

@@ -6,6 +6,7 @@ ServerEvents.recipes((e) => {
 			Fluid.of('tfc:lye', 250),
 		])
 		.superheated();
+
 	e.custom({
 		type: 'createdieselgenerators:distillation',
 		ingredients: [
@@ -49,4 +50,5 @@ ServerEvents.recipes((e) => {
 	e.recipes.tfc
 		.heating('kubejs:alumina_powder', 1328)
 		.resultFluid(Fluid.of('kubejs:molten_alumina', 100));
+
 });

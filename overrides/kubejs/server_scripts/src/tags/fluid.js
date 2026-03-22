@@ -14,7 +14,7 @@ const usableInMetalBuckets = [
 	'createdieselgenerators:diesel',
 	'kubejs:kerosene',
     'kubejs:liquid_petroleum_gas',
-    //'kubejs:molten_plastic'
+    'kubejs:molten_plastic'
 ];
 const usableInBarrels = [
 	'createdieselgenerators:plant_oil',
@@ -67,5 +67,5 @@ ServerEvents.tags('fluid', (event) => {
 
 	event.add('c:hidden_from_recipe_viewers', REMOVED_FLUIDS);
 
-    //event.add('kubejs:lpg_ingredients', ['createdieselgenerators:gasoline', 'createdieselgenerators:diesel', 'kubejs:kerosene']);
+    event.add('kubejs:lpg_ingredients', ['createdieselgenerators:gasoline', 'createdieselgenerators:diesel', 'kubejs:kerosene']);
 });

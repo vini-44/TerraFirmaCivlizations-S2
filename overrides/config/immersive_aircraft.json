@@ -41,7 +41,8 @@
     "kubejs:ethanol_fuel_can": 2200,
     "kubejs:biodiesel_fuel_can": 2400,
     "kubejs:diesel_fuel_can": 2400,
-    "kubejs:gasoline_fuel_can": 2400
+    "kubejs:gasoline_fuel_can": 2400,
+    "kubejs:kerosene_fuel_can": 4800
   },
   "validDimensions": {
     "minecraft:the_end": true,

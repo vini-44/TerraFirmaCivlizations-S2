@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "kubejs:cryolite_mantle_ore",
+    "molten_vents:dormant_molten_mantle_cryolite",
+    "molten_vents:active_molten_mantle_cryolite"
+  ]
+}

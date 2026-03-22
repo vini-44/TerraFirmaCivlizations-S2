@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "kubejs:bismuth_mantle_ore",
+    "molten_vents:dormant_molten_mantle_bismuth",
+    "molten_vents:active_molten_mantle_bismuth"
+  ]
+}

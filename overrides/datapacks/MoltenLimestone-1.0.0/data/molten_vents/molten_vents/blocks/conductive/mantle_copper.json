@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "kubejs:copper_mantle_ore",
+    "molten_vents:dormant_molten_mantle_copper",
+    "molten_vents:active_molten_mantle_copper"
+  ]
+}

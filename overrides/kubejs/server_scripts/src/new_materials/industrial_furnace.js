@@ -77,6 +77,8 @@ ServerEvents.recipes((e) => {
 		})
 		.outputItems('tfc:powder/kaolinite');
 
+
+    //atmo condenser
 	e.shaped('kubejs:atmospheric_condenser', ['ABA', 'CDC', 'EEE'], {
 		A: 'afc:rubber_bar',
 		B: 'firmalife:reinforced_glass',
@@ -84,4 +86,31 @@ ServerEvents.recipes((e) => {
 		D: 'thermal:machine_frame',
 		E: 'kubejs:metal/sheet/titanium',
 	});
+
+    //artificial graph
+    	e.recipes.kubejs
+		.industrial_furnace()
+		.id('kubejs:artificial_graphite')
+		.duration(250)
+		.inputItems(['8x tfc:powder/coke'])
+		.perTick((builder) => {
+			builder.inputFE(2048);
+		})
+		.outputItems('tfc:powder/graphite');
+
+
+        //pyrite iron/sulfur
+            	e.recipes.kubejs
+		.industrial_furnace()
+		.id('kubejs:pyrite_iron_sulfur')
+		.duration(250)
+		.inputItems(['4x tfc:powder/pyrite', ['tfc:powder/graphite']])
+		.perTick((builder) => {
+			builder.inputFE(2048);
+		})
+        .chance(0.75, (builder) => {
+			builder.outputItems(['tfc:powder/sulfur']);
+		})
+        .outputFluids(Fluid.of("tfc:metal/cast_iron", 125))
+
 });

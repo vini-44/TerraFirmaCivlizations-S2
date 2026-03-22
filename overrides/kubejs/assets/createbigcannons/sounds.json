@@ -1,0 +1,23 @@
+{
+    "fire_big_cannon": {
+        "replace": true,
+        "sounds": [
+            {
+                "name": "createbigcannons:fire_big_cannon"
+            }
+        ],
+        "subtitle": "createbigcannons.subtitle.fire_big_cannon"
+    },
+    "fire_drop_mortar": {
+        "replace": true,
+        "sounds": [
+            {
+                "name": "createbigcannons:fire_drop_mortar0"
+            },
+            {
+                "name": "createbigcannons:fire_drop_mortar1"
+            }
+        ],
+        "subtitle": "createbigcannons.subtitle.fire_drop_mortar"
+    }
+}
