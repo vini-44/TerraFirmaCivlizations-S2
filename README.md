@@ -18,7 +18,6 @@
   <li>Sounds physics</li>
   <li>Sholder Surfings</li>
   <li>Make Bubbles Pop</li>
-  <li>MaFgLib</li>
   <li>DistantHorizons</li>
   <li>Immersive UI</li>
   <li>Client-side crafting</li>
