@@ -2,19 +2,19 @@
     "fluid": "#forge:plantoil",
     "sound_pitch": 0.7,
     "normal": {
-        "speed": 74.0,
-        "strength": 2048.0,
-        "burn_rate": 0.05
+        "speed": 96.0,
+        "strength": 8192.0,
+        "burn_rate": 2.0
     },
     "modular": {
-        "speed": 74.0,
-        "strength": 2560.0,
-        "burn_rate": 0.05
+        "speed": 96.0,
+        "strength": 8192.0,
+        "burn_rate": 2.0
     },
     "huge": {
-        "speed": 192.0,
-        "strength": 4096.0,
-        "burn_rate": 0.05
+        "speed": 48.0,
+        "strength": 16384.0,
+        "burn_rate": 4.0
     },
     "burner_multiplier": 0.5
 }

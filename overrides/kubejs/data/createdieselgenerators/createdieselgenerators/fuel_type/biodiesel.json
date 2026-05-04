@@ -1,20 +1,20 @@
 {
     "fluid": "#forge:biodiesel",
-    "sound_pitch": 1,
     "normal": {
-        "speed": 128.0,
-        "strength": 16384.0,
-        "burn_rate": 0.05
+        "speed": 96.0,
+        "strength": 8192.0,
+        "burn_rate": 2.0
     },
     "modular": {
-        "speed": 128.0,
-        "strength": 16384.0,
-        "burn_rate": 0.05
+        "speed": 96.0,
+        "strength": 8192.0,
+        "burn_rate": 2.0
     },
     "huge": {
-        "speed": 128.0,
-        "strength": 32768.0,
-        "burn_rate": 0.05
+        "speed": 48.0,
+        "strength": 16384.0,
+        "burn_rate": 4.0
     },
-    "burner_multiplier": 0.5
+    "sound_pitch": 0.9,
+    "burner_multiplier": 0.1
 }
