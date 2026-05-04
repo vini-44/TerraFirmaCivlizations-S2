@@ -94,6 +94,22 @@ let fertilityCheck = (event, plant, needs_sun, invalid_biomes, temp_range_low, t
     }
 }
 
+//crops other
+BlockEvents.placed('textile:crop/cotton', event => {
+    let bad_biomes = [];
+    //const special_bad_biomes = [];
+    //bad_biomes.push(special_bad_biomes);
+
+    bad_biomes = bad_biomes.concat(ocean_biomes);
+    bad_biomes = bad_biomes.concat(mountain_biomes);
+    bad_biomes = bad_biomes.concat(volcanic_biomes);
+
+    fertilityCheck(
+        event, 'textile:crop/cotton', false, bad_biomes, 
+        heat_levels[5], heat_levels[7], rain_levels[4], rain_levels[7]
+    );
+})
+
 //crops GRAINS
 BlockEvents.placed('tfc:crop/barley', event => {
     let bad_biomes = [];
