@@ -42,22 +42,22 @@
 	#Entity Fish
 	[entity.fish]
 		#Remove the fish's random swimming pathfinder. This will cause fish to stay in position more often.
-		remove_swim = false
+		remove_swim = true
 		#Remove the fish's panic pathfinder. This will cause fish to not run away.
 		remove_panic = false
 		#Remove the fish's AI task to avoid players.
 		remove_avoid_player = false
 		#Remove the fish's AI task to follow a leader fish to act as a group of fish.
-		remove_follow_leader = false
+		remove_follow_leader = true
 		#Remove the fish's AI task to puff up when entities are nearby
-		remove_puff = false
+		remove_puff = true
 
 	#Squid Fish
 	[entity.squid]
 		#Remove the squid's flee pathfinder. This will cause squid to not run away.
 		remove_flee = false
 		#Remove the squid's random movement pathfinder. This will cause squid to swim around randomly.
-		remove_random_move = false
+		remove_random_move = true
 
 	#Cow
 	[entity.cow]
@@ -72,7 +72,7 @@
 		#Remove the cow's follow parent AI task. This causes baby cows to no longer follow their parents.
 		remove_follow_parent = false
 		#Remove the cow's random stroll AI task. This causes cows to no longer walk around randomly.
-		remove_stroll = false
+		remove_stroll = true
 
 	#Chicken
 	[entity.chicken]
@@ -87,7 +87,7 @@
 		#Remove the chicken's follow parent AI task. This causes baby chickens to no longer follow their parents.
 		remove_follow_parent = false
 		#Remove the chicken's random stroll AI task. This causes chickens to no longer walk around randomly.
-		remove_stroll = false
+		remove_stroll = true
 
 	#Pig
 	[entity.pig]
@@ -102,7 +102,7 @@
 		#Remove the pig's follow parent AI task. This causes baby pigs to no longer follow their parents.
 		remove_follow_parent = false
 		#Remove the pig's random stroll AI task. This causes pigs to no longer walk around randomly.
-		remove_stroll = false
+		remove_stroll = true
 
 	#Sheep
 	[entity.sheep]
@@ -117,7 +117,7 @@
 		#Remove the sheep's follow parent AI task. This causes baby sheep to no longer follow their parents.
 		remove_follow_parent = false
 		#Remove the sheep's random stroll AI task. This causes sheep to no longer walk around randomly.
-		remove_stroll = false
+		remove_stroll = true
 		#Remove the sheep's eat block AI task. This causes sheep to no longer eat grass, and thus be unable to regenerate their wool.
 		remove_eat_block = false
 
