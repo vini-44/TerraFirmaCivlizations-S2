@@ -8,7 +8,7 @@
         "mob": "quark:stoneling",
         "phase": "pre_game",
         "mincount":{
-            "amount": 20
+            "amount": 10
         },
         "result" : "deny"
     }, 
@@ -16,5 +16,14 @@
         "mob": "thermal:blitz",
         "phase": "pre_game",
         "result" : "deny"
+    },
+    {
+        "mob": ["tfc:lobster", "tfc:cod", "tfc:tropical_fish", "tfc:shellfish", "tfc:bluegill", "tfc:salmon"],
+        "phase": "pre_game",
+        "mincount":{
+            "amount": 30
+        },
+        "result" : "deny"
     }
+    
 ]
