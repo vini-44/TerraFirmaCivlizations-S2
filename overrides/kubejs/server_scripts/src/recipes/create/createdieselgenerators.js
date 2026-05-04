@@ -163,24 +163,127 @@ ServerEvents.recipes((e) => {
 		processingTime: 100,
 		results: [
 			{
-				fluid: 'kubejs:lubricant',
-				amount: 300,
+				fluid: 'createdieselgenerators:crude_oil',
+				amount: 100,
 			},
 			{
 				fluid: 'createdieselgenerators:diesel',
-				amount: 300,
-			},
-			{
-				fluid: 'createdieselgenerators:gasoline',
-				amount: 200,
+				amount: 400,
 			},
 			{
 				fluid: 'kubejs:kerosene',
 				amount: 200,
 			},
+			{
+				fluid: 'createdieselgenerators:gasoline',
+				amount: 100,
+			},
+			{
+				fluid: 'kubejs:lubricant',
+				amount: 50,
+			},
+			{
+				fluid: 'kubejs:liquid_petroleum_gas',
+				amount: 25,
+			},
 		],
 	});
 
+	//further refining
+	e.custom({
+		type: 'createdieselgenerators:distillation',
+		ingredients: [
+			{
+				fluid: 'createdieselgenerators:diesel',
+				amount: 1000,
+			},
+		],
+		heatRequirement: 'superheated',
+		processingTime: 200,
+		results: [
+			{
+				fluid: 'kubejs:kerosene',
+				amount: 300,
+			},
+			{
+				fluid: 'createdieselgenerators:gasoline',
+				amount: 150,
+			},
+			{
+				fluid: 'kubejs:lubricant',
+				amount: 75,
+			},
+			{
+				fluid: 'kubejs:liquid_petroleum_gas',
+				amount: 25,
+			},
+		],
+	});
+	e.custom({
+		type: 'createdieselgenerators:distillation',
+		ingredients: [
+			{
+				fluid: 'kubejs:kerosene',
+				amount: 1000,
+			},
+		],
+		heatRequirement: 'superheated',
+		processingTime: 200,
+		results: [
+			{
+				fluid: 'createdieselgenerators:gasoline',
+				amount: 300,
+			},
+			{
+				fluid: 'kubejs:lubricant',
+				amount: 200,
+			},
+			{
+				fluid: 'kubejs:liquid_petroleum_gas',
+				amount: 50,
+			},
+		],
+	});
+	e.custom({
+		type: 'createdieselgenerators:distillation',
+		ingredients: [
+			{
+				fluid: 'createdieselgenerators:gasoline',
+				amount: 1000,
+			},
+		],
+		heatRequirement: 'superheated',
+		processingTime: 200,
+		results: [
+			{
+				fluid: 'kubejs:lubricant',
+				amount: 200,
+			},
+			{
+				fluid: 'kubejs:liquid_petroleum_gas',
+				amount: 100,
+			},
+		],
+	});
+	e.custom({
+		type: 'createdieselgenerators:distillation',
+		ingredients: [
+			{
+				fluid: 'kubejs:lubricant',
+				amount: 1000,
+			},
+		],
+		heatRequirement: 'superheated',
+		processingTime: 200,
+		results: [
+			{
+				fluid: 'kubejs:liquid_petroleum_gas',
+				amount: 100,
+			},
+		],
+	});
+
+		//water
 	e.custom({
 		type: 'createdieselgenerators:distillation',
 		ingredients: [
@@ -212,25 +315,6 @@ ServerEvents.recipes((e) => {
 		results: [
 			{
 				fluid: 'createdieselgenerators:ethanol',
-				amount: 30,
-			},
-		],
-	});
-
-	//lpg
-	e.custom({
-		type: 'createdieselgenerators:distillation',
-		ingredients: [
-			{
-				fluidTag: 'kubejs:lpg_ingredients',
-				amount: 100,
-			},
-		],
-		heatRequirement: 'heated',
-		processingTime: 100,
-		results: [
-			{
-				fluid: 'kubejs:liquid_petroleum_gas',
 				amount: 30,
 			},
 		],

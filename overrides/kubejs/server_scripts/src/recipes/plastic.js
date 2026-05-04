@@ -6,12 +6,12 @@ ServerEvents.recipes((e) => {
 		.resultFluid(Fluid.of('kubejs:molten_plastic', 100));
 
 	e.recipes.thermal.crystallizer('kubejs:plastic', [
-		Fluid.of('kubejs:liquid_petroleum_gas', 90),
+		Fluid.of('kubejs:liquid_petroleum_gas', 500),
 		'kubejs:ilmenite_powder',
 		'tfc:powder/graphite',
 	]);
 	e.recipes.thermal.crystallizer('afc:rubber_bar', [
-		Fluid.of('kubejs:liquid_petroleum_gas', 90),
+		Fluid.of('kubejs:liquid_petroleum_gas', 500),
 		'kubejs:ilmenite_powder',
 		'tfc:powder/sulfur',
 	]);

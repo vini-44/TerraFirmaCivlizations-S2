@@ -8,6 +8,7 @@ const REMOVED_ITEMS = [
 	'#tfc:clutches',
 	'#tfc:gear_boxes',
 	'#tfc:water_wheels',
+	'#firmalife:greenhouse',
 
 	'alekiships:music_disc_pirate_crafting',
 	'alekiships:watercraft_frame_angled',
