@@ -1,7 +1,7 @@
 {
   "replace": true,
   "order": 1,
-  "enabled": true,
+  "enabled": false,
   "origins": [
     "origins-classes:farmer1",
     "origins-classes:rancher1",
