@@ -11,8 +11,8 @@ familiarityDecayLimit = 0.3
 	# Forces a number of game rules to specific values.
 	#   naturalRegeneration = false (Health regen is much slower and not tied to extra saturation)
 	#   doInsomnia = false (No phantoms)
-	    doTraderSpawning = true
-	    doPatrolSpawning = true
+	#   doTraderSpawning = false (No wandering traders)
+	#   doPatrolSpawning = false (No pillager patrols)
 	enableForcedTFCGameRules = false
 	#
 	# If true, TFC will stop time when no players are online on a running server.
@@ -507,7 +507,7 @@ familiarityDecayLimit = 0.3
 		#Range: 0.001 ~ 1000.0
 		cropGrowthModifier = 5
 		#
-		# Modifier applied to the expiry time of every crop. The modifier multiplies the ticks it takes to grow, so larger values cause longer growth times. For example, a value of 2 doubles the growth time.
+		# Modifier applied to the expiry time of every crop. The modifier multiplies the ticks it takes to grow, so larger values cause longer expiry times. For example, a value of 2 doubles the expiry time.
 		#Range: 0.001 ~ 1000.0
 		cropExpiryModifier = 2
 
@@ -703,7 +703,7 @@ familiarityDecayLimit = 0.3
 		#
 		# Variance of the radius of a collapse. Total size is in [minRadius, minRadius + radiusVariance]
 		#Range: 1 ~ 32
-		collapseRadiusVariance = 16
+		collapseRadiusVariance = 32
 
 	[mechanics.player]
 		#
@@ -726,7 +726,7 @@ familiarityDecayLimit = 0.3
 		#
 		# How much thirst the player gains from drinking in the rain (standing outside in the rain and looking up) per tick.
 		#Range: 0.0 ~ 100.0
-		thirstGainedFromDrinkingInTheRain = 0.20833333333333334
+		thirstGainedFromDrinkingInTheRain = 0.2
 		#
 		# A multiplier for how quickly the player regenerates health, under TFC's passive regeneration.
 		# By default, the player regenerates 0.2 HP/second, or 0.6 HP/second when above 80% hunger and thirst, where 1 HP = 1/50 of a heart.
@@ -739,7 +739,7 @@ familiarityDecayLimit = 0.3
 		nutritionRotationHungerWindow = 100
 		#
 		# If player's nutrition should be kept even after death. Hunger and thirst are not affected and will be reset.
-		keepNutritionAfterDeath = true
+		keepNutritionAfterDeath = false
 		#
 		# How many hours should different foods ignore when trying to stack together automatically?
 		# Food made with different creation dates doesn't stack by default, unless it's within a specific window. This is the number of hours that different foods will try and stack together at the loss of a little extra expiry time.
@@ -759,7 +759,7 @@ familiarityDecayLimit = 0.3
 		#Range: 0.001 ~ 1000.0
 		nutritionMinimumHealthModifier = 0.2
 		#
-		# A multiplier for the default health that the player will have this is at a average nutrition of 40%, aka the starting nutrition.
+		# A multiplier for the default health that the player will have (this is at a average nutrition of 40%, aka the starting nutrition.
 		# Nutrition above this value will linearly scale to the maximum multiplier.
 		# Nutrition below this value will linearly scale to the minimum multiplier.
 		#Range: 0.001 ~ 1000.0
@@ -809,8 +809,8 @@ familiarityDecayLimit = 0.3
 
 	[mechanics.fluids]
 		#
-		# If true, TFC buckets that naturally place sources (colored steel) will place sources. If false, this behavior is disabled.
-		enableBucketsPlacingSources = true
+		# If true, TFC buckets that naturally place sources (colored steel) will place sources. If false, this behavior is disabled. By default, colored steel buckets do not place sources.
+		enableBucketsPlacingSources1 = false
 
 	[mechanics.vanillaChanges]
 		#
@@ -833,16 +833,16 @@ familiarityDecayLimit = 0.3
 		enableVanillaGolems = false
 		#
 		# If true, vanilla monsters are able to spawn. If false, the 'enableVanillaMonstersOnSurface' config option is not used, and all spawns are denied.
-		enableVanillaMonsters = true
+		enableVanillaMonsters = false
 		#
 		# If true, vanilla monsters will spawn on the surface instead of just underground. If false, vanilla monsters will not spawn on the surface.
 		enableVanillaMonstersOnSurface = false
 		#
 		# If true, chicken jockies can spawn
-		enableChickenJockies = false
+		enableChickenJockies = true
 		#
 		# If true, eggs can be thrown.
-		enableVanillaEggThrowing = false
+		enableVanillaEggThrowing = true
 		#
 		# If true, drinking milk will clear potion effects and restore no nutrition, as in vanilla.
 		enableVanillaDrinkingMilkClearsPotionEffects = false
