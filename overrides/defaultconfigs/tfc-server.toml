@@ -853,7 +853,7 @@ familiarityDecayLimit = 0.3
 			#
 			# Max familiarity an adult may reach
 			#Range: 0.0 ~ 1.0
-			pigFamiliarityCap = 0.35
+			pigFamiliarityCap = 0.65
 			#
 			# Days until animal reaches adulthood
 			#Range: > 0
@@ -868,17 +868,17 @@ familiarityDecayLimit = 0.3
 			#
 			# Length of pregnancy in days
 			#Range: > 0
-			pigGestationDays = 19
+			pigGestationDays = 30
 			#
 			# Max number of children born
 			#Range: 0 ~ 100
-			pigChildCount = 10
+			pigChildCount = 3
 
 		[mechanics.animals.donkey]
 			#
 			# Max familiarity an adult may reach
 			#Range: 0.0 ~ 1.0
-			donkeyFamiliarityCap = 0.35
+			donkeyFamiliarityCap = 0.65
 			#
 			# Days until animal reaches adulthood
 			#Range: > 0
@@ -903,7 +903,7 @@ familiarityDecayLimit = 0.3
 			#
 			# Max familiarity an adult may reach
 			#Range: 0.0 ~ 1.0
-			muleFamiliarityCap = 0.35
+			muleFamiliarityCap = 0.65
 			#
 			# Days until animal reaches adulthood
 			#Range: > 0
@@ -928,7 +928,7 @@ familiarityDecayLimit = 0.3
 			#
 			# Max familiarity an adult may reach
 			#Range: 0.0 ~ 1.0
-			horseFamiliarityCap = 0.35
+			horseFamiliarityCap = 0.65
 			#
 			# Days until animal reaches adulthood
 			#Range: > 0
@@ -943,7 +943,7 @@ familiarityDecayLimit = 0.3
 			#
 			# Length of pregnancy in days
 			#Range: > 0
-			horseGestationDays = 19
+			horseGestationDays = 30
 			#
 			# Max number of children born
 			#Range: 0 ~ 100
@@ -953,7 +953,7 @@ familiarityDecayLimit = 0.3
 			#
 			# Max familiarity an adult may reach
 			#Range: 0.0 ~ 1.0
-			catFamiliarityCap = 0.35
+			catFamiliarityCap = 0.85
 			#
 			# Days until animal reaches adulthood
 			#Range: > 0
@@ -978,7 +978,7 @@ familiarityDecayLimit = 0.3
 			#
 			# Max familiarity an adult may reach
 			#Range: 0.0 ~ 1.0
-			dogFamiliarityCap = 0.35
+			dogFamiliarityCap = 1
 			#
 			# Days until animal reaches adulthood
 			#Range: > 0
@@ -1003,7 +1003,7 @@ familiarityDecayLimit = 0.3
 			#
 			# Max familiarity an adult may reach
 			#Range: 0.0 ~ 1.0
-			rabbitFamiliarityCap = 0.35
+			rabbitFamiliarityCap = 0.65
 			#
 			# Days until animal reaches adulthood
 			#Range: > 0
@@ -1018,17 +1018,17 @@ familiarityDecayLimit = 0.3
 			#
 			# Length of pregnancy in days
 			#Range: > 0
-			rabbitGestationDays = 19
+			rabbitGestationDays = 25
 			#
 			# Max number of children born
 			#Range: 0 ~ 100
-			rabbitChildCount = 6
+			rabbitChildCount = 4
 
 		[mechanics.animals.cow]
 			#
 			# Max familiarity an adult may reach
 			#Range: 0.0 ~ 1.0
-			cowFamiliarityCap = 0.35
+			cowFamiliarityCap = 0.65
 			#
 			# Days until animal reaches adulthood
 			#Range: > 0
@@ -1055,13 +1055,13 @@ familiarityDecayLimit = 0.3
 			#
 			# Minimum familiarity [0-1] needed for produce. Set above 1 to disable produce.
 			#Range: 0.0 ~ 3.4028234663852886E38
-			cowMinProduceFamiliarity = 0.15
+			cowMinProduceFamiliarity = 0.35
 
 		[mechanics.animals.goat]
 			#
 			# Max familiarity an adult may reach
 			#Range: 0.0 ~ 1.0
-			goatFamiliarityCap = 0.35
+			goatFamiliarityCap = 0.65
 			#
 			# Days until animal reaches adulthood
 			#Range: > 0
@@ -1088,13 +1088,13 @@ familiarityDecayLimit = 0.3
 			#
 			# Minimum familiarity [0-1] needed for produce. Set above 1 to disable produce.
 			#Range: 0.0 ~ 3.4028234663852886E38
-			goatMinProduceFamiliarity = 0.15
+			goatMinProduceFamiliarity = 0.35
 
 		[mechanics.animals.yak]
 			#
 			# Max familiarity an adult may reach
 			#Range: 0.0 ~ 1.0
-			yakFamiliarityCap = 0.35
+			yakFamiliarityCap = 0.65
 			#
 			# Days until animal reaches adulthood
 			#Range: > 0
@@ -1121,13 +1121,13 @@ familiarityDecayLimit = 0.3
 			#
 			# Minimum familiarity [0-1] needed for produce. Set above 1 to disable produce.
 			#Range: 0.0 ~ 3.4028234663852886E38
-			yakMinProduceFamiliarity = 0.15
+			yakMinProduceFamiliarity = 0.35
 
 		[mechanics.animals.alpaca]
 			#
 			# Max familiarity an adult may reach
 			#Range: 0.0 ~ 1.0
-			alpacaFamiliarityCap = 0.35
+			alpacaFamiliarityCap = 0.65
 			#
 			# Days until animal reaches adulthood
 			#Range: > 0
@@ -1154,13 +1154,13 @@ familiarityDecayLimit = 0.3
 			#
 			# Minimum familiarity [0-1] needed for produce. Set above 1 to disable produce.
 			#Range: 0.0 ~ 3.4028234663852886E38
-			alpacaMinProduceFamiliarity = 0.15
+			alpacaMinProduceFamiliarity = 0.35
 
 		[mechanics.animals.sheep]
 			#
 			# Max familiarity an adult may reach
 			#Range: 0.0 ~ 1.0
-			sheepFamiliarityCap = 0.35
+			sheepFamiliarityCap = 0.65
 			#
 			# Days until animal reaches adulthood
 			#Range: > 0
@@ -1187,13 +1187,13 @@ familiarityDecayLimit = 0.3
 			#
 			# Minimum familiarity [0-1] needed for produce. Set above 1 to disable produce.
 			#Range: 0.0 ~ 3.4028234663852886E38
-			sheepMinProduceFamiliarity = 0.15
+			sheepMinProduceFamiliarity = 0.35
 
 		[mechanics.animals.muskOx]
 			#
 			# Max familiarity an adult may reach
 			#Range: 0.0 ~ 1.0
-			muskOxFamiliarityCap = 0.35
+			muskOxFamiliarityCap = 0.65
 			#
 			# Days until animal reaches adulthood
 			#Range: > 0
@@ -1220,13 +1220,13 @@ familiarityDecayLimit = 0.3
 			#
 			# Minimum familiarity [0-1] needed for produce. Set above 1 to disable produce.
 			#Range: 0.0 ~ 3.4028234663852886E38
-			muskOxMinProduceFamiliarity = 0.15
+			muskOxMinProduceFamiliarity = 0.35
 
 		[mechanics.animals.chicken]
 			#
 			# Max familiarity an adult may reach
 			#Range: 0.0 ~ 1.0
-			chickenFamiliarityCap = 0.35
+			chickenFamiliarityCap = 0.65
 			#
 			# Days until animal reaches adulthood
 			#Range: > 0
@@ -1245,7 +1245,7 @@ familiarityDecayLimit = 0.3
 			#
 			# Minimum familiarity [0-1] needed for produce. Set above 1 to disable produce.
 			#Range: 0.0 ~ 3.4028234663852886E38
-			chickenMinProduceFamiliarity = 0.15
+			chickenMinProduceFamiliarity = 0.35
 			#
 			# Ticks until egg is ready to hatch
 			#Range: > 0
@@ -1255,7 +1255,7 @@ familiarityDecayLimit = 0.3
 			#
 			# Max familiarity an adult may reach
 			#Range: 0.0 ~ 1.0
-			duckFamiliarityCap = 0.35
+			duckFamiliarityCap = 0.65
 			#
 			# Days until animal reaches adulthood
 			#Range: > 0
@@ -1274,7 +1274,7 @@ familiarityDecayLimit = 0.3
 			#
 			# Minimum familiarity [0-1] needed for produce. Set above 1 to disable produce.
 			#Range: 0.0 ~ 3.4028234663852886E38
-			duckMinProduceFamiliarity = 0.15
+			duckMinProduceFamiliarity = 0.35
 			#
 			# Ticks until egg is ready to hatch
 			#Range: > 0
@@ -1284,7 +1284,7 @@ familiarityDecayLimit = 0.3
 			#
 			# Max familiarity an adult may reach
 			#Range: 0.0 ~ 1.0
-			quailFamiliarityCap = 0.35
+			quailFamiliarityCap = 0.65
 			#
 			# Days until animal reaches adulthood
 			#Range: > 0
@@ -1303,7 +1303,7 @@ familiarityDecayLimit = 0.3
 			#
 			# Minimum familiarity [0-1] needed for produce. Set above 1 to disable produce.
 			#Range: 0.0 ~ 3.4028234663852886E38
-			quailMinProduceFamiliarity = 0.15
+			quailMinProduceFamiliarity = 0.35
 			#
 			# Ticks until egg is ready to hatch
 			#Range: > 0

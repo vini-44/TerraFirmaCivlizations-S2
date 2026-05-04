@@ -2,14 +2,14 @@
 [general]
 	#
 	# Enable option to toggle automatic breeding of animals by a Grooming Station on a block-to-block basis.
-	enableBreedingToggle = true
+	enableBreedingToggle = false
 	#
 	# If true, grooming stations will automatically breed animals together when feeding.
 	breedingEnabledByDefault = false
 	#
 	# How much time (in ticks) the Grooming Station waits before checking for animals to feed.
 	#Range: 20 ~ 6000
-	groomingStationTicks = 1200
+	groomingStationTicks = 6000
 
 [tier_ranges]
 	#
