@@ -34,8 +34,19 @@ WorldgenEvents.remove(event => {
     'tfc_ie_addon:vein/surface_galena',
     'tfc_ie_addon:vein/normal_uraninite'
   ]
+  const CREATE_VENTS = [
+    "create_resource_vents:placed_crimsite_vent",
+    "create_resource_vents:placed_asurine_vent",
+    "create_resource_vents:placed_ochrum_vent",
+    "create_resource_vents:placed_veridium_vent",
+    "create_resource_vents:placed_scoria_vent",
+    "create_resource_vents:placed_scorchia_vent"
+  ]
 
   TFC_ORES.forEach(id => {
     event.removeFeatureById('underground_ores', id)
+  })
+  CREATE_VENTS.forEach(id => {
+    event.removeFeatureById('underground_decoration', id)
   })
 });
