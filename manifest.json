@@ -12,8 +12,9 @@
   "manifestType": "minecraftModpack",
   "manifestVersion": 1,
   "name": "TerraFirmaCivilization",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "author": "Vini_4444",
+  "overrides": "overrides",
   "files": [
     {
       "projectID": 266450,
@@ -41,7 +42,7 @@
     },
     {
       "projectID": 1006182,
-      "fileID": 6942821,
+      "fileID": 7682774,
       "required": true,
       "isLocked": false
     },
@@ -78,6 +79,12 @@
     {
       "projectID": 1030380,
       "fileID": 5948052,
+      "required": true,
+      "isLocked": false
+    },
+    {
+      "projectID": 908983,
+      "fileID": 5196201,
       "required": true,
       "isLocked": false
     },
@@ -526,12 +533,6 @@
       "isLocked": false
     },
     {
-      "projectID": 871755,
-      "fileID": 6655718,
-      "required": true,
-      "isLocked": false
-    },
-    {
       "projectID": 69162,
       "fileID": 5374122,
       "required": true,
@@ -622,12 +623,6 @@
       "isLocked": false
     },
     {
-      "projectID": 897116,
-      "fileID": 7110922,
-      "required": true,
-      "isLocked": false
-    },
-    {
       "projectID": 410811,
       "fileID": 6555287,
       "required": true,
@@ -654,6 +649,12 @@
     {
       "projectID": 905450,
       "fileID": 5086758,
+      "required": true,
+      "isLocked": false
+    },
+    {
+      "projectID": 969207,
+      "fileID": 5126426,
       "required": true,
       "isLocked": false
     },
@@ -1102,12 +1103,6 @@
       "isLocked": false
     },
     {
-      "projectID": 1199489,
-      "fileID": 6194594,
-      "required": true,
-      "isLocked": false
-    },
-    {
       "projectID": 551520,
       "fileID": 5723247,
       "required": true,
@@ -1174,12 +1169,6 @@
       "isLocked": false
     },
     {
-      "projectID": 340907,
-      "fileID": 4680112,
-      "required": true,
-      "isLocked": false
-    },
-    {
       "projectID": 916747,
       "fileID": 6274623,
       "required": true,
@@ -1206,6 +1195,12 @@
     {
       "projectID": 287342,
       "fileID": 5468426,
+      "required": true,
+      "isLocked": false
+    },
+    {
+      "projectID": 245028,
+      "fileID": 4891607,
       "required": true,
       "isLocked": false
     },
@@ -1366,18 +1361,6 @@
       "isLocked": false
     },
     {
-      "projectID": 421850,
-      "fileID": 5769971,
-      "required": true,
-      "isLocked": false
-    },
-    {
-      "projectID": 917285,
-      "fileID": 5113568,
-      "required": true,
-      "isLocked": false
-    },
-    {
       "projectID": 899487,
       "fileID": 6210180,
       "required": true,
@@ -1398,6 +1381,12 @@
     {
       "projectID": 521590,
       "fileID": 4985588,
+      "required": true,
+      "isLocked": false
+    },
+    {
+      "projectID": 899986,
+      "fileID": 5125661,
       "required": true,
       "isLocked": false
     },
@@ -1516,8 +1505,8 @@
       "isLocked": false
     },
     {
-      "projectID": 909375,
-      "fileID": 4789318,
+      "projectID": 1129601,
+      "fileID": 6063804,
       "required": true,
       "isLocked": false
     },
@@ -1528,8 +1517,8 @@
       "isLocked": false
     },
     {
-      "projectID": 1129601,
-      "fileID": 6063804,
+      "projectID": 909375,
+      "fileID": 4789318,
       "required": true,
       "isLocked": false
     },
@@ -1540,20 +1529,14 @@
       "isLocked": false
     },
     {
-      "projectID": 1036246,
-      "fileID": 5960819,
-      "required": true,
-      "isLocked": false
-    },
-    {
       "projectID": 250398,
       "fileID": 4646682,
       "required": true,
       "isLocked": false
     },
     {
-      "projectID": 243190,
-      "fileID": 7446740,
+      "projectID": 1036246,
+      "fileID": 5960819,
       "required": true,
       "isLocked": false
     },
@@ -1564,14 +1547,14 @@
       "isLocked": false
     },
     {
-      "projectID": 549394,
-      "fileID": 4606534,
+      "projectID": 243190,
+      "fileID": 7446740,
       "required": true,
       "isLocked": false
     },
     {
-      "projectID": 1170251,
-      "fileID": 7054495,
+      "projectID": 549394,
+      "fileID": 4606534,
       "required": true,
       "isLocked": false
     },
@@ -1588,6 +1571,5 @@
       "isLocked": false
     }
   ],
-  "overrides": "overrides",
   "image": "https://media.forgecdn.net/avatars/1791/8/639134947751973670.jpg"
 }

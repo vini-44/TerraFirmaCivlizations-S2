@@ -103,11 +103,6 @@ ServerEvents.recipes((e) => {
 		A: 'tfc:straw',
 	});
 
-	e.shapeless('refurbished_furniture:door_mat', [
-		'supplementaries:doormat',
-		'zetter:paints',
-	]);
-
 	e.shaped('8x supplementaries:cog_block', ['ABA', 'BCB', 'ABA'], {
 		A: 'tfc:metal/rod/copper',
 		B: 'tfc:brass_mechanisms',
