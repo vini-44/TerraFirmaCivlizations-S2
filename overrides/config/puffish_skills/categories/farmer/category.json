@@ -1,0 +1,11 @@
+{
+	"unlocked_by_default": true,
+	"title": "Farmer",
+	"icon": {
+		"type": "item",
+		"data": {
+			"item": "minecraft:stone_hoe"
+		}
+	},
+	"background": "textures/gui/advancements/backgrounds/stone.png"
+}

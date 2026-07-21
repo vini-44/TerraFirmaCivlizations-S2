@@ -1,0 +1,146 @@
+{
+	"s1r6hxlbu57okm5n": {
+		"definition": "crop_mine_speed_1",
+		"x": 0,
+		"y": 0,
+		"root": true
+	},
+	"yhg8ioth4qviaepw": {
+		"definition": "crop_mine_speed_2",
+		"x": 0,
+		"y": -50,
+		"root": false
+	},
+	"sgjrxqbsfjllzonf": {
+		"definition": "crop_mine_speed_4",
+		"x": 0,
+		"y": -250,
+		"root": false
+	},
+	"adhrht282cp6a7wt": {
+		"definition": "grand_farmer",
+		"x": 0,
+		"y": -150,
+		"root": false
+	},
+	"cm9fy8w8k4zwrs39": {
+		"definition": "Rancher",
+		"x": 129.9038105676658,
+		"y": 75,
+		"root": false
+	},
+	"2tl6ygcp2u0sswg7": {
+		"definition": "Orchardist",
+		"x": -129.9038105676658,
+		"y": 75,
+		"root": false
+	},
+	"00g31ikay5nbhzv0": {
+		"definition": "armor",
+		"x": 129.9038105676658,
+		"y": -75,
+		"root": false
+	},
+	"iy6kisyi41nwwkb9": {
+		"definition": "heath_buff",
+		"x": -43.30127018922193,
+		"y": -25,
+		"root": false
+	},
+	"leebq1f0ackkc80b": {
+		"definition": "heath_buff",
+		"x": -129.9038105676658,
+		"y": -75,
+		"root": false
+	},
+	"z9igp5tnoway7cau": {
+		"definition": "fruit_buff_1",
+		"x": -43.30127018922193,
+		"y": 25,
+		"root": false
+	},
+	"tn9i2t6hqgqz35kc": {
+		"definition": "fruit_buff_1",
+		"x": -173.20508075688772,
+		"y": 100,
+		"root": false
+	},
+	"1ej8u47vk5wy42h3": {
+		"definition": "wood_buff_1",
+		"x": -216.50635094610968,
+		"y": 125,
+		"root": false
+	},
+	"tuavglziwk91kdqo": {
+		"definition": "Baby_hands",
+		"x": -173.20508075688772,
+		"y": -100,
+		"root": false
+	},
+	"yuidgs61zjkxmnhf": {
+		"definition": "crop_mine_speed_3",
+		"x": 0,
+		"y": -200,
+		"root": false
+	},
+	"0sj3km827s90j7do": {
+		"definition": "damage_10%",
+		"x": 0,
+		"y": 50,
+		"root": false
+	},
+	"9jwjax7ccc266csb": {
+		"definition": "armor",
+		"x": 43.30127018922193,
+		"y": -25,
+		"root": false
+	},
+	"8ik6zc4tk6dlzhe4": {
+		"definition": "animal_buff_1",
+		"x": 43.30127018922193,
+		"y": 25,
+		"root": false
+	},
+	"evswwxyk0o7a5cdw": {
+		"definition": "heath_buff",
+		"x": -86.60254037844386,
+		"y": -200,
+		"root": false
+	},
+	"9sz56q9vcu6vztqd": {
+		"definition": "heath_buff",
+		"x": -216.50635094610965,
+		"y": 25,
+		"root": false
+	},
+	"4szw2728kjgotwlq": {
+		"definition": "Baby_hands",
+		"x": 173.20508075688772,
+		"y": -100,
+		"root": false
+	},
+	"rfqaob6bdegl4ih0": {
+		"definition": "wood_buff_1",
+		"x": 0,
+		"y": 150,
+		"root": false
+	},
+	"zt9ma99mldyzbrfx": {
+		"definition": "fruit_buff_1",
+		"x": 0,
+		"y": 200,
+		"root": false
+	},
+	"9zul24zh0rwhb5kp": {
+		"definition": "crop_mine_speed_4",
+		"x": 86.60254037844385,
+		"y": -200,
+		"root": false
+	},
+	"qqxxoei3ql9n06ak": {
+		"definition": "fruit_buff_1",
+		"x": -129.9038105676658,
+		"y": 175,
+		"root": false
+	}
+}

@@ -1,0 +1,90 @@
+{
+    "experience_per_level": {
+        "type": "expression",
+        "data": {
+            "expression": "min(1000,1000)" 
+        }
+    },
+    "sources": [
+        {
+            "type": "pufferfish_unofficial_additions:harvest_crops",
+            "data": {
+                "variables": {
+                "crops": {
+                    "operations": [
+                    {
+                        "type": "block"
+                    },
+                    {
+                        "type": "puffish_skills:test",
+                        "data": {
+                        "block": "#tfc:wild_crops"
+                        }
+                    }
+                    ]
+                },
+                "dropped_crops": {
+                    "operations": [
+                    {
+                        "type": "dropped_crops"
+                    }
+                    ]
+                },
+                "dropped_seeds": {
+                    "operations": [
+                    {
+                        "type": "dropped_seeds"
+                    }
+                    ]
+                }
+                },
+                "experience": [
+                {
+                    "condition": "crops",
+                    "expression": "((dropped_crops) * 10) + (dropped_seeds * 5)"
+                }
+                ]
+            }
+        },
+        {
+            "type": "pufferfish_unofficial_additions:harvest_crops",
+            "data": {
+                "variables": {
+                "crops": {
+                    "operations": [
+                    {
+                        "type": "block"
+                    },
+                    {
+                        "type": "puffish_skills:test",
+                        "data": {
+                        "block": "#tfc:crops"
+                        }
+                    }
+                    ]
+                },
+                "dropped_crops": {
+                    "operations": [
+                    {
+                        "type": "dropped_crops"
+                    }
+                    ]
+                },
+                "dropped_seeds": {
+                    "operations": [
+                    {
+                        "type": "dropped_seeds"
+                    }
+                    ]
+                }
+                },
+                "experience": [
+                {
+                    "condition": "crops",
+                    "expression": "((dropped_crops) * 5) + (dropped_seeds * 0.5)"
+                }
+                ]
+            }
+        }
+    ]
+}

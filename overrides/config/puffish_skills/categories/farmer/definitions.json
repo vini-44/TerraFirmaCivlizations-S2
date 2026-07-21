@@ -1,0 +1,240 @@
+{
+    "crop_mine_speed_1": {
+        "title": "Fast hands",
+        "icon": {
+            "type": "effect",
+            "data": {
+                "effect": "minecraft:speed"
+            }
+        },
+        "description": "Increase crop harvesting speed (+25%)",
+        "rewards": [
+            {	
+                "type": "puffish_skills_origins:power",
+            	"data": {
+		        "power": "origins-classes:crop_upgrade_1"}
+            }
+        ]
+	},
+    "crop_mine_speed_2": {
+        "title": "Fast hands",
+        "icon": {
+            "type": "effect",
+            "data": {
+                "effect": "minecraft:speed"
+            }
+        },
+        "description": "Increase crop harvesting speed (+25%)",
+        "rewards": [
+            {	
+                "type": "puffish_skills_origins:power",
+            	"data": {
+		        "power": "origins-classes:crop_upgrade_2"}
+            }
+        ]
+	},
+    "crop_mine_speed_3": {
+        "title": "Fast hands",
+        "icon": {
+            "type": "effect",
+            "data": {
+                "effect": "minecraft:speed"
+            }
+        },
+        "description": "Increase crop harvesting speed (+25%)",
+        "rewards": [
+            {	
+                "type": "puffish_skills_origins:power",
+            	"data": {
+		        "power": "origins-classes:crop_upgrade_3"}
+            }
+        ]
+	},
+    "crop_mine_speed_4": {
+        "title": "Fast hands",
+        "icon": {
+            "type": "effect",
+            "data": {
+                "effect": "minecraft:speed"
+            }
+        },
+        "description": "Increase crop harvesting speed, this finally removes the starting debuff! (+15%)",
+        "rewards": [
+            {	
+                "type": "puffish_skills_origins:power",
+            	"data": {
+		        "power": "origins-classes:crop_upgrade_4"}
+            }
+        ]
+	},
+    "fruit_buff_1": {
+        "title": "Fast hands",
+        "icon": {
+            "type": "item",
+            "data": {
+                "item": "tfc:food/cherry"
+            }
+        },
+        "description": "make fruit better ??? (wip)"
+	},
+    "wood_buff_1": {
+        "title": "Faster cutting",
+        "icon": {
+            "type": "item",
+            "data": {
+                "item": "tfc:metal/axe/wrought_iron"
+            }
+        },
+        "description": "cut wood faster??(wip)"
+	},
+    "animal_buff_1": {
+        "title": "Fast hands",
+        "icon": {
+            "type": "item",
+            "data": {
+                "item": "butchersdelight:cow_hide"
+            }
+        },
+        "description": "make animals better ??? (wip)"
+	},
+    "damage_10%": {
+        "title": "Punchy hands",
+        "icon": {
+            "type": "effect",
+            "data": {
+                "effect": "minecraft:strength"
+            }
+        },
+        "description": "+10% melee damage",
+        "rewards": [
+            {
+                "type": "puffish_skills:attribute",
+                "data": {
+                    "attribute": "puffish_attributes:melee_damage",
+                    "value": 0.1,
+                    "operation": "multiply_base"
+                }
+            }
+        ]
+    },
+    "heath_buff": {
+        "title": "Farmers physique",
+        "icon": {
+            "type": "effect",
+            "data": {
+                "effect": "minecraft:regeneration"
+            }
+        },
+        "description": "All that hard work is paying off, you feel a little tougher (+1/2 Heart)",
+        "rewards": [
+            {
+                "type": "puffish_skills:attribute",
+                "data": {
+                    "attribute": "minecraft:generic.max_health",
+                    "value": 1,
+                    "operation": "addition"
+                }
+            }
+        ]
+    },
+    "armor": {
+        "title": "Calluses",
+        "icon": {
+            "type": "effect",
+            "data": {
+                "effect": "minecraft:regeneration"
+            }
+        },
+        "description": "While a bit painfull, the thicker skin will help with fighting, gain a bit of natural armor (+1/2 armor)",
+        "rewards": [
+            {
+                "type": "puffish_skills:attribute",
+                "data": {
+                    "attribute": "minecraft:generic.armor",
+                    "value": 0.5,
+                    "operation": "addition"
+                }
+            }
+        ]
+    },
+    "Baby_hands": {
+        "title": "Delicate hands",
+        "icon": {
+            "type": "effect",
+            "data": {
+                "effect": "minecraft:luck"
+            }
+        },
+        "description": "Increase the chance of harvesting multiple crops. This delicate technique is not meant for warriors. (+1 fortune, -0.3 attack damage)",
+        "rewards": [
+            {
+                "type": "puffish_skills:attribute",
+                "data": {
+                    "attribute": "puffish_attributes:fortune",
+                    "value": 1,
+                    "operation": "addition"
+                }
+            },
+            {
+                "type": "puffish_skills:attribute",
+                "data": {
+                    "attribute": "minecraft:generic.attack_damage",
+                    "value": -0.3,
+                    "operation": "addition"
+                }
+            }
+
+        ]
+    },
+    "grand_farmer": {
+        "title": "Grand farmer",
+        "cost": 3,
+        "icon": {
+            "type": "item",
+            "data": {
+                "item": "minecraft:diamond_hoe"
+            }
+        },
+        "description": "While being fast and tough helps with farming, a more delicate touch is required for getting a good harvest (temp)"
+    },
+    "Rancher": {
+        "title": "Rancher",
+        "cost": 3,
+        "icon": {
+            "type": "item",
+            "data": {
+                "item": "minecraft:iron_axe"
+            }
+        },
+        "description": "While farming is nice, a bit of meat would fare much better, no? Unlock animal husbandry and butchery, experience gained by slaughtering things..",
+        "rewards": [
+            {
+                "type": "puffish_skills:command",
+                "data": {
+                    "unlock_command": "puffish_skills category unlock @s classsystem:rancher",
+                    "lock_command": "puffish_skills category lock @s classsystem:rancher"
+                }
+            }
+        ]
+    },
+    "Orchardist": {
+        "title": "Orchardist",
+        "cost": 3,
+        "icon": {
+            "type": "item",
+            "data": {
+                "item": "minecraft:apple"
+            }
+        },
+        "description": "While farming is nice, a bit of meat would fare much better, no? Unlock animal husbandry and butchery, experience gained by slaughtering things..",
+        "rewards": [
+            {
+                "type": "puffish_skills:command",
+                "data": {
+                    "unlock_command": "puffish_skills category unlock @s classsystem:rancher",
+                    "lock_command": "puffish_skills category lock @s classsystem:rancher"
+                }
+            }
+        ]
+    }
+}

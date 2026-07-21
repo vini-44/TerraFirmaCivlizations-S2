@@ -1,0 +1,13 @@
+{
+  "name": "Bad at mining",
+  "description": "-75% base mining speed",
+  "type": "origins:modify_break_speed",
+  "modifier": {
+    "value": -0.75,
+    "operation": "multiply_base"
+  },
+  "block_condition": {
+    "type": "origins:in_tag",
+    "tag": "minecraft:mineable/pickaxe"
+  }
+}

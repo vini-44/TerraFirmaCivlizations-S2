@@ -1,0 +1,13 @@
+{
+  "name": "Never held an axe",
+  "description": "-75% axe cutting speed",
+  "type": "origins:modify_break_speed",
+  "modifier": {
+    "value": -0.75,
+    "operation": "multiply_base"
+  },
+  "block_condition": {
+    "type": "origins:in_tag",
+    "tag": "minecraft:mineable/axe"
+  }
+}
