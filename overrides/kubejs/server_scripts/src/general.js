@@ -14,6 +14,13 @@ const UPDATE_FREQUENCY = 200;
 PlayerEvents.tick((event) => {
 	let player = event.player;
 
+	if ( isNaN(player.getHealth())) {
+		player.tell("you had NaN health")
+		player.setHealth(1);
+		player.dead = false;
+		player.setHealth(0);
+    }
+
 	if (player.hasEffect('bad_omen')) {
 		player.removeEffect('bad_omen');
 	}
