@@ -112,7 +112,7 @@ StartupEvents.registry('block', (event) => {
 		block.stoneSoundType();
 		block.mapColor('deepslate');
 
-        block.requiresTool(true);
+		block.requiresTool(true);
 
 		block.modelJson = {
 			parent: 'tfc:block/ore',
@@ -143,8 +143,7 @@ StartupEvents.registry('block', (event) => {
 		block.tagBlock('tfc:rock/ores');
 		block.tagBlock('precisionprospecting:prospectable_mineral');
 		block.stoneSoundType();
-        block.requiresTool(true);
-
+		block.requiresTool(true);
 
 		block.modelJson = {
 			parent: 'tfc:block/ore',
@@ -175,7 +174,7 @@ StartupEvents.registry('block', (event) => {
 		manganite.tagBlock('tfc:powderkeg_breaking_blocks');
 		manganite.tagBlock('tfc:rock/ores');
 		manganite.tagBlock('precisionprospecting:prospectable_mineral');
-        manganite.requiresTool(true);
+		manganite.requiresTool(true);
 
 		manganite.stoneSoundType();
 
@@ -207,7 +206,7 @@ StartupEvents.registry('block', (event) => {
 		wolframite.tagBlock('tfc:rock/ores');
 		wolframite.tagBlock('tfc:needs_colored_steel_tool');
 		wolframite.stoneSoundType();
-        wolframite.requiresTool(true);
+		wolframite.requiresTool(true);
 
 		wolframite.modelJson = {
 			parent: 'tfc:block/ore',
@@ -237,7 +236,7 @@ StartupEvents.registry('block', (event) => {
 		ilmenite.tagBlock('tfc:rock/ores');
 		ilmenite.tagBlock('tfc:needs_colored_steel_tool');
 		ilmenite.stoneSoundType();
-        ilmenite.requiresTool(true);
+		ilmenite.requiresTool(true);
 
 		ilmenite.modelJson = {
 			parent: 'tfc:block/ore',
@@ -268,7 +267,7 @@ StartupEvents.registry('block', (event) => {
 		block.tagBlock('tfc:powderkeg_breaking_blocks');
 		block.tagBlock('tfc:rock/ores');
 		block.tagBlock('precisionprospecting:prospectable_mineral');
-        block.requiresTool(true);
+		block.requiresTool(true);
 		block.stoneSoundType();
 
 		block.modelJson = {
@@ -311,14 +310,11 @@ StartupEvents.registry('block', (event) => {
 
 			for (const { dx, dy, dz, facing } of directions) {
 				let target = level.getBlock(x + dx, y + dy, z + dz);
-				if (
-					target.id === 'minecraft:air' ||
-					target.id === 'minecraft:cave_air'
-				) {
+				if (target.hasTag('minecraft:replaceable')) {
 					server.runCommandSilent(
 						`setblock ${x + dx} ${y + dy} ${
 							z + dz
-						} minecraft:amethyst_cluster[facing=${facing}]`
+						} malum:cthonic_gold_cluster[facing=${facing}]`
 					);
 				}
 			}

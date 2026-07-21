@@ -34,19 +34,24 @@ ServerEvents.recipes((e) => {
 		])
 		.energy(20000);
 
-	e.shaped(
-		Item.of(
-			'createdieselgenerators:mold',
-			'{Mold:"createdieselgenerators:bar"}'
-		),
-		['AA', 'AA'],
-		{
-			A: 'kubejs:metal/sheet/titanium',
-		}
-	);
 
-	let ingredients = [];
 
+	let molds = ['jar', 'lamp', 'blank', 'part'].forEach((mold) => {
+		e.recipes.tfc
+			.anvil(
+				Item.of(
+					'createdieselgenerators:mold',
+					'{Mold:"kubejs:' + mold + '"}'
+				),
+				'kubejs:metal/sheet/titanium',
+				['punch_any', 'hit_any', 'punch_any']
+			)
+			.tier(5);
+	});
+
+    	let ingredients = [];
+
+	//I'm *not* writing that twenty times over.
 	for (let i = 0; i < 20; i++) {
 		ingredients.push({
 			item: 'kubejs:tungsten_powder',
@@ -59,7 +64,7 @@ ServerEvents.recipes((e) => {
 	e.custom({
 		type: 'createdieselgenerators:compression_molding',
 		ingredients: ingredients,
-		mold: 'createdieselgenerators:bar',
+		mold: 'kubejs:part',
 		heatRequirement: 'superheated',
 		results: [
 			{
@@ -69,24 +74,25 @@ ServerEvents.recipes((e) => {
 		],
 	});
 
-    e.shaped('kubejs:metal_former_su_input', [' D ','ABC', ' D '], {
-        A:'create:shaft',
-        B: 'thermal:machine_frame',
-        C: 'kubejs:tungsten_carbide_parts',
-        D: 'kubejs:metal/sheet/tungsten',
-    })
+	e.shaped('kubejs:metal_former_su_input', [' D ', 'ABC', ' D '], {
+		A: 'create:shaft',
+		B: 'thermal:machine_frame',
+		C: 'kubejs:tungsten_carbide_parts',
+		D: 'kubejs:metal/sheet/tungsten',
+	});
 
+	e.shaped('kubejs:metal_former_fluid_input', [' A ', 'BCB', ' A '], {
+		A: 'create:fluid_tank',
+		C: 'thermal:machine_frame',
+		B: 'kubejs:metal/rod/tungsten',
+	});
 
-    e.shaped('kubejs:metal_former_fluid_input', [' A ', 'BCB', ' A '], {
-        A: 'create:fluid_tank', C: 'thermal:machine_frame', B: 'kubejs:metal/rod/tungsten'
-    })
-
-	e.shaped('kubejs:metal_former', ['GBG', 'CDC', 'ABA'], {
+	e.shaped('kubejs:metal_former', ['GBG', 'CDE', 'ABA'], {
 		A: 'kubejs:metal/double_sheet/titanium',
 		B: 'create:fluid_tank',
 		C: 'kubejs:tungsten_carbide_parts',
 		D: 'thermal:machine_frame',
-        G: 'kubejs:metal/sheet/tungsten',
+		G: 'kubejs:metal/sheet/tungsten',
+        E: 'kubejs:circuit'
 	});
-
 });

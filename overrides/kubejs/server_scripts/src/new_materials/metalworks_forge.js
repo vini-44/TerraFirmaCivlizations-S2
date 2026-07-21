@@ -59,7 +59,6 @@ ServerEvents.recipes((e) => {
 
     for (let [result, recipes] of Object.entries(processingDefs)) {
         for (let ingredients of recipes) {
-            console.info(ingredients + ' -> ' + result);
             e.recipes.thermal.crystallizer([result], ingredients);
         }
     }

@@ -1,0 +1,44 @@
+{
+	"format_version": "1.21.6",
+	"credit": "Made with Blockbench",
+	"textures": {
+		"1": "kubejs:block/stator_motor",
+		"particle": "createaddition:block/electric_motor/brass_electric_motor"
+	},
+	"elements": [
+		{
+			"name": "core",
+			"from": [3, 3, 0],
+			"to": [13, 13, 14],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 8, 8]},
+			"faces": {
+				"north": {"uv": [9.5, 1.5, 14.5, 6.5], "texture": "#1", "cullface": "north"},
+				"east": {"uv": [9.5, 8, 14.5, 15], "rotation": 270, "texture": "#1"},
+				"south": {"uv": [1.5, 1.5, 6.5, 6.5], "texture": "#1"},
+				"west": {"uv": [9.5, 8, 14.5, 15], "rotation": 90, "texture": "#1"},
+				"up": {"uv": [9.5, 8, 14.5, 15], "rotation": 180, "texture": "#1"},
+				"down": {"uv": [9.5, 8, 14.5, 15], "texture": "#1"}
+			}
+		}
+	],
+	"display": {
+		"thirdperson_righthand": {
+			"scale": [0.5, 0.5, 0.5]
+		},
+		"thirdperson_lefthand": {
+			"scale": [0.5, 0.5, 0.5]
+		},
+		"firstperson_righthand": {
+			"rotation": [10, 0, 0],
+			"translation": [2, 0, 0],
+			"scale": [0.75, 0.75, 0.75]
+		},
+		"ground": {
+			"scale": [0.5, 0.5, 0.5]
+		},
+		"gui": {
+			"rotation": [32, 32, 0],
+			"scale": [0.75, 0.75, 0.75]
+		}
+	}
+}

@@ -49,27 +49,33 @@ ServerEvents.recipes((e) => {
         });
     }
 
-    e.recipes.create.mechanical_crafting(
-        'createaddition:electric_motor',
-        [' A ', 'BSB', 'SRS', 'BSB', ' A '],
-        {
-            A: 'create:andesite_alloy',
-            B: 'tfc:metal/sheet/brass',
-            S: 'createaddition:copper_spool',
-            R: 'tfc:metal/double_ingot/steel',
-        }
-    );
+    e.recipes.create.sequenced_assembly('kubejs:stator', ['tfc:metal/double_sheet/brass'], [
+        e.recipes.create.deploying('tfc:metal/double_sheet/brass', ['tfc:metal/double_sheet/brass', 'createaddition:copper_wire']),
+        e.recipes.create.deploying('tfc:metal/double_sheet/brass', ['tfc:metal/double_sheet/brass', 'tfc:metal/sheet/steel']),
+        e.recipes.create.deploying('tfc:metal/double_sheet/brass', ['tfc:metal/double_sheet/brass', 'createaddition:copper_wire']),
+        e.recipes.create.cutting('tfc:metal/double_sheet/brass', 'tfc:metal/double_sheet/brass'),
+    ], 'tfc:metal/double_sheet/brass').loops(6)
 
-    e.recipes.create.mechanical_crafting(
-        'createaddition:alternator',
-        [' A ', 'BSB', 'SRS', 'BSB', ' A '],
-        {
-            A: 'create:andesite_alloy',
-            B: 'tfc:metal/sheet/cast_iron',
-            S: 'createaddition:copper_spool',
-            R: 'tfc:metal/double_ingot/steel',
-        }
-    );
+    e.recipes.create.sequenced_assembly('kubejs:rotor', 'tfc:metal/double_sheet/brass', [
+        e.recipes.create.deploying('tfc:metal/double_sheet/brass', ['tfc:metal/double_sheet/brass', ['tfc:ore/poor_magnetite', 'tfc:ore/normal_magnetite', 'tfc:ore/rich_magnetite']]),
+        e.recipes.create.deploying('tfc:metal/double_sheet/brass', ['tfc:metal/double_sheet/brass', 'tfc:metal/rod/black_steel']),
+        e.recipes.create.pressing('tfc:metal/double_sheet/brass', ['tfc:metal/double_sheet/brass'])
+    ], 'tfc:metal/double_sheet/brass').loops(6)
+
+    e.shaped('createaddition:alternator', ['ABA', 'CDC', 'AEA'], {
+		A: 'firmaciv:copper_bolt',
+		B: 'kubejs:stator',
+		C: 'createaddition:copper_spool',
+		D: 'create:shaft',
+		E: 'kubejs:rotor',
+	});
+	e.shaped('createaddition:electric_motor', ['ABA', 'CDC', 'AEA'], {
+		A: 'firmaciv:copper_bolt',
+		B: 'kubejs:stator',
+		C: 'create:andesite_alloy',
+		D: 'create:shaft',
+		E: 'kubejs:rotor',
+	});
 
     e.shaped('createaddition:redstone_relay', ['CEC', 'SSS'], {
         C: 'createaddition:connector',

@@ -8,7 +8,7 @@ ServerEvents.recipes((e) => {
 
 	//casing
 	e.shaped('thermal:machine_frame', ['SDS', 'WPW', 'SDS'], {
-		S: 'afc:rubber_bar',
+		S: ['afc:rubber_bar', 'kubejs:plastic'],
 		D: 'firmalife:metal/double_sheet/stainless_steel',
 		W: 'createaddition:capacitor',
 		P: 'create:precision_mechanism',
@@ -157,7 +157,7 @@ ServerEvents.recipes((e) => {
 
 	//upgrades
 	/////////
-	e.shaped('thermal:item_filter_augment', ['   ', 'ABA', '   '], {
+	e.shaped('thermal:item_filter_augment', ['ABA', ], {
 		A: 'tfc:metal/rod/zinc',
 		B: 'create:filter',
 	});
@@ -267,8 +267,8 @@ ServerEvents.recipes((e) => {
 		.refinery(Fluid.of('tfc:lye', 500), Fluid.of('tfc:salt_water'))
 		.energy(20000);
 
-	
-	e.recipes.thermal.refinery(
+	e.recipes.thermal
+		.refinery(
 			[
 				Fluid.of('kubejs:liquid_hydrogen', 600),
 				Fluid.of('kubejs:liquid_oxygen', 300),
@@ -300,5 +300,11 @@ ServerEvents.recipes((e) => {
 		D: 'thermal:machine_frame',
 		E: 'tfc:ceramic/ingot_mold',
 		F: 'kubejs:metal/sheet/titanium',
+	});
+
+	e.shaped('thermal:machine_output_augment', ['ABA', 'CBC', 'ABA'], {
+		A: 'tfc:metal/rod/sterling_silver',
+		B: '#tfc:high_quality_cloth',
+		C: 'tfc:metal/sheet/silver',
 	});
 });

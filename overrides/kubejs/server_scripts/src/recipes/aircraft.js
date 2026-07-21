@@ -42,7 +42,7 @@ ServerEvents.recipes((e) => {
         ],
         {
             A: 'firmalife:metal/rod/stainless_steel',
-            B: 'sns:reinforced_fabric',
+            B: ['sns:reinforced_fabric', 'kubejs:reinforced_synthetic_fabric'],
             C: 'firmalife:treated_lumber',
             D: 'kubejs:metal/sheet/aluminum',
             F: '#create:seats',
@@ -62,7 +62,7 @@ ServerEvents.recipes((e) => {
         'DDFFDD ',
         ' DGGD  '
     ], {
-        A: 'sns:reinforced_fabric',
+        A: ['sns:reinforced_fabric', 'kubejs:reinforced_synthetic_fabric'],
         B: 'createdieselgenerators:diesel_engine',
         C: 'create:propeller',
         D: 'kubejs:metal/double_sheet/aluminum',

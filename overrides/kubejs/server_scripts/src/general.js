@@ -67,15 +67,6 @@ BlockEvents.placed((e) => {
 		);
 	}
 
-	if (
-		e.block.id == 'refurbished_furniture:light_electricity_generator' ||
-		e.block.id == 'refurbished_furniture:dark_electricity_generator'
-	) {
-		e.server.runCommandSilent(
-			`data modify block ${x} ${y} ${z} Enabled set value 1b`
-		);
-	}
-
 	if (e.block.id == 'createdieselgenerators:chemical_turret') {
 		e.server.runCommandSilent(
 			`data modify block ${x} ${y} ${z} LighterUpgrade set value 1b`
@@ -92,9 +83,12 @@ BlockEvents.rightClicked((event) => {
 	}
 });
 
-EntityEvents.spawned('item', (e) => {
-	if (e.entity.item.id != 'createbigcannons:empty_machine_gun_round') return;
-	e.server.scheduleInTicks(0, () => {
-		e.entity.item = Item.of('scguns:large_brass_casing');
-	});
-});
+
+const $EffectInstance = Java.loadClass(
+	'net.minecraft.world.effect.MobEffectInstance'
+);
+/*
+EntityEvents.spawned('opposing_force:terror', (e) => {
+	e.entity.addEffect(new $EffectInstance('minecraft:water_breathing', -1));
+});*/
+

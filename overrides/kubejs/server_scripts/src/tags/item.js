@@ -27,13 +27,7 @@ ServerEvents.tags('item', (e) => {
 		'musketmod:musket_with_bayonet',
 		'musketmod:musket',
 		'musketmod:pistol',
-	]);
-	e.add('tfc:deals_piercing_damage', AVAILABLE_GUNS);
-    	e.add('tfc:deals_piercing_damage', 'scguns:gale');
-
-	e.add('tfc:usable_on_tool_rack', AVAILABLE_GUNS);
-	e.add('tfc:usable_on_tool_rack', ['scguns:cr4k_mining_laser', 'scguns:rocket_rifle', 'scguns:waltz_conversion', 'scguns:gale', 'scguns:dozier_rl', 'scguns:gauss_rifle', 'scguns:laser_musket', 'scguns:plasgun']);
-	//e.remove('c:cast_iron_ingots', 'tfc:metal/ingot/cast_iron')
+	]);//e.remove('c:cast_iron_ingots', 'tfc:metal/ingot/cast_iron')
 	//e.removeAllTagsFrom('createbigcannons:cast_iron_ingot')
 
 	//e.remove('c:cast_iron_ingots', 'minecraft:iron_ingot')
@@ -49,7 +43,8 @@ ServerEvents.tags('item', (e) => {
 	});
 
 	e.add('map_atlases:sticky_crafting_items', 'tfc:glue');
-	e.add('createbigcannons:gas_masks', 'scguns:anthralite_respirator');
+	
+
 
 	e.remove('sns:allowed_in_ore_sack', /.*/);
 
@@ -94,10 +89,10 @@ ServerEvents.tags('item', (e) => {
 
 	e.add('tfc:forge_fuel', 'thermal:coal_coke');
 	e.add('tfc:blast_furnace_fuel', 'thermal:coal_coke');
-	e.add('kubejs:available_guns', AVAILABLE_GUNS);
-    e.add('kubejs:available_guns', 'scguns:cr4k_mining_laser');
 
 	e.add('alekiships:icebreaker_upgrades', 'tfc:metal/double_sheet/steel');
+
+    e.add('alekiships:can_place_in_compartments', 'supplementaries:cannon')
 
 	e.add('forge:slimeballs', 'tfc:glue');
 

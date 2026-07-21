@@ -1,7 +1,7 @@
 ServerEvents.recipes((e) => {
 	e.recipes.tfc.alloy('kubejs:mangalloy', [
-		TFC.alloyPart('tfc:steel', 0.8, 0.9),
-		TFC.alloyPart('kubejs:manganese', 0.2, 0.1),
+		TFC.alloyPart('tfc:black_steel', 0.6, 0.8),
+		TFC.alloyPart('kubejs:manganese', 0.4, 0.2),
 	]);
 
 	//Manganese processing

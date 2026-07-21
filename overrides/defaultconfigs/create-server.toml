@@ -39,9 +39,6 @@
 	#Allow any stonecutting recipes to be processed by a Mechanical Saw.
 	allowStonecuttingOnSaw = true
 	#.
-	#Allow any Druidcraft woodcutter recipes to be processed by a Mechanical Saw.
-	allowWoodcuttingOnSaw = true
-	#.
 	#Allow Spouts to interact with Casting Tables and Basins from Tinkers' Construct.
 	allowCastingBySpout = true
 	#.
@@ -89,11 +86,11 @@
 	#.
 	#multiplier used for calculating exhaustion from speed when a crank is turned.
 	#Range: 0.0 ~ 1.0
-	crankHungerMultiplier = 0.009999999776482582
+	crankHungerMultiplier = 0.01
 	#.
 	#Amount of sail-type blocks required for a windmill to assemble successfully.
 	#Range: > 0
-	minimumWindmillSails = 8
+	minimumWindmillSails = 4
 	#.
 	#Number of sail-type blocks required to increase windmill speed by 1RPM.
 	#Range: > 1
@@ -106,6 +103,14 @@
 	#Time in ticks until the next item launched by an ejector scans blocks for potential collisions
 	#Range: > 10
 	ejectorScanInterval = 120
+	#.
+	#Maximum length in blocks of chain conveyor connections.
+	#Range: > 5
+	maxChainConveyorLength = 32
+	#.
+	#Maximum amount of connections each chain conveyor can have.
+	#Range: > 1
+	maxChainConveyorConnections = 4
 
 	#.
 	#Encased Fan
@@ -139,13 +144,6 @@
 		#Maximum amount of blocks in a structure movable by Pistons, Bearings or other means.
 		#Range: > 1
 		maxBlocksMoved = 2048
-		#.
-		#[in Bytes]
-		#[0 to disable this limit]
-		#Maximum amount of data a contraption can have before it can't be synced with players.
-		#Un-synced contraptions will not be visible and will not have collision.
-		#Range: > 0
-		maxDataSize = 2000000
 		#.
 		#Maximum value of a chassis attachment range.
 		#Range: > 1
@@ -201,6 +199,10 @@
 		#Whether stabilised bearings create a separated entity even on non-rotating contraptions.
 		#[Technical]
 		stabiliseStableContraptions = false
+		#.
+		#Whether the players hitbox should be expanded to the size of the contraption hitbox.
+		#[Technical]
+		syncPlayerPickupHitboxWithContraptionHitbox = false
 
 	#.
 	#Configure speed/capacity levels for requirements and indicators.
@@ -209,22 +211,22 @@
 		#[in Revolutions per Minute]
 		#Minimum speed of rotation to be considered 'medium'
 		#Range: 0.0 ~ 4096.0
-		mediumSpeed = 30.0
+		mediumSpeed = 64.0
 		#.
 		#[in Revolutions per Minute]
 		#Minimum speed of rotation to be considered 'fast'
 		#Range: 0.0 ~ 65535.0
-		fastSpeed = 100.0
+		fastSpeed = 128.0
 		#.
 		#[in Stress Units]
 		#Minimum stress impact to be considered 'medium'
 		#Range: 0.0 ~ 4096.0
-		mediumStressImpact = 4.0
+		mediumStressImpact = 32.0
 		#.
 		#[in Stress Units]
 		#Minimum stress impact to be considered 'high'
 		#Range: 0.0 ~ 65535.0
-		highStressImpact = 8.0
+		highStressImpact = 64.0
 		#.
 		#[in Stress Units]
 		#Minimum added Capacity by sources to be considered 'medium'
@@ -247,52 +249,53 @@
 			#[in Stress Units]
 			#Configure the individual stress impact of mechanical blocks. Note that this cost is doubled for every speed increase it receives.
 			[kinetics.stressValues.v2.impact]
-				deployer = 4.0
-				millstone = 4.0
-				cuckoo_clock = 1.0
+				deployer = 16.0
+				millstone = 32.0
+				cuckoo_clock = 4.0
 				speedometer = 0.0
-				copper_backtank = 4.0
-				mechanical_saw = 4.0
+				copper_backtank = 16.0
+				mechanical_saw = 32.0
 				flywheel = 0.0
 				adjustable_chain_gearshift = 0.0
-				mechanical_pump = 4.0
-				crushing_wheel = 8.0
-				mechanical_mixer = 4.0
+				mechanical_pump = 32.0
+				crushing_wheel = 64.0
+				mechanical_mixer = 32.0
 				gantry_shaft = 0.0
-				mechanical_arm = 2.0
+				mechanical_arm = 16.0
 				andesite_encased_shaft = 0.0
-				mechanical_press = 8.0
+				mechanical_press = 64.0
 				large_cogwheel = 0.0
-				mechanical_drill = 4.0
+				mechanical_drill = 32.0
 				andesite_encased_large_cogwheel = 0.0
 				stressometer = 0.0
 				shaft = 0.0
 				gearshift = 0.0
 				sequenced_gearshift = 0.0
-				weighted_ejector = 2.0
+				weighted_ejector = 8.0
 				andesite_encased_cogwheel = 0.0
 				gearbox = 0.0
-				elevator_pulley = 4.0
-				mechanical_crafter = 2.0
+				elevator_pulley = 64.0
+				mechanical_crafter = 16.0
 				display_board = 0.0
-				mechanical_piston = 4.0
-				mechanical_bearing = 4.0
-				clockwork_bearing = 4.0
+				mechanical_piston = 32.0
+				mechanical_bearing = 32.0
+				clockwork_bearing = 16.0
 				encased_chain_drive = 0.0
 				clutch = 0.0
-				encased_fan = 2.0
-				rope_pulley = 4.0
+				encased_fan = 16.0
+				rope_pulley = 16.0
 				rotation_speed_controller = 0.0
-				netherite_backtank = 4.0
+				netherite_backtank = 16.0
 				brass_encased_large_cogwheel = 0.0
-				mysterious_cuckoo_clock = 1.0
+				mysterious_cuckoo_clock = 8.0
 				brass_encased_shaft = 0.0
-				turntable = 4.0
-				sticky_mechanical_piston = 4.0
+				turntable = 16.0
+				sticky_mechanical_piston = 16.0
 				cogwheel = 0.0
-				belt = 0.5
+				belt = 1.0
 				brass_encased_cogwheel = 0.0
-				hose_pulley = 4.0
+				hose_pulley = 32.0
+				chain_conveyor = 4.0
 
 			#.
 			#[in Stress Units]
@@ -300,7 +303,7 @@
 			[kinetics.stressValues.v2.capacity]
 				copper_valve_handle = 8.0
 				hand_crank = 8.0
-				steam_engine = 1024.0
+				steam_engine = 512.0
 				creative_motor = 16384.0
 				large_water_wheel = 128.0
 				water_wheel = 32.0
@@ -345,7 +348,7 @@
 	bottomlessFluidMode = "ALLOW_ALL"
 	#.
 	#Whether hose pulleys should be allowed to place fluid sources.
-	fluidFillPlaceFluidSourceBlocks = false
+	fluidFillPlaceFluidSourceBlocks = true
 	#.
 	#Whether open-ended pipes should be allowed to place fluid sources.
 	pipesPlaceFluidSourceBlocks = false
@@ -371,12 +374,12 @@
 	#Range: > 1
 	linkRange = 256
 	#.
-	#Maximum possible distance in blocks between data gatherers and their target.
+	#Maximum possible distance in blocks between display links and their target.
 	#Range: > 1
 	displayLinkRange = 64
 	#.
 	#The total amount of stacks a vault can hold per block in size.
-	#Range: > 1
+	#Range: 1 ~ 2048
 	vaultCapacity = 10
 	#.
 	#The amount of ticks a brass tunnel waits between distributions.
@@ -385,6 +388,18 @@
 	#.
 	#Whether hostile mobs walking near a seat will start riding it.
 	seatHostileMobs = true
+	#.
+	#Maximum distance in blocks a Package Port can be placed at from its target.
+	#Range: > 1
+	packagePortRange = 5
+	#.
+	#The amount of packages a chain conveyor can carry at a time.
+	#Range: > 1
+	chainConveyorCapacity = 20
+	#.
+	#The amount of ticks a factory gauge waits between requests.
+	#Range: > 5
+	factoryGaugeTimer = 100
 
 #.
 #Everything related to Schematic tools
@@ -479,7 +494,7 @@
 	#.
 	#Relative speed of a manually controlled Train compared to a Scheduled one.
 	#Range: 0.0 ~ 3.4028234663852886E38
-	manualTrainSpeedModifier = 0.75
+	manualTrainSpeedModifier = 0.95
 
 	#.
 	#Standard Trains
@@ -488,17 +503,17 @@
 		#[in Blocks/Second]
 		#The top speed of any assembled Train.
 		#Range: 0.0 ~ 3.4028234663852886E38
-		trainTopSpeed = 28.0
+		trainTopSpeed = 5.0
 		#.
 		#[in Blocks/Second]
 		#The top speed of Trains during a turn.
 		#Range: 0.0 ~ 3.4028234663852886E38
-		trainTurningTopSpeed = 14.0
+		trainTurningTopSpeed = 2.0
 		#.
 		#[in Blocks/Second²]
 		#The acceleration of any assembled Train.
 		#Range: 0.0 ~ 3.4028234663852886E38
-		trainAcceleration = 3.0
+		trainAcceleration = 1.0
 
 	#.
 	#Powered Trains

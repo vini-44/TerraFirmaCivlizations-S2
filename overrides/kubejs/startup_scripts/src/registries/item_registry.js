@@ -19,7 +19,7 @@ const registryDef = {
 	},
 	unfinished_oil_scanner: { name: 'Unfinished Oil Detector' },
 	empty_fuel_can: {
-		name: 'Empty Fuel Package',
+		name: 'Empty Fluid Package',
 		tags: ['create:upright_on_belt'],
 	},
 	diesel_fuel_can: {
@@ -36,6 +36,10 @@ const registryDef = {
 	},
 	ethanol_fuel_can: {
 		name: 'Packaged Ethanol',
+		tags: ['create:upright_on_belt'],
+	},
+    kerosene_fuel_can: {
+		name: 'Packaged Kerosene',
 		tags: ['create:upright_on_belt'],
 	},
 
@@ -76,19 +80,6 @@ const registryDef = {
 	automaton_head: { name: 'Automaton Head' },
 	bee_trinket: { name: 'Bee Trinket' },
 
-	//diamond steel set
-	unfinished_diamond_steel_helmet: {
-		name: 'Unfinished Caoivish Helmet',
-		unstackable: true,
-	},
-	unfinished_diamond_steel_chestplate: {
-		name: 'Unfinished Caoivish Chestplate',
-		unstackable: true,
-	},
-	unfinished_diamond_steel_boots: {
-		name: 'Unfinished Caoivish Boots',
-		unstackable: true,
-	},
 	manganite_chunk: {
 		name: 'Manganite Chunk',
 		texture: 'thermal:item/raw_nickel',
@@ -180,13 +171,6 @@ const registryDef = {
 		name: 'Tungsten Carbide Parts',
 		texture: 'thermal:item/lead_gear',
 	},
-    plasma_gun_parts: {
-        name: "Magnetic Acceletor Coil"
-    },
-    unfinished_energy_cell: {
-        name: "Unfinished Plasma Cell",
-        texture: "scguns:item/shock_cell"
-    },
     tungsten_carbide_parts: {
         name: 'Tungsten Carbide Parts',
         texture: 'thermal:item/lead_gear'
@@ -196,11 +180,26 @@ const registryDef = {
 	railway_sleeper: {
 		name: 'Railway Sleepers',
 		texture: 'create:item/incomplete_track'
-	}
-    //plastic: {
-    //    name: "Plastic Sheet",
-    //    texture: "thermal:item/rubber"
-    //},
+	},
+    firing_hammer: {
+        name: "Firing Hammer"
+    },
+    plastic: {
+        name: "Plastic Sheet",
+        texture: "thermal:item/rubber"
+    },
+    reinforced_synthetic_fiber: {
+        name: "Reinforced Synthetic Fiber",
+    },
+    reinforced_synthetic_fabric: {
+        name: "Reinforced Synthetic Fabric"
+    },
+    stator: {
+        name: "Stator"
+    },
+    rotor: {
+        name: "Rotor"
+    }
 };
 
 /**
@@ -307,4 +306,7 @@ StartupEvents.registry('item', (event) => {
 				new $ItemProperties().defaultDurability(32).durability(32)
 			)
 	);
+
+    event.create('unfinished_circuit', 'create:sequenced_assembly').displayName("Unfinished Circuit Board");
+    event.create('circuit').displayName('Circuit').texture('create:item/integrated_circuit')
 });

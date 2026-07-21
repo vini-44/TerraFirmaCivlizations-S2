@@ -3,31 +3,35 @@ ServerEvents.recipes((e) => {
 
 	e.recipes.thermal
 		.pyrolyzer(
-			['minecraft:charcoal', Fluid.of('thermal:creosote', 50)],
+			[
+				'minecraft:charcoal',
+				Fluid.of('thermal:creosote', 50)
+			],
 			'#tfc:log_pile_logs'
 		)
 		.energy(32000);
 
 	e.recipes.thermal
 		.pyrolyzer(
-			['thermal:coal_coke', Fluid.of('thermal:creosote', 50)],
 			[
-				[
-					'minecraft:charcoal',
-				],
-			]
+				'thermal:coal_coke',
+				Fluid.of('thermal:creosote', 50),
+				Item.of('tfc:powder/sulfur').withChance(0.1),
+			],
+			[['minecraft:charcoal']]
 		)
 		.energy(16000);
 
-        e.recipes.thermal.pyrolyzer(
-            ['tfc:powder/coke', Fluid.of('createdieselgenerators:crude_oil', 15), Item.of('tfc:powder/sulfur').withChance(0.75)],
-            [
-                [
-					'tfc:ore/bituminous_coal',
-					'tfc:ore/lignite',
-                ],
-            ]
-        ).energy(32000);
+	e.recipes.thermal
+		.pyrolyzer(
+			[
+				'tfc:powder/coke',
+				Fluid.of('createdieselgenerators:crude_oil', 15),
+				Item.of('tfc:powder/sulfur').withChance(0.75),
+			],
+			[['tfc:ore/bituminous_coal', 'tfc:ore/lignite']]
+		)
+		.energy(32000);
 
 	/*e.recipes.thermal.smelter('tfc:metal/ingot/pig_iron', [
         '2x minecraft:charcoal',
@@ -73,4 +77,8 @@ ServerEvents.recipes((e) => {
 			)
 			.energy(_json.temperature * 3);
 	});
+
+	e.recipes.thermal
+		.furnace('create:andesite_alloy', 'kubejs:unfired_andesite_alloy')
+		.energy(1080 * 3);
 });

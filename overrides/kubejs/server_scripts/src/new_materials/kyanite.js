@@ -45,7 +45,7 @@ ServerEvents.recipes((e) => {
             B: 'createaddition:gold_spool',
             C: 'create:fluid_pipe',
             D: 'thermal:machine_frame',
-            F: 'tfc:metal/double_sheet/black_steel'
+            F: 'tfc:metal/double_sheet/red_steel'
         })
 });
 

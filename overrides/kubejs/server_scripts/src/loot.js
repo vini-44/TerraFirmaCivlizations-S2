@@ -332,80 +332,46 @@ LootJS.modifiers((e) => {
 			);
 	});
 
-	ALL_COLORS.forEach((color) => {
-		e.addBlockLootModifier(`minecraft:${color}_stained_glass`)
+	
+
+	TFC_WOOD_TYPES.forEach((type) => {
+		e.addBlockLootModifier(`everycomp:c/tfc/${type}_window`)
 			.removeLoot(/.*/)
 			.addAlternativesLoot(
-				LootEntry.of(`minecraft:${color}_stained_glass`).when((e) =>
+				LootEntry.of(`everycomp:c/tfc/${type}_window`).when((e) =>
+					e.matchMainHand('tfc:gem_saw')
+				)
+			);
+
+		e.addBlockLootModifier(`everycomp:c/tfc/${type}_window_pane`)
+			.removeLoot(/.*/)
+			.addAlternativesLoot(
+				LootEntry.of(`everycomp:c/tfc/${type}_window_pane`).when((e) =>
 					e.matchMainHand('tfc:gem_saw')
 				)
 			);
 	});
 
-	TFC_WOOD_TYPES.forEach((type) => {
-		e.addBlockLootModifier(
-			`everycomp:c/tfc/${type}_window`
-		).removeLoot(/.*/).addAlternativesLoot(
-			LootEntry.of(`everycomp:c/tfc/${type}_window`).when((e) =>
-				e.matchMainHand('tfc:gem_saw')
-			)
-		);
-
-		e.addBlockLootModifier(
-			`everycomp:c/tfc/${type}_window_pane`
-		).removeLoot(/.*/).addAlternativesLoot(
-			LootEntry.of(`everycomp:c/tfc/${type}_window_pane`).when((e) =>
-				e.matchMainHand('tfc:gem_saw')
-			)
-		);
-	});
-
 	AFC_WOOD_TYPES.forEach((type) => {
-		e.addBlockLootModifier(
-			`everycomp:c/tfc/${type}_window`
-		).removeLoot(/.*/).addAlternativesLoot(
-			LootEntry.of(`everycomp:c/afc/${type}_window`).when((e) =>
-				e.matchMainHand('tfc:gem_saw')
-			)
-		);
+		e.addBlockLootModifier(`everycomp:c/tfc/${type}_window`)
+			.removeLoot(/.*/)
+			.addAlternativesLoot(
+				LootEntry.of(`everycomp:c/afc/${type}_window`).when((e) =>
+					e.matchMainHand('tfc:gem_saw')
+				)
+			);
 
-		e.addBlockLootModifier(
-			`everycomp:c/tfc/${type}_window_pane`
-		).removeLoot(/.*/).addAlternativesLoot(
-			LootEntry.of(`everycomp:c/afc/${type}_window_pane`).when((e) =>
-				e.matchMainHand('tfc:gem_saw')
-			)
-		);
+		e.addBlockLootModifier(`everycomp:c/tfc/${type}_window_pane`)
+			.removeLoot(/.*/)
+			.addAlternativesLoot(
+				LootEntry.of(`everycomp:c/afc/${type}_window_pane`).when((e) =>
+					e.matchMainHand('tfc:gem_saw')
+				)
+			);
 	});
 
-	e.addLootTableModifier(/.*/).removeLoot('scguns:pebbles');
 
-	e.addBlockLootModifier('scguns:supply_crate')
-		.removeLoot(/.*/)
-		.addWeightedLoot(
-			[4, 8],
-			[
-				'kubejs:empty_fuel_can',
-				'createaddition:spool',
-				'kubejs:automaton_head',
-				'scguns:small_brass_casing',
-				'scguns:medium_brass_casing',
-				'scguns:compact_advanced_round',
-				'scguns:advanced_round',
-				'createbigcannons:steel_scrap',
-				'kubejs:scrap',
-				Item.of('scguns:depleted_energy_core').withChance(0.25),
-				Item.of('scguns:empty_cell', 4).withChance(0.25),
-			]
-		)
-		.randomChance(0.1)
-		.addLoot('thermal:laser_diode')
-		.modifyLoot('thermal:laser_diode', (item) => {
-			item.setNbt(
-				`{"tfc:forging_bonus":${Math.ceil(Math.random(1) * 4)}}`
-			);
-			return item;
-		});
+	
 	e.addBlockLootModifier('quark:rusty_iron_plate')
 		.removeLoot(/.*/)
 		.addWeightedLoot(
@@ -413,11 +379,10 @@ LootJS.modifiers((e) => {
 			['kubejs:scrap', 'createbigcannons:steel_scrap']
 		)
 		.randomChance(0.1)
-		.addLoot('scguns:standard_bullet');
 
 	e.addLootTableModifier('minecraft:chests/spawn_bonus_chest')
 		.removeLoot(/.*/)
-		.addWeightedLoot([16, 24], ['tfc:torch', 'scguns:basic_poultice'])
+		.addWeightedLoot([16, 24], ['tfc:torch', 'cuffed:bandage'])
 		.addWeightedLoot(1, [
 			'tfc:metal/axe/copper',
 			'tfc:metal/shovel/copper',
@@ -466,54 +431,4 @@ LootJS.modifiers((e) => {
 		[8, 12],
 		['createbigcannons:steel_scrap', 'kubejs:scrap']
 	);
-	cabinet_loot.addAlternativesLoot(
-		LootEntry.of('scguns:defender_pistol', {
-			AmmoCount: 5,
-			Damage: 530,
-		}).when((c) => c.randomChance(0.1)),
-		LootEntry.of('scguns:diamond_steel_leggings', {
-			Damage: Math.floor(Math.random() * 300),
-		}).when((c) => c.randomChance(0.25)),
-		LootEntry.of('supplementaries:wrench', {
-			Damage: Math.floor(Math.random() * 150),
-		}).when((c) => c.randomChance(0.25))
-	);
-	cabinet_loot.apply((context) => {
-		context.loot.forEach((loot) => {
-			if (loot.id == 'scguns:defender_pistol') {
-				context.addLoot(
-					LootEntry.of(`scguns:compact_advanced_round`,
-					Math.ceil(Math.random() * 5))
-				);
-				context.addLoot(
-					LootEntry.of(`scguns:small_brass_casing`,
-					Math.ceil(Math.random() * 3))
-				);
-			}
-			if (loot.id == 'scguns:diamond_steel_leggings') {
-				context.addLoot(
-					LootEntry.of(`textile:cotton_cloth`,
-					Math.ceil(Math.random() * 3))
-				);
-			}
-		});
-	});
-
-	e.addBlockLootModifier('scguns:enemy_turret')
-		.addWeightedLoot([1, 2], true, ['createaddition:copper_wire'])
-		.addWeightedLoot([6, 9], true, ['createbigcannons:steel_scrap'])
-		.addLoot('tfc:brass_mechanisms')
-		.addWeightedLoot([3, 5], true, ['scguns:small_brass_casing']);
-	
-
-	e.addBlockLootModifier('cobblestone')
-		.removeLoot(/.*/)
-	
-	e.addBlockLootModifier('redstone_block')
-		.removeLoot(/.*/)
-		.addLoot('redstone_block');
-	
-	e.addBlockLootModifier('redstone_torch')
-		.removeLoot(/.*/)
-		.addLoot('redstone_torch');
 });
