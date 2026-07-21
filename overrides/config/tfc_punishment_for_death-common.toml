@@ -3,10 +3,10 @@
 [general]
 	#Hunger handling mode: TFC (default), MANUAL (set value), KEEP (preserve after death)
 	#Allowed Values: TFC, MANUAL, KEEP
-	hungerMode = "MANUAL"
+	hungerMode = "KEEP"
 	#Thirst handling mode: TFC (default), MANUAL (set value), KEEP (preserve after death)
 	#Allowed Values: TFC, MANUAL, KEEP
-	thirstMode = "MANUAL"
+	thirstMode = "KEEP"
 	#Health handling mode: TFC (default), MANUAL (set value)
 	#Allowed Values: TFC, MANUAL
 	healthMode = "MANUAL"
