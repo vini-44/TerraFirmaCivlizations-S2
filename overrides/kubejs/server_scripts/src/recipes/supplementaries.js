@@ -103,11 +103,6 @@ ServerEvents.recipes((e) => {
 		A: 'tfc:straw',
 	});
 
-	e.shapeless('refurbished_furniture:door_mat', [
-		'supplementaries:doormat',
-		'zetter:paints',
-	]);
-
 	e.shaped('8x supplementaries:cog_block', ['ABA', 'BCB', 'ABA'], {
 		A: 'tfc:metal/rod/copper',
 		B: 'tfc:brass_mechanisms',
@@ -180,11 +175,9 @@ ServerEvents.recipes((e) => {
 		])
 		.tier(2);
 
-	ADDED_ANVIL_RECIPES.push([
-		'supplementaries:faucet',
-		'tfc:metal/sheet/wrought_iron',
-		2,
-	]);
+    ADDED_ANVIL_RECIPES.push([
+        'supplementaries:faucet',
+        'tfc:metal/sheet/wrought_iron',2])
 
 	e.shaped('supplementaries:lock_block', ['ABA', 'BCB', 'ABA'], {
 		A: 'tfc:metal/rod/wrought_iron',
@@ -285,6 +278,21 @@ ServerEvents.recipes((e) => {
 		A: '#tfc:sewing_dark_cloth',
 		B: '#tfc:lumber',
 	});
+
+	TFC_WOOD_TYPES.forEach((type) => {
+		e.shapeless(`2x supplementaries:tfc/sign_post_${type}`, [
+			`tfc:wood/sign/${type}`,
+		]);
+	});
+
+	AFC_WOOD_TYPES.forEach((type) => {
+		e.shapeless(`2x supplementaries:afc/sign_post_${type}`, [
+			`afc:wood/sign/${type}`,
+		]);
+	});
+
+    e.remove({id: 'amendments:dragon_charge'})
+    e.shapeless('amendments:dragon_charge', ['gunpowder', '#minecraft:coals', 'tfc:pure_potassium'])
 
 	TFC_WOOD_TYPES.forEach((type) => {
 		e.shapeless(`2x supplementaries:tfc/sign_post_${type}`, [

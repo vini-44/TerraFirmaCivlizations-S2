@@ -4,108 +4,108 @@
       "name": "mantle_copper",
       "generatedBlocks": [
         {
-          "id": "kubejs:copper_mantle_ore",
+          "id": "terrafirmacivilizations:copper_mantle_ore",
           "properties": []
         }
       ],
       "reactantFluids": [
-        "minecraft:lava"
+        "terrafirmacivilizations:magma_liquid"
       ]
     },
     {
       "name": "mantle_gold",
       "generatedBlocks": [
         {
-          "id": "kubejs:gold_mantle_ore",
+          "id": "terrafirmacivilizations:gold_mantle_ore",
           "properties": []
         }
       ],
       "reactantFluids": [
-        "minecraft:lava"
+        "terrafirmacivilizations:magma_liquid"
       ]
     },
     {
       "name": "mantle_bismuth",
       "generatedBlocks": [
         {
-          "id": "kubejs:bismuth_mantle_ore",
+          "id": "terrafirmacivilizations:bismuth_mantle_ore",
           "properties": []
         }
       ],
       "reactantFluids": [
-        "minecraft:lava"
+        "terrafirmacivilizations:magma_liquid"
       ]
     },
     {
       "name": "mantle_cryolite",
       "generatedBlocks": [
         {
-          "id": "kubejs:cryolite_mantle_ore",
+          "id": "terrafirmacivilizations:cryolite_mantle_ore",
           "properties": []
         }
       ],
       "reactantFluids": [
-        "minecraft:lava"
+        "terrafirmacivilizations:magma_liquid"
       ]
     },
     {
       "name": "mantle_iron",
       "generatedBlocks": [
         {
-          "id": "kubejs:iron_mantle_ore",
+          "id": "terrafirmacivilizations:iron_mantle_ore",
           "properties": []
         }
       ],
       "reactantFluids": [
-        "minecraft:lava"
+        "terrafirmacivilizations:magma_liquid"
       ]
     },
     {
       "name": "mantle_nickel",
       "generatedBlocks": [
         {
-          "id": "kubejs:nickel_mantle_ore",
+          "id": "terrafirmacivilizations:nickel_mantle_ore",
           "properties": []
         }
       ],
       "reactantFluids": [
-        "minecraft:lava"
+        "terrafirmacivilizations:magma_liquid"
       ]
     },
     {
       "name": "mantle_silver",
       "generatedBlocks": [
         {
-          "id": "kubejs:silver_mantle_ore",
+          "id": "terrafirmacivilizations:silver_mantle_ore",
           "properties": []
         }
       ],
       "reactantFluids": [
-        "minecraft:lava"
+        "terrafirmacivilizations:magma_liquid"
       ]
     },
     {
       "name": "mantle_tin",
       "generatedBlocks": [
         {
-          "id": "kubejs:tin_mantle_ore",
+          "id": "terrafirmacivilizations:tin_mantle_ore",
           "properties": []
         }
       ],
       "reactantFluids": [
-        "minecraft:lava"
+        "terrafirmacivilizations:magma_liquid"
       ]
     },
     {
       "name": "mantle_zinc",
       "generatedBlocks": [
         {
-          "id": "kubejs:zinc_mantle_ore",
+          "id": "terrafirmacivilizations:zinc_mantle_ore",
           "properties": []
         }
       ],
       "reactantFluids": [
-        "minecraft:lava"
+        "terrafirmacivilizations:magma_liquid"
       ]
     }
   ]

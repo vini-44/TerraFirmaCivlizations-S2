@@ -308,7 +308,14 @@ const ALL_COLORS = [
 	'white',
 ];
 
-const WELDER_FUELS = ['createdieselgenerators:biodiesel', 'createdieselgenerators:diesel', 'createdieselgenerators:gasoline', 'createdieselgenerators:ethanol', 'kubejs:kerosene', 'kubejs:liquid_hydrogen'];
+const WELDER_FUELS = [
+	'createdieselgenerators:biodiesel',
+	'createdieselgenerators:diesel',
+	'createdieselgenerators:gasoline',
+	'createdieselgenerators:ethanol',
+	'kubejs:kerosene',
+	'kubejs:liquid_hydrogen',
+];
 
 const POWDERS = [
 	'flux',
@@ -466,31 +473,6 @@ const WRENCH_PICKUP = [
 	'supplementaries:spring_launcher',
 ];
 
-const AVAILABLE_GUNS = [
-	'scguns:mas_55',
-	'scguns:krauser',
-	'scguns:uppercut',
-	'scguns:lockewood',
-	'scguns:soul_drummer',
-	'scguns:inertial',
-	'scguns:prush_gun',
-	'scguns:flintlock_pistol',
-	'scguns:musket',
-	'scguns:blunderbuss',
-	'scguns:saketini',
-	'scguns:pax',
-	'scguns:winnie',
-	'scguns:auvtomag',
-	'scguns:combat_shotgun',
-	'scguns:defender_pistol',
-	'scguns:m3_carabine',
-	'scguns:iron_javelin',
-	'scguns:greaser_smg',
-	'scguns:callwell',
-	'scguns:iron_spear',
-    'scguns:cogloader',
-    'scguns:m22_waltz'
-];
 
 const ALL_ROCKS = [
 	'chalk',

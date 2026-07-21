@@ -26,5 +26,4 @@ ServerEvents.recipes((e) => {
     e.remove({type: 'minecraft:blasting'})
     e.remove({type: 'minecraft:smelting'})
     e.remove({type: 'minecraft:smoking'})
-
 })

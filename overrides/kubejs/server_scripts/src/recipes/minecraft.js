@@ -23,7 +23,7 @@ ServerEvents.recipes((event) => {
 
 	event.shaped('4x tnt', ['FNF', 'NFN', 'FNF'], {
 		F: 'tfc:powder/flux',
-		N: 'scguns:nitro_powder',
+		N: 'createbigcannon:nitropowder',
 	});
 
 	event.replaceInput({ id: 'minecraft:brush' }, 'copper_ingot', 'leather');

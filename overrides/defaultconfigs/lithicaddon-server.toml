@@ -21,7 +21,7 @@
 	#The maximum rainfall for the mothbox to start working
 	#Range: 0.0 ~ 500.0
 	maxrain = 100.0
-	#The chance out of 100 the fruit leaves will be consumed each day. set to 100 to gaurentee they eat 
+	#The chance out of 100 the fruit leaves will be consumed each day. Set to 100 to guarantee they eat 
 	#Range: 0 ~ 100
 	mothEatChance = 50
 	#The number of days a silk worm needs to be in a cocoon for it to become a moth
@@ -29,4 +29,10 @@
 	daysTillMoth = 11
 	#Whether or not make horse offsprings get a bonus to speed based on the parents familiarity
 	betterHorseBreeding = true
+	#The chance that a fruit tree branch breaks when using a fruit basket. Set to zero to disable
+	#Range: 0.0 ~ 1.0
+	fruitTreeBranchBreakChance = 0.05
+	#The radius in blocks the fruit basket will search for fruit leaves
+	#Range: 0 ~ 16
+	fruitBasketSearchRadius = 1
 

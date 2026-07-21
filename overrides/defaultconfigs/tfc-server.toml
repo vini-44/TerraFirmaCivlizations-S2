@@ -13,7 +13,7 @@ familiarityDecayLimit = 0.3
 	#   doInsomnia = false (No phantoms)
 	#   doTraderSpawning = false (No wandering traders)
 	#   doPatrolSpawning = false (No pillager patrols)
-	enableForcedTFCGameRules = false
+	enableForcedTFCGameRules = true
 	#
 	# If true, TFC will stop time when no players are online on a running server.
 	# This prevents food from decaying, the calendar from advancing, and the sun from moving, etc.
@@ -31,7 +31,7 @@ familiarityDecayLimit = 0.3
 	enableInfestations = true
 	#
 	# Enables TFC setting the moon phase based on the progress of the month. The etymology of the English word 'month' is in fact related to the word 'moon'.
-	enableCalendarSensitiveMoonPhases = false
+	enableCalendarSensitiveMoonPhases = true
 	#
 	# If false, vanilla lightning will not strike.
 	enableLightning = true
