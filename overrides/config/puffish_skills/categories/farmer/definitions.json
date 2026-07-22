@@ -310,8 +310,8 @@
             {
                 "type": "puffish_skills:command",
                 "data": {
-                    "unlock_command": "puffish_skills category unlock @s classsystem:rancher",
-                    "lock_command": "puffish_skills category lock @s classsystem:rancher"
+                    "unlock_command": "puffish_skills category unlock @s puffish_skills:rancher",
+                    "lock_command": "puffish_skills category lock @s puffish_skills:rancher"
                 }
             }
         ]
