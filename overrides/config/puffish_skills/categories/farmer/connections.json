@@ -10,20 +10,12 @@
 				"yhg8ioth4qviaepw"
 			],
 			[
-				"iy6kisyi41nwwkb9",
-				"yhg8ioth4qviaepw"
-			],
-			[
 				"z9igp5tnoway7cau",
 				"s1r6hxlbu57okm5n"
 			],
 			[
 				"tn9i2t6hqgqz35kc",
 				"1ej8u47vk5wy42h3"
-			],
-			[
-				"z9igp5tnoway7cau",
-				"iy6kisyi41nwwkb9"
 			],
 			[
 				"adhrht282cp6a7wt",
@@ -54,14 +46,6 @@
 				"0sj3km827s90j7do"
 			],
 			[
-				"sgjrxqbsfjllzonf",
-				"evswwxyk0o7a5cdw"
-			],
-			[
-				"1ej8u47vk5wy42h3",
-				"9sz56q9vcu6vztqd"
-			],
-			[
 				"qqxxoei3ql9n06ak",
 				"1ej8u47vk5wy42h3"
 			],
@@ -76,13 +60,25 @@
 			[
 				"43dlp1lmgamuo4j5",
 				"8ik6zc4tk6dlzhe4"
+			],
+			[
+				"z9igp5tnoway7cau",
+				"1k0c248g0wc81n8b"
+			],
+			[
+				"yhg8ioth4qviaepw",
+				"1k0c248g0wc81n8b"
+			],
+			[
+				"1ej8u47vk5wy42h3",
+				"bry631q6ihcbug3z"
+			],
+			[
+				"sgjrxqbsfjllzonf",
+				"f0626p2yan1nfp5k"
 			]
 		],
 		"unidirectional": [
-			[
-				"adhrht282cp6a7wt",
-				"leebq1f0ackkc80b"
-			],
 			[
 				"adhrht282cp6a7wt",
 				"00g31ikay5nbhzv0"
@@ -105,15 +101,35 @@
 			],
 			[
 				"ysz28lq7tlpmrae9",
-				"leebq1f0ackkc80b"
-			],
-			[
-				"ysz28lq7tlpmrae9",
 				"rfqaob6bdegl4ih0"
 			],
 			[
 				"yuidgs61zjkxmnhf",
 				"z2qaeb9o2y10t5nk"
+			],
+			[
+				"adhrht282cp6a7wt",
+				"vjls4upteord1cuv"
+			],
+			[
+				"ysz28lq7tlpmrae9",
+				"vjls4upteord1cuv"
+			]
+		]
+	},
+	"exclusive": {
+		"bidirectional": [
+			[
+				"ysz28lq7tlpmrae9",
+				"adhrht282cp6a7wt"
+			],
+			[
+				"adhrht282cp6a7wt",
+				"43dlp1lmgamuo4j5"
+			],
+			[
+				"43dlp1lmgamuo4j5",
+				"ysz28lq7tlpmrae9"
 			]
 		]
 	}

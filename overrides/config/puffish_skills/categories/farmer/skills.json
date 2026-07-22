@@ -29,18 +29,6 @@
 		"y": -75,
 		"root": false
 	},
-	"iy6kisyi41nwwkb9": {
-		"definition": "heath_buff",
-		"x": -43.30127018922193,
-		"y": -25,
-		"root": false
-	},
-	"leebq1f0ackkc80b": {
-		"definition": "heath_buff",
-		"x": -129.9038105676658,
-		"y": -75,
-		"root": false
-	},
 	"z9igp5tnoway7cau": {
 		"definition": "fruit_buff_1",
 		"x": -43.30127018922193,
@@ -80,18 +68,6 @@
 	"8ik6zc4tk6dlzhe4": {
 		"definition": "animal_buff_1",
 		"x": 43.30127018922193,
-		"y": 25,
-		"root": false
-	},
-	"evswwxyk0o7a5cdw": {
-		"definition": "heath_buff",
-		"x": -86.60254037844386,
-		"y": -200,
-		"root": false
-	},
-	"9sz56q9vcu6vztqd": {
-		"definition": "heath_buff",
-		"x": -216.50635094610965,
 		"y": 25,
 		"root": false
 	},
@@ -141,6 +117,30 @@
 		"definition": "baby_hands_2",
 		"x": 173.20508075688772,
 		"y": -100,
+		"root": false
+	},
+	"1k0c248g0wc81n8b": {
+		"definition": "health_buff",
+		"x": -43.30127018922193,
+		"y": -25,
+		"root": false
+	},
+	"vjls4upteord1cuv": {
+		"definition": "health_buff",
+		"x": -129.9038105676658,
+		"y": -75,
+		"root": false
+	},
+	"bry631q6ihcbug3z": {
+		"definition": "health_buff",
+		"x": -216.50635094610965,
+		"y": 25,
+		"root": false
+	},
+	"f0626p2yan1nfp5k": {
+		"definition": "health_buff",
+		"x": -86.60254037844386,
+		"y": -200,
 		"root": false
 	}
 }

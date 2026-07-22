@@ -12,7 +12,7 @@
 		"root": false
 	},
 	"h296elump7w38hlp": {
-		"definition": "efficent_culling",
+		"definition": "animal_buff_2",
 		"x": 0,
 		"y": -50,
 		"root": true
@@ -21,12 +21,6 @@
 		"definition": "efficent_culling",
 		"x": -101.03629710818453,
 		"y": 75,
-		"root": false
-	},
-	"8wwyrg7glg7la0fr": {
-		"definition": "heath_buff",
-		"x": 0,
-		"y": 50,
 		"root": false
 	},
 	"o2wnq09ww11f64hk": {
@@ -39,6 +33,30 @@
 		"definition": "armor",
 		"x": 43.30127018922193,
 		"y": -25,
+		"root": false
+	},
+	"l2vk0p0j2755t2mr": {
+		"definition": "animal_buff_3",
+		"x": 0,
+		"y": 50,
+		"root": false
+	},
+	"m8tls45jtbrq7t12": {
+		"definition": "animal_buff_4",
+		"x": -72.16878364870323,
+		"y": 125,
+		"root": false
+	},
+	"xuz5t77ajv5wvicf": {
+		"definition": "health_buff",
+		"x": 101.0362971081845,
+		"y": 75,
+		"root": false
+	},
+	"h3ge2sp74opuc2z2": {
+		"definition": "armor",
+		"x": 72.16878364870323,
+		"y": 125,
 		"root": false
 	}
 }

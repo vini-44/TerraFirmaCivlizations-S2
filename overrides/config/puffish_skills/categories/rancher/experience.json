@@ -33,7 +33,7 @@
                 "experience":[
                     {
                         "condition": "is_animal",
-                        "expression": "damage * 9"
+                        "expression": "damage * 4"
                     }
                 ]
             }

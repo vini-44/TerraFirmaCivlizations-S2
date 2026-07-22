@@ -5,7 +5,7 @@ BlockEvents.rightClicked(event => {
 	ovenCheck(event);
 	leatherCheck(event);
 	meatHookCheck(event);
-	cleaverCheck(event);
+	cleaverRightClickCheck(event);
 });
 BlockEvents.broken(event => {
 	cropCheck(event);
@@ -14,21 +14,59 @@ EntityEvents.hurt(event => {
 	
 	cleaverDamageCheck(event);
 });
+EntityEvents.drops(event => {
+	animalDropCheck(event);
+});
+
+function animalDropCheck(event) {
+	const { entity, source, drops, level } = event;
+
+	// Only care about kills by a player
+	const attacker = source.actual;
+
+	
+	if (!attacker.isPlayer()) return;
+
+	if (!attacker.tags.contains('animal_bonus_1')) return;
+
+	//attacker.tell(`kill by ${attacker}, ${attacker.tags}`);
+
+	let chance = 1;
+
+	if (attacker.tags.contains('animal_bonus_1')) chance += 0.10;
+	if (attacker.tags.contains('animal_bonus_2')) chance += 0.10;
+	if (attacker.tags.contains('animal_bonus_3')) chance += 0.15;
+	if (attacker.tags.contains('animal_bonus_4')) chance += 0.15;
+
+	//attacker.tell(`chance: ${chance}`);
+
+	if (Math.random() > chance) return;
+
+    const originalItems = [];
+    for (let i = 0; i < drops.size(); i++) {
+        originalItems.push(drops.get(i).item); // pull the ItemStack out of the ItemEntity
+    }
+
+    originalItems.forEach(stack => {
+		attacker.tell(Text.of(`Bonus drop! ${stack.count}x `).append(stack.getDisplayName()));
+        event.addDrop(stack.copy());
+    });
+}
 function cleaverDamageCheck(event) {
 	const {source} = event;
-	let player = source.actual
+	const player = source.actual;
 
-	if(player.mainHandItem.id == 'butchersdelight:cleaver' && !player.tags.contains('butcher')) {
+	if(!player.tags.contains('butcher') && player.mainHandItem.id === 'butchersdelight:cleaver') {
 		player.tell('You need to be a butcher to use the cleaver!');
 		event.cancel();
 	}
 }
-function cleaverCheck(event) {
-	const { player, level, hand, block} = event;
-	
+function cleaverRightClickCheck(event) {
+	const {player, hand} = event;
+
 	if (hand !== 'main_hand') return;
 
-	if(player.mainHandItem.id == 'butchersdelight:cleaver' && !player.tags.contains('butcher')) {
+	if(!player.tags.contains('butcher') && player.mainHandItem.id === 'butchersdelight:cleaver') {
 		player.tell('You need to be a butcher to use the cleaver!');
 		event.cancel();
 	}

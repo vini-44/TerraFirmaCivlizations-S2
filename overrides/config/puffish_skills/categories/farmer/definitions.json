@@ -1,339 +1,505 @@
 {
-    "crop_mine_speed_1": {
-        "title": "Fast hands",
-        "icon": {
-            "type": "effect",
-            "data": {
-                "effect": "minecraft:speed"
-            }
-        },
-        "description": "Increase crop harvesting speed (+15%)",
-        "rewards": [
-            {	
-                "type": "puffish_skills_origins:power",
-            	"data": {
-		        "power": "origins-classes:crop_upgrade_1"}
-            }
-        ]
+	"crop_mine_speed_1": {
+		"title": "Fast hands",
+		"icon": {
+			"type": "effect",
+			"data": {
+				"effect": "minecraft:speed"
+			}
+		},
+		"description": "Increase crop harvesting speed (+15%)",
+		"rewards": [
+			{
+				"type": "puffish_skills_origins:power",
+				"data": {
+					"power": "origins-classes:crop_upgrade_1"
+				}
+			}
+		],
+		"metadata": {
+			"icon": "0wsgp33nf03zxwj1"
+		}
 	},
-    "crop_mine_speed_2": {
-        "title": "Fast hands",
-        "icon": {
-            "type": "effect",
-            "data": {
-                "effect": "minecraft:speed"
-            }
-        },
-        "description": "Increase crop harvesting speed (+25%)",
-        "rewards": [
-            {	
-                "type": "puffish_skills_origins:power",
-            	"data": {
-		        "power": "origins-classes:crop_upgrade_2"}
-            }
-        ]
+	"crop_mine_speed_2": {
+		"title": "Fast hands",
+		"icon": {
+			"type": "effect",
+			"data": {
+				"effect": "minecraft:speed"
+			}
+		},
+		"description": "Increase crop harvesting speed (+25%)",
+		"rewards": [
+			{
+				"type": "puffish_skills_origins:power",
+				"data": {
+					"power": "origins-classes:crop_upgrade_2"
+				}
+			}
+		],
+		"metadata": {
+			"icon": "ile5zewxvnfcv0em"
+		}
 	},
-    "crop_mine_speed_3": {
-        "title": "Fast hands",
-        "icon": {
-            "type": "effect",
-            "data": {
-                "effect": "minecraft:speed"
-            }
-        },
-        "description": "Increase crop harvesting speed (+25%)",
-        "rewards": [
-            {	
-                "type": "puffish_skills_origins:power",
-            	"data": {
-		        "power": "origins-classes:crop_upgrade_3"}
-            }
-        ]
+	"crop_mine_speed_3": {
+		"title": "Fast hands",
+		"icon": {
+			"type": "effect",
+			"data": {
+				"effect": "minecraft:speed"
+			}
+		},
+		"description": "Increase crop harvesting speed (+25%)",
+		"rewards": [
+			{
+				"type": "puffish_skills_origins:power",
+				"data": {
+					"power": "origins-classes:crop_upgrade_3"
+				}
+			}
+		],
+		"metadata": {
+			"icon": "o2e84y9346jbvv36"
+		}
 	},
-    "crop_mine_speed_4": {
-        "title": "Fast hands",
-        "icon": {
-            "type": "effect",
-            "data": {
-                "effect": "minecraft:speed"
-            }
-        },
-        "description": "Increase crop harvesting speed, this finally removes the starting debuff! (+25%)",
-        "rewards": [
-            {	
-                "type": "puffish_skills_origins:power",
-            	"data": {
-		        "power": "origins-classes:crop_upgrade_4"}
-            }
-        ]
+	"crop_mine_speed_4": {
+		"title": "Fast hands",
+		"icon": {
+			"type": "effect",
+			"data": {
+				"effect": "minecraft:speed"
+			}
+		},
+		"description": "Increase crop harvesting speed, this finally removes the starting debuff! (+25%)",
+		"rewards": [
+			{
+				"type": "puffish_skills_origins:power",
+				"data": {
+					"power": "origins-classes:crop_upgrade_4"
+				}
+			}
+		],
+		"metadata": {
+			"icon": "jd0l5wbcir5gvdox"
+		}
 	},
-    "crop_mine_speed_5": {
-        "title": "Fast hands",
-        "icon": {
-            "type": "effect",
-            "data": {
-                "effect": "minecraft:speed"
-            }
-        },
-        "description": "Increase crop harvesting speed! (+15%)",
-        "rewards": [
-            {	
-                "type": "puffish_skills_origins:power",
-            	"data": {
-		        "power": "origins-classes:crop_upgrade_5"}
-            }
-        ]
+	"crop_mine_speed_5": {
+		"title": "Fast hands",
+		"icon": {
+			"type": "effect",
+			"data": {
+				"effect": "minecraft:speed"
+			}
+		},
+		"description": "Increase crop harvesting speed! (+15%)",
+		"rewards": [
+			{
+				"type": "puffish_skills_origins:power",
+				"data": {
+					"power": "origins-classes:crop_upgrade_5"
+				}
+			}
+		],
+		"metadata": {
+			"icon": "blkfuqj9tv22dg1m"
+		}
 	},
-    "fruit_buff_1": {
-        "title": "Thorough picker",
-        "icon": {
-            "type": "item",
-            "data": {
-                "item": "minecraft:melon"
-            }
-        },
-        "description": "Adds a chance for double fruits (+15%)",
-        "rewards": [{ "type": "puffish_skills:tag", "data": { "tag": "fruit_bonus_1" } }]
+	"fruit_buff_1": {
+		"title": "Thorough picker",
+		"icon": {
+			"type": "item",
+			"data": {
+				"item": "minecraft:melon"
+			}
+		},
+		"description": "Adds a chance for double fruits (+15%)",
+		"rewards": [
+			{
+				"type": "puffish_skills:tag",
+				"data": {
+					"tag": "fruit_bonus_1"
+				}
+			}
+		],
+		"metadata": {
+			"icon": "0tw0wlpw1r63prq2"
+		}
 	},
-    "fruit_buff_2": {
-        "title": "Thorough picker",
-        "icon": {
-            "type": "item",
-            "data": {
-                "item": "minecraft:melon"
-            }
-        },
-        "description": "Adds a chance for double fruits (+15%)",
-        "rewards": [{ "type": "puffish_skills:tag", "data": { "tag": "fruit_bonus_2" } }]
+	"fruit_buff_2": {
+		"title": "Thorough picker",
+		"icon": {
+			"type": "item",
+			"data": {
+				"item": "minecraft:melon"
+			}
+		},
+		"description": "Adds a chance for double fruits (+15%)",
+		"rewards": [
+			{
+				"type": "puffish_skills:tag",
+				"data": {
+					"tag": "fruit_bonus_2"
+				}
+			}
+		],
+		"metadata": {
+			"icon": "vbby7d6ct2v3635s"
+		}
 	},
-    "fruit_buff_3": {
-        "title": "Thorough picker",
-        "icon": {
-            "type": "item",
-            "data": {
-                "item": "minecraft:melon"
-            }
-        },
-        "description": "Adds a chance for double fruits (+10%)",
-        "rewards": [{ "type": "puffish_skills:tag", "data": { "tag": "fruit_bonus_3" } }]
+	"fruit_buff_3": {
+		"title": "Thorough picker",
+		"icon": {
+			"type": "item",
+			"data": {
+				"item": "minecraft:melon"
+			}
+		},
+		"description": "Adds a chance for double fruits (+10%)",
+		"rewards": [
+			{
+				"type": "puffish_skills:tag",
+				"data": {
+					"tag": "fruit_bonus_3"
+				}
+			}
+		],
+		"metadata": {
+			"icon": "feulgbw8ir0bv5fz"
+		}
 	},
-    "fruit_buff_4": {
-        "title": "Thorough picker",
-        "icon": {
-            "type": "item",
-            "data": {
-                "item": "minecraft:melon"
-            }
-        },
-        "description": "Adds a chance for double fruits (+10%)",
-        "rewards": [{ "type": "puffish_skills:tag", "data": { "tag": "fruit_bonus_4" } }]
+	"fruit_buff_4": {
+		"title": "Thorough picker",
+		"icon": {
+			"type": "item",
+			"data": {
+				"item": "minecraft:melon"
+			}
+		},
+		"description": "Adds a chance for double fruits (+10%)",
+		"rewards": [
+			{
+				"type": "puffish_skills:tag",
+				"data": {
+					"tag": "fruit_bonus_4"
+				}
+			}
+		],
+		"metadata": {
+			"icon": "8bar2vm1qi97volt"
+		}
 	},
-    "wood_buff_1": {
-        "title": "Faster cutting",
-        "icon": {
-            "type": "item",
-            "data": {
-                "item": "tfc:metal/axe/wrought_iron"
-            }
-        },
-        "description": "Cut wood faster(+10%)",
-        "rewards": [
-            {	
-                "type": "puffish_skills_origins:power",
-            	"data": {
-		        "power": "origins-classes:axe_upgrade_1"}
-            }
-        ]
+	"wood_buff_1": {
+		"title": "Faster cutting",
+		"icon": {
+			"type": "item",
+			"data": {
+				"item": "tfc:metal/axe/wrought_iron"
+			}
+		},
+		"description": "Cut wood faster(+10%)",
+		"rewards": [
+			{
+				"type": "puffish_skills_origins:power",
+				"data": {
+					"power": "origins-classes:axe_upgrade_1"
+				}
+			}
+		],
+		"metadata": {
+			"icon": "5w29exnh9bzd5lvf"
+		}
 	},
-    "animal_buff_1": {
-        "title": "Fast hands",
-        "icon": {
-            "type": "item",
-            "data": {
-                "item": "butchersdelight:cow_hide"
-            }
-        },
-        "description": "make animals better ??? (wip)"
+	"animal_buff_1": {
+		"title": "Efficient killing",
+		"icon": {
+			"type": "item",
+			"data": {
+				"item": "butchersdelight:cow_hide"
+			}
+		},
+		"description": "Adds a chance for double mob drops (+10%)",
+		"rewards": [
+			{
+				"type": "puffish_skills:tag",
+				"data": {
+					"tag": "animal_bonus_1"
+				}
+			}
+		],
+		"metadata": {
+			"icon": "xyeqo2r6owiyeysa"
+		}
 	},
-    "damage_10%": {
-        "title": "Punchy hands",
-        "icon": {
-            "type": "effect",
-            "data": {
-                "effect": "minecraft:strength"
-            }
-        },
-        "description": "+10% melee damage",
-        "rewards": [
-            {
-                "type": "puffish_skills:attribute",
-                "data": {
-                    "attribute": "puffish_attributes:melee_damage",
-                    "value": 0.1,
-                    "operation": "multiply_base"
-                }
-            }
-        ]
-    },
-    "heath_buff": {
-        "title": "Farmers physique",
-        "icon": {
-            "type": "effect",
-            "data": {
-                "effect": "minecraft:regeneration"
-            }
-        },
-        "description": "All that hard work is paying off, you feel a little tougher (+1/2 Heart)",
-        "rewards": [
-            {
-                "type": "puffish_skills:attribute",
-                "data": {
-                    "attribute": "minecraft:generic.max_health",
-                    "value": 1,
-                    "operation": "addition"
-                }
-            }
-        ]
-    },
-    "armor": {
-        "title": "Calluses",
-        "icon": {
-            "type": "effect",
-            "data": {
-                "effect": "minecraft:absorption"
-            }
-        },
-        "description": "While a bit painful, the thicker skin will help with fighting, gain a bit of natural armor (+1/2 armor)",
-        "rewards": [
-            {
-                "type": "puffish_skills:attribute",
-                "data": {
-                    "attribute": "minecraft:generic.armor",
-                    "value": 0.5,
-                    "operation": "addition"
-                }
-            }
-        ]
-    },
-    "baby_hands_1": {
-        "title": "Delicate hands",
-        "icon": {
-            "type": "effect",
-            "data": {
-                "effect": "minecraft:luck"
-            }
-        },
-        "frame":{
-            "type": "advancement",
-            "data": {
-                "frame": "goal"
-            }
-        },
-        "description": ["",{"text":"Cost 2 points","color":"yellow"},"\nIncrease the chance of harvesting multiple crops. This delicate technique is not meant for warriors. \n(+15% for double crops, -10% melee damage)"],
-        "rewards": [
-            { "type": "puffish_skills:tag", "data": { "tag": "baby_hands_1" } },
-            {
-                "type": "puffish_skills:attribute",
-                "data": {
-                    "attribute": "puffish_attributes:melee_damage",
-                    "value": -0.1,
-                    "operation": "multiply_base"
-                }
-            }
-        ]
-    },
-    "baby_hands_2": {
-        "title": "Delicate hands",
-        "cost": 2,
-        "icon": {
-            "type": "effect",
-            "data": {
-                "effect": "minecraft:luck"
-            }
-        },
-        "frame":{
-            "type": "advancement",
-            "data": {
-                "frame": "goal"
-            }
-        },
-        "description": ["",{"text":"Cost 2 points","color":"yellow"},"\nIncrease the chance of harvesting multiple crops. This delicate technique is not meant for warriors. \n(+15% for double crops, -10% melee damage)"],
-        "rewards": [
-            { "type": "puffish_skills:tag", "data": { "tag": "baby_hands_2" } },
-            {
-                "type": "puffish_skills:attribute",
-                "data": {
-                    "attribute": "puffish_attributes:melee_damage",
-                    "value": -0.1,
-                    "operation": "multiply_base"
-                }
-            }
-        ]
-    },
-    "grand_farmer": {
-        "title": "Grand farmer",
-        "cost": 3,
-        "icon": {
-            "type": "item",
-            "data": {
-                "item": "minecraft:diamond_hoe"
-            }  
-        },
-        "frame":{
-            "type": "advancement",
-            "data": {
-                "frame": "challenge"
-            }
-        },
-        "description": ["",{"text":"Cost 3 points","color":"yellow"},"\nTo feed a town you'll need to mass produce food. \n",{"text":"(Unlocks the Oven)","color":"gold"}],
-        "rewards": [
-            { "type": "puffish_skills:tag", "data": { "tag": "grand_farmer" } }
-        ]
-    },
-    "rancher": {
-        "title": "Rancher",
-        "cost": 3,
-        "icon": {
-            "type": "item",
-            "data": {
-                "item": "minecraft:iron_axe"
-            }
-        },
-        "frame":{
-            "type": "advancement",
-            "data": {
-                "frame": "challenge"
-            }
-        },
-        "description": ["",{"text":"Cost 3 points","color":"yellow"},"\nBread is nice all, but what is life without meat? \n",{"text":"(Unlocks new tree, later unlocking the cleaver, meat hook, and leather)","color":"gold"} ],
-        "rewards": [
-            {
-                "type": "puffish_skills:command",
-                "data": {
-                    "unlock_command": "puffish_skills category unlock @s puffish_skills:rancher",
-                    "lock_command": "puffish_skills category lock @s puffish_skills:rancher"
-                }
-            }
-        ]
-    },
-    "orchardist": {
-        "title": "Orchardist",
-        "cost": 3,
-        "icon": {
-            "type": "item",
-            "data": {
-                "item": "minecraft:apple"
-            }
-        },
-        "frame":{
-            "type": "advancement",
-            "data": {
-                "frame": "challenge"
-            }
-        },
-        "description": ["",{"text":"Cost 3 points","color":"yellow"},"\nSpecialize into the farming of fruit trees, and the harvesting of their fruits. \n",{"text":"(Unlocks jam. +15% double fruit chance.)","color":"gold"}],
-        "rewards": [
-            { "type": "puffish_skills:tag", "data": { "tag": "orchardist" } }
-        ]
-    }
+	"damage_10%": {
+		"title": "Punchy hands",
+		"icon": {
+			"type": "effect",
+			"data": {
+				"effect": "minecraft:strength"
+			}
+		},
+		"description": "+10% melee damage",
+		"rewards": [
+			{
+				"type": "puffish_skills:attribute",
+				"data": {
+					"attribute": "puffish_attributes:melee_damage",
+					"value": 0.1,
+					"operation": "multiply_base"
+				}
+			}
+		],
+		"metadata": {
+			"icon": "qrfnlwo46n39hxhv"
+		}
+	},
+	"health_buff": {
+		"title": "Farmers physique",
+		"icon": {
+			"type": "effect",
+			"data": {
+				"effect": "minecraft:regeneration"
+			}
+		},
+		"description": "All that hard work is paying off, you feel a little tougher (+1/2 Heart)",
+		"rewards": [
+			{
+				"type": "puffish_skills:attribute",
+				"data": {
+					"attribute": "minecraft:generic.max_health",
+					"value": 1,
+					"operation": "addition"
+				}
+			}
+		],
+		"metadata": {
+			"icon": "pkxp72ne0zfimz2z"
+		}
+	},
+	"armor": {
+		"title": "Calluses",
+		"icon": {
+			"type": "effect",
+			"data": {
+				"effect": "minecraft:absorption"
+			}
+		},
+		"description": "While a bit painful, the thicker skin will help with fighting, gain a bit of natural armor (+1/2 armor)",
+		"rewards": [
+			{
+				"type": "puffish_skills:attribute",
+				"data": {
+					"attribute": "minecraft:generic.armor",
+					"value": 0.5,
+					"operation": "addition"
+				}
+			}
+		],
+		"metadata": {
+			"icon": "q9zghssgcwm08k0f"
+		}
+	},
+	"baby_hands_1": {
+		"title": "Delicate hands",
+		"icon": {
+			"type": "effect",
+			"data": {
+				"effect": "minecraft:luck"
+			}
+		},
+		"frame": {
+			"type": "advancement",
+			"data": {
+				"frame": "goal"
+			}
+		},
+		"description": [
+			"",
+			{
+				"text": "Cost 2 points",
+				"color": "yellow"
+			},
+			"\nIncrease the chance of harvesting multiple crops. This delicate technique is not meant for warriors. \n(+15% for double crops, -10% melee damage)"
+		],
+		"rewards": [
+			{
+				"type": "puffish_skills:tag",
+				"data": {
+					"tag": "baby_hands_1"
+				}
+			},
+			{
+				"type": "puffish_skills:attribute",
+				"data": {
+					"attribute": "puffish_attributes:melee_damage",
+					"value": -0.1,
+					"operation": "multiply_base"
+				}
+			}
+		],
+		"metadata": {
+			"icon": "vx72r22t2ur4gtbb"
+		}
+	},
+	"baby_hands_2": {
+		"title": "Delicate hands",
+		"cost": 2,
+		"icon": {
+			"type": "effect",
+			"data": {
+				"effect": "minecraft:luck"
+			}
+		},
+		"frame": {
+			"type": "advancement",
+			"data": {
+				"frame": "goal"
+			}
+		},
+		"description": [
+			"",
+			{
+				"text": "Cost 2 points",
+				"color": "yellow"
+			},
+			"\nIncrease the chance of harvesting multiple crops. This delicate technique is not meant for warriors. \n(+15% for double crops, -10% melee damage)"
+		],
+		"rewards": [
+			{
+				"type": "puffish_skills:tag",
+				"data": {
+					"tag": "baby_hands_2"
+				}
+			},
+			{
+				"type": "puffish_skills:attribute",
+				"data": {
+					"attribute": "puffish_attributes:melee_damage",
+					"value": -0.1,
+					"operation": "multiply_base"
+				}
+			}
+		],
+		"metadata": {
+			"icon": "72p5hr10j4pz7jx1"
+		}
+	},
+	"grand_farmer": {
+		"title": "Grand farmer",
+		"cost": 3,
+		"icon": {
+			"type": "item",
+			"data": {
+				"item": "minecraft:diamond_hoe"
+			}
+		},
+		"frame": {
+			"type": "advancement",
+			"data": {
+				"frame": "challenge"
+			}
+		},
+		"description": [
+			"",
+			{
+				"text": "Cost 3 points",
+				"color": "yellow"
+			},
+			"\nTo feed a town you'll need to mass produce food. \n",
+			{
+				"text": "(Unlocks the Oven)",
+				"color": "gold"
+			}
+		],
+		"rewards": [
+			{
+				"type": "puffish_skills:tag",
+				"data": {
+					"tag": "grand_farmer"
+				}
+			}
+		],
+		"metadata": {
+			"icon": "tcdgqqwaql31r1lp"
+		}
+	},
+	"rancher": {
+		"title": "Rancher",
+		"cost": 3,
+		"icon": {
+			"type": "item",
+			"data": {
+				"item": "minecraft:iron_axe"
+			}
+		},
+		"frame": {
+			"type": "advancement",
+			"data": {
+				"frame": "challenge"
+			}
+		},
+		"description": [
+			"",
+			{
+				"text": "Cost 3 points",
+				"color": "yellow"
+			},
+			"\nBread is nice all, but what is life without meat? \n",
+			{
+				"text": "(Unlocks new tree, later unlocking the cleaver, meat hook, and leather)",
+				"color": "gold"
+			}
+		],
+		"rewards": [
+			{
+				"type": "puffish_skills:command",
+				"data": {
+					"unlock_command": "puffish_skills category unlock @s puffish_skills:rancher",
+					"lock_command": "puffish_skills category lock @s puffish_skills:rancher"
+				}
+			}
+		],
+		"metadata": {
+			"icon": "dh92ztd3dm7no13c"
+		}
+	},
+	"orchardist": {
+		"title": "Orchardist",
+		"cost": 3,
+		"icon": {
+			"type": "item",
+			"data": {
+				"item": "minecraft:apple"
+			}
+		},
+		"frame": {
+			"type": "advancement",
+			"data": {
+				"frame": "challenge"
+			}
+		},
+		"description": [
+			"",
+			{
+				"text": "Cost 3 points",
+				"color": "yellow"
+			},
+			"\nSpecialize into the farming of fruit trees, and the harvesting of their fruits. \n",
+			{
+				"text": "(Unlocks jam. +15% double fruit chance.)",
+				"color": "gold"
+			}
+		],
+		"rewards": [
+			{
+				"type": "puffish_skills:tag",
+				"data": {
+					"tag": "orchardist"
+				}
+			}
+		],
+		"metadata": {
+			"icon": "zahncpkkdqlcb88u"
+		}
+	}
 }

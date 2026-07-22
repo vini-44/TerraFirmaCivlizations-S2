@@ -7,5 +7,5 @@
 			"item": "minecraft:lead"
 		}
 	},
-	"background": "textures/gui/advancements/backgrounds/stone.png"
+	"background": "minecraft:textures/gui/advancements/backgrounds/stone.png"
 }
