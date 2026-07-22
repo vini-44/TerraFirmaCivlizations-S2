@@ -23,18 +23,6 @@
 		"y": -150,
 		"root": false
 	},
-	"cm9fy8w8k4zwrs39": {
-		"definition": "Rancher",
-		"x": 129.9038105676658,
-		"y": 75,
-		"root": false
-	},
-	"2tl6ygcp2u0sswg7": {
-		"definition": "Orchardist",
-		"x": -129.9038105676658,
-		"y": 75,
-		"root": false
-	},
 	"00g31ikay5nbhzv0": {
 		"definition": "armor",
 		"x": 129.9038105676658,
@@ -60,7 +48,7 @@
 		"root": false
 	},
 	"tn9i2t6hqgqz35kc": {
-		"definition": "fruit_buff_1",
+		"definition": "fruit_buff_2",
 		"x": -173.20508075688772,
 		"y": 100,
 		"root": false
@@ -69,12 +57,6 @@
 		"definition": "wood_buff_1",
 		"x": -216.50635094610968,
 		"y": 125,
-		"root": false
-	},
-	"tuavglziwk91kdqo": {
-		"definition": "Baby_hands",
-		"x": -173.20508075688772,
-		"y": -100,
 		"root": false
 	},
 	"yuidgs61zjkxmnhf": {
@@ -113,12 +95,6 @@
 		"y": 25,
 		"root": false
 	},
-	"4szw2728kjgotwlq": {
-		"definition": "Baby_hands",
-		"x": 173.20508075688772,
-		"y": -100,
-		"root": false
-	},
 	"rfqaob6bdegl4ih0": {
 		"definition": "wood_buff_1",
 		"x": 0,
@@ -126,21 +102,45 @@
 		"root": false
 	},
 	"zt9ma99mldyzbrfx": {
-		"definition": "fruit_buff_1",
+		"definition": "fruit_buff_3",
 		"x": 0,
 		"y": 200,
 		"root": false
 	},
 	"9zul24zh0rwhb5kp": {
-		"definition": "crop_mine_speed_4",
+		"definition": "crop_mine_speed_5",
 		"x": 86.60254037844385,
 		"y": -200,
 		"root": false
 	},
 	"qqxxoei3ql9n06ak": {
-		"definition": "fruit_buff_1",
+		"definition": "fruit_buff_4",
 		"x": -129.9038105676658,
 		"y": 175,
+		"root": false
+	},
+	"o9z3slhwl9ak4a3s": {
+		"definition": "baby_hands_1",
+		"x": -173.20508075688772,
+		"y": -100,
+		"root": false
+	},
+	"ysz28lq7tlpmrae9": {
+		"definition": "orchardist",
+		"x": -129.9038105676658,
+		"y": 75,
+		"root": false
+	},
+	"43dlp1lmgamuo4j5": {
+		"definition": "rancher",
+		"x": 129.9038105676658,
+		"y": 75,
+		"root": false
+	},
+	"z2qaeb9o2y10t5nk": {
+		"definition": "baby_hands_2",
+		"x": 173.20508075688772,
+		"y": -100,
 		"root": false
 	}
 }

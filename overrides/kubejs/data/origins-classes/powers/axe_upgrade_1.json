@@ -1,0 +1,12 @@
+{
+  "name": "Learning the axe",
+  "type": "origins:modify_break_speed",
+  "modifier": {
+    "value": 0.1,
+    "operation": "multiply_base"
+  },
+  "block_condition": {
+    "type": "origins:in_tag",
+    "tag": "minecraft:mineable/axe"
+  }
+}

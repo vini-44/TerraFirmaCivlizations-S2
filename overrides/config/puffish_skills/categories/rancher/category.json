@@ -1,0 +1,11 @@
+{
+	"unlocked_by_default": false,
+	"title": "Rancher",
+	"icon": {
+		"type": "item",
+		"data": {
+			"item": "minecraft:lead"
+		}
+	},
+	"background": "textures/gui/advancements/backgrounds/stone.png"
+}

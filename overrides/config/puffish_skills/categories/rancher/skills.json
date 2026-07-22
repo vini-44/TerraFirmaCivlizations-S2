@@ -1,0 +1,44 @@
+{
+	"8x9lqhu3c36laq1j": {
+		"definition": "butcher",
+		"x": -72.16878364870323,
+		"y": 25,
+		"root": false
+	},
+	"202uncv3eynz3ji8": {
+		"definition": "leather_worker",
+		"x": 72.16878364870323,
+		"y": 25,
+		"root": false
+	},
+	"h296elump7w38hlp": {
+		"definition": "efficent_culling",
+		"x": 0,
+		"y": -50,
+		"root": true
+	},
+	"gv9t6ndojzmvo58a": {
+		"definition": "efficent_culling",
+		"x": -101.03629710818453,
+		"y": 75,
+		"root": false
+	},
+	"8wwyrg7glg7la0fr": {
+		"definition": "heath_buff",
+		"x": 0,
+		"y": 50,
+		"root": false
+	},
+	"o2wnq09ww11f64hk": {
+		"definition": "damage_10%",
+		"x": -43.30127018922193,
+		"y": -25,
+		"root": false
+	},
+	"3rsk7p9wfs8pzpgk": {
+		"definition": "armor",
+		"x": 43.30127018922193,
+		"y": -25,
+		"root": false
+	}
+}

@@ -1,0 +1,122 @@
+{
+    "efficent_culling": {
+        "title": "efficent_culling",
+        "icon": {
+            "type": "effect",
+            "data": {
+                "effect": "minecraft:strength"
+            }
+        },
+        "description": "+10% melee damage",
+        "rewards": [
+            {
+                "type": "puffish_skills:attribute",
+                "data": {
+                    "attribute": "puffish_attributes:melee_damage",
+                    "value": 0.1,
+                    "operation": "multiply_base"
+                }
+            }
+        ]
+    },
+    "damage_10%": {
+        "title": "Stronger fists",
+        "icon": {
+            "type": "effect",
+            "data": {
+                "effect": "minecraft:strength"
+            }
+        },
+        "description": "+10% melee damage",
+        "rewards": [
+            {
+                "type": "puffish_skills:attribute",
+                "data": {
+                    "attribute": "puffish_attributes:melee_damage",
+                    "value": 0.1,
+                    "operation": "multiply_base"
+                }
+            }
+        ]
+    },
+    "heath_buff": {
+        "title": "Farmers physique",
+        "icon": {
+            "type": "effect",
+            "data": {
+                "effect": "minecraft:regeneration"
+            }
+        },
+        "description": "All that hard work is paying off, you feel a little tougher (+1/2 Heart)",
+        "rewards": [
+            {
+                "type": "puffish_skills:attribute",
+                "data": {
+                    "attribute": "minecraft:generic.max_health",
+                    "value": 1,
+                    "operation": "addition"
+                }
+            }
+        ]
+    },
+    "armor": {
+        "title": "Calluses",
+        "icon": {
+            "type": "effect",
+            "data": {
+                "effect": "minecraft:absorption"
+            }
+        },
+        "description": "While a bit painful, the thicker skin will help with fighting, gain a bit of natural armor (+1/2 armor)",
+        "rewards": [
+            {
+                "type": "puffish_skills:attribute",
+                "data": {
+                    "attribute": "minecraft:generic.armor",
+                    "value": 0.5,
+                    "operation": "addition"
+                }
+            }
+        ]
+    },
+    "butcher": {
+        "title": "Butcher",
+        "cost": 3,
+        "icon": {
+            "type": "item",
+            "data": {
+                "item": "minecraft:iron_axe"
+            }
+        },
+        "frame":{
+            "type": "advancement",
+            "data": {
+                "frame": "challenge"
+            }
+        },
+        "description": ["",{"text":"Cost 3 points","color":"yellow"},"\nLearn to carve meat, and increase your animal harvest. \n",{"text":"(Unlocks cleaver and meat hook)","color":"gold"} ],
+        "rewards": [    
+            { "type": "puffish_skills:tag", "data": { "tag": "butcher" } }
+        ]
+    },
+    "leather_worker": {
+        "title": "Leather Worker",
+        "cost": 3,
+        "icon": {
+            "type": "item",
+            "data": {
+                "item": "minecraft:iron_axe"
+            }
+        },
+        "frame":{
+            "type": "advancement",
+            "data": {
+                "frame": "challenge"
+            }
+        },
+        "description": ["",{"text":"Cost 3 points","color":"yellow"},"\nLearn to scrape hide, creating durable leather. \n",{"text":"(Unlocks hide scraping and thus leather)","color":"gold"} ],
+        "rewards": [    
+            { "type": "puffish_skills:tag", "data": { "tag": "leather_worker" } }
+        ]
+    }
+}

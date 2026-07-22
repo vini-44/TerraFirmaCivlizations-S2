@@ -1,6 +1,6 @@
 {
   "name": "Farming +1",
-  "description": "+25% base crop break speed",
+  "description": "+15% base crop break speed",
   "type": "origins:modify_break_speed",
   "modifier": {
     "operation": "multiply_base",

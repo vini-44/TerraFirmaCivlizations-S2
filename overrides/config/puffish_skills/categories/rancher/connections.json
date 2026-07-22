@@ -1,0 +1,44 @@
+{
+	"normal": {
+		"bidirectional": [
+			[
+				"8x9lqhu3c36laq1j",
+				"gv9t6ndojzmvo58a"
+			],
+			[
+				"h296elump7w38hlp",
+				"o2wnq09ww11f64hk"
+			],
+			[
+				"o2wnq09ww11f64hk",
+				"8x9lqhu3c36laq1j"
+			],
+			[
+				"3rsk7p9wfs8pzpgk",
+				"h296elump7w38hlp"
+			],
+			[
+				"3rsk7p9wfs8pzpgk",
+				"202uncv3eynz3ji8"
+			]
+		],
+		"unidirectional": [
+			[
+				"8x9lqhu3c36laq1j",
+				"8wwyrg7glg7la0fr"
+			],
+			[
+				"202uncv3eynz3ji8",
+				"8wwyrg7glg7la0fr"
+			]
+		]
+	},
+	"exclusive": {
+		"bidirectional": [
+			[
+				"8x9lqhu3c36laq1j",
+				"202uncv3eynz3ji8"
+			]
+		]
+	}
+}

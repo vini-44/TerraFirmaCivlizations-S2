@@ -7,7 +7,7 @@
                 "effect": "minecraft:speed"
             }
         },
-        "description": "Increase crop harvesting speed (+25%)",
+        "description": "Increase crop harvesting speed (+15%)",
         "rewards": [
             {	
                 "type": "puffish_skills_origins:power",
@@ -58,7 +58,7 @@
                 "effect": "minecraft:speed"
             }
         },
-        "description": "Increase crop harvesting speed, this finally removes the starting debuff! (+15%)",
+        "description": "Increase crop harvesting speed, this finally removes the starting debuff! (+25%)",
         "rewards": [
             {	
                 "type": "puffish_skills_origins:power",
@@ -67,15 +67,66 @@
             }
         ]
 	},
-    "fruit_buff_1": {
+    "crop_mine_speed_5": {
         "title": "Fast hands",
+        "icon": {
+            "type": "effect",
+            "data": {
+                "effect": "minecraft:speed"
+            }
+        },
+        "description": "Increase crop harvesting speed! (+15%)",
+        "rewards": [
+            {	
+                "type": "puffish_skills_origins:power",
+            	"data": {
+		        "power": "origins-classes:crop_upgrade_5"}
+            }
+        ]
+	},
+    "fruit_buff_1": {
+        "title": "Thorough picker",
         "icon": {
             "type": "item",
             "data": {
-                "item": "tfc:food/cherry"
+                "item": "minecraft:melon"
             }
         },
-        "description": "make fruit better ??? (wip)"
+        "description": "Adds a chance for double fruits (+15%)",
+        "rewards": [{ "type": "puffish_skills:tag", "data": { "tag": "fruit_bonus_1" } }]
+	},
+    "fruit_buff_2": {
+        "title": "Thorough picker",
+        "icon": {
+            "type": "item",
+            "data": {
+                "item": "minecraft:melon"
+            }
+        },
+        "description": "Adds a chance for double fruits (+15%)",
+        "rewards": [{ "type": "puffish_skills:tag", "data": { "tag": "fruit_bonus_2" } }]
+	},
+    "fruit_buff_3": {
+        "title": "Thorough picker",
+        "icon": {
+            "type": "item",
+            "data": {
+                "item": "minecraft:melon"
+            }
+        },
+        "description": "Adds a chance for double fruits (+10%)",
+        "rewards": [{ "type": "puffish_skills:tag", "data": { "tag": "fruit_bonus_3" } }]
+	},
+    "fruit_buff_4": {
+        "title": "Thorough picker",
+        "icon": {
+            "type": "item",
+            "data": {
+                "item": "minecraft:melon"
+            }
+        },
+        "description": "Adds a chance for double fruits (+10%)",
+        "rewards": [{ "type": "puffish_skills:tag", "data": { "tag": "fruit_bonus_4" } }]
 	},
     "wood_buff_1": {
         "title": "Faster cutting",
@@ -85,7 +136,14 @@
                 "item": "tfc:metal/axe/wrought_iron"
             }
         },
-        "description": "cut wood faster??(wip)"
+        "description": "Cut wood faster(+10%)",
+        "rewards": [
+            {	
+                "type": "puffish_skills_origins:power",
+            	"data": {
+		        "power": "origins-classes:axe_upgrade_1"}
+            }
+        ]
 	},
     "animal_buff_1": {
         "title": "Fast hands",
@@ -142,10 +200,10 @@
         "icon": {
             "type": "effect",
             "data": {
-                "effect": "minecraft:regeneration"
+                "effect": "minecraft:absorption"
             }
         },
-        "description": "While a bit painfull, the thicker skin will help with fighting, gain a bit of natural armor (+1/2 armor)",
+        "description": "While a bit painful, the thicker skin will help with fighting, gain a bit of natural armor (+1/2 armor)",
         "rewards": [
             {
                 "type": "puffish_skills:attribute",
@@ -157,7 +215,7 @@
             }
         ]
     },
-    "Baby_hands": {
+    "baby_hands_1": {
         "title": "Delicate hands",
         "icon": {
             "type": "effect",
@@ -165,25 +223,51 @@
                 "effect": "minecraft:luck"
             }
         },
-        "description": "Increase the chance of harvesting multiple crops. This delicate technique is not meant for warriors. (+1 fortune, -0.3 attack damage)",
+        "frame":{
+            "type": "advancement",
+            "data": {
+                "frame": "goal"
+            }
+        },
+        "description": ["",{"text":"Cost 2 points","color":"yellow"},"\nIncrease the chance of harvesting multiple crops. This delicate technique is not meant for warriors. \n(+15% for double crops, -10% melee damage)"],
         "rewards": [
+            { "type": "puffish_skills:tag", "data": { "tag": "baby_hands_1" } },
             {
                 "type": "puffish_skills:attribute",
                 "data": {
-                    "attribute": "puffish_attributes:fortune",
-                    "value": 1,
-                    "operation": "addition"
-                }
-            },
-            {
-                "type": "puffish_skills:attribute",
-                "data": {
-                    "attribute": "minecraft:generic.attack_damage",
-                    "value": -0.3,
-                    "operation": "addition"
+                    "attribute": "puffish_attributes:melee_damage",
+                    "value": -0.1,
+                    "operation": "multiply_base"
                 }
             }
-
+        ]
+    },
+    "baby_hands_2": {
+        "title": "Delicate hands",
+        "cost": 2,
+        "icon": {
+            "type": "effect",
+            "data": {
+                "effect": "minecraft:luck"
+            }
+        },
+        "frame":{
+            "type": "advancement",
+            "data": {
+                "frame": "goal"
+            }
+        },
+        "description": ["",{"text":"Cost 2 points","color":"yellow"},"\nIncrease the chance of harvesting multiple crops. This delicate technique is not meant for warriors. \n(+15% for double crops, -10% melee damage)"],
+        "rewards": [
+            { "type": "puffish_skills:tag", "data": { "tag": "baby_hands_2" } },
+            {
+                "type": "puffish_skills:attribute",
+                "data": {
+                    "attribute": "puffish_attributes:melee_damage",
+                    "value": -0.1,
+                    "operation": "multiply_base"
+                }
+            }
         ]
     },
     "grand_farmer": {
@@ -193,11 +277,20 @@
             "type": "item",
             "data": {
                 "item": "minecraft:diamond_hoe"
+            }  
+        },
+        "frame":{
+            "type": "advancement",
+            "data": {
+                "frame": "challenge"
             }
         },
-        "description": "While being fast and tough helps with farming, a more delicate touch is required for getting a good harvest (temp)"
+        "description": ["",{"text":"Cost 3 points","color":"yellow"},"\nTo feed a town you'll need to mass produce food. \n",{"text":"(Unlocks the Oven)","color":"gold"}],
+        "rewards": [
+            { "type": "puffish_skills:tag", "data": { "tag": "grand_farmer" } }
+        ]
     },
-    "Rancher": {
+    "rancher": {
         "title": "Rancher",
         "cost": 3,
         "icon": {
@@ -206,7 +299,13 @@
                 "item": "minecraft:iron_axe"
             }
         },
-        "description": "While farming is nice, a bit of meat would fare much better, no? Unlock animal husbandry and butchery, experience gained by slaughtering things..",
+        "frame":{
+            "type": "advancement",
+            "data": {
+                "frame": "challenge"
+            }
+        },
+        "description": ["",{"text":"Cost 3 points","color":"yellow"},"\nBread is nice all, but what is life without meat? \n",{"text":"(Unlocks new tree, later unlocking the cleaver, meat hook, and leather)","color":"gold"} ],
         "rewards": [
             {
                 "type": "puffish_skills:command",
@@ -217,7 +316,7 @@
             }
         ]
     },
-    "Orchardist": {
+    "orchardist": {
         "title": "Orchardist",
         "cost": 3,
         "icon": {
@@ -226,15 +325,15 @@
                 "item": "minecraft:apple"
             }
         },
-        "description": "While farming is nice, a bit of meat would fare much better, no? Unlock animal husbandry and butchery, experience gained by slaughtering things..",
-        "rewards": [
-            {
-                "type": "puffish_skills:command",
-                "data": {
-                    "unlock_command": "puffish_skills category unlock @s classsystem:rancher",
-                    "lock_command": "puffish_skills category lock @s classsystem:rancher"
-                }
+        "frame":{
+            "type": "advancement",
+            "data": {
+                "frame": "challenge"
             }
+        },
+        "description": ["",{"text":"Cost 3 points","color":"yellow"},"\nSpecialize into the farming of fruit trees, and the harvesting of their fruits. \n",{"text":"(Unlocks jam. +15% double fruit chance.)","color":"gold"}],
+        "rewards": [
+            { "type": "puffish_skills:tag", "data": { "tag": "orchardist" } }
         ]
     }
 }

@@ -4,7 +4,7 @@
   "type": "origins:modify_break_speed",
   "modifier": {
     "operation": "multiply_base",
-    "value": 0.25
+    "value": 0.15
   },
   "block_condition": {
     "type": "origins:or",
