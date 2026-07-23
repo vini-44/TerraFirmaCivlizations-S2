@@ -1,0 +1,22 @@
+{
+	"Dwarven_strenght": {
+		"title": "Strong pick",
+		"icon": {
+			"type": "effect",
+			"data": {
+				"effect": "minecraft:haste"
+			}
+		},
+		"description": "Increase mining speed with pickaxes",
+		"rewards": [
+			{
+				"type": "puffish_skills:attribute",
+				"data": {
+					"attribute": "puffish_attributes:pickaxe_speed",
+					"value": 1,
+					"operation": "addition"
+				}
+			}
+		]
+	}
+}

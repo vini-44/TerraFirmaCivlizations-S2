@@ -2,61 +2,67 @@
 	"8x9lqhu3c36laq1j": {
 		"definition": "butcher",
 		"x": -72.16878364870323,
-		"y": 25,
+		"y": -25,
 		"root": false
 	},
 	"202uncv3eynz3ji8": {
 		"definition": "leather_worker",
 		"x": 72.16878364870323,
-		"y": 25,
+		"y": -25,
 		"root": false
 	},
 	"h296elump7w38hlp": {
-		"definition": "animal_buff_2",
+		"definition": "rancher_2",
 		"x": 0,
-		"y": -50,
-		"root": true
+		"y": -100,
+		"root": false
 	},
 	"gv9t6ndojzmvo58a": {
 		"definition": "efficent_culling",
-		"x": -101.03629710818453,
-		"y": 75,
+		"x": -101.0362971081845,
+		"y": 25,
 		"root": false
 	},
 	"o2wnq09ww11f64hk": {
 		"definition": "damage_10%",
 		"x": -43.30127018922193,
-		"y": -25,
+		"y": -75,
 		"root": false
 	},
 	"3rsk7p9wfs8pzpgk": {
 		"definition": "armor",
 		"x": 43.30127018922193,
-		"y": -25,
+		"y": -75,
 		"root": false
 	},
 	"l2vk0p0j2755t2mr": {
-		"definition": "animal_buff_3",
+		"definition": "animal_buff_2",
 		"x": 0,
-		"y": 50,
+		"y": 0,
 		"root": false
 	},
 	"m8tls45jtbrq7t12": {
-		"definition": "animal_buff_4",
+		"definition": "animal_buff_3",
 		"x": -72.16878364870323,
-		"y": 125,
+		"y": 75,
 		"root": false
 	},
 	"xuz5t77ajv5wvicf": {
 		"definition": "health_buff",
 		"x": 101.0362971081845,
-		"y": 75,
+		"y": 25,
 		"root": false
 	},
 	"h3ge2sp74opuc2z2": {
 		"definition": "armor",
 		"x": 72.16878364870323,
-		"y": 125,
+		"y": 75,
+		"root": false
+	},
+	"du8q4prqhz294i5b": {
+		"definition": "animal_buff_4",
+		"x": 0,
+		"y": 100,
 		"root": false
 	}
 }

@@ -1,0 +1,37 @@
+{
+	"experience_per_level": {
+		"type": "expression",
+		"data": {
+			"expression": "min(1000,1000)"
+		}
+	},
+	"sources": [
+		{
+			"type": "puffish_skills:mine_block",
+			"data": {
+				"variables": {
+					"is_stone": {
+						"operations": [
+							{
+								"type": "get_mined_block_state"
+							},
+							{
+								"type": "puffish_skills:test",
+								"data": {
+									"block": "stone"
+								}
+							}
+						]
+					}
+				},
+
+				"experience": [
+					{
+						"condition": "is_stone",
+						"expression": "5"
+					}
+				]
+			}
+		}
+	]
+}

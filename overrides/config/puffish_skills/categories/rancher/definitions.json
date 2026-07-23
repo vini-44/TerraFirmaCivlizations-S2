@@ -22,6 +22,36 @@
 			"icon": "m9h26aqd5qbvl85v"
 		}
 	},
+	"rancher_2": {
+		"title": "Rancher",
+		"icon": {
+			"type": "item",
+			"data": {
+				"item": "minecraft:lead"
+			}
+		},
+		"frame": {
+			"type": "advancement",
+			"data": {
+				"frame": "challenge"
+			}
+		},
+		"description": [
+			"",
+			{
+				"text": "Unlocked by Rancher skill in Farmer tree.",
+				"color": "yellow"
+			},
+			"\nBread is nice all, but what is life without meat? \n",
+			{
+				"text": "(Coninue this path to unlock Butchery or leather working.)",
+				"color": "gold"
+			}
+		],
+		"metadata": {
+			"icon": "6zm3mtgmc3hcrpqw"
+		}
+	},
 	"animal_buff_2": {
 		"title": "Efficient killing",
 		"icon": {
@@ -51,7 +81,7 @@
 				"item": "butchersdelight:cow_hide"
 			}
 		},
-		"description": "Adds a chance for double mob drops (+10%)",
+		"description": "Adds a chance for double mob drops (+15%)",
 		"rewards": [
 			{
 				"type": "puffish_skills:tag",
@@ -72,7 +102,7 @@
 				"item": "butchersdelight:cow_hide"
 			}
 		},
-		"description": "Adds a chance for double mob drops (+10%)",
+		"description": "Adds a chance for double mob drops (+15%)",
 		"rewards": [
 			{
 				"type": "puffish_skills:tag",

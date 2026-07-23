@@ -1,8 +1,9 @@
 {
-    "version": 1,
+    "version": 3,
 
     "categories": [
         "farmer",
-        "rancher"
+        "rancher",
+        "miner"
     ]
 }

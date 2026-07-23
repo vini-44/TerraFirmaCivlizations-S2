@@ -429,7 +429,7 @@
 		"icon": {
 			"type": "item",
 			"data": {
-				"item": "minecraft:iron_axe"
+				"item": "minecraft:lead"
 			}
 		},
 		"frame": {
@@ -446,7 +446,7 @@
 			},
 			"\nBread is nice all, but what is life without meat? \n",
 			{
-				"text": "(Unlocks new tree, later unlocking the cleaver, meat hook, and leather)",
+				"text": "(Unlocks new tree including first node., later unlocking the cleaver, meat hook, and leather)",
 				"color": "gold"
 			}
 		],
@@ -454,8 +454,15 @@
 			{
 				"type": "puffish_skills:command",
 				"data": {
-					"unlock_command": "puffish_skills category unlock @s puffish_skills:rancher",
-					"lock_command": "puffish_skills category lock @s puffish_skills:rancher"
+					"unlock_command": "puffish_skills skills unlock @s tfciv_skills:rancher h296elump7w38hlp",
+					"lock_command": "puffish_skills skills lock @s tfciv_skills:rancher h296elump7w38hlp"
+				}
+			},
+			{
+				"type": "puffish_skills:command",
+				"data": {
+					"unlock_command": "puffish_skills experience set @s tfciv_skills:rancher 0",
+					"lock_command": "puffish_skills experience set @s tfciv_skills:rancher 0"
 				}
 			}
 		],
