@@ -13,7 +13,7 @@
     }
   },
   "key": "key.origins.primary_active",
-  "cooldown": 2400,
+  "cooldown": 2800,
   "hud_render": {
       "should_render": true
   }

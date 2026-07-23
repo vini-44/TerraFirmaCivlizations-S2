@@ -1,11 +1,11 @@
 {
   "name": "Cold Weakness",
-  "description": "You freeze easier.",
+  "description": "You freeze easier.(~23F)",
   "type": "origins:attribute",
 
   "modifier": {
     "attribute": "cold_sweat:freezing_point",
-    "value": 0.25,
+    "value": 0.5,
     "operation": "addition"
   }
 }

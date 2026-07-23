@@ -467,12 +467,12 @@
 				"effect": "minecraft:absorption"
 			}
 		},
-		"description": "Your skin has grown used to the heat of vents. (+10% slower heating up",
+		"description": "Your skin has grown used to the heat of vents. (You heat slower, but get cold faster)",
 		"rewards": [
 			{
-				"type": "puffish_skills:tag",
+				"type": "puffish_skills_origins:power",
 				"data": {
-					"tag": "mining_heat_1"
+					"power": "origins-classes:mining_heat_1"
 				}
 			}
 		],
@@ -488,12 +488,12 @@
 				"effect": "minecraft:absorption"
 			}
 		},
-		"description": "Your skin has grown used to the heat of vents. (+10% slower heating up",
+		"description": "Your skin has grown used to the heat of vents. (You heat slower, but get cold faster)",
 		"rewards": [
 			{
-				"type": "puffish_skills:tag",
+				"type": "puffish_skills_origins:power",
 				"data": {
-					"tag": "mining_heat_2"
+					"power": "origins-classes:mining_heat_2"
 				}
 			}
 		],
@@ -509,12 +509,12 @@
 				"effect": "minecraft:absorption"
 			}
 		},
-		"description": "Your skin has grown used to the heat of vents. (+10% slower heating up",
+		"description": "Your skin has grown used to the heat of vents. (You heat slower, but get cold faster)",
 		"rewards": [
 			{
-				"type": "puffish_skills:tag",
+				"type": "puffish_skills_origins:power",
 				"data": {
-					"tag": "mining_heat_3"
+					"power": "origins-classes:mining_heat_3"
 				}
 			}
 		],
@@ -530,12 +530,12 @@
 				"effect": "minecraft:absorption"
 			}
 		},
-		"description": "Your skin has grown used to the heat of vents. (+10% slower heating up",
+		"description": "Your skin has grown used to the heat of vents. (You heat slower, but get cold faster)",
 		"rewards": [
 			{
-				"type": "puffish_skills:tag",
+				"type": "puffish_skills_origins:power",
 				"data": {
-					"tag": "mining_heat_3"
+					"power": "origins-classes:mining_heat_4"
 				}
 			}
 		],

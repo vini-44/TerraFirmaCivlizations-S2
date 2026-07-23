@@ -1,11 +1,11 @@
 {
   "name": "Heat Resistance",
-  "description": "You overheat at a higher temperature.",
+  "description": "You overheat at a higher temperature.(~16F)",
   "type": "origins:attribute",
   
   "modifier": {
     "attribute": "cold_sweat:burning_point",
-    "value": 0.15,
+    "value": 0.35,
     "operation": "addition"
   }
 }

@@ -107,9 +107,9 @@
 	    ["minecraft:packed_ice", -12, 4, "f", 48, "", "", 16],
 	    ["minecraft:blue_ice", -16, 4, "f", 64, "", "", 0],
 	    ["#minecraft:ice", -6, 4, "f", 27, "", "", 33],
-	    ["terrafirmacivilizations:magma_liquid", 150, 16, "f", 1000, "", "", 1500, true],
-	    ["#terrafirmacivilizations:mantle_ore", 75, 16, "f", 1500, "", "", 2000],
-	    ["#terrafirmacivilizations:mantle_vent", 500, 16, "f", 1500, "", "", 2500]
+	    ["terrafirmacivilizations:magma_liquid", 30, 16, "f", 1000, "", "", 1500, true],
+	    ["#terrafirmacivilizations:mantle_ore", 20, 16, "f", 1500, "", "", 2000],
+	    ["#terrafirmacivilizations:mantle_vent", 75, 16, "f", 1500, "", "", 2500]
 	]
 	#─────────────────────────────────────────────────────────────────────────
 	# The maximum range of blocks' area of effect
