@@ -11,11 +11,51 @@ BlockEvents.broken(event => {
 	cropCheck(event);
 });
 EntityEvents.hurt(event => {
-	
 	cleaverDamageCheck(event);
 });
 EntityEvents.drops(event => {
-	animalDropCheck(event);
+	//animalDropCheck(event);
+});
+
+LootJS.modifiers(event => {
+    event.addLootTypeModifier(LootType.ENTITY)
+        .matchEntity(entity => entity.anyType('#tfc:animals'))
+        .killedByPlayer()
+        .apply(context => {
+            //console.log('LootJS apply triggered');
+
+            const player = context.getPlayer();
+            if (!player) {
+                //console.log('No player found in context');
+                return;
+            }
+
+            //console.log(`Player tags: ${player.tags}`);
+
+            let chance = 0;
+            if (player.tags.contains('animal_bonus_1')) chance += 0.10;
+            if (player.tags.contains('animal_bonus_2')) chance += 0.10;
+            if (player.tags.contains('animal_bonus_3')) chance += 0.15;
+            if (player.tags.contains('animal_bonus_4')) chance += 0.15;
+
+            //console.log(`Calculated chance: ${chance}`);
+
+            if (chance <= 0) return;
+            if (Math.random() > chance) {
+                //console.log('Roll failed, no bonus');
+                return;
+            }
+
+            const bonusItems = [];
+            context.forEachLoot(item => {
+                bonusItems.push(item.copy());
+            });
+
+            bonusItems.forEach(item => {
+                context.addLoot(item);
+                player.tell(Text.of(`Bonus drop! ${item.count}x `).append(item.getDisplayName()));
+            });
+        });
 });
 
 function animalDropCheck(event) {
@@ -55,6 +95,10 @@ function animalDropCheck(event) {
 function cleaverDamageCheck(event) {
 	const {source} = event;
 	const player = source.actual;
+
+	if(!player) return;
+
+	if(!player.tags || !player.mainHandItem) return;
 
 	if(!player.tags.contains('butcher') && player.mainHandItem.id === 'butchersdelight:cleaver') {
 		player.tell('You need to be a butcher to use the cleaver!');
