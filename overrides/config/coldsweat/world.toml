@@ -18,8 +18,8 @@
 	# • temperature: The temperature offset to apply to the dimension
 	# • *units: The units of the temperature ("f", "c", or "mc"). Defaults to Minecraft units (mc))
 	"Dimension Temperature Offsets" = [
-	    ["minecraft:the_nether", 0.7],
-	    ["minecraft:the_end", -0.1]
+	    ["minecraft:the_nether", 32, "f"],
+	    ["minecraft:the_end", -5, "f"]
 	]
 	#─────────────────────────────────────────────────────────────────────────//v
 	# Defines the temperature of a dimension, overriding biome and elevation temperature
@@ -54,28 +54,30 @@
 	    ["minecraft:soul_sand_valley", 53, 53, "F"],
 	    ["minecraft:old_growth_birch_forest", 58, 72, "F"],
 	    ["minecraft:river", 60, 70, "F"],
-	    ["minecraft:swamp", 72, 84, "F"],
+	    ["minecraft:swamp", 72, 84, "F", -5],
 	    ["minecraft:savanna", 70, 95, "F"],
 	    ["minecraft:savanna_plateau", 76, 98, "F"],
 	    ["minecraft:windswept_savanna", 67, 90, "F"],
 	    ["minecraft:taiga", 44, 62, "F"],
-	    ["minecraft:snowy_taiga", 19, 48, "F"],
+	    ["minecraft:snowy_taiga", 8, 38, "F", -15],
 	    ["minecraft:old_growth_pine_taiga", 48, 62, "F"],
 	    ["minecraft:old_growth_spruce_taiga", 48, 62, "F"],
 	    ["minecraft:desert", 48, 115, "F"],
 	    ["minecraft:stony_shore", 50, 64, "F"],
-	    ["minecraft:snowy_beach", 38, 52, "F"],
-	    ["minecraft:snowy_slopes", 24, 38, "F"],
+	    ["minecraft:snowy_beach", 8, 38, "F", -15],
+	    ["minecraft:snowy_slopes", 24, 32, "F", -15],
 	    ["minecraft:windswept_forest", 48, 66, "F"],
-	    ["minecraft:frozen_peaks", 15, 33, "F"],
-	    ["minecraft:warm_ocean", 67, 76, "F"],
-	    ["minecraft:deep_frozen_ocean", 56, 65, "F"],
+	    ["minecraft:frozen_peaks", 15, 31, "F", -18],
+	    ["minecraft:warm_ocean", 67, 76, "F", 5],
+	    ["minecraft:frozen_ocean", 20, 31, "F", -20],
+	    ["minecraft:deep_frozen_ocean", 20, 31, "F", -20],
 	    ["minecraft:jungle", 76, 87, "F"],
 	    ["minecraft:bamboo_jungle", 76, 87, "F"],
-	    ["minecraft:badlands", 84, 120, "F"],
-	    ["minecraft:wooded_badlands", 80, 108, "F"],
-	    ["minecraft:eroded_badlands", 88, 120, "F"],
-	    ["minecraft:deep_dark", 63, 63, "F"]
+	    ["minecraft:badlands", 84, 120, "F", -5],
+	    ["minecraft:wooded_badlands", 80, 108, "F", -5],
+	    ["minecraft:eroded_badlands", 88, 120, "F", -5],
+	    ["minecraft:deep_dark", 63, 63, "F"],
+	    ["minecraft:dripstone_caves", "disable"]
 	]
 
 [Blocks]
@@ -94,27 +96,27 @@
 	# • *tempLimit: The maximum world temperature at which this block temp will have any effect.
 	#   (Represents the minimum temp if the block temp is negative)
 	"Block Temperatures" = [
-	    ["cold_sweat:boiler", 0.27, 7, "mc", 0.88, "lit=true", "", 4],
-	    ["cold_sweat:icebox", -0.27, 7, "mc", 0.88, "frosted=true", "", 0],
-	    ["#minecraft:fire", 0.476, 7, "mc", 0.9, "", "", 8],
-	    ["#minecraft:campfires", 0.476, 7, "mc", 0.9, "lit=true", " ", 8],
-	    ["minecraft:magma_block", 0.25, 3, "mc", 1.0],
-	    ["minecraft:lava_cauldron", 0.5, 7, "mc", 1.5],
-	    ["minecraft:ice", -0.15, 4, "mc", 0.6, "", "", -0.7],
-	    ["minecraft:packed_ice", -0.25, 4, "mc", 1.0, "", "", -0.7],
-	    ["minecraft:blue_ice", -0.35, 4, "mc", 1.4, "", "", -0.7],
-	    ["#minecraft:ice", -0.15, 4, "mc", 0.6, "", "", -0.7],
-	    ["minecraft:lava", 0.25, 7, "mc", 4, "", "", 21.5, true],
-	    ["terrafirmacivilizations:magma_liquid", 0.5, 16, "mc", 8, "", "", 25, true],
-	    ["#terrafirmacivilizations:mantle_ore", 0.25, 3, "mc", 3, "", "", 20],
-	    ["#terrafirmacivilizations:mantle_vent", 0.35, 6, "mc", 5, "", "", 20]
+	    ["cold_sweat:boiler", 12, 7, "f", 36, "lit=true", "", 212],
+	    ["cold_sweat:icebox", -12, 7, "f", 36, "frosted=true", "", 32],
+	    ["minecraft:lava", 20, 7, "f", 200, "", "", 1000, true],
+	    ["#minecraft:fire", 15, 7, "f", 45, "", "", 400],
+	    ["#minecraft:campfires", 15, 7, "f", 45, "lit=true", " ", 400],
+	    ["minecraft:magma_block", 12, 3, "f", 48],	
+	    ["minecraft:lava_cauldron", 20, 7, "f", 200, "", "", 1000, true],
+	    ["minecraft:ice", -6, 4, "f", 24, "", "", 33],
+	    ["minecraft:packed_ice", -12, 4, "f", 48, "", "", 16],
+	    ["minecraft:blue_ice", -16, 4, "f", 64, "", "", 0],
+	    ["#minecraft:ice", -6, 4, "f", 27, "", "", 33],
+	    ["terrafirmacivilizations:magma_liquid", 150, 16, "f", 1000, "", "", 1500, true],
+	    ["#terrafirmacivilizations:mantle_ore", 75, 16, "f", 1500, "", "", 2000],
+	    ["#terrafirmacivilizations:mantle_vent", 500, 16, "f", 1500, "", "", 2500]
 	]
 	#─────────────────────────────────────────────────────────────────────────
 	# The maximum range of blocks' area of effect
 	# - Note: This will not change anything unless blocks are configured to utilize the expanded range
 	# - This value is limited to 16 for performance reasons
 	#Range: 1 ~ 16
-	"Block Range" = 7
+	"Block Range" = 16
 	#─────────────────────────────────────────────────────────────────────────
 	# When set to true, uses Cold Sweat's temperature system to determine water freezing behavior
 	"Custom Freezing Behavior" = true
@@ -132,17 +134,39 @@
 	#─────────────────────────────────────────────────────────────────────────
 	# The speed at which players become soaked when in rain
 	#Range: 0.0 ~ Infinity
-	"Rain Soak Speed" = 0.0125
+	"Rain Soak Speed" = 0.00575
 	#─────────────────────────────────────────────────────────────────────────
 	# The default temperature of water
 	# └── Format: [temperature, *units]
-	"Default Water Temperature" = [-10, "f"]
+	"Default Water Temperature" = [-32, "f"]
 	#─────────────────────────────────────────────────────────────────────────
 	# The maximum soak level a player can reach from rain alone (0.0 - 1.0)
 	#Range: 0.0 ~ Infinity
-	"Max Rain Soak" = 0.2
+	"Max Rain Soak" = 0.3
+
+[Structures]
+	#─────────────────────────────────────────────────────────────────────────
+	# Overrides the world temperature when the player is within this structure
+	# ├── Format: [["structure_id", temperature, *units], [...], etc]
+	# └── [* = optional]
+	# • structure_id: The ID of the structure (i.e. "minecraft:stronghold")
+	# • temperature: The temperature of the structure, in Minecraft units
+	# • *units: The units of the temperature ("f" for Fahrenheit, "c" for Celsius, "mc" for Minecraft units)
+	"Structure Temperatures" = []
+	#─────────────────────────────────────────────────────────────────────────
+	# Offsets the world temperature when the player is within this structure
+	# ├── Format: [["structure_id", offset, *units], [...], etc]
+	# └── [* = optional]
+	# • structure_id: The ID of the structure (i.e. "minecraft:igloo")
+	# • offset: The temperature offset of the structure, in Minecraft units
+	# • *units: The units of the temperature ("f" for Fahrenheit, "c" for Celsius, "mc" for Minecraft units)
+	"Structure Temperature Offsets" = []
 
 [Misc]
+	#─────────────────────────────────────────────────────────────────────────
+	# A temperature offset applied when in complete shade or when the sky is overcast
+	# └── Format: [offset, *units]
+	"Shade Temperature Offset" = [-9, "f"]
 	#─────────────────────────────────────────────────────────────────────────
 	# List of blocks that will allow the player to sleep on them, regardless of the "Prevent Sleep When in Danger" setting
 	# Use this list if the player is not getting the temperature effect from sleeping on particular blocks
@@ -154,10 +178,6 @@
 	# Converts damage dealt by Soul Fire to cold damage (default: true)
 	# Does not affect the block's temperature
 	"Cold Soul Fire" = true
-	#─────────────────────────────────────────────────────────────────────────
-	# A temperature offset applied when in complete shade or when the sky is overcast
-	# └── Format: [offset, *units]
-	"Shade Temperature Offset" = [-9, "f"]
 
 #"Thermal sources" are blocks that have a smokestack and give frigidness/warmth. like the hearth, boiler, and iceobx
 ["Thermal Sources"]
@@ -266,22 +286,4 @@
 		# Lower numbers cause fuel to be consumed faster. Setting to 0 disables fuel consumption
 		#Range: > 0
 		"Icebox Fuel Consumption Interval" = 40
-
-[Structures]
-	#─────────────────────────────────────────────────────────────────────────
-	# Overrides the world temperature when the player is within this structure
-	# ├── Format: [["structure_id", temperature, *units], [...], etc]
-	# └── [* = optional]
-	# • structure_id: The ID of the structure (i.e. "minecraft:stronghold")
-	# • temperature: The temperature of the structure, in Minecraft units
-	# • *units: The units of the temperature ("f" for Fahrenheit, "c" for Celsius, "mc" for Minecraft units)
-	"Structure Temperatures" = []
-	#─────────────────────────────────────────────────────────────────────────
-	# Offsets the world temperature when the player is within this structure
-	# ├── Format: [["structure_id", offset, *units], [...], etc]
-	# └── [* = optional]
-	# • structure_id: The ID of the structure (i.e. "minecraft:igloo")
-	# • offset: The temperature offset of the structure, in Minecraft units
-	# • *units: The units of the temperature ("f" for Fahrenheit, "c" for Celsius, "mc" for Minecraft units)
-	"Structure Temperature Offsets" = []
 

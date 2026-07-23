@@ -1,22 +1,830 @@
 {
-	"Dwarven_strenght": {
-		"title": "Strong pick",
+	"placeholder": {
+		"title": "WIP",
+		"icon": {
+			"type": "item",
+			"data": {
+				"item": "minecraft:grass_block"
+			}
+		},
+		"description": "guh",
+		"metadata": {
+			"icon": "jm5ydhm6tzb9bkxk"
+		}
+	},
+	"shovel_buff_1": {
+		"title": "Strong shovel I",
+		"icon": {
+			"type": "item",
+			"data": {
+				"item": "tfc:metal/shovel/wrought_iron"
+			}
+		},
+		"description": "Increase mining speed with shovels (+10%)",
+		"rewards": [
+			{
+				"type": "puffish_skills_origins:power",
+				"data": {
+					"power": "origins-classes:shovel_upgrade_1"
+				}
+			}
+		],
+		"metadata": {
+			"icon": "l0z6d6b6i4vx6mjc"
+		}
+	},
+	"shovel_buff_2": {
+		"title": "Strong shovel II",
+		"icon": {
+			"type": "item",
+			"data": {
+				"item": "tfc:metal/shovel/wrought_iron"
+			}
+		},
+		"description": "Increase mining speed with shovels (+15%)",
+		"rewards": [
+			{
+				"type": "puffish_skills_origins:power",
+				"data": {
+					"power": "origins-classes:shovel_upgrade_2"
+				}
+			}
+		],
+		"metadata": {
+			"icon": "rvjoswguqm0ojkfv"
+		}
+	},
+	"shovel_buff_3": {
+		"title": "Strong shovel III",
+		"icon": {
+			"type": "item",
+			"data": {
+				"item": "tfc:metal/shovel/wrought_iron"
+			}
+		},
+		"description": "Increase mining speed with shovels (+25%)",
+		"rewards": [
+			{
+				"type": "puffish_skills_origins:power",
+				"data": {
+					"power": "origins-classes:shovel_upgrade_3"
+				}
+			}
+		],
+		"metadata": {
+			"icon": "c13tz9kgaf41xsr2"
+		}
+	},
+	"shovel_buff_4": {
+		"title": "Strong shovel IV",
+		"icon": {
+			"type": "item",
+			"data": {
+				"item": "tfc:metal/shovel/wrought_iron"
+			}
+		},
+		"description": "Increase mining speed with shovels (+25%)",
+		"rewards": [
+			{
+				"type": "puffish_skills_origins:power",
+				"data": {
+					"power": "origins-classes:shovel_upgrade_4"
+				}
+			}
+		],
+		"metadata": {
+			"icon": "vikch9ho954ifi59"
+		}
+	},
+	"shovel_buff_5": {
+		"title": "Strong shovel V",
+		"icon": {
+			"type": "item",
+			"data": {
+				"item": "tfc:metal/shovel/wrought_iron"
+			}
+		},
+		"description": "Increase mining speed with shovels (+25%)",
+		"rewards": [
+			{
+				"type": "puffish_skills_origins:power",
+				"data": {
+					"power": "origins-classes:shovel_upgrade_5"
+				}
+			}
+		],
+		"metadata": {
+			"icon": "vikch9ho954ifi59"
+		}
+	},
+	"root_pickaxe": {
+		"title": "Learning to mine",
+		"icon": {
+			"type": "item",
+			"data": {
+				"item": "minecraft:iron_pickaxe"
+			}
+		},
+		"description": "Increase mining speed with pickaxes (+10%)",
+		"rewards": [
+			{
+				"type": "puffish_skills_origins:power",
+				"data": {
+					"power": "origins-classes:pickaxe_upgrade_0"
+				}
+			}
+		],
+		"metadata": {
+			"icon": "rhimfzh5l7ny0c13"
+		}
+	},
+	"pickaxe_buff_1": {
+		"title": "Strong pick I",
+		"icon": {
+			"type": "item",
+			"data": {
+				"item": "tfc:metal/pickaxe/wrought_iron"
+			}
+		},
+		"description": "Increase mining speed with pickaxes (+10%)",
+		"rewards": [
+			{
+				"type": "puffish_skills_origins:power",
+				"data": {
+					"power": "origins-classes:pickaxe_upgrade_1"
+				}
+			}
+		],
+		"metadata": {
+			"icon": "vikch9ho954ifi59"
+		}
+	},
+	"pickaxe_buff_2": {
+		"title": "Strong pick II",
+		"icon": {
+			"type": "item",
+			"data": {
+				"item": "tfc:metal/pickaxe/wrought_iron"
+			}
+		},
+		"description": "Increase mining speed with pickaxes (+10%)",
+		"rewards": [
+			{
+				"type": "puffish_skills_origins:power",
+				"data": {
+					"power": "origins-classes:pickaxe_upgrade_2"
+				}
+			}
+		],
+		"metadata": {
+			"icon": "4tj1ijhtf0l1dn8m"
+		}
+	},
+	"pickaxe_buff_3": {
+		"title": "Strong pick III",
+		"icon": {
+			"type": "item",
+			"data": {
+				"item": "tfc:metal/pickaxe/wrought_iron"
+			}
+		},
+		"description": "Increase mining speed with pickaxes (+15%)",
+		"rewards": [
+			{
+				"type": "puffish_skills_origins:power",
+				"data": {
+					"power": "origins-classes:pickaxe_upgrade_3"
+				}
+			}
+		],
+		"metadata": {
+			"icon": "6kbe8s2jshqdo0cp"
+		}
+	},
+	"pickaxe_buff_4": {
+		"title": "Strong pick IV",
+		"icon": {
+			"type": "item",
+			"data": {
+				"item": "tfc:metal/pickaxe/wrought_iron"
+			}
+		},
+		"description": "Increase mining speed with pickaxes (+15%)",
+		"rewards": [
+			{
+				"type": "puffish_skills_origins:power",
+				"data": {
+					"power": "origins-classes:pickaxe_upgrade_4"
+				}
+			}
+		],
+		"metadata": {
+			"icon": "stcmnv30qv0dpl17"
+		}
+	},
+	"pickaxe_buff_5": {
+		"title": "Strong pick V",
+		"icon": {
+			"type": "item",
+			"data": {
+				"item": "tfc:metal/pickaxe/wrought_iron"
+			}
+		},
+		"description": "Increase mining speed with pickaxes (+15%)",
+		"rewards": [
+			{
+				"type": "puffish_skills_origins:power",
+				"data": {
+					"power": "origins-classes:pickaxe_upgrade_5"
+				}
+			}
+		],
+		"metadata": {
+			"icon": "cfjtji0c72ulwoif"
+		}
+	},
+	"pickaxe_buff_6": {
+		"title": "Strong pick VI",
+		"icon": {
+			"type": "item",
+			"data": {
+				"item": "tfc:metal/pickaxe/wrought_iron"
+			}
+		},
+		"description": "Increase mining speed with pickaxes (+15%)",
+		"rewards": [
+			{
+				"type": "puffish_skills_origins:power",
+				"data": {
+					"power": "origins-classes:pickaxe_upgrade_6"
+				}
+			}
+		],
+		"metadata": {
+			"icon": "n482cct5gj3k3i5o"
+		}
+	},
+	"pickaxe_buff_7": {
+		"title": "Strong pick VII",
+		"cost": 2,
+		"icon": {
+			"type": "item",
+			"data": {
+				"item": "tfc:metal/pickaxe/wrought_iron"
+			}
+		},
+		"description": "(Costs 2) Increase mining speed with pickaxes (+25%)",
+		"rewards": [
+			{
+				"type": "puffish_skills_origins:power",
+				"data": {
+					"power": "origins-classes:pickaxe_upgrade_7"
+				}
+			}
+		],
+		"metadata": {
+			"icon": "1nkfha48z7fon9tl"
+		}
+	},
+	"mining_fortune_1": {
+		"title": "Lucky miner II",
 		"icon": {
 			"type": "effect",
 			"data": {
-				"effect": "minecraft:haste"
+				"effect": "minecraft:luck"
 			}
 		},
-		"description": "Increase mining speed with pickaxes",
+		"description": "Increase chance for double ores (+5%)",
+		"rewards": [
+			{
+				"type": "puffish_skills:tag",
+				"data": {
+					"tag": "mining_bonus_1"
+				}
+			}
+		],
+		"metadata": {
+			"icon": "j5raa6xb80kf2t60"
+		}
+	},
+	"mining_fortune_2": {
+		"title": "Lucky miner III",
+		"icon": {
+			"type": "effect",
+			"data": {
+				"effect": "minecraft:luck"
+			}
+		},
+		"description": "Increase chance for double ores (+5%)",
+		"rewards": [
+			{
+				"type": "puffish_skills:tag",
+				"data": {
+					"tag": "mining_bonus_2"
+				}
+			}
+		],
+		"metadata": {
+			"icon": "7yk3oicx5hmm1uvp"
+		}
+	},
+	"mining_fortune_3": {
+		"title": "Lucky miner IV",
+		"icon": {
+			"type": "effect",
+			"data": {
+				"effect": "minecraft:luck"
+			}
+		},
+		"description": "Increase chance for double ores (+10%)",
+		"rewards": [
+			{
+				"type": "puffish_skills:tag",
+				"data": {
+					"tag": "mining_bonus_3"
+				}
+			}
+		],
+		"metadata": {
+			"icon": "dr6swxyvk8jo8nac"
+		}
+	},
+	"mining_fortune_4": {
+		"title": "Lucky miner V",
+		"icon": {
+			"type": "effect",
+			"data": {
+				"effect": "minecraft:luck"
+			}
+		},
+		"description": "Increase chance for double ores (+10%)",
+		"rewards": [
+			{
+				"type": "puffish_skills:tag",
+				"data": {
+					"tag": "mining_bonus_4"
+				}
+			}
+		],
+		"metadata": {
+			"icon": "1np7ro3c3dll2y8m"
+		}
+	},
+	"mining_fortune_5": {
+		"title": "Lucky miner VI",
+		"icon": {
+			"type": "effect",
+			"data": {
+				"effect": "minecraft:luck"
+			}
+		},
+		"description": "Increase chance for double ores (+10%)",
+		"rewards": [
+			{
+				"type": "puffish_skills:tag",
+				"data": {
+					"tag": "mining_bonus_5"
+				}
+			}
+		],
+		"metadata": {
+			"icon": "bel9jq6ee5x4m2vu"
+		}
+	},
+	"mining_fortune_6": {
+		"title": "Lucky miner VII",
+		"cost": "2",
+		"icon": {
+			"type": "effect",
+			"data": {
+				"effect": "minecraft:luck"
+			}
+		},
+		"description": "Increase chance for double ores (+10%)",
+		"rewards": [
+			{
+				"type": "puffish_skills:tag",
+				"data": {
+					"tag": "mining_bonus_6"
+				}
+			}
+		],
+		"metadata": {
+			"icon": "raur6os913tqxvt9"
+		}
+	},
+	"health_buff": {
+		"title": "Miners physique",
+		"icon": {
+			"type": "effect",
+			"data": {
+				"effect": "minecraft:regeneration"
+			}
+		},
+		"description": "All that hard work is paying off, you feel a little tougher (+1/2 Heart)",
 		"rewards": [
 			{
 				"type": "puffish_skills:attribute",
 				"data": {
-					"attribute": "puffish_attributes:pickaxe_speed",
+					"attribute": "minecraft:generic.max_health",
 					"value": 1,
 					"operation": "addition"
 				}
 			}
-		]
+		],
+		"metadata": {
+			"icon": "pkxp72ne0zfimz2z"
+		}
+	},
+	"armor": {
+		"title": "Calluses WIP",
+		"icon": {
+			"type": "effect",
+			"data": {
+				"effect": "minecraft:absorption"
+			}
+		},
+		"description": "While a bit painful, the thicker skin will help with fighting, gain a bit of natural armor (+1/2 armor)",
+		"rewards": [
+			{
+				"type": "puffish_skills:attribute",
+				"data": {
+					"attribute": "minecraft:generic.armor",
+					"value": 0.5,
+					"operation": "addition"
+				}
+			}
+		],
+		"metadata": {
+			"icon": "q9zghssgcwm08k0f"
+		}
+	},
+	"heat_resist_1": {
+		"title": "Heat resistant skin",
+		"icon": {
+			"type": "effect",
+			"data": {
+				"effect": "minecraft:absorption"
+			}
+		},
+		"description": "Your skin has grown used to the heat of vents. (+10% slower heating up",
+		"rewards": [
+			{
+				"type": "puffish_skills:tag",
+				"data": {
+					"tag": "mining_heat_1"
+				}
+			}
+		],
+		"metadata": {
+			"icon": "q9zghssgcwm08k0f"
+		}
+	},
+	"heat_resist_2": {
+		"title": "Heat resistant skin",
+		"icon": {
+			"type": "effect",
+			"data": {
+				"effect": "minecraft:absorption"
+			}
+		},
+		"description": "Your skin has grown used to the heat of vents. (+10% slower heating up",
+		"rewards": [
+			{
+				"type": "puffish_skills:tag",
+				"data": {
+					"tag": "mining_heat_2"
+				}
+			}
+		],
+		"metadata": {
+			"icon": "q9zghssgcwm08k0f"
+		}
+	},
+	"heat_resist_3": {
+		"title": "Heat resistant skin",
+		"icon": {
+			"type": "effect",
+			"data": {
+				"effect": "minecraft:absorption"
+			}
+		},
+		"description": "Your skin has grown used to the heat of vents. (+10% slower heating up",
+		"rewards": [
+			{
+				"type": "puffish_skills:tag",
+				"data": {
+					"tag": "mining_heat_3"
+				}
+			}
+		],
+		"metadata": {
+			"icon": "q9zghssgcwm08k0f"
+		}
+	},
+	"heat_resist_4": {
+		"title": "Heat resistant skin",
+		"icon": {
+			"type": "effect",
+			"data": {
+				"effect": "minecraft:absorption"
+			}
+		},
+		"description": "Your skin has grown used to the heat of vents. (+10% slower heating up",
+		"rewards": [
+			{
+				"type": "puffish_skills:tag",
+				"data": {
+					"tag": "mining_heat_3"
+				}
+			}
+		],
+		"metadata": {
+			"icon": "q9zghssgcwm08k0f"
+		}
+	},
+	"bulk_miner": {
+		"title": "Bulk miner",
+		"cost": 3,
+		"icon": {
+			"type": "item",
+			"data": {
+				"item": "thermal:drill_head"
+			}
+		},
+		"frame": {
+			"type": "advancement",
+			"data": {
+				"frame": "challenge"
+			}
+		},
+		"description": [
+			"",
+			{
+				"text": "Cost 3 points",
+				"color": "yellow"
+			},
+			"\nCommit yourself to mining as quickly as you. \n",
+			{
+				"text": "(Unlocks the Fluxbore)",
+				"color": "gold"
+			}
+		],
+		"rewards": [
+			{
+				"type": "puffish_skills:tag",
+				"data": {
+					"tag": "bulk_miner"
+				}
+			}
+		],
+		"metadata": {
+			"icon": "jdatlrv6hxk94r1d"
+		}
+	},
+	"spelunker": {
+		"title": "Spelunker",
+		"cost": 3,
+		"icon": {
+			"type": "item",
+			"data": {
+				"item": "tfc:metal/lamp/steel"
+			}
+		},
+		"frame": {
+			"type": "advancement",
+			"data": {
+				"frame": "challenge"
+			}
+		},
+		"rewards": [
+		{
+			"type": "puffish_skills:tag",
+			"data": {
+				"tag": "spelunker"
+			}
+		}
+		],
+		"description": [
+			"",
+			{
+				"text": "Cost 3 points",
+				"color": "yellow"
+			},
+			"\nYou find yourself interested only in the rarest of minerals. \n",
+			{
+				"text": "(Unlocks prospectors pickaxe)",
+				"color": "gold"
+			}
+		],
+		"metadata": {
+			"icon": "jb9b869c5vtjkq3b"
+		}
+	},
+	"vent_miner": {
+		"title": "Vent Miner",
+		"cost": 3,
+		"icon": {
+			"type": "item",
+			"data": {
+				"item": "create_resource_vents:active_mantle_gold_vent"
+			}
+		},
+		"frame": {
+			"type": "advancement",
+			"data": {
+				"frame": "challenge"
+			}
+		},
+		"description": [
+			"",
+			{
+				"text": "Cost 3 points",
+				"color": "yellow"
+			},
+			"\nYou specialize in getting the most out of the surface vents. \n",
+			{
+				"text": "(Unlocks active ability granting 20 seconds of reduced tempature, every 120 seconds)",
+				"color": "gold"
+			}
+		],
+		"rewards": [
+			{
+				"type": "puffish_skills_origins:power",
+				"data": {
+					"power": "origins-classes:vent_miner_active_heat_reduce"
+				}
+			}
+		],
+		"metadata": {
+			"icon": "kjv5bpm4d3tshw5x"
+		}
+	},
+	"depth_sickness_1": {
+		"title": "Deep Diver",
+		"icon": {
+			"type": "effect",
+			"data": {
+				"effect": "minecraft:poison"
+			}
+		},
+		"description": "Gain the ability to go lower without depth sickness (To Y=45, improved from Y=55)",
+		"rewards": [
+			{
+				"type": "puffish_skills:tag",
+				"data": {
+					"tag": "depth_sickness_1"
+				}
+			}
+		],
+		"metadata": {
+			"icon": "v97fy1rrxoc4k6c0"
+		}
+	},
+	"depth_sickness_2": {
+		"title": "Deep Diver.",
+		"icon": {
+			"type": "effect",
+			"data": {
+				"effect": "minecraft:poison"
+			}
+		},
+		"description": "Gain the ability to go lower without depth sickness (To Y=25)",
+		"rewards": [
+			{
+				"type": "puffish_skills:tag",
+				"data": {
+					"tag": "depth_sickness_2"
+				}
+			}
+		],
+		"metadata": {
+			"icon": "sby6mmha8eo2mpzw"
+		}
+	},
+	"depth_sickness_3": {
+		"title": "Deep Diver",
+		"icon": {
+			"type": "effect",
+			"data": {
+				"effect": "minecraft:poison"
+			}
+		},
+		"description": "Gain the ability to go lower without depth sickness (20 blocks lower)",
+		"rewards": [
+			{
+				"type": "puffish_skills:tag",
+				"data": {
+					"tag": "depth_sickness_3"
+				}
+			}
+		],
+		"metadata": {
+			"icon": "clqs5k5bxrwts4hp"
+		}
+	},
+	"depth_sickness_4": {
+		"title": "Deep Diver",
+		"icon": {
+			"type": "effect",
+			"data": {
+				"effect": "minecraft:poison"
+			}
+		},
+		"description": "Gain the ability to go lower without depth sickness (20 blocks lower)",
+		"rewards": [
+			{
+				"type": "puffish_skills:tag",
+				"data": {
+					"tag": "depth_sickness_4"
+				}
+			}
+		],
+		"metadata": {
+			"icon": "a74i2v591ezzlr7h"
+		}
+	},
+	"depth_sickness_5": {
+		"title": "Deepest Diver",
+		"icon": {
+			"type": "effect",
+			"data": {
+				"effect": "minecraft:poison"
+			}
+		},
+		"cost": "2",
+		"frame": {
+			"type": "advancement",
+			"data": {
+				"frame": "goal"
+			}
+		},
+		"description": [
+			"",
+			{
+				"text": "Cost 2 points",
+				"color": "yellow"
+			},
+			"\nGain the ability to go lower without depth sickness, additionally reduces effects of depth sickness  \n",
+			{
+				"text": "(25 blocks lower, max of Y=-40)",
+				"color": "gold"
+			},
+			"\n",			
+			{
+				"text": "(Reduces effects of depth sickness)",
+				"color": "gold"
+			}
+		],
+		"rewards": [
+			{
+				"type": "puffish_skills:tag",
+				"data": {
+					"tag": "depth_sickness_5"
+				}
+			}
+		],
+		"metadata": {
+			"icon": "y7qgdwhhw8z0x3zw"
+		}
+	},
+	"night_vision": {
+		"title": "Night Vision",
+		"cost": "2",
+		"icon": {
+			"type": "effect",
+			"data": {
+				"effect": "minecraft:night_vision"
+			}
+		},
+		"frame": {
+			"type": "advancement",
+			"data": {
+				"frame": "goal"
+			}
+		},
+		"description": [
+			"",
+			{
+				"text": "Cost 2 points",
+				"color": "yellow"
+			},
+			"\nGain the ability occasionally have night vision \n",
+			{
+				"text": "(As an active, gain the ability to get night vision for 10 seconds every 120 seconds)",
+				"color": "gold"
+			}
+		],
+		"rewards": [
+			{
+				"type": "puffish_skills_origins:power",
+				"data": {
+					"power": "origins-classes:mining_vision"
+				}
+			}
+		],
+		"metadata": {
+			"icon": "g3on3reygrrohcql"
+		}
 	}
 }

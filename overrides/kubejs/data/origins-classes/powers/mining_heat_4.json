@@ -1,0 +1,10 @@
+{
+  "name": "Heat Resistance",
+  "description": "You overheat at a higher temperature.",
+  "type": "origins:attribute",
+  
+  "modifier": {
+    "attribute": "cold_sweat:heat_dampening",
+    "value": 0.1
+  }
+}

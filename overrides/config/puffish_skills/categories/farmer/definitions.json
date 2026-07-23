@@ -277,7 +277,7 @@
 		}
 	},
 	"armor": {
-		"title": "Calluses",
+		"title": "Calluses WIP",
 		"icon": {
 			"type": "effect",
 			"data": {
@@ -454,15 +454,15 @@
 			{
 				"type": "puffish_skills:command",
 				"data": {
-					"unlock_command": "puffish_skills skills unlock @s tfciv_skills:rancher h296elump7w38hlp",
-					"lock_command": "puffish_skills skills lock @s tfciv_skills:rancher h296elump7w38hlp"
+					"unlock_command": "puffish_skills skills unlock @s puffish_skills:rancher h296elump7w38hlp",
+					"lock_command": "puffish_skills skills lock @s puffish_skills:rancher h296elump7w38hlp"
 				}
 			},
 			{
 				"type": "puffish_skills:command",
 				"data": {
-					"unlock_command": "puffish_skills experience set @s tfciv_skills:rancher 0",
-					"lock_command": "puffish_skills experience set @s tfciv_skills:rancher 0"
+					"unlock_command": "puffish_skills experience set @s puffish_skills:rancher 0",
+					"lock_command": "puffish_skills experience set @s puffish_skills:rancher 0"
 				}
 			}
 		],

@@ -1,3 +1,224 @@
 {
-
+	"9w0mtgly44hu1f7q": {
+		"definition": "root_pickaxe",
+		"x": 0,
+		"y": 0,
+		"root": true
+	},
+	"x7sxknbwvyqsdq9q": {
+		"definition": "pickaxe_buff_1",
+		"x": -44,
+		"y": 25.403411844343534,
+		"root": false
+	},
+	"udp3g4rn2l225ryk": {
+		"definition": "bulk_miner",
+		"x": -132,
+		"y": 76.2102355330306,
+		"root": false
+	},
+	"bm0jixc4yblf46i2": {
+		"definition": "spelunker",
+		"x": 132,
+		"y": 76.2102355330306,
+		"root": false
+	},
+	"c8yo7jpdrsseje9l": {
+		"definition": "pickaxe_buff_2",
+		"x": 0,
+		"y": 152.4204710660612,
+		"root": false
+	},
+	"1kew338ubpwpuehu": {
+		"definition": "depth_sickness_3",
+		"x": 0,
+		"y": 254.03411844343535,
+		"root": false
+	},
+	"48pzt7dcx8v5azjb": {
+		"definition": "shovel_buff_2",
+		"x": -176,
+		"y": 101.61364737737414,
+		"root": false
+	},
+	"0dui136g4vir3rul": {
+		"definition": "pickaxe_buff_3",
+		"x": -220,
+		"y": 127.01705922171767,
+		"root": false
+	},
+	"uxy1uo021xku8gj0": {
+		"definition": "pickaxe_buff_6",
+		"x": -308,
+		"y": 152.42047106606122,
+		"root": false
+	},
+	"scqhyi3fv5rryjgv": {
+		"definition": "mining_fortune_5",
+		"x": 220,
+		"y": -127.01705922171767,
+		"root": false
+	},
+	"4vriok2b9pxcnrnr": {
+		"definition": "vent_miner",
+		"x": 0,
+		"y": -152.4204710660612,
+		"root": false
+	},
+	"j8h1axtaqc91geo6": {
+		"definition": "mining_fortune_6",
+		"x": 0,
+		"y": -355.64776582080947,
+		"root": false
+	},
+	"e2pevdwrexte3q9w": {
+		"definition": "heat_resist_2",
+		"x": 0,
+		"y": -304.8409421321224,
+		"root": false
+	},
+	"2ph5a2qmfk3jzriu": {
+		"definition": "heat_resist_3",
+		"x": 110,
+		"y": -241.33241252126356,
+		"root": false
+	},
+	"wuamyjzu92so49d2": {
+		"definition": "mining_fortune_2",
+		"x": -132,
+		"y": -76.2102355330306,
+		"root": false
+	},
+	"li4e8oj0b3ymr0di": {
+		"definition": "pickaxe_buff_5",
+		"x": -220,
+		"y": 177.82388291040473,
+		"root": false
+	},
+	"p0sih1h0fsrcbmlu": {
+		"definition": "pickaxe_buff_7",
+		"x": -330,
+		"y": 190.52558883257652,
+		"root": false
+	},
+	"bvghbhpuax6zzdjf": {
+		"definition": "shovel_buff_4",
+		"x": -286,
+		"y": 114.3153532995459,
+		"root": false
+	},
+	"ddvsp3p0fhlu3ju1": {
+		"definition": "depth_sickness_2",
+		"x": 176,
+		"y": 101.61364737737414,
+		"root": false
+	},
+	"e8az07473mvs3aco": {
+		"definition": "night_vision",
+		"x": 220,
+		"y": 127.01705922171767,
+		"root": false
+	},
+	"9iqjm6iicxbb195o": {
+		"definition": "depth_sickness_4",
+		"x": 264,
+		"y": 152.4204710660612,
+		"root": false
+	},
+	"8ueq1ph3vaa6agj0": {
+		"definition": "depth_sickness_5",
+		"x": 308,
+		"y": 177.82388291040473,
+		"root": false
+	},
+	"69qedfrfaolt447d": {
+		"definition": "armor",
+		"x": 264,
+		"y": 25.403411844343523,
+		"root": false
+	},
+	"cvt6k1h0fnmy7i50": {
+		"definition": "shovel_buff_1",
+		"x": -44,
+		"y": -25.403411844343534,
+		"root": false
+	},
+	"qqzejkdtpq6spcis": {
+		"definition": "heat_resist_1",
+		"x": 44,
+		"y": -25.403411844343534,
+		"root": false
+	},
+	"t81s8bdnrrog3un8": {
+		"definition": "health_buff",
+		"x": 154,
+		"y": 215.92900067692005,
+		"root": false
+	},
+	"xl9wbcn3l73w4j0y": {
+		"definition": "depth_sickness_1",
+		"x": 44,
+		"y": 25.403411844343534,
+		"root": false
+	},
+	"f1ylb2ct45u4ao5s": {
+		"definition": "pickaxe_buff_4",
+		"x": -220,
+		"y": -127.01705922171767,
+		"root": false
+	},
+	"ufdsq5drjemzp2ro": {
+		"definition": "mining_fortune_3",
+		"x": 0,
+		"y": -203.22729475474827,
+		"root": false
+	},
+	"57r7fz04dhho1hfd": {
+		"definition": "shovel_buff_5",
+		"x": -286,
+		"y": 190.5255888325765,
+		"root": false
+	},
+	"phpa1esskl6bl73e": {
+		"definition": "shovel_buff_3",
+		"x": -264,
+		"y": 152.4204710660612,
+		"root": false
+	},
+	"kv1tr1711egkig71": {
+		"definition": "mining_fortune_1",
+		"x": 0,
+		"y": -50.80682368868707,
+		"root": false
+	},
+	"cgqpuif0mnxieski": {
+		"definition": "mining_fortune_4",
+		"x": 0,
+		"y": -254.03411844343535,
+		"root": false
+	},
+	"j4vpw3vspbnff181": {
+		"definition": "health_buff",
+		"x": -110,
+		"y": -241.33241252126356,
+		"root": false
+	},
+	"41huwhweb2k1oc4i": {
+		"definition": "heat_resist_4",
+		"x": 0,
+		"y": -406.45458950949654,
+		"root": false
+	},
+	"ddf19qs7is38hi4o": {
+		"definition": "health_buff",
+		"x": 0,
+		"y": 50.80682368868707,
+		"root": false
+	},
+	"1btwuyyp6mi4c8uv": {
+		"definition": "health_buff",
+		"x": 132,
+		"y": -76.2102355330306,
+		"root": false
+	}
 }

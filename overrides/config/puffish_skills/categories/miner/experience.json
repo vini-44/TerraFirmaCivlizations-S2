@@ -1,34 +1,88 @@
 {
 	"experience_per_level": {
 		"type": "expression",
-		"data": {
-			"expression": "min(1000,1000)"
-		}
+        "data": {
+            "expression": "max((5*((level+10)^2)-200),200)" 
+        }
 	},
 	"sources": [
 		{
 			"type": "puffish_skills:mine_block",
 			"data": {
 				"variables": {
-					"is_stone": {
+					"is_ore": {
 						"operations": [
-							{
-								"type": "get_mined_block_state"
-							},
-							{
-								"type": "puffish_skills:test",
-								"data": {
-									"block": "stone"
-								}
+						{
+							"type": "get_mined_block_state"
+						},
+						{
+							"type": "puffish_skills:test",
+							"data": {
+								"block": "#forge:ores"
 							}
-						]
+						}
+						]	
 					}
 				},
 
 				"experience": [
 					{
-						"condition": "is_stone",
-						"expression": "5"
+						"condition": "is_ore",
+						"expression": "8"
+					}
+				]
+			}
+		},
+		{
+			"type": "puffish_skills:mine_block",
+			"data": {
+				"variables": {
+					"is_mantle_ore": {
+						"operations": [
+						{
+							"type": "get_mined_block_state"
+						},
+						{
+							"type": "puffish_skills:test",
+							"data": {
+								"block": "#terrafirmacivilizations:mantle_ore"
+							}
+						}
+						]	
+					}
+				},
+
+				"experience": [
+					{
+						"condition": "is_mantle_ore",
+						"expression": "8"
+					}
+				]
+			}
+		},
+		{
+			"type": "puffish_skills:mine_block",
+			"data": {
+				"variables": {
+					"is_raw_rock": {
+						"operations": [
+						{
+							"type": "get_mined_block_state"
+						},
+						{
+							"type": "puffish_skills:test",
+							"data": {
+								"block": "#tfc:rock/raw"
+							}
+						}
+						]	
+					}
+				},
+
+				"experience": [
+					{
+						"condition": "is_raw_rock",
+						"expression": "2"
 					}
 				]
 			}

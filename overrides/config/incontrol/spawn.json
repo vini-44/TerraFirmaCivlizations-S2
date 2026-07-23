@@ -13,6 +13,11 @@
         "result" : "deny"
     },
     {
+        "mob": "minecraft:pillager",
+        "phase": "pre_game",
+        "result" : "deny"
+    },
+    {
         "mob": ["tfc:lobster", "tfc:cod", "tfc:tropical_fish", "tfc:shellfish", "tfc:bluegill", "tfc:salmon"],
         "phase": "pre_game",
         "mincount":{

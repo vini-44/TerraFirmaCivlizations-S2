@@ -32,14 +32,14 @@
 		time_until_leave = 1200
 		#Time (in seconds) it takes for the Cave Dweller to leave once a chase begins
 		#Range: 1 ~ 600
-		time_until_leave_chase = 15
+		time_until_leave_chase = 30
 
 ["Spawn Conditions"]
 	#The spawn chance per tick (once the spawn timer is finished)
 	#Range: 0.0 ~ 1.0
 	spawn_chance_per_tick = 0.005
 	#Depth at which the Cave Dweller can start to spawn
-	spawn_height = 10
+	spawn_height = 45
 	#Whether the Cave Dweller can spawn on the surface or not
 	allow_surface_spawn = false
 	#The maximum sky light level the Cave Dweller can spawn at
@@ -93,10 +93,10 @@
 	maximum_health = 30.0
 	#Attack damage
 	#Range: 0.0 ~ 1000.0
-	attack_damage = 2.0
+	attack_damage = 1.0
 	#Attack speed
 	#Range: 0.0 ~ 10.0
-	attack_speed = 0.4
+	attack_speed = 0.5
 	#Movement speed
 	#Range: 0.0 ~ 5.0
 	movement_speed = 0.75

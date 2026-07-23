@@ -1,0 +1,16 @@
+{
+  "type": "origins:active_self",
+  "entity_action": {
+    "type": "origins:apply_effect",
+    "effect": {
+        "effect": "minecraft:night_vision",
+        "duration": 200,
+        "amplifier": 1
+    }
+  },
+  "key": "key.origins.primary_active",
+  "cooldown": 2400,
+  "hud_render": {
+      "should_render": true
+  }
+}
