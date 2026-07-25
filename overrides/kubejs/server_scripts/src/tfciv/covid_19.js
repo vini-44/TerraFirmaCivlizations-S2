@@ -423,7 +423,8 @@ ServerEvents.tick(event => {
 			//ctx.source.player.tell(`${targetPlayer.username} is not sick`);
 			return;
 		} else {
-			if (!(player.persistentData.getString('sickness_name')) in Pathogens){
+			var stillExists = Object.values(Pathogens).some(p => p.name === player.persistentData.getString('sickness_name'));
+			if (!stillExists) {
 				PathogenClass.prototype.curePlayer(player);
 			}
 
@@ -524,6 +525,7 @@ ItemEvents.foodEaten(event => {
 	if(item.hasTag('forge:dough')){
 		if(Math.random() <= 0.05){
 			var severity = Math.sqrt(Math.random()*25);
+			var virality =  Math.round((Math.sqrt(Math.random()*25))*100)/100;
 			
 			if(severity <= 1){
 				player.tell('You feel bad after eating that');
