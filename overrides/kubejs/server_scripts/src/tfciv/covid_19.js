@@ -14,6 +14,7 @@ function loadPathogens(server) {
 			Pathogens[key] = new PathogenClass(
 				loadedPathogens[key].name,
 				loadedPathogens[key].severity,
+				loadedPathogens[key].virality,
 				loadedPathogens[key].patient_0,
 				loadedPathogens[key].infected_count
 			);
@@ -29,10 +30,11 @@ function savePathogens(server) {
 	var pathogensToSave = {};
 	try{
 		for (var key of Object.keys(Pathogens)) {
-			getInfectedCount(key);
+			getInfectedCount(key,server);
 			pathogensToSave[key] = {
 				name: Pathogens[key].name,
 				severity: Pathogens[key].severity,
+				virality: Pathogens[key].virality,
 				patient_0: Pathogens[key].patient_0,
 				infected_count: Pathogens[key].infected_count
 			};
@@ -52,29 +54,38 @@ ServerEvents.loaded(event => {
 	loadPathogens(event.server);
 });
 
-function PathogenClass(name, severity, patient_0, infected_count) {
+function PathogenClass(name, severity, virality, patient_0, infected_count) {
 	this.name = name;
 	this.severity = severity;
+	this.virality = virality;
 	this.patient_0 = patient_0;
 	this.infected_count = infected_count;
 }
 
 PathogenClass.prototype.infectPlayer = function(player) {
 	var pData = player.persistentData;
-	pData.putString('sickness_name', this.name);
-	pData.putDouble('sickness_severity', this.severity);
-	pData.putBoolean('is_sick', true);
-	pData.putDouble('infected_count', 1);
 
-	setCureTimer(player,this.severity);
+	if(!pData.getBoolean('is_sick')){
+		pData.putString('sickness_name', this.name);
+		pData.putDouble('sickness_severity', this.severity);
+		pData.putDouble('sickness_virality', this.virality);
+		pData.putBoolean('is_sick', true);
+		pData.putDouble('infected_count', 1);
 
-	player.tell(`You have contracted ${this.name}!`);
+		setCureTimer(player,this.severity);
+
+		//player.tell(`You have contracted ${this.name}!`);
+		player.tell(`You now feel rather ill...`);
+	} else{
+		player.tell(`You still feel rather ill...`);
+	}
 };
 
 PathogenClass.prototype.curePlayer = function(player) {
 	var pData = player.persistentData;
 	pData.putString('sickness_name', 'none');
 	pData.putDouble('sickness_severity', 0);
+	pData.putDouble('sickness_virality', 0);
 	pData.putBoolean('is_sick', false);
 	player.tell('You feel better now');
 };
@@ -89,7 +100,7 @@ PathogenClass.prototype.damage_check = function(player) {
 
 	var sickRoll = chance * savedSeverity;
 	
-	player.tell(sickRoll);
+	//player.tell(sickRoll);
 
 	if (sickRoll >= 0 && sickRoll < 1) {
 		player.tell(`You cough.`);
@@ -124,19 +135,66 @@ PathogenClass.prototype.damage_check = function(player) {
 		player.potionEffects.add('minecraft:poison', 5 * 20, 0);
 	}
 
-	/*
-    const nearbyPlayers = server.players.filter(p => {
-        return p.username !== player.username && player.distanceToEntity(p) <= radius;
-    });
+	var radius = 3 * pData.getDouble('sickness_virality');
 
-    // Notify the triggering player about who is nearby
-    if (nearbyPlayers.length > 0) {
-        let names = nearbyPlayers.map(p => p.displayName).join(', ');
-        player.tell(`Players nearby: ${names}`);
-    } else {
-        player.tell("No other players are nearby.");
-    }
-	*/
+	// 1. Filter players strictly by coordinate math
+	const nearbyPlayers = player.server.players.filter(p => {
+		if (p.username === player.username) return false;
+		
+		// Calculate 3D distance manually to prevent version compatibility issues
+		let dx = player.x - p.x;
+		let dy = player.y - p.y;
+		let dz = player.z - p.z;
+		let actualDistance = Math.sqrt(dx * dx + dy * dy + dz * dz);
+		
+		return actualDistance <= radius;
+	});
+
+	// 2. Infect the filtered players and handle notifications
+	if (nearbyPlayers.length > 0) {
+
+		loadPathogens(player.server);
+
+		var pathogenname = savedName.toString();
+		var pathogen = Pathogens[pathogenname];
+
+		let names = nearbyPlayers.map(p => p.displayName.string).join(', ');
+		player.tell(`The following hear you cough: ${names}`);
+
+		nearbyPlayers.forEach(targetPlayer => {
+
+			//console.info(`DEBUG: savedName is currently: "${savedName}" (Type: ${typeof savedName})`);
+			//console.info(`DEBUG: pathogenname is currently: "${pathogenname}" (Type: ${typeof pathogenname})`);
+
+			//console.info(`DEBUG: Available keys in Pathogens: ${Object.keys(Pathogens).join(', ')}`);
+
+			//player.tell(`You cough with: ${savedName}`);
+
+			//targetPlayer.tell(`You hear ${player.displayName.string} cough`)
+			
+			var savedVirality = pData.getDouble('sickness_virality');
+			var coughlevel = savedVirality * chance;
+
+			if (coughlevel >= 0 && coughlevel < 1) {
+				targetPlayer.tell(`You hear ${player.displayName.string} lightly cough`)
+			}else if (coughlevel >= 1 && coughlevel < 2) {
+				targetPlayer.tell(`You hear ${player.displayName.string} cough`)
+			}else if (coughlevel >= 2 && coughlevel < 3) {
+				targetPlayer.tell(`You hear ${player.displayName.string} cough and sneeze`)
+			}else if (coughlevel >= 3 && coughlevel < 4) {
+				targetPlayer.tell(`You hear ${player.displayName.string} hack and wheeze`)
+			}else if (coughlevel >= 4 && coughlevel < 5) {
+				targetPlayer.tell(`You hear ${player.displayName.string} fighting for their life`)
+			}
+
+			if (coughlevel >= (Math.random()*5)){
+				pathogen.infectPlayer(targetPlayer); 
+			}
+		});
+
+	} else {
+		player.tell("No one hears you");
+	}
 };
 
 ServerEvents.commandRegistry(event => {
@@ -146,6 +204,7 @@ ServerEvents.commandRegistry(event => {
 		Commands.literal('pathogen')
 
 		.requires(source => source.hasPermission(2)) // Check if the player has operator privileges
+		//infect
 		.then(
 			Commands.literal('infect')
 				.then(
@@ -176,6 +235,7 @@ ServerEvents.commandRegistry(event => {
 						)
 				)
 		)
+		//cure
 		.then(
 			Commands.literal('cure')
 				.then(
@@ -190,6 +250,7 @@ ServerEvents.commandRegistry(event => {
 						})
 				)
 		)
+		//check
 		.then(
 			Commands.literal('check')
 				.then(
@@ -203,12 +264,14 @@ ServerEvents.commandRegistry(event => {
 							ctx.source.player.tell(`${targetPlayer.username} sick state is ${targetPlayer.persistentData.getBoolean('is_sick')}`);
 							ctx.source.player.tell(`${targetPlayer.username} has ${targetPlayer.persistentData.getString('sickness_name')}`);
 							ctx.source.player.tell(`${targetPlayer.username}'s sickness is severity ${targetPlayer.persistentData.getDouble('sickness_severity')}`);
+							ctx.source.player.tell(`${targetPlayer.username}'s sickness is virality ${targetPlayer.persistentData.getDouble('sickness_virality')}`);
 							ctx.source.player.tell(`${targetPlayer.username}'s cough is in ${targetPlayer.persistentData.getDouble('pathogen_check_countdown')}`);
 							ctx.source.player.tell(`${targetPlayer.username}'s cure is in ${targetPlayer.persistentData.getDouble('pathogen_cure_countdown')}`);
 							return 1;
 						})
 				)
 		)
+		//cough
 		.then(
 			Commands.literal('cough')
 				.then(
@@ -235,24 +298,28 @@ ServerEvents.commandRegistry(event => {
 					Commands.argument('name', Arguments.STRING.create(event))
 						.then(
 							Commands.argument('severity', Arguments.DOUBLE.create(event))
-								.executes(ctx => {
-									loadPathogens(ctx.source.server);
+								.then(
+									Commands.argument('virality', Arguments.DOUBLE.create(event))
+										.executes(ctx => {
+											loadPathogens(ctx.source.server);
 
-									var name = Arguments.STRING.getResult(ctx, 'name');
-									var severity = Arguments.DOUBLE.getResult(ctx, 'severity');
+											var name = Arguments.STRING.getResult(ctx, 'name');
+											var severity = Arguments.DOUBLE.getResult(ctx, 'severity');
+											var virality = Arguments.DOUBLE.getResult(ctx, 'virality');
 
-									if (severity < 0 || severity > 5) {
-										ctx.source.player.tell(`Severity must be between 0.0 and 5.0`);
-										return 0;
-									}
+											if (severity < 0 || severity > 5) {
+												ctx.source.player.tell(`Severity must be between 0.0 and 5.0`);
+												return 0;
+											}
 
-									var key = name.toLowerCase().replace(/\s+/g, '_');
-									Pathogens[key] = new PathogenClass(name, severity, 'lab');
-									savePathogens(ctx.source.server);
+											var key = name.toLowerCase().replace(/\s+/g, '_');
+											Pathogens[key] = new PathogenClass(name, severity, virality, 'lab');
+											savePathogens(ctx.source.server);
 
-									ctx.source.player.tell(`Created pathogen '${name}' (key: ${key}, severity: ${severity})`);
-									return 1;
-								})
+											ctx.source.player.tell(`Created pathogen '${name}' (key: ${key}, severity: ${severity}, virality: ${virality})`);
+											return 1;
+										})
+								)
 						)
 				)
 		)
@@ -273,10 +340,39 @@ ServerEvents.commandRegistry(event => {
 					ctx.source.player.tell(`Known pathogens (${keys.length}):`);
 					for (var key of keys) {
 						var p = Pathogens[key];
-						ctx.source.player.tell(`- ${key}: '${p.name}', severity ${p.severity}, patient 0: ${p.patient_0}, infected: ${getInfectedCount(key, ctx.source.server)}`);
+						getInfectedCount(key, ctx.source.server)
+						ctx.source.player.tell(`- ${key}: '${p.name}', severity ${p.severity}, virality ${p.virality}, patient 0: ${p.patient_0}, active infected: ${p.infected_count}`);
 					}
 					return 1;
 				})
+		)
+		// remove
+		.then(
+			Commands.literal('remove')
+				.then(
+					Commands.argument('keyToRemove', Arguments.STRING.create(event))
+						.executes(ctx => {
+							loadPathogens(ctx.source.server);
+
+							var key = Arguments.STRING.getResult(ctx, 'keyToRemove');
+							
+							try {
+								ctx.source.server.players.forEach(player => {
+									if(player.persistentData.getString('sickness_name') == Pathogens[key].name) {
+										PathogenClass.prototype.curePlayer(player);
+									}
+								}) 
+
+								delete Pathogens[key]; 
+								ctx.source.player.tell(`Removed pathogen '${key}'`);
+							} catch (e){
+								ctx.source.player.tell('ERROR Failed to remove pathogen: ' + e);
+							}
+
+							savePathogens(ctx.source.server);
+							return 1;
+						})
+				)
 		)
 	)
 })
@@ -294,22 +390,23 @@ ServerEvents.tick(event => {
 			//player.tell(chance);
 			if(chance <= 0.05){
 				var severity =  Math.round((Math.sqrt(Math.random()*25))*100)/100;
+				var virality =  Math.round((Math.sqrt(Math.random()*25))*100)/100;
 
 				if(severity <= 1){
 					player.tell('That water was gross');
-					createPathogen(event, player, Math.round(Math.random()*10000), severity);
+					createPathogen(event, player, Math.round(Math.random()*10000), severity, virality);
 				} else if (severity > 1 && severity <= 2){
 					player.tell('That water was really gross');
-					createPathogen(event, player, Math.round(Math.random()*10000), severity);
+					createPathogen(event, player, Math.round(Math.random()*10000), severity, virality);
 				} else if (severity > 2 && severity <= 3){
 					player.tell('That water was horrible');
-					createPathogen(event, player, Math.round(Math.random()*10000), severity);
+					createPathogen(event, player, Math.round(Math.random()*10000), severity, virality);
 				} else if (severity > 3 && severity <= 4){
 					player.tell('That water was completely disgusting');
-					createPathogen(event, player, Math.round(Math.random()*10000), severity);
+					createPathogen(event, player, Math.round(Math.random()*10000), severity, virality);
 				} else if (severity > 4 && severity <= 5){
 					player.tell('That water was completely disgusting');
-					createPathogen(event, player, Math.round(Math.random()*10000), severity);
+					createPathogen(event, player, Math.round(Math.random()*10000), severity, virality);
 				}
 				else{
 					player.tell('uh oh something weird (ERROR)');
@@ -326,6 +423,10 @@ ServerEvents.tick(event => {
 			//ctx.source.player.tell(`${targetPlayer.username} is not sick`);
 			return;
 		} else {
+			if (!(player.persistentData.getString('sickness_name')) in Pathogens){
+				PathogenClass.prototype.curePlayer(player);
+			}
+
 			var hurtcountdown = pData.getInt('pathogen_check_countdown');
 			if (hurtcountdown > 0) {
 				pData.putInt('pathogen_check_countdown', hurtcountdown - 1);
@@ -350,12 +451,21 @@ ServerEvents.tick(event => {
 
 function getInfectedCount(key,server){
 	var infectedTemp = 0;
+
+	//console.log(`GETTING INFECTED COUNT for ${key}`);
+
 	server.players.forEach(player => {
-		if (!player.persistentData.getBoolean('is_sick') && player.persistentData.getString('name') == Pathogens[key].name) {
+		//console.log(`checking ${player.username} has ${player.persistentData.getString('sickness_name')}`)
+		if (player.persistentData.getBoolean('is_sick') && player.persistentData.getString('sickness_name') == Pathogens[key].name) {
 			infectedTemp += 1;
 		}
-	})
+	}) 
+
+	//console.log(`INFECTED COUNT for ${key} IS ${infectedTemp}`);
+
 	Pathogens[key].infected_count = infectedTemp;
+
+	//console.log(`CHECKING INFECTED COUNT for ${key} IS ${Pathogens[key].infected_count}`);
 	return (infectedTemp);
 }
 function setCureTimer(player, severity){
@@ -363,19 +473,18 @@ function setCureTimer(player, severity){
 	var baseInterval = 60*15;
 	var jitter = Math.floor(Math.random() * 60*30);
 	pData.putInt('pathogen_cure_countdown', baseInterval + jitter + (severity*10));
-
 }
-function createPathogen(event, player, pathoName, severity){
+function createPathogen(event, player, pathoName, severity, virality){
 	loadPathogens(event.server);
 
 
 	var key = String(pathoName);
-	Pathogens[key] = new PathogenClass(String(pathoName), severity, player.name.string);
+	Pathogens[key] = new PathogenClass(String(pathoName), severity, virality, player.name.string);
 
 	Pathogens[key].infectPlayer(player);
 
 	//player.tell(Pathogens[key]);
-	console.log(`Created pathogen: (key: ${key}, name: '${pathoName}' severity: ${severity}, paitent 0: ${player.name.string})`);
+	console.log(`Created pathogen: (key: ${key}, name: '${pathoName}' severity: ${severity}, virality: ${virality}, paitent 0: ${player.name.string})`);
 
 	player.runCommandSilent(`effect clear ${player.name.string} minecraft:unluck`)
 	
@@ -388,22 +497,23 @@ ItemEvents.foodEaten(event => {
 	if(item.hasTag('tfc:foods/raw_meats')||item.hasTag('forge:meat_uncooked')){
 		if(Math.random() <= 0.15){
 			var severity =  Math.sqrt(Math.random()*25);
+			var virality =  Math.round((Math.sqrt(Math.random()*25))*100)/100;
 
 			if(severity <= 1){
 				player.tell('You feel bad after eating that');
-				createPathogen(event, player, Math.round(Math.random()*10000), severity);
+				createPathogen(event, player, Math.round(Math.random()*10000), severity, virality);
 			} else if (severity > 1 && severity <= 2){
 				player.tell('You feel really bad');
-				createPathogen(event, player, Math.round(Math.random()*10000), severity);
+				createPathogen(event, player, Math.round(Math.random()*10000), severity, virality);
 			} else if (severity > 2 && severity <= 3){
 				player.tell('You feel horrible after eating that');
-				createPathogen(event, player, Math.round(Math.random()*10000), severity);
+				createPathogen(event, player, Math.round(Math.random()*10000), severity, virality);
 			} else if (severity > 3 && severity <= 4){
 				player.tell('You feel really horrible after eating that');
-				createPathogen(event, player, Math.round(Math.random()*10000), severity);
+				createPathogen(event, player, Math.round(Math.random()*10000), severity, virality);
 			}else if (severity > 3 && severity <= 4){
 				player.tell('You feel like your going to die after eating that');
-				createPathogen(event, player, Math.round(Math.random()*10000), severity);
+				createPathogen(event, player, Math.round(Math.random()*10000), severity, virality);
 			}else {
 				player.tell('uh oh something weird (ERROR)');
 			}
@@ -417,19 +527,19 @@ ItemEvents.foodEaten(event => {
 			
 			if(severity <= 1){
 				player.tell('You feel bad after eating that');
-				createPathogen(event, player, Math.round(Math.random()*10000), severity);
+				createPathogen(event, player, Math.round(Math.random()*10000), severity, virality);
 			} else if (severity > 1 && severity <= 2){
 				player.tell('You feel really bad');
-				createPathogen(event, player, Math.round(Math.random()*10000), severity);
+				createPathogen(event, player, Math.round(Math.random()*10000), severity, virality);
 			} else if (severity > 2 && severity <= 3){
 				player.tell('You feel horrible after eating that');
-				createPathogen(event, player, Math.round(Math.random()*10000), severity);
+				createPathogen(event, player, Math.round(Math.random()*10000), severity, virality);
 			} else if (severity > 3 && severity <= 4){
 				player.tell('You feel really horrible after eating that');
-				createPathogen(event, player, Math.round(Math.random()*10000), severity);
+				createPathogen(event, player, Math.round(Math.random()*10000), severity, virality);
 			}else if (severity > 3 && severity <= 4){
 				player.tell('You feel like your going to die after eating that');
-				createPathogen(event, player, Math.round(Math.random()*10000), severity);
+				createPathogen(event, player, Math.round(Math.random()*10000), severity, virality);
 			}else {
 				player.tell('uh oh something weird (ERROR)');
 			}
