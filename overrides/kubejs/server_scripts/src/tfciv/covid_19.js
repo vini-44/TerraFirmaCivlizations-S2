@@ -423,8 +423,7 @@ ServerEvents.tick(event => {
 			//ctx.source.player.tell(`${targetPlayer.username} is not sick`);
 			return;
 		} else {
-			var stillExists = Object.values(Pathogens).some(p => p.name === player.persistentData.getString('sickness_name'));
-			if (!stillExists) {
+			if (!(player.persistentData.getString('sickness_name')) in Pathogens){
 				PathogenClass.prototype.curePlayer(player);
 			}
 

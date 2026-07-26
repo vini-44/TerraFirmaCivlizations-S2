@@ -457,13 +457,6 @@
 					"unlock_command": "puffish_skills skills unlock @s puffish_skills:rancher h296elump7w38hlp",
 					"lock_command": "puffish_skills skills lock @s puffish_skills:rancher h296elump7w38hlp"
 				}
-			},
-			{
-				"type": "puffish_skills:command",
-				"data": {
-					"unlock_command": "puffish_skills experience set @s puffish_skills:rancher 0",
-					"lock_command": "puffish_skills experience set @s puffish_skills:rancher 0"
-				}
 			}
 		],
 		"metadata": {
