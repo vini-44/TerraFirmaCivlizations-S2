@@ -117,6 +117,93 @@
                     }
                 ]
             }
+        },
+        {
+            "type": "puffish_skills:criterion",
+            "data": {
+                "criterion": {
+                    "trigger": "minecraft:item_used_on_block",
+                    "conditions": {
+                        "location": [
+                            {
+                                "condition": "minecraft:location_check",
+                                "predicate": {
+                                    "block": {
+                                        "tag": "tfc:farmland"
+                                    }
+                                }
+                            },
+                            {
+                                "condition": "minecraft:match_tool",
+                                "predicate": {
+                                    "tag": "minecraft:hoes"
+                                }
+                            }
+                        ]
+                    }
+                },
+                "experience": "1"
+            }
+        },
+        {
+            "type": "puffish_skills:criterion",
+            "data": {
+                "criterion": {
+                    "trigger": "minecraft:item_used_on_block",
+                    "conditions": {
+                        "location": [
+                            { "condition": "minecraft:location_check", "predicate": { "block": { "blocks": ["tfc:composter"] } } },
+                            { "condition": "minecraft:match_tool", "predicate": { "tag": "tfc:compost_greens_low" } }
+                        ]
+                    }
+                },
+                "experience": "3"
+            }
+        },
+        {
+            "type": "puffish_skills:criterion",
+            "data": {
+                "criterion": {
+                    "trigger": "minecraft:item_used_on_block",
+                    "conditions": {
+                        "location": [
+                            { "condition": "minecraft:location_check", "predicate": { "block": { "blocks": ["tfc:composter"] } } },
+                            { "condition": "minecraft:match_tool", "predicate": { "tag": "tfc:compost_greens_high" } }
+                        ]
+                    }
+                },
+                "experience": "5"
+            }
+        },
+        {
+            "type": "puffish_skills:criterion",
+            "data": {
+                "criterion": {
+                    "trigger": "minecraft:item_used_on_block",
+                    "conditions": {
+                        "location": [
+                            { "condition": "minecraft:location_check", "predicate": { "block": { "blocks": ["tfc:composter"] } } },
+                            { "condition": "minecraft:match_tool", "predicate": { "tag": "tfc:compost_browns_low" } }
+                        ]
+                    }
+                },
+                "experience": "3"
+            }
+        },
+        {
+            "type": "puffish_skills:criterion",
+            "data": {
+                "criterion": {
+                    "trigger": "minecraft:item_used_on_block",
+                    "conditions": {
+                        "location": [
+                            { "condition": "minecraft:location_check", "predicate": { "block": { "blocks": ["tfc:composter"] } } },
+                            { "condition": "minecraft:match_tool", "predicate": { "tag": "tfc:compost_browns_high" } }
+                        ]
+                    }
+                },
+                "experience": "5"
+            }
         }
     ]
 }

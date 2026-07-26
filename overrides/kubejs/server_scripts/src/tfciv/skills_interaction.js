@@ -1,5 +1,6 @@
 // server_scripts/fruit_windfall.js
 BlockEvents.rightClicked(event => {
+	//hardnesCheck(event); //debug only
 	fruitCheck(event);
 	jamCheck(event);
 	ovenCheck(event);
@@ -61,6 +62,19 @@ LootJS.modifiers(event => {
             });
         });
 });
+function hardnesCheck(event){
+
+    let block = event.block;
+    let state = block.blockState;
+
+    event.player.tell("--- Block Info ---");
+    event.player.tell("ID: " + block.id);
+    event.player.tell("Base Speed: " + state.getDestroySpeed(event.level, block.pos));
+    
+    // Check if the game engine marks it as mathematically unbreakable (like Bedrock)
+    // In Java, an infinitely long break time returns false here
+    event.player.tell("Is Engine Destroyable: " + (!state.isAir() && state.getDestroySpeed(event.level, block.pos) >= 0));
+}
 
 //right click checks
 function fruitCheck(event) {
