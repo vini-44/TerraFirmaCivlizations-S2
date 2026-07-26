@@ -7,7 +7,17 @@
     "operation": "multiply_base"
   },
   "block_condition": {
-    "type": "origins:in_tag",
-    "tag": "minecraft:mineable/pickaxe"
+    "type": "origins:and",
+    "conditions": [
+      {
+        "type": "origins:in_tag",
+        "tag": "minecraft:mineable/pickaxe"
+      },
+      {      
+        "type": "origins:in_tag",
+        "inverted": true,
+        "tag": "minecraft:mineable/axe"
+      }
+    ]
   }
 }
