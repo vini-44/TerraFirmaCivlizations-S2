@@ -204,6 +204,34 @@
                 },
                 "experience": "5"
             }
+        },
+        {
+            "type": "puffish_skills:criterion",
+            "data": {
+                "criterion": {
+                    "trigger": "minecraft:bred_animals",
+                    "conditions": {
+                        "child": {
+                            "type": "#tfc:animals"
+                        }
+                    }
+                },
+                "experience": "10"
+            }
+        },
+        {
+            "type": "puffish_skills:criterion",
+            "data": {
+                "criterion": {
+                    "trigger": "minecraft:player_interacted_with_entity",
+                    "conditions": {
+                        "entity": {
+                            "type": "#tfc:animals"
+                        }
+                    }
+                },
+                "experience": "2"
+            }
         }
     ]
 }

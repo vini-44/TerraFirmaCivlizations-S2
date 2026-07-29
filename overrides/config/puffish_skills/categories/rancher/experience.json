@@ -2,7 +2,7 @@
     "experience_per_level": {
         "type": "expression",
         "data": {
-            "expression": "(2*((level+10)^2)-125)" 
+            "expression": "max((5*((level+10)^2)-200),200)" 
         }
     },
     "sources": [
@@ -71,6 +71,34 @@
                         "expression": "max_health"
                     }
                 ]
+            }
+        },
+        {
+            "type": "puffish_skills:criterion",
+            "data": {
+                "criterion": {
+                    "trigger": "minecraft:bred_animals",
+                    "conditions": {
+                        "child": {
+                            "type": "#tfc:animals"
+                        }
+                    }
+                },
+                "experience": "25"
+            }
+        },
+        {
+            "type": "puffish_skills:criterion",
+            "data": {
+                "criterion": {
+                    "trigger": "minecraft:player_interacted_with_entity",
+                    "conditions": {
+                        "entity": {
+                            "type": "#tfc:animals"
+                        }
+                    }
+                },
+                "experience": "6"
             }
         }
     ]

@@ -95,10 +95,11 @@ PathogenClass.prototype.damage_check = function(player) {
 	if (!pData.getBoolean('is_sick')) return;
 
 	var savedSeverity = pData.getDouble('sickness_severity');
+	var savedHygiene = pData.getLong('hygiene');
 	var savedName = pData.getString('sickness_name');
 	var chance = Math.random();
 
-	var sickRoll = chance * savedSeverity;
+	var sickRoll = (chance * savedSeverity)/(2*savedHygiene);
 	
 	//player.tell(sickRoll);
 
@@ -173,7 +174,7 @@ PathogenClass.prototype.damage_check = function(player) {
 			//targetPlayer.tell(`You hear ${player.displayName.string} cough`)
 			
 			var savedVirality = pData.getDouble('sickness_virality');
-			var coughlevel = savedVirality * chance;
+			var coughlevel = (savedVirality * chance)/(2*savedHygiene);
 
 			if (coughlevel >= 0 && coughlevel < 1) {
 				targetPlayer.tell(`You hear ${player.displayName.string} lightly cough`)
@@ -187,7 +188,7 @@ PathogenClass.prototype.damage_check = function(player) {
 				targetPlayer.tell(`You hear ${player.displayName.string} fighting for their life`)
 			}
 
-			if (coughlevel >= (Math.random()*5)){
+			if ((coughlevel)/(2*targetPlayer.persistentData.getDouble('hygiene')) >= (5*(Math.random()**2))){
 				pathogen.infectPlayer(targetPlayer); 
 			}
 		});
@@ -267,6 +268,7 @@ ServerEvents.commandRegistry(event => {
 							ctx.source.player.tell(`${targetPlayer.username}'s sickness is virality ${targetPlayer.persistentData.getDouble('sickness_virality')}`);
 							ctx.source.player.tell(`${targetPlayer.username}'s cough is in ${targetPlayer.persistentData.getDouble('pathogen_check_countdown')}`);
 							ctx.source.player.tell(`${targetPlayer.username}'s cure is in ${targetPlayer.persistentData.getDouble('pathogen_cure_countdown')}`);
+							ctx.source.player.tell(`${targetPlayer.username}'s hygiene is ${targetPlayer.persistentData.getDouble('hygiene')}`);
 							return 1;
 						})
 				)
@@ -375,6 +377,30 @@ ServerEvents.commandRegistry(event => {
 				)
 		)
 	)
+	event.register(
+		Commands.literal('checkHealth')
+			.executes(ctx =>{
+				var player = ctx.source.player;
+				var pData = player.persistentData;
+				const scale = (value, inMin, inMax, outMin, outMax) => {
+					return ((value - inMin) * (outMax - outMin)) / (inMax - inMin) + outMin;
+				};
+
+				var soapCurrent = Math.round(100*scale(pData.getInt('soapModifier'), 0, 600, 0, 1));
+				var showerCurrent = Math.round(100*scale(pData.getInt('showerModifier'), 0, 1200, 0, 1));
+				var herbsCurrent = Math.round(100*scale(pData.getInt('herbsModifier'), 0, 12000, 0, 1));
+				var nutrition = player.data['tfc:player_data'].getAverageNutrition();
+
+				player.tell(`Your soap modifier is at ${soapCurrent}%`);
+				player.tell(`Your shower modifier is at ${showerCurrent}%`);
+				player.tell(`Your herbs modifier is at ${herbsCurrent}%`);
+				player.tell(`Your nutrition modifier is at ${Math.round(100*nutrition)}`);
+
+				player.tell(`Your overall hygiene is at ${pData.getLong('hygiene')}`)
+				player.tell(`Your sick state is ${pData.getBoolean('is_sick')}`)
+				return 1;
+			})
+	)
 })
 
 
@@ -383,14 +409,15 @@ ServerEvents.tick(event => {
 
 	event.server.players.forEach(player => {
 		var pData = player.persistentData;
+		tickingClean(player,event);
 
 		//bad water thing
 		if (player.potionEffects.isActive('minecraft:unluck')) {
-			var chance = Math.random();
+			var chance = (Math.random()/(2*pData.getLong('hygiene')));
 			//player.tell(chance);
 			if(chance <= 0.05){
-				var severity =  Math.round((Math.sqrt(Math.random()*25))*100)/100;
-				var virality =  Math.round((Math.sqrt(Math.random()*25))*100)/100;
+				var severity = Math.round(5 * Math.pow(Math.random(), 3)*100)/100;
+				var virality = Math.round(5 * Math.pow(Math.random(), 3)*100)/100;
 
 				if(severity <= 1){
 					player.tell('That water was gross');
@@ -423,10 +450,22 @@ ServerEvents.tick(event => {
 			//ctx.source.player.tell(`${targetPlayer.username} is not sick`);
 			return;
 		} else {
-			if (!(player.persistentData.getString('sickness_name')) in Pathogens){
-				PathogenClass.prototype.curePlayer(player);
-			}
 
+			loadPathogens(player.server);
+
+
+			var keys = Object.keys(Pathogens);
+			var names = [];
+			for (var key of keys) {
+				var p = Pathogens[key];
+				getInfectedCount(key, player.server)
+				names.push(p.name);
+			}
+			if (!names.includes(player.persistentData.getString('sickness_name'))) {
+				player.tell(`your sickness isnt real ${player.persistentData.getString('sickness_name')}`);
+				PathogenClass.prototype.curePlayer(player);
+				return;
+			}
 			var hurtcountdown = pData.getInt('pathogen_check_countdown');
 			if (hurtcountdown > 0) {
 				pData.putInt('pathogen_check_countdown', hurtcountdown - 1);
@@ -448,7 +487,115 @@ ServerEvents.tick(event => {
 		}
 	});
 });
+function tickingClean(player, event){
+	var pData = player.persistentData;
+	const scale = (value, inMin, inMax, outMin, outMax) => {
+		return ((value - inMin) * (outMax - outMin)) / (inMax - inMin) + outMin;
+	};
 
+	if (player.isInWater()) {
+		var showerModifier = pData.getDouble('showerModifier');
+		//player.tell(showerModifier);
+		if (showerModifier < 1700) {
+			player.tell('You bathe.');
+			pData.putDouble('showerModifier', (showerModifier + 100));
+		}
+		else if(showerModifier >= 1699){
+			//player.tell('Youre clean!');
+		}
+	}
+
+	pData.putInt('soapModifier', Math.max((pData.getInt('soapModifier') - 1) , 0));
+	pData.putInt('showerModifier', Math.max((pData.getInt('showerModifier') - 1), 0));
+	pData.putInt('herbsModifier', Math.max((pData.getInt('herbsModifier') - 1), 0));
+	pData.putInt('nutrition', (player.data['tfc:player_data'].getAverageNutrition()));
+
+	var soapCurrent = Math.min(scale(pData.getInt('soapModifier'), 0, 600, 0, 1), 1);
+	var showerCurrent = Math.min(scale(pData.getInt('showerModifier'), 0, 1200, 0, 1), 1);
+	var herbsCurrent = Math.min(scale(pData.getInt('herbsModifier'), 0, 12000, 0, 1), 1);
+	var nutrition = player.data['tfc:player_data'].getAverageNutrition();
+
+	var calculatedHygiene = ((soapCurrent*0.2)+(herbsCurrent*0.2)+(showerCurrent*0.3)+(nutrition*0.3))*100;
+	//player.tell(`Your overall hygiene is at ${player.persistentData.getLong('hygiene')}`)
+	pData.putLong('hygiene', Math.max(calculatedHygiene, 1));
+}
+
+ItemEvents.rightClicked(event => {
+	soapWash(event);
+	herbEat(event);
+});
+const healthyHerbs = [
+	'firmalife:plant/basil',
+	'firmalife:plant/bay_laurel',
+	'firmalife:plant/cardamom',
+	'firmalife:plant/cilantro',
+	'firmalife:plant/cumin',
+	'firmalife:plant/oregano',
+	'firmalife:plant/pimento',
+	'firmalife:plant/vanilla'
+];
+function herbEat(event){
+	var { player, item, hand } = event;
+    let tfcData = player.data['tfc:player_data']
+
+	if (!healthyHerbs.includes(item.id)) return;
+
+	if (hand !== 'MAIN_HAND') return;
+	
+
+	var pData = player.persistentData;
+	var now = Date.now();
+
+
+	var lastWash = pData.getLong('last_herb_eat');
+	if (now - lastWash < (1000*10)) {
+		player.tell(`You cant stomach another herb for a while.`);
+		return;
+	}
+	pData.putLong('last_herb_eat', now);
+	
+	if (pData.getLong('herbsModifier') <= 24000){
+		pData.putLong('herbsModifier', pData.getLong('herbsModifier') + 1200); 
+		player.tell('You eat the herb.');
+		if (!player.isCreative()) {
+			item.count -= 1;
+		}
+	}
+	else {
+		player.tell(`You cant stomach anymore herbs.`);
+	}
+
+
+}
+function soapWash(event){
+	var { player, item, hand } = event;
+    let tfcData = player.data['tfc:player_data']
+	if(item.id !== 'supplementaries:soap') return;
+	if (hand !== 'MAIN_HAND') return;
+	if (!player.isInWater()) return; // must be standing/swimming in water to wash
+	
+
+	var pData = player.persistentData;
+	var now = Date.now();
+
+
+	var lastWash = pData.getLong('last_hand_wash');
+	if (now - lastWash < 1000) return;
+	pData.putLong('last_hand_wash', now);
+	
+	if (pData.getLong('soapModifier') <= 600){
+		pData.putLong('soapModifier', 660); //11 minutes of clean hands
+		player.tell('You wash your hands clean.');
+	
+		if (!player.isCreative()) {
+			item.count -= 1;
+		}
+	}
+	else {
+		player.tell(`Your hands are already clean.`);
+	}
+
+}
 function getInfectedCount(key,server){
 	var infectedTemp = 0;
 
@@ -493,11 +640,14 @@ function createPathogen(event, player, pathoName, severity, virality){
 
 ItemEvents.foodEaten(event => {
 	const { player, server, item} = event;
-    
+
+    var pData = player.persistentData;
+
 	if(item.hasTag('tfc:foods/raw_meats')||item.hasTag('forge:meat_uncooked')){
-		if(Math.random() <= 0.15){
-			var severity =  Math.sqrt(Math.random()*25);
-			var virality =  Math.round((Math.sqrt(Math.random()*25))*100)/100;
+		var chance = (Math.random()/(2*pData.getLong('hygiene')));
+		if(chance <= 0.15){
+			var severity = Math.round(5 * Math.pow(Math.random(), 3)*100)/100;
+			var virality = Math.round(5 * Math.pow(Math.random(), 3)*100)/100;
 
 			if(severity <= 1){
 				player.tell('You feel bad after eating that');
@@ -522,9 +672,10 @@ ItemEvents.foodEaten(event => {
 		}
 	}
 	if(item.hasTag('forge:dough')){
-		if(Math.random() <= 0.05){
-			var severity = Math.sqrt(Math.random()*25);
-			var virality =  Math.round((Math.sqrt(Math.random()*25))*100)/100;
+		var chance = (Math.random()/(2*pData.getLong('hygiene')));
+		if(chance <= 0.05){
+			var severity = Math.round(5 * Math.pow(Math.random(), 3)*100)/100;
+			var virality = Math.round(5 * Math.pow(Math.random(), 3)*100)/100;
 			
 			if(severity <= 1){
 				player.tell('You feel bad after eating that');
