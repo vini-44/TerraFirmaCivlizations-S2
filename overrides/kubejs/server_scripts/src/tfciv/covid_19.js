@@ -95,7 +95,7 @@ PathogenClass.prototype.damage_check = function(player) {
 	if (!pData.getBoolean('is_sick')) return;
 
 	var savedSeverity = pData.getDouble('sickness_severity');
-	var savedHygiene = pData.getLong('hygiene');
+	var savedHygiene = pData.getLong('hygiene')/100;
 	var savedName = pData.getString('sickness_name');
 	var chance = Math.random();
 
@@ -413,9 +413,11 @@ ServerEvents.tick(event => {
 
 		//bad water thing
 		if (player.potionEffects.isActive('minecraft:unluck')) {
-			var chance = (Math.random()/(2*pData.getLong('hygiene')));
+			var chance = (Math.random()*(2*(pData.getLong('hygiene'))/100));
+			player.tell(chance);
+			player.tell((pData.getLong('hygiene')/100));
 			//player.tell(chance);
-			if(chance <= 0.05){
+			if(chance <= 0.02){
 				var severity = Math.round(5 * Math.pow(Math.random(), 3)*100)/100;
 				var virality = Math.round(5 * Math.pow(Math.random(), 3)*100)/100;
 
@@ -644,8 +646,8 @@ ItemEvents.foodEaten(event => {
     var pData = player.persistentData;
 
 	if(item.hasTag('tfc:foods/raw_meats')||item.hasTag('forge:meat_uncooked')){
-		var chance = (Math.random()/(2*pData.getLong('hygiene')));
-		if(chance <= 0.15){
+		var chance = (Math.random()*(2*(pData.getLong('hygiene'))/100));
+		if(chance >= 0.15){
 			var severity = Math.round(5 * Math.pow(Math.random(), 3)*100)/100;
 			var virality = Math.round(5 * Math.pow(Math.random(), 3)*100)/100;
 
@@ -672,8 +674,8 @@ ItemEvents.foodEaten(event => {
 		}
 	}
 	if(item.hasTag('forge:dough')){
-		var chance = (Math.random()/(2*pData.getLong('hygiene')));
-		if(chance <= 0.05){
+		var chance = (Math.random()*(2*(pData.getLong('hygiene'))/100));
+		if(chance >= 0.02){
 			var severity = Math.round(5 * Math.pow(Math.random(), 3)*100)/100;
 			var virality = Math.round(5 * Math.pow(Math.random(), 3)*100)/100;
 			
