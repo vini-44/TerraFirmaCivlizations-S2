@@ -1,0 +1,188 @@
+{
+	"ddf19qs7is38hi4o": {
+		"definition": "attack_speed",
+		"x": -50,
+		"y": 28.867513459481287,
+		"root": false
+	},
+	"5tfiztcgyqyguz3z": {
+		"definition": "fencer",
+		"x": -125,
+		"y": 72.16878364870323,
+		"root": false
+	},
+	"v2xyyg4j0hgiqnr1": {
+		"definition": "archer",
+		"x": 0,
+		"y": -144.33756729740645,
+		"root": false
+	},
+	"nzrl2acro4wftmp6": {
+		"definition": "guardsman",
+		"x": 125,
+		"y": 72.16878364870323,
+		"root": false
+	},
+	"gbq8fisstxb4xg99": {
+		"definition": "damage_buff_1",
+		"x": 0,
+		"y": 0,
+		"root": true
+	},
+	"a7mth8d5nk4y22tt": {
+		"definition": "damage_buff_2",
+		"x": 0,
+		"y": 144.33756729740645,
+		"root": false
+	},
+	"mfzczjetsnqynj8x": {
+		"definition": "armor_1",
+		"x": 50,
+		"y": 28.867513459481287,
+		"root": false
+	},
+	"0je2yj4ua1vt2odc": {
+		"definition": "knockback_buff",
+		"x": 0,
+		"y": 57.735026918962575,
+		"root": false
+	},
+	"5gp09zfv2c2yanbu": {
+		"definition": "bow_speed",
+		"x": 0,
+		"y": -57.735026918962575,
+		"root": false
+	},
+	"rq5lmpnnaobjzj8a": {
+		"definition": "health_buff",
+		"x": 50,
+		"y": -28.867513459481287,
+		"root": false
+	},
+	"ua76cakh7dqbgnsn": {
+		"definition": "movespeed_buff",
+		"x": -50,
+		"y": -28.867513459481287,
+		"root": false
+	},
+	"1scs2kdb08iskvh5": {
+		"definition": "bow_speed",
+		"x": 0,
+		"y": -259.8076211353316,
+		"root": false
+	},
+	"rmdmj6yp9nrh0qav": {
+		"definition": "movespeed_buff",
+		"x": 0,
+		"y": -202.072594216369,
+		"root": false
+	},
+	"tzzf01jvsldpigek": {
+		"definition": "armor_3",
+		"x": 175,
+		"y": 101.0362971081845,
+		"root": false
+	},
+	"m2ci0ia0f37qcts9": {
+		"definition": "tank",
+		"x": 225,
+		"y": 129.9038105676658,
+		"root": false
+	},
+	"u451pp8tf4rkst10": {
+		"definition": "damage_buff_3",
+		"x": -175,
+		"y": 101.0362971081845,
+		"root": false
+	},
+	"tjn3zjatpu547a23": {
+		"definition": "damage_buff_4",
+		"x": -225,
+		"y": 129.9038105676658,
+		"root": false
+	},
+	"tacesyc20vmx9uzs": {
+		"definition": "armor_2",
+		"x": 125,
+		"y": -72.16878364870323,
+		"root": false
+	},
+	"pioql71vygob81hm": {
+		"definition": "knockback_buff",
+		"x": 175,
+		"y": -101.0362971081845,
+		"root": false
+	},
+	"j0tifio3zd5unkrt": {
+		"definition": "knockback_buff",
+		"x": 0,
+		"y": 202.072594216369,
+		"root": false
+	},
+	"ta2pohzq3lr48f7g": {
+		"definition": "armor_5",
+		"x": 225,
+		"y": 72.16878364870323,
+		"root": false
+	},
+	"6c1sm4xuz4wjxf34": {
+		"definition": "attack_speed",
+		"x": -125,
+		"y": -72.16878364870323,
+		"root": false
+	},
+	"wijukfrbt2u4uq2i": {
+		"definition": "movespeed_buff",
+		"x": -175,
+		"y": -101.0362971081845,
+		"root": false
+	},
+	"90snaaig0wjvknx9": {
+		"definition": "attack_speed",
+		"x": -175,
+		"y": 158.7713240271471,
+		"root": false
+	},
+	"3rosrdehkhd4ia10": {
+		"definition": "attack_speed",
+		"x": -225,
+		"y": 72.1687836487032,
+		"root": false
+	},
+	"oq7u0d74p3mk90u1": {
+		"definition": "bow_damage",
+		"x": -50,
+		"y": -230.9401076758503,
+		"root": false
+	},
+	"g09stftcu1wc45db": {
+		"definition": "bow_damage",
+		"x": 50,
+		"y": -230.9401076758503,
+		"root": false
+	},
+	"bdpjodrh2eh59sgs": {
+		"definition": "knockback_buff",
+		"x": 175,
+		"y": 158.77132402714707,
+		"root": false
+	},
+	"51nmj6hu2pvjjtu0": {
+		"definition": "armor_4",
+		"x": 275,
+		"y": 158.77132402714707,
+		"root": false
+	},
+	"pm1t4w9qoxkclivy": {
+		"definition": "damage_buff_5",
+		"x": -275,
+		"y": 158.77132402714707,
+		"root": false
+	},
+	"z5lvak0rtu97oigc": {
+		"definition": "bow_speed",
+		"x": 0,
+		"y": -317.54264805429415,
+		"root": false
+	}
+}

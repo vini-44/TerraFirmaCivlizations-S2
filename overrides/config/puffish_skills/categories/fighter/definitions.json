@@ -1,0 +1,607 @@
+{
+	"placeholder": {
+		"title": "WIP",
+		"icon": {
+			"type": "item",
+			"data": {
+				"item": "minecraft:grass_block"
+			}
+		},
+		"description": "guh",
+		"metadata": {
+			"icon": "jm5ydhm6tzb9bkxk"
+		}
+	},
+	"damage_buff_1": {
+		"title": "Strong arms",
+		"icon": {
+			"type": "item",
+			"data": {
+				"item": "tfc:metal/sword/wrought_iron"
+			}
+		},
+		"description": "Increase melee damage (+10%)",
+		"rewards": [
+			{
+				"type": "puffish_skills_origins:power",
+				"data": {
+					"power": "origins-classes:damage_upgrade_1"
+				}
+			}
+		],
+		"metadata": {
+			"icon": "kkdsmv8er00p4xhc"
+		}
+	},
+	"damage_buff_2": {
+		"title": "Strong arms",
+		"icon": {
+			"type": "item",
+			"data": {
+				"item": "tfc:metal/sword/wrought_iron"
+			}
+		},
+		"description": "Increase melee damage (+10%)",
+		"rewards": [
+			{
+				"type": "puffish_skills_origins:power",
+				"data": {
+					"power": "origins-classes:damage_upgrade_2"
+				}
+			}
+		],
+		"metadata": {
+			"icon": "en9c0dbzyydqofjb"
+		}
+	},
+	"damage_buff_3": {
+		"title": "Strong arms",
+		"icon": {
+			"type": "item",
+			"data": {
+				"item": "tfc:metal/sword/wrought_iron"
+			}
+		},
+		"description": "Increase melee damage (+10%)",
+		"rewards": [
+			{
+				"type": "puffish_skills_origins:power",
+				"data": {
+					"power": "origins-classes:damage_upgrade_3"
+				}
+			}
+		],
+		"metadata": {
+			"icon": "ks1aviobmy8jwzrh"
+		}
+	},
+	"damage_buff_4": {
+		"title": "Strong arms",
+		"icon": {
+			"type": "item",
+			"data": {
+				"item": "tfc:metal/sword/wrought_iron"
+			}
+		},
+		"description": "Increase melee damage (+10%)",
+		"rewards": [
+			{
+				"type": "puffish_skills_origins:power",
+				"data": {
+					"power": "origins-classes:damage_upgrade_4"
+				}
+			}
+		],
+		"metadata": {
+			"icon": "zowyasszyo193b75"
+		}
+	},
+	"damage_buff_5": {
+		"title": "Strong arms",
+		"icon": {
+			"type": "item",
+			"data": {
+				"item": "tfc:metal/sword/wrought_iron"
+			}
+		},
+		"description": "Increase melee damage (+10%)",
+		"rewards": [
+			{
+				"type": "puffish_skills_origins:power",
+				"data": {
+					"power": "origins-classes:damage_upgrade_5"
+				}
+			}
+		],
+		"metadata": {
+			"icon": "yybbbp7s3mfbegp7"
+		}
+	},
+	"armor_1": {
+		"title": "Tough skin",
+		"icon": {
+			"type": "effect",
+			"data": {
+				"effect": "minecraft:absorption"
+			}
+		},
+		"description": "Decrease taken damage(-10%)",
+		"rewards": [
+			{
+				"type": "puffish_skills_origins:power",
+				"data": {
+					"power": "origins-classes:fighter_defence_1"
+				}
+			}
+		],
+		"metadata": {
+			"icon": "sbbk6zh2ciczyrpt"
+		}
+	},
+	"armor_2": {
+		"title": "Tough skin",
+		"icon": {
+			"type": "effect",
+			"data": {
+				"effect": "minecraft:absorption"
+			}
+		},
+		"description": "Decrease taken damage(-10%)",
+		"rewards": [
+			{
+				"type": "puffish_skills_origins:power",
+				"data": {
+					"power": "origins-classes:fighter_defence_2"
+				}
+			}
+		],
+		"metadata": {
+			"icon": "b9uaqa1bnwpkrfh5"
+		}
+	},
+	"armor_3": {
+		"title": "Tough skin",
+		"icon": {
+			"type": "effect",
+			"data": {
+				"effect": "minecraft:absorption"
+			}
+		},
+		"description": "Decrease taken damage(-10%)",
+		"rewards": [
+			{
+				"type": "puffish_skills_origins:power",
+				"data": {
+					"power": "origins-classes:fighter_defence_3"
+				}
+			}
+		],
+		"metadata": {
+			"icon": "2lgvam8vb43eynl8"
+		}
+	},
+	"armor_4": {
+		"title": "Tough skin",
+		"icon": {
+			"type": "effect",
+			"data": {
+				"effect": "minecraft:absorption"
+			}
+		},
+		"description": "Decrease taken damage(-10%)",
+		"rewards": [
+			{
+				"type": "puffish_skills_origins:power",
+				"data": {
+					"power": "origins-classes:fighter_defence_4"
+				}
+			}
+		],
+		"metadata": {
+			"icon": "4ip6hzliqfdobje1"
+		}
+	},
+	"armor_5": {
+		"title": "Tough skin",
+		"icon": {
+			"type": "effect",
+			"data": {
+				"effect": "minecraft:absorption"
+			}
+		},
+		"description": "Decrease taken damage(-10%)",
+		"rewards": [
+			{
+				"type": "puffish_skills_origins:power",
+				"data": {
+					"power": "origins-classes:fighter_defence_5"
+				}
+			}
+		],
+		"metadata": {
+			"icon": "lrsyo5i4y8j02z4d"
+		}
+	},
+	"health_buff": {
+		"title": "Built physique",
+		"icon": {
+			"type": "effect",
+			"data": {
+				"effect": "minecraft:regeneration"
+			}
+		},
+		"description": "All that hard work is paying off, you feel a little tougher (+1/2 Heart)",
+		"rewards": [
+			{
+				"type": "puffish_skills:attribute",
+				"data": {
+					"attribute": "minecraft:generic.max_health",
+					"value": 1,
+					"operation": "addition"
+				}
+			}
+		],
+		"metadata": {
+			"icon": "pkxp72ne0zfimz2z"
+		}
+	},
+	"knockback_buff": {
+		"title": "Big shove",
+		"icon": {
+			"type": "item",
+			"data": {
+				"item": "minecraft:stick"
+			}
+		},
+		"description": "You can really throw people. (+10% knockback)",
+		"rewards": [
+			{
+				"type": "puffish_skills:attribute",
+				"data": {
+					"attribute": "minecraft:generic.attack_knockback",
+					"value": 0.1,
+					"operation": "multiply_base"
+				}
+			}
+		],
+		"metadata": {
+			"icon": "pkxp72ne0zfimz2z"
+		}
+	},
+	"movespeed_buff": {
+		"title": "Quick feet",
+		"icon": {
+			"type": "effect",
+			"data": {
+				"effect": "minecraft:speed"
+			}
+		},
+		"description": "Your a fast runner. (+5% speed)",
+		"rewards": [
+			{
+				"type": "puffish_skills:attribute",
+				"data": {
+					"attribute": "minecraft:generic.movement_speed",
+					"value": 0.05,
+					"operation": "multiply_base"
+				}
+			}
+		],
+		"metadata": {
+			"icon": "pkxp72ne0zfimz2z"
+		}
+	},
+	"attack_speed": {
+		"title": "Fast striker",
+		"icon": {
+			"type": "effect",
+			"data": {
+				"effect": "minecraft:strength"
+			}
+		},
+		"description": "You feel nimble and quick. (+5% attack speed)",
+		"rewards": [
+			{
+				"type": "puffish_skills:attribute",
+				"data": {
+					"attribute": "minecraft:generic.attack_speed",
+					"value": 0.05,
+					"operation": "multiply_base"
+				}
+			}
+		],
+		"metadata": {
+			"icon": "pkxp72ne0zfimz2z"
+		}
+	},
+	"bow_speed": {
+		"title": "Far shooter",
+		"icon": {
+			"type": "item",
+			"data": {
+				"item": "minecraft:arrow"
+			}
+		},
+		"description": "You have a fast shooting arm. (+15% arrow speed)",
+		"rewards": [
+			{
+				"type": "puffish_skills:attribute",
+				"data": {
+					"attribute": "puffish_attributes:bow_projectile_speed",
+					"value": 0.15,
+					"operation": "multiply_total"
+				}
+			}
+		],
+		"metadata": {
+			"icon": "pkxp72ne0zfimz2z"
+		}
+	},
+	"bow_damage": {
+		"title": "Strong tendons",
+		"icon": {
+			"type": "item",
+			"data": {
+				"item": "tfc:glow_arrow"
+			}
+		},
+		"description": "You have a strong shooting arm. (+10% arrow damage)",
+		"rewards": [
+			{
+				"type": "puffish_skills:attribute",
+				"data": {
+					"attribute": "puffish_attributes:ranged_damage",
+					"value": 0.10,
+					"operation": "multiply_total"
+				}
+			}
+		],
+		"metadata": {
+			"icon": "pkxp72ne0zfimz2z"
+		}
+	},
+	"guardsman": {
+		"title": "Guardsman",
+		"cost": 3,
+		"icon": {
+			"type": "item",
+			"data": {
+				"item": "magistuarmory:steel_heatershield"
+			}
+		},
+		"frame": {
+			"type": "advancement",
+			"data": {
+				"frame": "challenge"
+			}
+		},
+		"rewards": [
+			{
+				"type": "puffish_skills:attribute",
+				"data": {
+					"attribute": "minecraft:generic.armor_toughness",
+					"value": 0.2,
+					"operation": "multiply_base"
+				}
+			},
+			{
+				"type": "puffish_skills:attribute",
+				"data": {
+					"attribute": "minecraft:generic.max_health",
+					"value": 4,
+					"operation": "addition"
+				}
+			},
+			{
+				"type": "puffish_skills:attribute",
+				"data": {
+					"attribute": "minecraft:generic.attack_knockback",
+					"value": 0.2,
+					"operation": "multiply_base"
+				}
+			}
+		],
+		"description": [
+			"",
+			{
+				"text": "Cost 3 points",
+				"color": "yellow"
+			},
+			"\nYou stand your ground, defending yourself and your settlement. \n",
+			{
+				"text": "(+20% armor toughness, +20% knockback, +2 hearts)",
+				"color": "gold"
+			}
+		],
+		"metadata": {
+			"icon": "glnpbb6xga31j0i2"
+		}
+	},
+	"tank": {
+		"title": "Tank",
+		"cost": 3,
+		"icon": {
+			"type": "item",
+			"data": {
+				"item": "textile:grizzly_bear_fur"
+			}
+		},
+		"frame": {
+			"type": "advancement",
+			"data": {
+				"frame": "challenge"
+			}
+		},
+		"rewards": [
+			{
+				"type": "puffish_skills:attribute",
+				"data": {
+					"attribute": "minecraft:generic.armor_toughness",
+					"value": 0.1,
+					"operation": "multiply_base"
+				}
+			},
+			{
+				"type": "puffish_skills:attribute",
+				"data": {
+					"attribute": "minecraft:generic.max_health",
+					"value": 2,
+					"operation": "addition"
+				}
+			},
+			{
+				"type": "puffish_skills:attribute",
+				"data": {
+					"attribute": "minecraft:generic.armor",
+					"value": 2,
+					"operation": "addition"
+				}
+			},
+			{
+				"type": "puffish_skills:attribute",
+				"data": {
+					"attribute": "minecraft:generic.movement_speed",
+					"value": -0.3,
+					"operation": "multiply_base"
+				}
+			}
+		],
+		"description": [
+			"",
+			{
+				"text": "Cost 3 points",
+				"color": "yellow"
+			},
+			"\nYou stand your ground, soaking up damage for your teammates. \n",
+			{
+				"text": "(+1 armor bar, +10% armor toughness, +1 heart, -30% move speed)",
+				"color": "gold"
+			}
+		],
+		"metadata": {
+			"icon": "60nxic81jqj5obku"
+		}
+	},
+	"archer": {
+		"title": "Archer",
+		"cost": 3,
+		"icon": {
+			"type": "item",
+			"data": {
+				"item": "magistuarmory:longbow"
+			}
+		},
+		"frame": {
+			"type": "advancement",
+			"data": {
+				"frame": "challenge"
+			}
+		},
+		"rewards": [
+			{
+				"type": "puffish_skills:attribute",
+				"data": {
+					"attribute": "puffish_attributes:ranged_damage",
+					"value": 0.25,
+					"operation": "multiply_total"
+				}
+			},
+			{
+				"type": "puffish_skills:attribute",
+				"data": {
+					"attribute": "puffish_attributes:bow_projectile_speed",
+					"value": 0.25,
+					"operation": "multiply_total"
+				}
+			},
+			{
+				"type": "puffish_skills:attribute",
+				"data": {
+					"attribute": "minecraft:generic.attack_damage",
+					"value": -0.2,
+					"operation": "multiply_base"
+				}
+			}
+		],
+		"description": [
+			"",
+			{
+				"text": "Cost 3 points",
+				"color": "yellow"
+			},
+			"\nYou snipe at enemies from afar, making sure to keep your distance. \n",
+			{
+				"text": "(+25% arrow damage, +25% arrow speed, -20% melee damage)",
+				"color": "gold"
+			}
+		],
+		"metadata": {
+			"icon": "6dmbyqi435isqxtd"
+		}
+	},
+	"fencer": {
+		"title": "Fencer",
+		"cost": 3,
+		"icon": {
+			"type": "item",
+			"data": {
+				"item": "magistuarmory:steel_estoc"
+			}
+		},
+		"frame": {
+			"type": "advancement",
+			"data": {
+				"frame": "challenge"
+			}
+		},
+		"rewards": [
+			{
+				"type": "puffish_skills:attribute",
+				"data": {
+					"attribute": "minecraft:generic.armor_toughness",
+					"value": -0.1,
+					"operation": "multiply_base"
+				}
+			},
+			{
+				"type": "puffish_skills:attribute",
+				"data": {
+					"attribute": "minecraft:generic.max_health",
+					"value": -4,
+					"operation": "addition"
+				}
+			},
+			{
+				"type": "puffish_skills:attribute",
+				"data": {
+					"attribute": "minecraft:generic.attack_damage",
+					"value": 0.15,
+					"operation": "multiply_base"
+				}
+			},
+			{
+				"type": "puffish_skills:attribute",
+				"data": {
+					"attribute": "minecraft:generic.movement_speed",
+					"value": 0.15,
+					"operation": "multiply_base"
+				}
+			}
+		],
+		"description": [
+			"",
+			{
+				"text": "Cost 3 points",
+				"color": "yellow"
+			},
+			"\nYou specialize in dueling and taking short fights while dealing quick damage. \n",
+			{
+				"text": "(+15% melee damage, +15% speed, -2 heart, -10% armor toughness)",
+				"color": "gold"
+			}
+		],
+		"metadata": {
+			"icon": "jond54u70yecfgpb"
+		}
+	}
+}

@@ -437,21 +437,19 @@
 		}
 	},
 	"armor": {
-		"title": "Calluses WIP",
+		"title": "Stone skin",
 		"icon": {
 			"type": "effect",
 			"data": {
 				"effect": "minecraft:absorption"
 			}
 		},
-		"description": "While a bit painful, the thicker skin will help with fighting, gain a bit of natural armor (+1/2 armor)",
+		"description": "While a bit painful, the thicker skin will help with fighting, gain a bit of natural armor (-10% damage taken)",
 		"rewards": [
 			{
-				"type": "puffish_skills:attribute",
+				"type": "puffish_skills_origins:power",
 				"data": {
-					"attribute": "minecraft:generic.armor",
-					"value": 0.5,
-					"operation": "addition"
+					"power": "origins-classes:mining_defence"
 				}
 			}
 		],

@@ -209,6 +209,27 @@
 			"icon": "5w29exnh9bzd5lvf"
 		}
 	},
+	"wood_buff_2": {
+		"title": "Faster cutting",
+		"icon": {
+			"type": "item",
+			"data": {
+				"item": "tfc:metal/axe/wrought_iron"
+			}
+		},
+		"description": "Cut wood faster(+10%)",
+		"rewards": [
+			{
+				"type": "puffish_skills_origins:power",
+				"data": {
+					"power": "origins-classes:axe_upgrade_2"
+				}
+			}
+		],
+		"metadata": {
+			"icon": "5w29exnh9bzd5lvf"
+		}
+	},
 	"animal_buff_1": {
 		"title": "Efficient killing",
 		"icon": {
@@ -276,22 +297,41 @@
 			"icon": "pkxp72ne0zfimz2z"
 		}
 	},
-	"armor": {
-		"title": "Calluses WIP",
+	"armor_1": {
+		"title": "Calluses",
 		"icon": {
 			"type": "effect",
 			"data": {
 				"effect": "minecraft:absorption"
 			}
 		},
-		"description": "While a bit painful, the thicker skin will help with fighting, gain a bit of natural armor (+1/2 armor)",
+		"description": "While a bit painful, the thicker skin will help with fighting, gain a bit of natural armor (-10% damage taken)",
 		"rewards": [
 			{
-				"type": "puffish_skills:attribute",
+				"type": "puffish_skills_origins:power",
 				"data": {
-					"attribute": "minecraft:generic.armor",
-					"value": 0.5,
-					"operation": "addition"
+					"power": "origins-classes:farming_defence_1"
+				}
+			}
+		],
+		"metadata": {
+			"icon": "q9zghssgcwm08k0f"
+		}
+	},
+	"armor_2": {
+		"title": "Calluses",
+		"icon": {
+			"type": "effect",
+			"data": {
+				"effect": "minecraft:absorption"
+			}
+		},
+		"description": "While a bit painful, the thicker skin will help with fighting, gain a bit of natural armor (-10% damage taken)",
+		"rewards": [
+			{
+				"type": "puffish_skills_origins:power",
+				"data": {
+					"power": "origins-classes:farming_defence_2"
 				}
 			}
 		],
@@ -456,6 +496,13 @@
 				"data": {
 					"unlock_command": "puffish_skills skills unlock @s puffish_skills:rancher h296elump7w38hlp",
 					"lock_command": "puffish_skills skills lock @s puffish_skills:rancher h296elump7w38hlp"
+				}
+			},
+			{
+				"type": "puffish_skills:command",
+				"data": {
+					"unlock_command": "puffish_skills experience set @s puffish_skills:rancher 0",
+					"lock_command": "puffish_skills experience set @s puffish_skills:rancher 0"
 				}
 			}
 		],

@@ -24,7 +24,7 @@
 		"root": false
 	},
 	"00g31ikay5nbhzv0": {
-		"definition": "armor",
+		"definition": "armor_1",
 		"x": 129.9038105676658,
 		"y": -75,
 		"root": false
@@ -60,7 +60,7 @@
 		"root": false
 	},
 	"9jwjax7ccc266csb": {
-		"definition": "armor",
+		"definition": "armor_2",
 		"x": 43.30127018922193,
 		"y": -25,
 		"root": false
@@ -72,7 +72,7 @@
 		"root": false
 	},
 	"rfqaob6bdegl4ih0": {
-		"definition": "wood_buff_1",
+		"definition": "wood_buff_2",
 		"x": 0,
 		"y": 150,
 		"root": false
