@@ -119,13 +119,15 @@ function fruitCheck(event) {
 function jamCheck(event) {
 	const { player, level, hand} = event;
 
-	if (hand !== 'main_hand') return;
+	if (hand !== 'main_hand' && hand !== 'off_hand') return;
 
-	if(player.mainHandItem.id == 'tfc:empty_jar' && !player.tags.contains('orchardist')) {
+	const held = (hand === 'main_hand') ? player.mainHandItem : player.offHandItem;
+
+	if(held.id == 'tfc:empty_jar' && !player.tags.contains('orchardist')) {
 		player.tell('You need to be an orchardist to collect jam!');
 		event.cancel();
 	}
-	else if (player.mainHandItem.id == 'tfc:empty_jar' && player.tags.contains('orchardist')){
+	else if (held.id == 'tfc:empty_jar' && player.tags.contains('orchardist')){
 		SkillExperience.addExperience(player, "puffish_skills:farmer", 10);
 	}
 }
@@ -164,11 +166,13 @@ function meatHookCheck(event) {
 function leatherCheck(event) {
 	const { player, level, hand, block} = event;
 	
-	if (hand !== 'main_hand') return;
+	if (hand !== 'main_hand' && hand !== 'off_hand') return;
 	if (block.id !== 'tfc:scraping') return;
 	//player.tell(block.id);
 
-	if(player.mainHandItem.hasTag('tfc:knives') && !player.tags.contains('leather_worker')) {
+	const held = (hand === 'main_hand') ? player.mainHandItem : player.offHandItem;
+
+	if(held.hasTag('tfc:knives') && !player.tags.contains('leather_worker')) {
 		player.tell('You need to be a leather worker to make leather!');
 		event.level.destroyBlock(event.block.pos, true);
 		event.cancel();
@@ -177,23 +181,25 @@ function leatherCheck(event) {
 function proPickCheck(event) {
 	const {player, hand} = event;
 
-	if (hand !== 'main_hand') return;
+	if (hand !== 'main_hand' && hand !== 'off_hand') return;
+
+	const held = (hand === 'main_hand') ? player.mainHandItem : player.offHandItem;
 
 	if(!player.tags.contains('spelunker') && (
-		player.mainHandItem.hasTag('tfc:propicks') ||
-		player.mainHandItem.hasTag('precisionprospecting:prospector_hammers') ||
-		player.mainHandItem.hasTag('precisionprospecting:prospector_drills') ||
-		player.mainHandItem.hasTag('precisionprospecting:mineral_prospectors') 
+		held.hasTag('tfc:propicks') ||
+		held.hasTag('precisionprospecting:prospector_hammers') ||
+		held.hasTag('precisionprospecting:prospector_drills') ||
+		held.hasTag('precisionprospecting:mineral_prospectors') 
 	))
 	{
 		player.tell(`You need to be a Spelunker to use this tool!`);
 		event.cancel();
 	}
 	else if(player.tags.contains('spelunker') && (
-		player.mainHandItem.hasTag('tfc:propicks') ||
-		player.mainHandItem.hasTag('precisionprospecting:prospector_hammers') ||
-		player.mainHandItem.hasTag('precisionprospecting:prospector_drills') ||
-		player.mainHandItem.hasTag('precisionprospecting:mineral_prospectors') 
+		held.hasTag('tfc:propicks') ||
+		held.hasTag('precisionprospecting:prospector_hammers') ||
+		held.hasTag('precisionprospecting:prospector_drills') ||
+		held.hasTag('precisionprospecting:mineral_prospectors') 
 	))
 	{
 		SkillExperience.addExperience(player, "puffish_skills:miner", 1);
@@ -274,6 +280,9 @@ function depthSicknessCheck(event){
 	if (player.tags.contains('depth_sickness_3')) lowestDepth -= 20;
 	if (player.tags.contains('depth_sickness_4')) lowestDepth -= 20;
 	if (player.tags.contains('depth_sickness_5')) lowestDepth -= 25;
+
+	//Temporary fix to allow for harvesting of kelp from ocean floor without depth sickness
+	if ( player.isInWater() ) lowestDepth -= 15; //ocean floor is at y=40
 
 	if (player.y >= lowestDepth) return;
 	if (!player.tags.contains('depth_sickness_5')){
