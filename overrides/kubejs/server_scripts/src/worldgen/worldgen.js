@@ -109,8 +109,8 @@ ServerEvents.highPriorityData((event) => {
 	for (let [datapath, _json] of Object.entries(oreJsonFolder)) {
 		_json = JsonIO.toObject(_json);
 
-		_json.config.rarity = _json.config.rarity * 64;
-		_json.config.density = _json.config.density * 0.8;
+		_json.config.rarity = _json.config.rarity * 16;
+		_json.config.density = _json.config.density * 1.0;
 
 		if (_json.config.density > 1) {
 			_json.config.density = 1;
@@ -143,8 +143,8 @@ ServerEvents.highPriorityData((event) => {
 	for (let [datapath, _json] of Object.entries(FLOreJsonFolder)) {
 		_json = JsonIO.toObject(_json);
 
-		_json.config.rarity = _json.config.rarity * 64;
-		_json.config.density = _json.config.density * 0.8;
+		_json.config.rarity = _json.config.rarity * 16;
+		_json.config.density = _json.config.density * 1.0;
 
 		if (_json.config.density > 1) {
 			_json.config.density = 1;
