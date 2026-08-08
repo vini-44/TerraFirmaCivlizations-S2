@@ -353,7 +353,9 @@ ServerEvents.commandRegistry(event => {
 					for (var key of keys) {
 						var p = Pathogens[key];
 						getInfectedCount(key, ctx.source.server)
-						ctx.source.player.tell(`- ${key}: '${p.name}', severity ${p.severity}, virality ${p.virality}, patient 0: ${p.patient_0}, active infected: ${p.infected_count}`);
+						if(p.infected_count > 0){
+							ctx.source.player.tell(`- ${key}: '${p.name}', severity ${p.severity}, virality ${p.virality}, patient 0: ${p.patient_0}, active infected: ${p.infected_count}`);
+						}
 					}
 					return 1;
 				})
@@ -424,8 +426,8 @@ ServerEvents.tick(event => {
 		//bad water thing
 		if (player.potionEffects.isActive('minecraft:unluck')) {
 			var chance = (Math.random()*(2*(pData.getLong('hygiene'))/100));
-			player.tell(chance);
-			player.tell((pData.getLong('hygiene')/100));
+			//player.tell(chance);
+			//player.tell((pData.getLong('hygiene')/100));
 			//player.tell(chance);
 			if(chance <= 0.02){
 				var severity = Math.round(5 * Math.pow(Math.random(), 3)*100)/100;
@@ -463,11 +465,12 @@ ServerEvents.tick(event => {
 			return;
 		} else {
 
-			loadPathogens(player.server);
+			//loadPathogens(player.server);
 
 
 			var keys = Object.keys(Pathogens);
 			var names = [];
+			/*
 			for (var key of keys) {
 				var p = Pathogens[key];
 				getInfectedCount(key, player.server)
@@ -478,6 +481,7 @@ ServerEvents.tick(event => {
 				PathogenClass.prototype.curePlayer(player);
 				return;
 			}
+			*/
 			var hurtcountdown = pData.getInt('pathogen_check_countdown');
 			if (hurtcountdown > 0) {
 				pData.putInt('pathogen_check_countdown', hurtcountdown - 1);
