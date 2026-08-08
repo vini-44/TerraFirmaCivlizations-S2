@@ -1,0 +1,9 @@
+{
+  "name": "Clumsy Fighter",
+  "description": "-50% melee damage",
+  "type": "origins:modify_damage_dealt",
+  "modifier": {
+    "value": -0.5,
+    "operation": "multiply_base"
+  }
+}

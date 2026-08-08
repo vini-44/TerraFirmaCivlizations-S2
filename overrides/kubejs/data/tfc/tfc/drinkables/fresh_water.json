@@ -19,7 +19,7 @@
     {
       "type": "minecraft:nausea",
       "duration": 800,
-      "chance": 0.15
+      "chance": 0.10
     },
     {
       "type": "minecraft:slowness",
@@ -35,6 +35,11 @@
       "type": "minecraft:poison",
       "duration": 40,
       "chance": 0.05
+    },
+    {
+      "type": "minecraft:unluck",
+      "duration": 60,
+      "chance": 1.00
     }
   ]
 }

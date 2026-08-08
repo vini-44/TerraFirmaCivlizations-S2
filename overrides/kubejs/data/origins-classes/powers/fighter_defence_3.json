@@ -1,0 +1,9 @@
+{
+  "name": "Blocker",
+  "description": "-10% damage taken",
+  "type": "origins:modify_damage_taken",
+  "modifier": {
+    "value": -0.1,
+    "operation": "multiply_base"
+  }
+}

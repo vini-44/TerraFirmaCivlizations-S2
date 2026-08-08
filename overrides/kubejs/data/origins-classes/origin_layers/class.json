@@ -1,7 +1,7 @@
 {
   "replace": true,
   "order": 1,
-  "enabled": false,
+  "enabled": true,
   "origins": [
     "origins-classes:nitwit1"
   ],

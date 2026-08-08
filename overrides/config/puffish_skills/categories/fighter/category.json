@@ -1,0 +1,11 @@
+{
+	"unlocked_by_default": true,
+	"title": "Warrior",
+	"icon": {
+		"type": "item",
+		"data": {
+			"item": "minecraft:iron_sword"
+		}
+	},
+	"background": "minecraft:textures/gui/advancements/backgrounds/stone.png"
+}

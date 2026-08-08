@@ -1,8 +1,17 @@
 {
-  "name": "Nitwit",
-  "description": "You enter this world without any skills, but an eagerness to learn.",
-  "powers": [],
-  "icon": "minecraft:green_wool",
+  "name": "Blank Slate",
+  "description": "You enter this world unskilled, but an eagerness to learn.",
+  "powers": [
+    "origins-classes:starting_crop_break_speed",
+    "origins-classes:starting_pickaxe_break_speed",
+    "origins-classes:starting_axe_break_speed",
+    "origins-classes:starting_shovel_break_speed",
+    
+    "origins-classes:starting_damage_debuff",
+    "origins-classes:starting_health_debuff"
+
+  ],
+  "icon": "farmersdelight:canvas",
   "order": 0,
-  "impact": 0
+  "impact": 3
 }
