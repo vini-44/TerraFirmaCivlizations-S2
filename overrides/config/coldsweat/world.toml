@@ -101,15 +101,15 @@
 	    ["minecraft:lava", 20, 7, "f", 200, "", "", 1000, true],
 	    ["#minecraft:fire", 15, 7, "f", 45, "", "", 400],
 	    ["#minecraft:campfires", 15, 7, "f", 45, "lit=true", " ", 400],
-	    ["minecraft:magma_block", 12, 3, "f", 48],	
+	    ["minecraft:magma_block", 12, 3, "f", 48],
 	    ["minecraft:lava_cauldron", 20, 7, "f", 200, "", "", 1000, true],
 	    ["minecraft:ice", -6, 4, "f", 24, "", "", 33],
 	    ["minecraft:packed_ice", -12, 4, "f", 48, "", "", 16],
 	    ["minecraft:blue_ice", -16, 4, "f", 64, "", "", 0],
 	    ["#minecraft:ice", -6, 4, "f", 27, "", "", 33],
-	    ["terrafirmacivilizations:magma_liquid", 30, 16, "f", 1000, "", "", 1500, true],
-	    ["#terrafirmacivilizations:mantle_ore", 20, 16, "f", 1500, "", "", 2000],
-	    ["#terrafirmacivilizations:mantle_vent", 75, 16, "f", 1500, "", "", 2500]
+	    ["terrafirmacivilizations:magma_liquid", 20, 8, "f", 1000, "", "", 1500, true],
+	    ["#terrafirmacivilizations:mantle_ore", 15, 8, "f", 1500, "", "", 2000],
+	    ["#terrafirmacivilizations:mantle_vent", 50, 16, "f", 1500, "", "", 2500]
 	]
 	#─────────────────────────────────────────────────────────────────────────
 	# The maximum range of blocks' area of effect
@@ -138,7 +138,7 @@
 	#─────────────────────────────────────────────────────────────────────────
 	# The default temperature of water
 	# └── Format: [temperature, *units]
-	"Default Water Temperature" = [-32, "f"]
+	"Default Water Temperature" = [-0.7111111111111111, "f"]
 	#─────────────────────────────────────────────────────────────────────────
 	# The maximum soak level a player can reach from rain alone (0.0 - 1.0)
 	#Range: 0.0 ~ Infinity
