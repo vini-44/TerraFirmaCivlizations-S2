@@ -303,7 +303,7 @@ function depthSicknessCheck(event){
 	if (player.tags.contains('depth_sickness_5')) lowestDepth -= 25;
 
 	//y=40 is ocean floor, allows kelp farming
-	if(lowestDepth > 40 && player.IsInWater()) lowestDepth = 40; 
+	if(lowestDepth > 40 && player.isInWater()) lowestDepth = 40; 
 
 	if (player.y >= lowestDepth) return;
 	if (!player.tags.contains('depth_sickness_5')){
