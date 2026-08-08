@@ -1,3 +1,5 @@
+const CuriosApi = Java.loadClass("top.theillusivec4.curios.api.CuriosApi");
+
 const Pathogens = {};
 let pathogensLoaded = false;
 
@@ -189,7 +191,12 @@ PathogenClass.prototype.damage_check = function(player) {
 			}
 
 			if ((coughlevel)/(2*targetPlayer.persistentData.getDouble('hygiene')) >= (5*(Math.random()**2))){
-				pathogen.infectPlayer(targetPlayer); 
+				if(!hasHeadCurio(player, "createbigcannons:gas_mask")){	
+					pathogen.infectPlayer(targetPlayer); 
+				}
+				else if ((Math.random() < 0.1)){ //10% to get infected anyways
+					pathogen.infectPlayer(targetPlayer); 
+				}
 			}
 		});
 
@@ -489,7 +496,28 @@ ServerEvents.tick(event => {
 		}
 	});
 });
+function hasHeadCurio(player, itemId) {
+    let curiosHelper = CuriosApi.getCuriosHelper();
+    
+    // 1. Find the curio on the player
+    let found = curiosHelper.findFirstCurio(player, itemId);
+    
+    // 2. Explicitly check if it exists BEFORE grabbing the inner data
+    if (!found.isPresent()) {
+        return false; 
+    }
+    
+
+    // 3. Safe to call .get() now because isPresent() returned true
+    let slotResult = found.get();
+    let slotId = slotResult.slotContext().identifier(); 
+    //player.tell(`You are wearing ${slotResult}`);
+    
+    return slotId === 'head';
+}
 function tickingClean(player, event){
+
+
 	var pData = player.persistentData;
 	const scale = (value, inMin, inMax, outMin, outMax) => {
 		return ((value - inMin) * (outMax - outMin)) / (inMax - inMin) + outMin;
@@ -518,6 +546,9 @@ function tickingClean(player, event){
 	var nutrition = player.data['tfc:player_data'].getAverageNutrition();
 
 	var calculatedHygiene = ((soapCurrent*0.2)+(herbsCurrent*0.2)+(showerCurrent*0.3)+(nutrition*0.3))*100;
+	if (hasHeadCurio(player, "createbigcannons:gas_mask")){
+		calculatedHygiene += 15;
+	}
 	//player.tell(`Your overall hygiene is at ${player.persistentData.getLong('hygiene')}`)
 	pData.putLong('hygiene', Math.max(calculatedHygiene, 1));
 }
