@@ -302,6 +302,9 @@ function depthSicknessCheck(event){
 	if (player.tags.contains('depth_sickness_4')) lowestDepth -= 20;
 	if (player.tags.contains('depth_sickness_5')) lowestDepth -= 25;
 
+	//y=40 is ocean floor, allows kelp farming
+	if(lowestDepth > 40 && player.IsInWater()) lowestDepth = 40; 
+
 	if (player.y >= lowestDepth) return;
 	if (!player.tags.contains('depth_sickness_5')){
 		player.potionEffects.add('minecraft:slowness', 120 * 20, 0);
