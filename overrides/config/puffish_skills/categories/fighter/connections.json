@@ -160,5 +160,21 @@
 				"wijukfrbt2u4uq2i"
 			]
 		]
+	},
+	"exclusive": {
+		"bidirectional": [
+			[
+				"v2xyyg4j0hgiqnr1",
+				"5tfiztcgyqyguz3z"
+			],
+			[
+				"v2xyyg4j0hgiqnr1",
+				"nzrl2acro4wftmp6"
+			],
+			[
+				"5tfiztcgyqyguz3z",
+				"nzrl2acro4wftmp6"
+			]
+		]
 	}
 }
