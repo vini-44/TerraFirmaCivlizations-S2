@@ -211,7 +211,10 @@ ServerEvents.commandRegistry(event => {
 	event.register(
 		Commands.literal('pathogen')
 
-		.requires(source => source.hasPermission(2)) // Check if the player has operator privileges
+		.requires(source => {
+			const player = source.getEntity ? source.getEntity() : null;
+			return player != null && player.hasPermissions(2);
+		})
 		//infect
 		.then(
 			Commands.literal('infect')

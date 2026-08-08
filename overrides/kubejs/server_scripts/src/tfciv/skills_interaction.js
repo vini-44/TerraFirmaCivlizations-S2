@@ -263,12 +263,38 @@ function oreCheck(event) {
 
 	SkillExperience.addExperience(player, "puffish_skills:miner", 10)
 }
+function getPlayerOrigin(player)
+{
+	const full = player.nbt;
+	const caps = full.get("ForgeCaps")
+    //console.log(caps)
+    if (!caps) return
+
+    const originsCap = caps.get("origins:origins")
+    //console.log(originsCap)
+    if (!originsCap) return;
+
+    const originsData = originsCap.get("Origins")
+    //console.log(originsData)
+	if (!originsData) return;
+
+    return originsData.getString("origins:origin")
+}
 function depthSicknessCheck(event){
 	const { player, level, hand, block} = event;
 
-	if (player.y >= 55) return;	
+	if (player.y >= 50) return;	
+
+    let originsData = player.nbt.getCompound('OriginComponent');
+    
+	let lowestDepth = 50;
+
+	//player.tell("Your exact NBT origin is: " + getPlayerOrigin(player));
+	if(getPlayerOrigin(player) === "origins:mountains") {
+		lowestDepth -= 15;
+		//player.tell(`lowering depth`);
+	}
 	
-	let lowestDepth = 55;
 	if (player.tags.contains('depth_sickness_1')) lowestDepth -= 10;
 	if (player.tags.contains('depth_sickness_2')) lowestDepth -= 20;
 	if (player.tags.contains('depth_sickness_3')) lowestDepth -= 20;
