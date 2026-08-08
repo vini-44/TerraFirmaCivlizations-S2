@@ -530,7 +530,7 @@ function tickingClean(player, event){
 		var showerModifier = pData.getDouble('showerModifier');
 		//player.tell(showerModifier);
 		if (showerModifier < 1700) {
-			player.tell('You bathe.');
+			if(showerModifier%2) player.tell('You bathe.');
 			pData.putDouble('showerModifier', (showerModifier + 100));
 		}
 		else if(showerModifier >= 1699){
