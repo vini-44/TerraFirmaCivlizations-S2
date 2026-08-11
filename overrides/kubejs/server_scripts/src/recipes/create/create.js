@@ -988,7 +988,7 @@ ServerEvents.recipes((e) => {
 
 	e.shaped('3x create:railway_casing', ['RPR', 'WWW', 'RPR'], {
 		R: 'tfc:metal/rod/brass',
-		P: 'tfc:metal/sheet/black_steel',
+		P: 'tfc:metal/sheet/black_bronze',
 		W: '#minecraft:planks',
 	});
 
