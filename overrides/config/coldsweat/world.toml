@@ -110,22 +110,6 @@
 	    ["terrafirmacivilizations:magma_liquid", 20, 8, "f", 1000, "", "", 1500, true],
 	    ["#terrafirmacivilizations:mantle_ore", 15, 8, "f", 1500, "", "", 2000],
 	    ["#terrafirmacivilizations:mantle_vent", 50, 16, "f", 1500, "", "", 2500]
-<<<<<<< Updated upstream
-	    ["cold_sweat:boiler", 0.27, 7, "mc", 0.88, "lit=true", "", 4],
-	    ["cold_sweat:icebox", -0.27, 7, "mc", 0.88, "frosted=true", "", 0],
-	    ["#minecraft:fire", 0.476, 7, "mc", 0.9, "", "", 8],
-	    ["#minecraft:campfires", 0.476, 7, "mc", 0.9, "lit=true", " ", 8],
-	    ["minecraft:magma_block", 0.25, 3, "mc", 1.0],
-	    ["minecraft:lava_cauldron", 0.5, 7, "mc", 1.5],
-	    ["minecraft:ice", -0.15, 4, "mc", 0.6, "", "", -0.7],
-	    ["minecraft:packed_ice", -0.25, 4, "mc", 1.0, "", "", -0.7],
-	    ["minecraft:blue_ice", -0.35, 4, "mc", 1.4, "", "", -0.7],
-	    ["#minecraft:ice", -0.15, 4, "mc", 0.6, "", "", -0.7],
-	    ["minecraft:lava", 0.25, 7, "mc", 4, "", "", 21.5, true],
-	    ["terrafirmacivilizations:magma_liquid", 0.5, 16, "mc", 8, "", "", 25, true],
-	    ["#terrafirmacivilizations:mantle_ore", 0.25, 3, "mc", 3, "", "", 20],
-	    ["#terrafirmacivilizations:mantle_vent", 0.35, 6, "mc", 5, "", "", 20]
-=======
 	    ["cold_sweat:boiler", 12, 7, "f", 36, "lit=true", "", 212],
 	    ["cold_sweat:icebox", -12, 7, "f", 36, "frosted=true", "", 32],
 	    ["minecraft:lava", 20, 7, "f", 200, "", "", 1000, true],
@@ -137,10 +121,9 @@
 	    ["minecraft:packed_ice", -12, 4, "f", 48, "", "", 16],
 	    ["minecraft:blue_ice", -16, 4, "f", 64, "", "", 0],
 	    ["#minecraft:ice", -6, 4, "f", 27, "", "", 33],
-	    ["terrafirmacivilizations:magma_liquid", 30, 8, "f", 1000, "", "", 1500, true],
-	    ["#terrafirmacivilizations:mantle_ore", 25, 8, "f", 1500, "", "", 2000],
+	    ["terrafirmacivilizations:magma_liquid", 25, 8, "f", 1000, "", "", 1500, true],
+	    ["#terrafirmacivilizations:mantle_ore", 20, 8, "f", 1500, "", "", 2000],
 	    ["#terrafirmacivilizations:mantle_vent", 50, 16, "f", 1500, "", "", 2500]
->>>>>>> Stashed changes
 	]
 	#─────────────────────────────────────────────────────────────────────────
 	# The maximum range of blocks' area of effect
