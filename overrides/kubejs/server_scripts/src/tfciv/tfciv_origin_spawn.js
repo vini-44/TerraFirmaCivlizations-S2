@@ -3,12 +3,15 @@ function getPlayerOrigin(player)
 {
 	const full = player.nbt;
 	const caps = full.get("ForgeCaps")
+    //console.log(caps)
     if (!caps) return
 
     const originsCap = caps.get("origins:origins")
+    //console.log(originsCap)
     if (!originsCap) return;
 
     const originsData = originsCap.get("Origins")
+    //console.log(originsData)
 	if (!originsData) return;
 
     return originsData.getString("origins:origin")
@@ -17,27 +20,41 @@ function getPlayerOrigin(player)
 PlayerEvents.tick((event) => {
 	let player = event.player;
 
-    if (player.age % 10 !== 0) {
+    if (player.age % 100 !== 0) {
 		return;
 	}
 
     let data = player.persistentData;
+    let serverData =  event.server.persistentData
 
+    //event.player.tell(event.player.persistentData.originInitialized)
+    
     if (!data.originInitialized)
     {
+        //console.log(`Initializing origin for `);
         let origin = getPlayerOrigin(player);
         if (origin)
         {
-            data.originInitialized = true;
+            console.log(`origin found ${origin}`);
 
             let spawn = null
-            if (data.originSpawns && data.originSpawns[origin]) {
-                spawn = data.originSpawns[origin]
+
+            //console.log(serverData.originSpawns)
+            //console.log(serverData.originSpawns[origin])
+
+            if (serverData.originSpawns && serverData.originSpawns[origin]) {
+                spawn = serverData.originSpawns[origin]
+                //console.log(`teleporting`);
                 player.teleportTo(
                     spawn.x + 0.5,
                     spawn.y,
                     spawn.z + 0.5
                 )
+                data.originInitialized = true;
+            }else 
+            if (!spawn) {
+                console.log(`No spawn found for ${origin}`)
+                return
             }
         }
     }
@@ -45,14 +62,17 @@ PlayerEvents.tick((event) => {
 
 
 PlayerEvents.respawned(event => {
-    
+    //event.player.tell(`respawning at ${event.player.getRespawnPosition()}`)
     const forcedSpawn = event.player.isRespawnForced()
-    if (!forcedSpawn)
+    if (!forcedSpawn && event.player.getRespawnPosition() !== null)
     {
+        //event.player.tell(`forced respawn`)
         return;
     } 
 
 	let origin = getPlayerOrigin(event.player);
+    //event.player.tell(`Your origin is`)
+    //console.log(`${origin}`)
 	if (!origin) return
 
     const data = event.server.persistentData
@@ -79,7 +99,7 @@ ServerEvents.commandRegistry(event => {
 
     event.register(
         Commands.literal('tfciv_set_origin_spawn')
-            .requires(source => source.hasPermission(2)) // OP level 2+
+            .requires(source => source.hasPermission((java.lang.Integer.valueOf(2)))) // OP level 2+
             .then(
                 Commands.argument('origin_name', Arguments.STRING.create(event))
                     .then(

@@ -9,32 +9,37 @@
     {
       "type": "tfc:exhausted",
       "duration": 2000,
-      "chance": 0.30
+      "chance": 0.10
     },
     {
       "type": "minecraft:hunger",
       "duration": 2000,
-      "chance": 0.15
+      "chance": 0.05
     },
     {
       "type": "minecraft:nausea",
       "duration": 800,
-      "chance": 0.15
+      "chance": 0.01
     },
     {
       "type": "minecraft:slowness",
       "duration": 2000,
-      "chance": 0.30
+      "chance": 0.03
     },
     {
       "type": "tfc:overburdened",
       "duration": 80,
-      "chance": 0.05
+      "chance": 0.01
     },
     {
       "type": "minecraft:poison",
       "duration": 40,
-      "chance": 0.05
+      "chance": 0.01
+    },
+    {
+      "type": "minecraft:unluck",
+      "duration": 60,
+      "chance": 1.00
     }
   ]
 }

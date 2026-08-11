@@ -1,0 +1,105 @@
+{
+    "experience_per_level": {
+        "type": "expression",
+        "data": {
+            "expression": "max((5*((level+10)^2)-200),200)" 
+        }
+    },
+    "sources": [
+        {
+            "type": "puffish_skills:deal_damage",
+            "data": {
+                "variables": {
+                    "is_animal":{
+                        "operations": [
+                            { "type": "get_damaged_living_entity" },
+                            { "type": "get_type" },
+                            {
+                                "type": "puffish_skills:test",
+                                "data": {
+                                    "entity_type": "#tfc:animals"
+                                }
+                            }
+                        ]
+                    },
+                    "damage": {
+                        "operations": [
+                            {
+                                "type": "get_dealt_damage"
+                            }
+                        ]
+                    }
+                },
+                "experience":[
+                    {
+                        "condition": "is_animal",
+                        "expression": "damage * 4"
+                    }
+                ]
+            }
+        },
+        {
+            "type": "puffish_skills:kill_entity",
+            "data": {
+                "variables": {
+                    "is_animal":{
+                        "operations": [
+                            { "type": "get_killed_living_entity" },
+                            { "type": "get_type" },
+                            {
+                                "type": "puffish_skills:test",
+                                "data": {
+                                    "entity_type": "#tfc:animals"
+                                }
+                            }
+                        ]
+                    },
+                    "max_health": {
+                        "operations": [
+                            {
+                                "type": "get_killed_living_entity"
+                            },
+                            {
+                                "type": "get_max_health"
+                            }
+                        ]
+			        }   
+                },
+                "experience":[
+                    {
+                        "condition": "is_animal",
+                        "expression": "max_health"
+                    }
+                ]
+            }
+        },
+        {
+            "type": "puffish_skills:criterion",
+            "data": {
+                "criterion": {
+                    "trigger": "minecraft:bred_animals",
+                    "conditions": {
+                        "child": {
+                            "type": "#tfc:animals"
+                        }
+                    }
+                },
+                "experience": "25"
+            }
+        },
+        {
+            "type": "puffish_skills:criterion",
+            "data": {
+                "criterion": {
+                    "trigger": "minecraft:player_interacted_with_entity",
+                    "conditions": {
+                        "entity": {
+                            "type": "#tfc:animals"
+                        }
+                    }
+                },
+                "experience": "6"
+            }
+        }
+    ]
+}

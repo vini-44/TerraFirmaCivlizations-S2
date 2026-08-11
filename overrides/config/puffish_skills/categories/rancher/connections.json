@@ -1,0 +1,64 @@
+{
+	"normal": {
+		"bidirectional": [
+			[
+				"8x9lqhu3c36laq1j",
+				"gv9t6ndojzmvo58a"
+			],
+			[
+				"h296elump7w38hlp",
+				"o2wnq09ww11f64hk"
+			],
+			[
+				"o2wnq09ww11f64hk",
+				"8x9lqhu3c36laq1j"
+			],
+			[
+				"3rsk7p9wfs8pzpgk",
+				"h296elump7w38hlp"
+			],
+			[
+				"3rsk7p9wfs8pzpgk",
+				"202uncv3eynz3ji8"
+			],
+			[
+				"gv9t6ndojzmvo58a",
+				"m8tls45jtbrq7t12"
+			],
+			[
+				"202uncv3eynz3ji8",
+				"xuz5t77ajv5wvicf"
+			],
+			[
+				"xuz5t77ajv5wvicf",
+				"h3ge2sp74opuc2z2"
+			]
+		],
+		"unidirectional": [
+			[
+				"8x9lqhu3c36laq1j",
+				"l2vk0p0j2755t2mr"
+			],
+			[
+				"202uncv3eynz3ji8",
+				"l2vk0p0j2755t2mr"
+			],
+			[
+				"m8tls45jtbrq7t12",
+				"du8q4prqhz294i5b"
+			],
+			[
+				"h3ge2sp74opuc2z2",
+				"du8q4prqhz294i5b"
+			]
+		]
+	},
+	"exclusive": {
+		"bidirectional": [
+			[
+				"8x9lqhu3c36laq1j",
+				"202uncv3eynz3ji8"
+			]
+		]
+	}
+}

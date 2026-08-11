@@ -2943,7 +2943,6 @@ const REMOVED_ITEMS = [
 	'refurbished_furniture:yellow_lamp',
 	'refurbished_furniture:yellow_toilet',
 	'refurbished_furniture:yellow_trampoline',
-	'simpleradio:antenna',
 	'simpleradio:diamond_module',
 	'simpleradio:frequencer',
 	'simpleradio:gold_module',

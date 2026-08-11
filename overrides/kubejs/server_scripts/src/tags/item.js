@@ -1,4 +1,11 @@
 ServerEvents.tags('item', (e) => {
+
+	const tfc_crops = e.get('tfc:foods').getObjectIds();
+	tfc_crops.forEach(plant => {
+		e.add('forge:crops', plant);
+		e.add('c:crops', plant);
+	})
+
 	e.add('createlowheated:burner_starters', 'tfc:firestarter');
 	e.add('tfc:starts_fires_with_durability', 'createdieselgenerators:lighter');
 
