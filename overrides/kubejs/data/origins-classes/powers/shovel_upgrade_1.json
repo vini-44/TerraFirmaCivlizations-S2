@@ -1,0 +1,13 @@
+{
+  "name": "Good with shovels",
+  "description": "+10% shovel shoveling speed",
+  "type": "origins:modify_break_speed",
+  "modifier": {
+    "value": 0.10,
+    "operation": "multiply_base"
+  },
+  "block_condition": {
+    "type": "origins:in_tag",
+    "tag": "minecraft:mineable/shovel"
+  }
+}

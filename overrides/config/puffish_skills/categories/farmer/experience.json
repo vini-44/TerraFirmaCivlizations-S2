@@ -1,0 +1,237 @@
+{
+    "experience_per_level": {
+        "type": "expression",
+        "data": {
+            "expression": "(2*((level+10)^2)-125)" 
+        }
+    },
+    "sources": [
+        {
+            "type": "pufferfish_unofficial_additions:harvest_crops",
+            "data": {
+                "variables": {
+                "crops": {
+                    "operations": [
+                    {
+                        "type": "block"
+                    },
+                    {
+                        "type": "puffish_skills:test",
+                        "data": {
+                        "block": "#tfc:wild_crops"
+                        }
+                    }
+                    ]
+                },
+                "dropped_crops": {
+                    "operations": [
+                    {
+                        "type": "dropped_crops"
+                    }
+                    ]
+                },
+                "dropped_seeds": {
+                    "operations": [
+                    {
+                        "type": "dropped_seeds"
+                    }
+                    ]
+                }
+                },
+                "experience": [
+                {
+                    "condition": "crops",
+                    "expression": "((dropped_crops) * 10) + (dropped_seeds * 5)"
+                }
+                ]
+            }
+        },
+        {
+            "type": "pufferfish_unofficial_additions:harvest_crops",
+            "data": {
+                "variables": {
+                "crops": {
+                    "operations": [
+                    {
+                        "type": "block"
+                    },
+                    {
+                        "type": "puffish_skills:test",
+                        "data": {
+                        "block": "#tfc:crops"
+                        }
+                    }
+                    ]
+                },
+                "dropped_crops": {
+                    "operations": [
+                    {
+                        "type": "dropped_crops"
+                    }
+                    ]
+                },
+                "dropped_seeds": {
+                    "operations": [
+                    {
+                        "type": "dropped_seeds"
+                    }
+                    ]
+                }
+                },
+                "experience": [
+                    {
+                        "condition": "crops",
+                        "expression": "((dropped_crops) * 5) + (dropped_seeds * 0.5)"
+                    }
+                ]
+            }
+        },
+        {
+            "type": "puffish_skills:deal_damage",
+            "data": {
+                "variables": {
+                    "is_animal":{
+                        "operations": [
+                            { "type": "get_damaged_living_entity" },
+                            { "type": "get_type" },
+                            {
+                                "type": "puffish_skills:test",
+                                "data": {
+                                    "entity_type": "#tfc:animals"
+                                }
+                            }
+                        ]
+                    },
+                    "damage": {
+                        "operations": [
+                            {
+                                "type": "get_dealt_damage"
+                            }
+                        ]
+                    }
+                },
+                "experience":[
+                    {
+                        "condition": "is_animal",
+                        "expression": "damage * 3"
+                    }
+                ]
+            }
+        },
+        {
+            "type": "puffish_skills:criterion",
+            "data": {
+                "criterion": {
+                    "trigger": "minecraft:item_used_on_block",
+                    "conditions": {
+                        "location": [
+                            {
+                                "condition": "minecraft:location_check",
+                                "predicate": {
+                                    "block": {
+                                        "tag": "tfc:farmland"
+                                    }
+                                }
+                            },
+                            {
+                                "condition": "minecraft:match_tool",
+                                "predicate": {
+                                    "tag": "minecraft:hoes"
+                                }
+                            }
+                        ]
+                    }
+                },
+                "experience": "1"
+            }
+        },
+        {
+            "type": "puffish_skills:criterion",
+            "data": {
+                "criterion": {
+                    "trigger": "minecraft:item_used_on_block",
+                    "conditions": {
+                        "location": [
+                            { "condition": "minecraft:location_check", "predicate": { "block": { "blocks": ["tfc:composter"] } } },
+                            { "condition": "minecraft:match_tool", "predicate": { "tag": "tfc:compost_greens_low" } }
+                        ]
+                    }
+                },
+                "experience": "3"
+            }
+        },
+        {
+            "type": "puffish_skills:criterion",
+            "data": {
+                "criterion": {
+                    "trigger": "minecraft:item_used_on_block",
+                    "conditions": {
+                        "location": [
+                            { "condition": "minecraft:location_check", "predicate": { "block": { "blocks": ["tfc:composter"] } } },
+                            { "condition": "minecraft:match_tool", "predicate": { "tag": "tfc:compost_greens_high" } }
+                        ]
+                    }
+                },
+                "experience": "5"
+            }
+        },
+        {
+            "type": "puffish_skills:criterion",
+            "data": {
+                "criterion": {
+                    "trigger": "minecraft:item_used_on_block",
+                    "conditions": {
+                        "location": [
+                            { "condition": "minecraft:location_check", "predicate": { "block": { "blocks": ["tfc:composter"] } } },
+                            { "condition": "minecraft:match_tool", "predicate": { "tag": "tfc:compost_browns_low" } }
+                        ]
+                    }
+                },
+                "experience": "3"
+            }
+        },
+        {
+            "type": "puffish_skills:criterion",
+            "data": {
+                "criterion": {
+                    "trigger": "minecraft:item_used_on_block",
+                    "conditions": {
+                        "location": [
+                            { "condition": "minecraft:location_check", "predicate": { "block": { "blocks": ["tfc:composter"] } } },
+                            { "condition": "minecraft:match_tool", "predicate": { "tag": "tfc:compost_browns_high" } }
+                        ]
+                    }
+                },
+                "experience": "5"
+            }
+        },
+        {
+            "type": "puffish_skills:criterion",
+            "data": {
+                "criterion": {
+                    "trigger": "minecraft:bred_animals",
+                    "conditions": {
+                        "child": {
+                            "type": "#tfc:animals"
+                        }
+                    }
+                },
+                "experience": "10"
+            }
+        },
+        {
+            "type": "puffish_skills:criterion",
+            "data": {
+                "criterion": {
+                    "trigger": "minecraft:player_interacted_with_entity",
+                    "conditions": {
+                        "entity": {
+                            "type": "#tfc:animals"
+                        }
+                    }
+                },
+                "experience": "2"
+            }
+        }
+    ]
+}

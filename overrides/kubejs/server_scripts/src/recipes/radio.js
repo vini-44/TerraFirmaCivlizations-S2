@@ -4,10 +4,18 @@ ServerEvents.recipes((event) => {
 	event.remove({ mod: 'simpleradio' });
 
 	event.shapeless('simpleradio:copper_wire', [
-		'afc:rubber_bar',
+		['afc:rubber_bar', 'kubejs:plastic'],
 		'createaddition:copper_spool',
 	]);
-
+/*	
+	event.shaped('simpleradio:frequencer', ['ADE', 'BCB', 'BBB'], {
+		A: 'simpleradio:transmitting_module',
+		B: 'kubejs:plastic',
+		C: 'thermal:machine_frame',
+		D: 'simpleradio:receiving_module',
+		E: 'simpleradio:copper_wire',
+	});
+*/
     event.shaped('gilded_blackstone', ['A', 'B', 'C'], {
         A: 'createaddition:capacitor',
         B: 'thermal:machine_frame',
@@ -34,9 +42,15 @@ ServerEvents.recipes((event) => {
 		B: '#tfc:rock/bricks',
 	});
 
-	event.shaped('8x simpleradio:antenna', [' A ', 'ABA', 'A A'], {
+	event.shaped('4x simpleradio:antenna', [' B ', 'ACA', 'ACA'], {
 		A: 'kubejs:metal/rod/aluminum',
 		B: 'tfc:metal/rod/steel',
+		C: 'simpleradio:copper_wire',
+	});
+	event.shaped('2x simpleradio:antenna', [' B ', 'ACA', 'ACA'], {
+		A: '#mcw_tfc_aio:metal_rods',
+		B: 'tfc:metal/rod/steel',
+		C: 'simpleradio:copper_wire',
 	});
 
 	event.shapeless('2x simpleradio:transmitting_module', [
