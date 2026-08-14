@@ -14,7 +14,10 @@ ServerEvents.commandRegistry(event => {
 
 	event.register(
 		Commands.literal('countdown')
-			.requires(source => source.hasPermission(2))
+            .requires(source => {
+                const player = source.getEntity ? source.getEntity() : null;
+                return player == null || player.hasPermissions(2);
+            })
 			.then(
 				Commands.argument('id', Arguments.STRING.create(event))
 					.then(

@@ -164,12 +164,12 @@ ServerEvents.recipes((e) => {
 	e.shaped('create:water_wheel', ['TWT', 'WCW', 'TWT'], {
 		T: 'firmalife:treated_lumber',
 		W: '#minecraft:planks',
-		C: 'create:shaft',
+		C: '#mcw_tfc_aio:metal_rods',
 	});
 
 	e.shaped('create:large_water_wheel', ['TWT', 'WCW', 'TWT'], {
 		T: 'firmalife:treated_lumber',
-		W: '#minecraft:planks',
+		W: '#mcw_tfc_aio:metal_rods',
 		C: 'create:water_wheel',
 	});
 
@@ -675,9 +675,9 @@ ServerEvents.recipes((e) => {
 	});
 
 	e.shaped('create:steam_engine', [' R ', ' M ', 'DRD'], {
-		R: 'tfc:metal/rod/steel',
+		R: '#mcw_tfc_aio:metal_rods',
 		M: 'tfc:brass_mechanisms',
-		D: 'tfc:metal/double_sheet/copper',
+		D: '#forge:double_sheets/any_bronze',
 	});
 
 	e.shapeless('create:steam_whistle', [
