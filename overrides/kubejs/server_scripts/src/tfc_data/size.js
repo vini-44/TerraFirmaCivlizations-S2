@@ -88,6 +88,16 @@ const SIZE_DEFS = {
 
 	'supplementaries:safe': ['huge', 'very_heavy'],
 	'minecraft:gunpowder': ['small', 'light'],
+
+	'terrafirmacivilizations:copper_mantle_chunk' : ['large', 'heavy'],
+	'terrafirmacivilizations:gold_mantle_chunk' : ['large', 'heavy'],
+	'terrafirmacivilizations:silver_mantle_chunk' : ['large', 'heavy'],
+	'terrafirmacivilizations:tin_mantle_chunk' : ['large', 'heavy'],
+	'terrafirmacivilizations:bismuth_mantle_chunk' : ['large', 'heavy'],
+	'terrafirmacivilizations:nickel_mantle_chunk' : ['large', 'heavy'],
+	'terrafirmacivilizations:iron_mantle_chunk' : ['large', 'heavy'],
+	'terrafirmacivilizations:zinc_mantle_chunk' : ['large', 'heavy'],
+	'terrafirmacivilizations:cryolite_mantle_chunk' : ['large', 'heavy'],
 };
 
 TFCEvents.data((event) => {

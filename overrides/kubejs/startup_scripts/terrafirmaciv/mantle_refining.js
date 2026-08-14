@@ -1,0 +1,21 @@
+StartupEvents.registry('item', event => {
+	event.create('terrafirmacivilizations:copper_mantle_chunk').displayName('Copper Mantle Chunk')
+    event.create('terrafirmacivilizations:gold_mantle_chunk').displayName('Gold Mantle Chunk')
+    event.create('terrafirmacivilizations:silver_mantle_chunk').displayName('Silver Mantle Chunk')
+    event.create('terrafirmacivilizations:tin_mantle_chunk').displayName('Tin Mantle Chunk')
+    event.create('terrafirmacivilizations:bismuth_mantle_chunk').displayName('Bismuth Mantle Chunk')
+    event.create('terrafirmacivilizations:nickel_mantle_chunk').displayName('Nickel Mantle Chunk')
+    event.create('terrafirmacivilizations:iron_mantle_chunk').displayName('Iron Mantle Chunk')
+    event.create('terrafirmacivilizations:zinc_mantle_chunk').displayName('Zinc Mantle Chunk')
+
+    event.create('terrafirmacivilizations:crushed_mantle_gold').displayName('Crushed Mantle Gold')
+    event.create('terrafirmacivilizations:crushed_mantle_silver').displayName('Crushed Mantle Silver')
+    event.create('terrafirmacivilizations:crushed_mantle_iron').displayName('Crushed Mantle Iron')
+    event.create('terrafirmacivilizations:crushed_mantle_zinc').displayName('Crushed Mantle Zinc')
+    event.create('terrafirmacivilizations:crushed_mantle_nickel').displayName('Crushed Mantle Nickel')
+
+    event.create('terrafirmacivilizations:common_catalyst').displayName('Common Catalyst')
+    event.create('terrafirmacivilizations:alloy_catalyst').displayName('Alloy Catalyst')
+    event.create('terrafirmacivilizations:precious_catalyst').displayName('Precious Catalyst')
+    event.create('terrafirmacivilizations:ultimate_catalyst').displayName('Ultimate Catalyst')
+})
