@@ -7,6 +7,14 @@ ServerEvents.recipes(event => {
         `terrafirmacivilizations:copper_mantle_chunk`
     )
 
+    event.Shapeless(
+        'tfc:ore/normal_native_copper',
+        [
+            `terrafirmacivilizations:copper_mantle_chunk`,
+            '#forge:tools/hammers',
+        ]
+    )
+
     //tin
     event.recipes.create.milling(
         [
