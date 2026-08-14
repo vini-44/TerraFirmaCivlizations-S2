@@ -7,7 +7,7 @@ ServerEvents.recipes(event => {
         `terrafirmacivilizations:copper_mantle_chunk`
     )
 
-    event.Shapeless(
+    event.shapeless(
         'tfc:ore/normal_native_copper',
         [
             `terrafirmacivilizations:copper_mantle_chunk`,
