@@ -10,4 +10,14 @@ StartupEvents.registry('fluid', event => {
         .temperature(1600)              // Hotter than lava (lava = 1300K)
         .luminosity(13)                 // Slightly dimmer glow than lava (lava = 15)
                                         // — deep magma buried underground, less radiant
+    
+    event.create('terrafirmacivilizations:iron_slurry')
+        // --- Visuals ---
+        .thickTexture(0xB22000)         // Deep reddish-orange (darker than lava's 0xFF4500)
+        .bucketColor(0xB22000)        
+
+    event.create('terrafirmacivilizations:nickel_slurry')
+        // --- Visuals ---
+        .thickTexture(0x0000AA)         // Deep reddish-orange (darker than lava's 0xFF4500)
+        .bucketColor(0x0000AA)                             
 })
