@@ -36,7 +36,7 @@ ServerEvents.recipes(event => {
         [
             'terrafirmacivilizations:crushed_mantle_zinc',
         ], 
-        'terrafirmacivilizations:tin_mantle_chunk'
+        'terrafirmacivilizations:zinc_mantle_chunk'
     )
 
     event.shapeless(
