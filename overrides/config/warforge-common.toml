@@ -119,13 +119,13 @@
 
 [WarZone]
 	#Can players break blocks in War Zone
-	"WarZone - Break Blocks" = false
+	"WarZone - Break Blocks" = true
 	#Can players place blocks in War Zone
-	"WarZone - Place Blocks" = false
+	"WarZone - Place Blocks" = true
 	#Can blocks be removed at all in (including from explosions, mobs etc) War Zone
-	"WarZone - Block Removal" = false
+	"WarZone - Block Removal" = true
 	#Can explosions damage blocks in War Zone
-	"WarZone - Explosion Damage" = false
+	"WarZone - Explosion Damage" = true
 	#Can players interact with blocks and entities in War Zone
 	"WarZone - Interact" = true
 	#Can players use items in War Zone
@@ -924,7 +924,7 @@
 	#Range: 0 ~ 1000000
 	"FOB Warp Ticks" = 200
 	#If true, the central FOB block can be mined (very slowly, at a fixed rate independent of tool tier); otherwise it is only removed programmatically.
-	"FOB Block Breakable" = false
+	"FOB Block Breakable" = true
 	#Buffer, in chunks, that must separate any new claim (including a founding citadel) from an active (faction-owned) FOB. A value of N forbids claiming within N chunks (square/Chebyshev radius) of any established FOB. This applies to everyone, including the FOB's own faction. Set to 0 to forbid only the exact FOB chunk.
 	#Range: 0 ~ 64
 	"FOB Claim Exclusion Radius" = 1
@@ -1101,9 +1101,9 @@
 	#Turns the in-world border rendering on/off for ally chunks
 	"Show Ally Chunk Borders" = true
 	#Prevent players from opening ender chests
-	"Disable Ender Chest" = false
+	"Disable Ender Chest" = true
 	#Allow players to craft and consume /tpa and /tpaccept style potions
-	"Enable TPA Potions" = true
+	"Enable TPA Potions" = false
 	#https://github.com/Chikachi/DiscordIntegration/wiki/IMC-Feature
 	"Discord Bot Channel ID" = "799595436154683422"
 
@@ -1147,7 +1147,7 @@
 	#Range: 0.0 ~ 1000.0
 	"New Area Timer" = 200.0
 	#Whether to show a readout of the time until the next yield / siege in top left of your screen
-	"Show yield timers" = true
+	"Show yield timers" = false
 	#The time in milliseconds for which each member of a vein will be displayed when it is being cycled through, to the precision allowed by the client tick system.
 	#Range: > 100
 	"Vein Member Display Time" = 1000

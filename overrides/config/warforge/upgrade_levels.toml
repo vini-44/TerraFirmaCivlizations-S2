@@ -17,11 +17,11 @@ requirements = []
 [[levels]]
 level = 1
 claim_limit = 10
-insurance_slots = 0
+insurance_slots = 1
 loaded_chunks = 2
 fob_ticket_limit = 5
 fob_ticket_regen = 1
-max_fobs = 2
+max_fobs = 1
 extra_claim_cost = []
 requirements = [
     { type = "item", id = "tfc:metal/ingot/copper", count = 4 },
@@ -30,14 +30,84 @@ requirements = [
 
 [[levels]]
 level = 2
-claim_limit = 12
-insurance_slots = 18
-loaded_chunks = 8
+claim_limit = 20
+insurance_slots = 2
+loaded_chunks = 2
+fob_ticket_limit = 5
+fob_ticket_regen = 1
+max_fobs = 1
+extra_claim_cost = []
+requirements = [
+    { type = "item", id = "tfc:metal/ingot/bronze", count = 4 },
+    { type = "item", id = "minecraft:leather", count = 8 },
+]
+
+[[levels]]
+level = 3
+claim_limit = 35
+insurance_slots = 3
+loaded_chunks = 3
+fob_ticket_limit = 5
+fob_ticket_regen = 1
+max_fobs = 1
+extra_claim_cost = []
+requirements = [
+    { type = "item", id = "tfc:metal/ingot/wrought_iron", count = 4 },
+    { type = "item", id = "firmalife:beeswax", count = 8 },
+]
+
+[[levels]]
+level = 4
+claim_limit = 50
+insurance_slots = 4
+loaded_chunks = 4
+fob_ticket_limit = 5
+fob_ticket_regen = 1
+max_fobs = 1
+extra_claim_cost = []
+requirements = [
+    { type = "item", id = "tfc:metal/ingot/steel", count = 4 },
+    { type = "item", id = "tfc:brass_mechanisms", count = 2 },
+]
+
+[[levels]]
+level = 5
+claim_limit = 75
+insurance_slots = 5
+loaded_chunks = 4
+fob_ticket_limit = 5
+fob_ticket_regen = 1
+max_fobs = 1
+extra_claim_cost = []
+requirements = [
+    { type = "item", id = "tfc:metal/ingot/black_steel", count = 4 },
+    { type = "item", id = "create:precision_mechanism", count = 2 },
+]
+
+[[levels]]
+level = 6
+claim_limit = 100
+insurance_slots = 6
+loaded_chunks = 6
 fob_ticket_limit = 5
 fob_ticket_regen = 1
 max_fobs = 2
 extra_claim_cost = []
 requirements = [
-    { type = "ore", id = "forge:ingots/bronze", count = 4 },
-    { type = "item", id = "minecraft:leather", count = 8 },
+    { type = "item", id = "tfc:metal/ingot/blue_steel", count = 4 },
+    { type = "item", id = "kubejs:plastic", count = 12 },
+]
+
+[[levels]]
+level = 7
+claim_limit = -1
+insurance_slots = 10
+loaded_chunks = 10
+fob_ticket_limit = 5
+fob_ticket_regen = 1
+max_fobs = 1
+extra_claim_cost = []
+requirements = [
+    { type = "item", id = "kubejs:metal/ingot/carotine_steel", count = 4 },
+    { type = "item", id = "kubejs:metal/ingot/aluminum", count = 4 },
 ]

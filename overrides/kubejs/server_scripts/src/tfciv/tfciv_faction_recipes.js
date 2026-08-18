@@ -38,20 +38,6 @@ ServerEvents.recipes(event => {
             C: '#tfc:swords'
         }
     )
-
-    event.shaped(
-        Item.of('warforge:fobblock'), // arg 1: output
-        [
-            'ABA',
-            'BCB', // arg 2: the shape (array of stri  ngs)
-            'ABA'
-        ],  
-        {
-            A: 'kubejs:iron_reinforcement',
-            B: 'firmalife:food/hardtack',  //arg 3: the mapping object
-            C: '#tfc:swords'
-        }
-    )
     event.shaped(
         Item.of('warforge:basicclaimblock', 2), // arg 1: output
         [
