@@ -1,0 +1,43 @@
+# WarForge citadel progression. Each faction starts at level 0 and spends the listed
+# materials at its citadel to reach the next level, unlocking more claims, force-loaded
+# chunks, insurance slots and FOBs. Requirements use vanilla items and Forge tags so the
+# tree works on a plain install; edit freely to fit your pack.
+
+[[levels]]
+level = 0
+claim_limit = 5
+insurance_slots = 0
+loaded_chunks = 1
+fob_ticket_limit = 5
+fob_ticket_regen = 1
+max_fobs = 1
+extra_claim_cost = []
+requirements = []
+
+[[levels]]
+level = 1
+claim_limit = 10
+insurance_slots = 0
+loaded_chunks = 2
+fob_ticket_limit = 5
+fob_ticket_regen = 1
+max_fobs = 2
+extra_claim_cost = []
+requirements = [
+    { type = "item", id = "tfc:metal/ingot/copper", count = 4 },
+    { type = "item", id = "firmaciv:large_waterproof_hide", count = 2 },
+]
+
+[[levels]]
+level = 2
+claim_limit = 12
+insurance_slots = 18
+loaded_chunks = 8
+fob_ticket_limit = 5
+fob_ticket_regen = 1
+max_fobs = 2
+extra_claim_cost = []
+requirements = [
+    { type = "ore", id = "forge:ingots/bronze", count = 4 },
+    { type = "item", id = "minecraft:leather", count = 8 },
+]
