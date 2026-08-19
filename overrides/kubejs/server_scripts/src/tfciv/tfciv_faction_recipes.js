@@ -1,4 +1,65 @@
 ServerEvents.recipes(event => {
+    //instruments
+    event.shaped(
+        Item.of('immersive_melodies:triangle'), // arg 1: output
+        [
+            ' A ',
+            'A A', // arg 2: the shape (array of strings)
+            '   '
+        ],
+        {
+            A: 'tfc:metal/rod/copper'
+        }
+    )
+    event.shaped(
+        Item.of('immersive_melodies:handpan'), // arg 1: output
+        [
+            '   ',
+            'AAA', // arg 2: the shape (array of strings)
+            '   '
+        ],
+        {
+            A: 'tfc:metal/sheet/copper'
+        }
+    )
+    event.shaped(
+        Item.of('immersive_melodies:didgeridoo'), // arg 1: output
+        [
+            'A  ',
+            ' AB', // arg 2: the shape (array of strings)
+            '  A'
+        ],
+        {
+            A: '#minecraft:planks',
+            B: '#forge:sand'
+        }
+    )
+    event.shaped(
+        Item.of('immersive_melodies:trumpet'), // arg 1: output
+        [
+            'AAA',
+            'AAA', // arg 2: the shape (array of strings)
+            '   '
+        ],
+        {
+            A: 'tfc:metal/rod/brass'
+        }
+    )
+    event.shaped(
+        Item.of('immersive_melodies:ender_bass'), // arg 1: output
+        [
+            '   ',
+            'ABA', // arg 2: the shape (array of strings)
+            '   '
+        ],
+        {
+            A: 'minecraft:note_block',
+            B: 'kubejs:plastic'
+        }
+    )
+
+
+    //warforge
     event.shaped(
         Item.of('warforge:citadelblock'), // arg 1: output
         [
