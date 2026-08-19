@@ -1,0 +1,47 @@
+# It should be said that it is RECOMMENDED to BACKUP ANY vein config files with significant time invested into them; 
+# trying to update the file when auto-generated vein ids are present may cause data loss if a poorly timed error occurs.
+# Additionally, all comments will be removed when auto-generated vein ids are used.
+#
+# There must be a global iteration id [-32768, 32767] ('iteration'). This is stored alongside the vein id for discovered chunks
+# and will cause the saved vein id to be overridden if the iteration id's don't match between the stored and current value.
+#
+# There must be a global megachunk_length which is the side length [4, 180] of the regions in which the weight minimums are respected.
+# There is no guarantee of veins occurring at least once, but they are guaranteed floor(megachunk_length^2 * weight)
+#
+# Example vein definition format (TOML). Each vein is an entry in the [[veins]] array of tables:
+# - id: An auto-generated unique identifier [0, 8191] which allows for vein properties to change;
+#       OMIT this key entirely to have one assigned automatically.
+# - key: A unique translation key used for localization or identification.
+# - wealth: An integer (default 1) added to a faction's wealth for each claimed chunk holding this vein.
+# - quals: An inline table of quality overrides for this vein, with omitted qualities using the global default in cfg
+#       quals = { <Qual Name> = <float multiplier>, ... }
+# - dims: An array of inline tables of dimension weights, where:
+#       id: The dimension ResourceLocation (e.g. minecraft:overworld, minecraft:the_nether, minecraft:the_end, or a modded dim).
+#       weight: A float between 0.0 and 1.0 indicating the relative generation chance in that dimension.
+#       mult: A float between 0.0 and 1.0 which scales the yield of a vein based on the dimension; omission => 1.
+# - components: An array of inline tables of ore components for the vein, where:
+#       item: The item ID (e.g. minecraft:iron_ore) to generate in the vein.
+#       yield: How many of this item the vein yields when selected. [float w/ decimal value contributed to bonus chance]
+#       weights: An array of { id = <dimension ResourceLocation>, weight = <float 0..1> } tables (omitted dimensions assume a weight of 1.0)
+#       mults: An array of { id = <dimension ResourceLocation>, mult = <float >= 0.0> } tables (omitted dimensions use the vein dim multiplier)
+#     NOTE: If component weights are omitted or empty, all are assumed to have a weight of 1.0.
+#
+# All fields are mandatory unless otherwise specified.
+#
+# iteration = 0
+# megachunk_length = 32
+#
+# [[veins]]
+# key = "warforge.veins.iron_mix"
+# wealth = 1
+# quals = { RICH = 10.0, POOR = 0.1 }
+# dims = [
+#     { id = "minecraft:the_nether", weight = 0.5, mult = 2.0 },
+#     { id = "minecraft:overworld", weight = 0.4215 },
+#     { id = "minecraft:the_end", weight = 1.0 },
+# ]
+# components = [
+#     { item = "minecraft:iron_ore", yield = 2.0, weights = [ { id = "minecraft:the_nether", weight = 0.75 }, { id = "minecraft:overworld", weight = 1.0 } ] },
+#     { item = "minecraft:coal_ore", yield = 1.0, mults = [ { id = "minecraft:the_nether", mult = 4.0 } ] },
+# ]
+#...

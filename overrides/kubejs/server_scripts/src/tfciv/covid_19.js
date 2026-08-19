@@ -26,8 +26,27 @@ function loadPathogens(server) {
 	} catch (e) {
 		console.log('ERROR Failed to parse stored pathogens: ' + e);
 	}
+	pruneInactivePathogens(server);
 }
+function pruneInactivePathogens(server) {
+	if (Object.keys(Pathogens).length < 500) return;
 
+	var removedCount = 0;
+	for (var key of Object.keys(Pathogens)) {
+		if (Pathogens[key].patient_0 === 'lab') continue; // never auto-delete undeployed curated pathogens
+
+		getInfectedCount(key, server); // refresh count before checking
+		if (Pathogens[key].infected_count === 0) {
+			delete Pathogens[key];
+			removedCount++;
+		}
+	}
+
+	if (removedCount > 0) {
+		savePathogens(server);
+		console.log(`Auto-pruned ${removedCount} inactive pathogen(s), Pathogens count was over 500.`);
+	}
+}
 function savePathogens(server) {
 	var pathogensToSave = {};
 	try{
@@ -388,6 +407,39 @@ ServerEvents.commandRegistry(event => {
 						})
 				)
 		)
+		// wipe.then(
+		.then(
+			Commands.literal('clearall')
+				.then(
+					Commands.literal('confirm')
+						.executes(ctx => {
+							var server = ctx.source.server;
+							var count = Object.keys(Pathogens).length;
+
+							// Cure anyone currently sick, since their pathogen is about to stop existing
+							server.players.forEach(p => {
+								if (p.persistentData.getBoolean('is_sick')) {
+									PathogenClass.prototype.curePlayer(p);
+								}
+							});
+
+							// Wipe in-memory registry
+							for (var key of Object.keys(Pathogens)) {
+								delete Pathogens[key];
+							}
+
+							// Wipe persistent storage
+							server.persistentData.remove('custom_pathogens');
+
+							ctx.source.player.tell(`Deleted all ${count} pathogen(s) and cured any sick players.`);
+							return 1;
+						})
+				)
+				.executes(ctx => {
+					ctx.source.player.tell(`This will permanently delete all pathogens and cure all sick players. Run '/pathogen clearall confirm' to proceed.`);
+					return 1;
+				})
+		)
 	)
 	event.register(
 		Commands.literal('checkHealth')
@@ -464,6 +516,20 @@ ServerEvents.tick(event => {
 			//ctx.source.player.tell(`${targetPlayer.username} is not sick`);
 			return;
 		} else {
+			console.log('spawning particles');
+			player.level.spawnParticles(
+				'minecraft:sneeze', // 1. Particle Name
+				false,               // 2. Force rendering (override video settings distance)
+				player.x,            // 3. X Coordinate
+				player.y + 1,        // 4. Y Coordinate
+				player.z,            // 5. Z Coordinate
+				0.5,                 // 6. X Spread (dx)
+				0.5,                 // 7. Y Spread (dy)
+				0.5,                 // 8. Z Spread (dz)
+				10,                   // 9. Count
+				0.05                  // 10. Speed
+			)
+
 
 			//loadPathogens(player.server);
 
@@ -565,7 +631,7 @@ ItemEvents.rightClicked(event => {
 	herbEat(event);
 });
 const healthyHerbs = [
-	'firmalife:plant/basil',
+	'firmalife:spice/basil_leaves',
 	'firmalife:plant/bay_laurel',
 	'firmalife:plant/cardamom',
 	'firmalife:plant/cilantro',
@@ -676,6 +742,7 @@ function createPathogen(event, player, pathoName, severity, virality){
 	player.runCommandSilent(`effect clear ${player.name.string} minecraft:unluck`)
 	
 	savePathogens(event.server);
+	pruneInactivePathogens(event.server);
 }
 
 ItemEvents.foodEaten(event => {

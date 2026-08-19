@@ -10,6 +10,9 @@ BlockEvents.rightClicked(event => {
 	proPickCheck(event);
 });
 BlockEvents.broken(event => {
+	if (event.player.potionEffects.isActive('cold_sweat:grace')) {
+  		event.player.runCommandSilent(`effect clear ${event.player.name.string} cold_sweat:grace`)
+	}
 	cropCheck(event);
 	oreCheck(event);
 	depthSicknessCheck(event);
