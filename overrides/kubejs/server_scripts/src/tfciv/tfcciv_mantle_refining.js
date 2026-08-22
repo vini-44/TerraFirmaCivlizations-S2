@@ -99,7 +99,7 @@ ServerEvents.recipes(event => {
 
     event.recipes.create.mixing(
         [
-            'firmalife:ore/small_chromite',
+            'firmalife:ore/normal_chromite',
             'tfc:ore/small_native_copper',
         ],
         [
