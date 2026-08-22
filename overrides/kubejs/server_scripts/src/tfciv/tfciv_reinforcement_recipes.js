@@ -119,6 +119,14 @@ ServerEvents.recipes((e) => {
 			.inputStress(1024)
 			.inputRPM(256);
 
+  let metalReinforcement = {
+    bismuth_bronze: 'kubejs:bronze_reinforcement',
+    black_bronze: 'kubejs:bronze_reinforcement',
+    bronze: 'kubejs:bronze_reinforcement',
+    wrought_iron: 'kubejs:iron_reinforcement',
+    steel: 'kubejs:steel_reinforcement'
+  };
+
   let metals = [
 		`bismuth_bronze`,
 		`black_bronze`,
@@ -129,7 +137,7 @@ ServerEvents.recipes((e) => {
 e.recipes.create
 			.sequenced_assembly(
 				[`tfc:metal/bars/${metal}`],
-				`tfc:metal/sheet/${metal}`,
+				Item.of(metalReinforcement[metal], 8),
 				[
 					e.recipes.create.cutting(
 						`tfc:metal/sheet/${metal}`,

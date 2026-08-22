@@ -2,7 +2,7 @@
     "experience_per_level": {
         "type": "expression",
         "data": {
-            "expression": "max((5*((level+10)^2)-200),200)" 
+            "expression": "max((8*((level+10)^2)-200),200)" 
         }
     },
     "sources": [

@@ -99,7 +99,10 @@ ServerEvents.commandRegistry(event => {
 
     event.register(
         Commands.literal('tfciv_set_origin_spawn')
-            .requires(source => source.hasPermission((java.lang.Integer.valueOf(2)))) // OP level 2+
+            .requires(source => {
+                const player = source.getEntity ? source.getEntity() : null;
+                return player != null && player.hasPermissions(2);
+            })
             .then(
                 Commands.argument('origin_name', Arguments.STRING.create(event))
                     .then(

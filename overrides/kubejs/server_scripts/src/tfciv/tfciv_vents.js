@@ -1,156 +1,36 @@
-ServerEvents.recipes((event) => {  
-
-	//coppper mantle ore
-	event.recipes.create.crushing(
-		[
-			'tfc:ore/normal_native_copper', Item.of('tfc:ore/normal_native_copper').withChance(0.25)
-		], 
-		'terrafirmacivilizations:copper_mantle_ore'
-	).processingTime(500)
-	event.recipes.create.milling(
-		[
-			'tfc:ore/normal_native_copper', Item.of('tfc:ore/normal_native_copper').withChance(0.25)
-		], 
-		'terrafirmacivilizations:copper_mantle_ore'
-	).processingTime(1000)
-
-	//gold mantle ore
-	event.recipes.create.crushing(
-		[
-			'tfc:ore/normal_native_gold', Item.of('tfc:ore/normal_native_gold').withChance(0.25)
-		], 
-		'terrafirmacivilizations:gold_mantle_ore'
-	).processingTime(500)
-	event.recipes.create.milling(
-		[
-			'tfc:ore/normal_native_gold', Item.of('tfc:ore/normal_native_gold').withChance(0.25)
-		], 
-		'terrafirmacivilizations:gold_mantle_ore'
-	).processingTime(1000)
-
-	//iron mantle ore
-	event.recipes.create.crushing(
-		[
-			'tfc:ore/normal_hematite', Item.of('tfc:ore/normal_hematite').withChance(0.25)
-		], 
-		'terrafirmacivilizations:iron_mantle_ore'
-	).processingTime(500)
-	event.recipes.create.milling(
-		[
-			'tfc:ore/normal_hematite', Item.of('tfc:ore/normal_hematite').withChance(0.25)
-		], 
-		'terrafirmacivilizations:iron_mantle_ore'
-	).processingTime(1000)
-
-	//silver mantle ore
-	event.recipes.create.crushing(
-		[
-			'tfc:ore/normal_native_silver', Item.of('tfc:ore/normal_native_silver').withChance(0.25)
-		], 
-		'terrafirmacivilizations:silver_mantle_ore'
-	).processingTime(500)
-	event.recipes.create.milling(
-		[
-			'tfc:ore/normal_native_silver', Item.of('tfc:ore/normal_native_silver').withChance(0.25)
-		], 
-		'terrafirmacivilizations:silver_mantle_ore'
-	).processingTime(1000)
-
-	//tin mantle ore
-	event.recipes.create.crushing(
-		[
-			'tfc:ore/normal_cassiterite', Item.of('tfc:ore/normal_cassiterite').withChance(0.25)
-		], 
-		'terrafirmacivilizations:tin_mantle_ore'
-	).processingTime(500)
-	event.recipes.create.milling(
-		[
-			'tfc:ore/normal_cassiterite', Item.of('tfc:ore/normal_cassiterite').withChance(0.25)
-		], 
-		'terrafirmacivilizations:tin_mantle_ore'
-	).processingTime(1000)
-
-	//zinc mantle ore	
-	event.recipes.create.crushing(
-		[
-			'tfc:ore/normal_sphalerite', Item.of('tfc:ore/normal_sphalerite').withChance(0.25)
-		], 
-		'terrafirmacivilizations:zinc_mantle_ore'
-	).processingTime(500)
-	event.recipes.create.milling(
-		[
-			'tfc:ore/normal_sphalerite', Item.of('tfc:ore/normal_sphalerite').withChance(0.25)
-		], 
-		'terrafirmacivilizations:zinc_mantle_ore'
-	).processingTime(1000)
-
-	//Bismuth mantle ore
-	event.recipes.create.crushing(
-		[
-			'tfc:ore/normal_bismuthinite', Item.of('tfc:ore/normal_bismuthinite').withChance(0.25)
-		], 
-		'terrafirmacivilizations:bismuth_mantle_ore'
-	).processingTime(500)
-	event.recipes.create.milling(
-		[
-			'tfc:ore/normal_bismuthinite', Item.of('tfc:ore/normal_bismuthinite').withChance(0.25)
-		], 
-		'terrafirmacivilizations:bismuth_mantle_ore'
-	).processingTime(1000)
-
-	//nickel mantle ore
-	event.recipes.create.crushing(
-		[
-			'tfc:ore/normal_garnierite', Item.of('tfc:ore/normal_garnierite').withChance(0.25)
-		], 
-		'terrafirmacivilizations:nickel_mantle_ore'
-	).processingTime(500)
-	event.recipes.create.milling(
-		[
-			'tfc:ore/normal_garnierite', Item.of('tfc:ore/normal_garnierite').withChance(0.25)
-		], 
-		'terrafirmacivilizations:nickel_mantle_ore'
-	).processingTime(1000)
-
-	//cryolite mantle ore
-	event.recipes.create.crushing(
-		[
-			'tfc:ore/cryolite'
-		], 
-		'terrafirmacivilizations:cryolite_mantle_ore'
-	).processingTime(500)
-	event.recipes.create.milling(
-		[
-			'tfc:ore/cryolite'
-		], 
-		'terrafirmacivilizations:cryolite_mantle_ore'
-	).processingTime(1000)
-});
 LootJS.modifiers((event) => {
     event.addBlockLootModifier('terrafirmacivilizations:copper_mantle_ore')
         .removeLoot(Ingredient.all)
-        .addLoot('tfc:ore/normal_native_copper')
+        .addLoot('terrafirmacivilizations:copper_mantle_chunk')
+
 	event.addBlockLootModifier('terrafirmacivilizations:gold_mantle_ore')
         .removeLoot(Ingredient.all)
-		.addLoot('tfc:ore/normal_native_gold')
+		.addLoot('terrafirmacivilizations:gold_mantle_chunk')
+
 	event.addBlockLootModifier('terrafirmacivilizations:iron_mantle_ore')
         .removeLoot(Ingredient.all)
-		.addLoot('tfc:ore/normal_hematite')
+		.addLoot('terrafirmacivilizations:iron_mantle_chunk')
+
 	event.addBlockLootModifier('terrafirmacivilizations:silver_mantle_ore')
 		.removeLoot(Ingredient.all)
-		.addLoot('tfc:ore/normal_native_silver')
+		.addLoot('terrafirmacivilizations:silver_mantle_chunk')
+
 	event.addBlockLootModifier('terrafirmacivilizations:tin_mantle_ore')
 		.removeLoot(Ingredient.all)
-		.addLoot('tfc:ore/normal_cassiterite')
+		.addLoot('terrafirmacivilizations:tin_mantle_chunk')
+
 	event.addBlockLootModifier('terrafirmacivilizations:zinc_mantle_ore')
 		.removeLoot(Ingredient.all)
-		.addLoot('tfc:ore/normal_sphalerite')
+		.addLoot('terrafirmacivilizations:zinc_mantle_chunk')
+
 	event.addBlockLootModifier('terrafirmacivilizations:bismuth_mantle_ore')
 		.removeLoot(Ingredient.all)
-		.addLoot('tfc:ore/normal_bismuthinite')
+		.addLoot('terrafirmacivilizations:bismuth_mantle_chunk')
+
 	event.addBlockLootModifier('terrafirmacivilizations:nickel_mantle_ore')
 		.removeLoot(Ingredient.all)
-		.addLoot('tfc:ore/normal_garnierite')
+		.addLoot('terrafirmacivilizations:nickel_mantle_chunk')
+
 	event.addBlockLootModifier('terrafirmacivilizations:cryolite_mantle_ore')
 		.removeLoot(Ingredient.all)
 		.addLoot('tfc:ore/cryolite')
